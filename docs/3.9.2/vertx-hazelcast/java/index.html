@@ -1,0 +1,874 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="description" content="Vert.x | Reactive applications on the JVM"/><meta name="robots" content="index,follow"/><link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&amp;display=swap" rel="stylesheet"/><link rel="shortcut icon" href="/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png"/><title>Hazelcast Clustering | Eclipse Vert.x</title><link rel="preload" href="https://api.github.com/repos/vert-x3/vertx-hazelcast" as="fetch" crossorigin="anonymous"/><meta name="next-head-count" content="14"/><link rel="preload" href="/_next/static/css/styles.065337ce.chunk.css" as="style"/><link rel="stylesheet" href="/_next/static/css/styles.065337ce.chunk.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/main-b6e20584df76f29b6f35.js" as="script"/><link rel="preload" href="/_next/static/chunks/webpack-d7b2fb72fb7257504a38.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.fcef98db13e2318579fb.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.5b8771ac6e8a338f82f1.js" as="script"/><link rel="preload" href="/_next/static/chunks/styles.6a5cc0a07ce13c54adf1.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-3dbbc9c041333077c167.js" as="script"/><link rel="preload" href="/_next/static/chunks/5e2acbba0c73eb7c5c0e969bcd552d3808de9969.4d0eb9c3d4239c66cc89.js" as="script"/><link rel="preload" href="/_next/static/chunks/31acfd8439b7c9eee4abe9f59c7500d6c943ee0d.46f4cf2c4741679ce3eb.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/docs/%5B%5B...slug%5D%5D-a0e26e250e9304ae7812.js" as="script"/></head><body><div id="__next"><main class="page docs"><header><div class="navbar"><div class="navbar-content container"><div class="navbar-logo"><a href="/"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAxMTI1LjYgMzE1LjIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZT4uc3Qwe2ZpbGw6Izc4MmE5MX08L3N0eWxlPjxwYXRoIGQ9Ik0xMjAuOSAyMTQuMkwxOTAuNSAwaDUyLjNsLTk4LjUgMjczLjhIOTguMkwwIDBoNTIuMWw2OC44IDIxNC4yem0yOTEuMi02Mi42SDI5OS42djg0LjJINDMxdjM4SDI1MlYwaDE3Ny43djM4LjRIMjk5LjZWMTE0aDExMi41djM3LjZ6bTgzLjctMTEzLjJINTQ2YzE2LjUuMyAyOSA0LjQgMzcuMyAxMi40IDguMyA4IDEyLjUgMTkuNCAxMi41IDM0IDAgMTQtNC41IDI1LjEtMTMuNSAzMy4yLTkgOC4xLTIxLjYgMTIuMS0zNy42IDEyLjFoLTI3LjF2MjQuMmw4Ni4xIDExOS41aDUxdi0yLjRsLTc3LjItMTA2LjdjMjQuOS01LjUgNDMuMy0yMS43IDUyLjYtMzUuOSA4LjItMTIuNiAxMy4zLTI3LjcgMTMuMy00NiAwLTI2LjgtOC42LTQ3LjQtMjUuOC02MS41QzYwMC41IDcuMSA1NzYuMSAwIDU0NC41IDBoLTk2LjN2MjczLjhoNDcuNiIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMDUyLjMgMTU3LjdsLTQxLjUgNjIuNyAyOS43IDUzLjRoODUuMXoiLz48Y2lyY2xlIGNsYXNzPSJzdDAiIGN4PSI4MjcuOSIgY3k9IjI3NC43IiByPSI0MC41Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTEwMzcgMGwtNDcuNiA3NC4yTDk0OSAwaC04NGw4NS4zIDEzNS44LTY3LjEgMTA1LjdjNS43IDkuNSA5LjEgMjAuNSA5LjIgMzIuNGg1MC4xTDExMjEuMyAwSDEwMzd6Ii8+PHBhdGggZD0iTTc2My41IDI3My44Yy4xLTkuOSAyLjUtMTkuMiA2LjYtMjcuNVYzOC40aDg1LjRWMEg2MzguMnYzOC40aDg0LjZ2MjM1LjRoNDAuN3oiLz48L3N2Zz4=" alt="Vert.x Logo"/></a></div><div class="navbar-collapse-button"><span></span><span></span><span></span></div><div class="navbar-right"><div class="navbar-menu"><a class="navbar-menu-item" href="/introduction-to-vertx-and-reactive/">Intro</a><a class="navbar-menu-item" href="/docs/">Docs</a><a class="navbar-menu-item" href="/faq/">FAQ</a><a class="navbar-menu-item" href="/blog/">Blog</a><a class="navbar-menu-item" href="/community/">Community</a></div><div class="navbar-social"><a href="https://github.com/vert-x3/vertx-awesome" class="navbar-social-link" title="Awesome Vert.x" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="List of awesome Vert.x projects"><title>Awesome Vert.x</title><path d="M24 11.438l-6.154-5.645-.865.944 5.128 4.7H1.895l5.128-4.705-.865-.943-6.154 5.649H0v3.72c0 1.683 1.62 3.053 3.61 3.053h3.795c1.99 0 3.61-1.37 3.61-3.051v-2.446h1.97v2.446c0 1.68 1.62 3.051 3.61 3.051h3.794c1.99 0 3.61-1.37 3.61-3.051v-3.721z"></path></svg></a><a href="https://stackoverflow.com/questions/tagged/vert.x" class="navbar-social-link" title="Stack Overflow" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Stack Overflow questions related to Vert.x"><title>Stack Overflow</title><path d="M18.986 21.865v-6.404h2.134V24H1.844v-8.539h2.13v6.404h15.012zM6.111 19.731H16.85v-2.137H6.111v2.137zm.259-4.852l10.48 2.189.451-2.07-10.478-2.187-.453 2.068zm1.359-5.056l9.705 4.53.903-1.95-9.706-4.53-.902 1.936v.014zm2.715-4.785l8.217 6.855 1.359-1.62-8.216-6.853-1.35 1.617-.01.001zM15.751 0l-1.746 1.294 6.405 8.604 1.746-1.294L15.749 0h.002z"></path></svg></a><a href="https://www.youtube.com/channel/UCGN6L3tRhs92Uer3c6VxOSA" class="navbar-social-link" title="YouTube" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="YouTube channel of Vert.x"><title>YouTube</title><path d="M23.499 6.203a3.008 3.008 0 00-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 00-2.088 2.09A31.258 31.26 0 000 12.01a31.258 31.26 0 00.523 5.785 3.008 3.008 0 002.088 2.089c1.869.502 9.4.502 9.4.502s7.508 0 9.399-.502a3.008 3.008 0 002.089-2.09 31.258 31.26 0 00.5-5.784 31.258 31.26 0 00-.5-5.808zm-13.891 9.4V8.407l6.266 3.604z"></path></svg></a><a href="https://discord.gg/KzEMwP2" class="navbar-social-link" title="Discord" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Eclipse Vert.x channel on Discord"><title>Discord</title><path d="M20.222 0c1.406 0 2.54 1.137 2.607 2.475V24l-2.677-2.273-1.47-1.338-1.604-1.398.67 2.205H3.71c-1.402 0-2.54-1.065-2.54-2.476V2.48C1.17 1.142 2.31.003 3.715.003h16.5L20.222 0zm-6.118 5.683h-.03l-.202.2c2.073.6 3.076 1.537 3.076 1.537-1.336-.668-2.54-1.002-3.744-1.137-.87-.135-1.74-.064-2.475 0h-.2c-.47 0-1.47.2-2.81.735-.467.203-.735.336-.735.336s1.002-1.002 3.21-1.537l-.135-.135s-1.672-.064-3.477 1.27c0 0-1.805 3.144-1.805 7.02 0 0 1 1.74 3.743 1.806 0 0 .4-.533.805-1.002-1.54-.468-2.14-1.404-2.14-1.404s.134.066.335.2h.06c.03 0 .044.015.06.03v.006c.016.016.03.03.06.03.33.136.66.27.93.4.466.202 1.065.403 1.8.536.93.135 1.996.2 3.21 0 .6-.135 1.2-.267 1.8-.535.39-.2.87-.4 1.397-.737 0 0-.6.936-2.205 1.404.33.466.795 1 .795 1 2.744-.06 3.81-1.8 3.87-1.726 0-3.87-1.815-7.02-1.815-7.02-1.635-1.214-3.165-1.26-3.435-1.26l.056-.02zm.168 4.413c.703 0 1.27.6 1.27 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334.002-.74.573-1.338 1.27-1.338zm-4.543 0c.7 0 1.266.6 1.266 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334 0-.74.57-1.338 1.27-1.338z"></path></svg></a><a href="https://groups.google.com/forum/?fromgroups#!forum/vertx" class="navbar-social-link" title="Vert.x User Group" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="A Google group for Vert.x users"><title>Vert.x User Group</title><path d="M.92 3.332c-.776 0-1.216.67-.692 1.383l2.537 4.403v7.86c0 2.013 1.467 3.69 3.459 3.69H20.31a3.75 3.75 0 003.69-3.69V7.043a3.723 3.723 0 00-3.668-3.71zm5.786 3.71H20.1c.587 0 1.153.357 1.153.923 0 .566-.566.922-1.153.922H6.706c-.587 0-1.153-.356-1.153-.922 0-.566.566-.923 1.153-.923zm0 3.69H20.1c.587 0 1.153.356 1.153.922 0 .566-.566.922-1.153.922H6.706c-.587 0-1.153-.356-1.153-.922 0-.566.566-.922 1.153-.922zm-.021 3.71h9.705c.587 0 1.153.356 1.153.922 0 .566-.566.923-1.153.923H6.685c-.587 0-1.153-.357-1.153-.923 0-.566.566-.922 1.153-.922Z"></path></svg></a></div></div></div></div></header><div class="page-content docs-content"><div class="container"><div class="docs-content-wrapper"><aside class=""><div class="docs-content-wrapper-sidebar"><div class="search-panel"><div class="search"><input type="text" placeholder="Search..." value=""/><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon-delete"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></div><ul class="search-results"></ul><div class="search-results-none">No results.</div></div><div class="docs-content-toc"><div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_using_this_cluster_manager">Using this cluster manager</a></li>
+<li><a href="#configcluster">Configuring this cluster manager</a>
+<ul class="sectlevel2">
+<li><a href="#_configuring_with_xml">Configuring with XML</a></li>
+<li><a href="#_configuring_programmatically">Configuring programmatically</a></li>
+<li><a href="#_discovery_options">Discovery options</a></li>
+</ul>
+</li>
+<li><a href="#_using_an_existing_hazelcast_cluster">Using an existing Hazelcast cluster</a></li>
+<li><a href="#_changing_timeout_for_failed_nodes">Changing timeout for failed nodes</a></li>
+<li><a href="#_using_hazelcast_async_methods">Using Hazelcast async methods</a></li>
+<li><a href="#_trouble_shooting_clustering">Trouble shooting clustering</a>
+<ul class="sectlevel2">
+<li><a href="#_multicast_not_enabled_on_the_machine">Multicast not enabled on the machine.</a></li>
+<li><a href="#_using_wrong_network_interface">Using wrong network interface</a></li>
+<li><a href="#_using_a_vpn">Using a VPN</a></li>
+<li><a href="#_when_multicast_is_not_available">When multicast is not available</a></li>
+<li><a href="#_enabling_logging">Enabling logging</a></li>
+</ul>
+</li>
+<li><a href="#_hazelcast_logging">Hazelcast logging</a></li>
+<li><a href="#_using_a_different_hazelcast_version">Using a different Hazelcast version</a></li>
+<li><a href="#_configuring_for_kubernetes">Configuring for Kubernetes</a>
+<ul class="sectlevel2">
+<li><a href="#_rolling_updates">Rolling updates</a></li>
+</ul>
+</li>
+<li><a href="#_cluster_administration">Cluster administration</a>
+<ul class="sectlevel2">
+<li><a href="#_data_partitioning">Data partitioning</a></li>
+<li><a href="#_split_brain_syndrome">Split-brain syndrome</a></li>
+<li><a href="#_recommendations">Recommendations</a></li>
+</ul>
+</li>
+</ul>
+</div></div></div></aside><div class="docs-content-sidebar-toggle"><div style="position:relative"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div></div><div class="docs-content-inner"><div class="docs-content-metadata"><div class="docs-content-metadata-left"><div class="docs-content-metadata-repo"><div class="github-stars"><a href="https://github.com/vert-x3/vertx-hazelcast"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>54 stars</a></div></div><div><a href="/docs/apidocs/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> API</a></div><div class="docs-content-metadata-edit"><a href="https://github.com/vert-x3/vertx-hazelcast/tree/master/src/main/asciidoc"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> Edit</a></div><span class="docs-content-metadata-version"><div class="dropdown"><a class="dropdown-title">v4.0.0<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a><ul class="dropdown-menu"><a href="/docs/vertx-hazelcast/java/"><li class="dropdown-item active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-check-icon"><polyline points="20 6 9 17 4 12"></polyline></svg>Latest (v<!-- -->4.0.0<!-- -->)</li></a><a href="/docs/3.9.4/vertx-hazelcast/java/"><li class="dropdown-item">v<!-- -->3.9.4</li></a><a href="/docs/3.9.3/vertx-hazelcast/java/"><li class="dropdown-item">v<!-- -->3.9.3</li></a><a href="/docs/3.9.2/vertx-hazelcast/java/"><li class="dropdown-item">v<!-- -->3.9.2</li></a><a href="/docs/3.9.1/vertx-hazelcast/java/"><li class="dropdown-item">v<!-- -->3.9.1</li></a><a href="/docs/3.9.0/vertx-hazelcast/java/"><li class="dropdown-item">v<!-- -->3.9.0</li></a></ul></div></span></div></div><div><h1>Hazelcast Cluster Manager</h1>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is a cluster manager implementation for Vert.x that uses <a href="http://hazelcast.com">Hazelcast</a>.</p>
+</div>
+<div class="paragraph">
+<p>It is the default cluster manager used in the Vert.x distribution, but it can be replaced with another implementation as Vert.x
+cluster managers are pluggable.  This implementation is packaged inside:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.vertx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>vertx-hazelcast<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In Vert.x a cluster manager is used for various functions including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Discovery and group membership of Vert.x nodes in a cluster</p>
+</li>
+<li>
+<p>Maintaining cluster wide topic subscriber lists (so we know which nodes are interested in which event bus addresses)</p>
+</li>
+<li>
+<p>Distributed Map support</p>
+</li>
+<li>
+<p>Distributed Locks</p>
+</li>
+<li>
+<p>Distributed Counters</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cluster managersdo not* handle the event bus inter-node transport, this is done directly by Vert.x with TCP connections.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_this_cluster_manager"><a class="anchor" href="#_using_this_cluster_manager"></a>Using this cluster manager</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are using Vert.x from the command line, the jar corresponding to this cluster manager (it will be named <code>vertx-hazelcast-3.9.2.jar</code>
+should be in the <code>lib</code> directory of the Vert.x installation.</p>
+</div>
+<div class="paragraph">
+<p>If you want clustering with this cluster manager in your Vert.x Maven or Gradle project then just add a dependency to
+the artifact: <code>io.vertx:vertx-hazelcast:3.9.2</code> in your project.</p>
+</div>
+<div class="paragraph">
+<p>If the jar is on your classpath as above then Vert.x will automatically detect this and use it as the cluster manager.
+Please make sure you don&#8217;t have any other cluster managers on your classpath or Vert.x might
+choose the wrong one.</p>
+</div>
+<div class="paragraph">
+<p>You can also specify the cluster manager programmatically if you are embedding Vert.x by specifying it on the options
+when you are creating your Vert.x instance, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">ClusterManager mgr = <span class="hljs-keyword">new</span> HazelcastClusterManager();
+
+VertxOptions options = <span class="hljs-keyword">new</span> VertxOptions().setClusterManager(mgr);
+
+Vertx.clusteredVertx(options, res -&gt; {
+  <span class="hljs-keyword">if</span> (res.succeeded()) {
+    Vertx vertx = res.result();
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// failed!</span>
+  }
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configcluster"><a class="anchor" href="#configcluster"></a>Configuring this cluster manager</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_configuring_with_xml"><a class="anchor" href="#_configuring_with_xml"></a>Configuring with XML</h3>
+<div class="paragraph">
+<p>Usually the cluster manager is configured by a file
+<a href="https://github.com/vert-x3/vertx-hazelcast/blob/master/src/main/resources/default-cluster.xml"><code>default-cluster.xml</code></a>
+which is packaged inside the jar.</p>
+</div>
+<div class="paragraph">
+<p>If you want to override this configuration you can provide a file called <code>cluster.xml</code> on your classpath and this
+will be used instead. If you want to embed the <code>cluster.xml</code> file in a fat jar, it must be located at the root of the
+fat jar. If it&#8217;s an external file, the <strong>directory</strong> containing the file must be added to the classpath. For
+example, if you are using the <em>launcher</em> class from Vert.x, the classpath enhancement can be done as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code># If the cluster.xml is in the current directory:
+java -jar ... -cp . -cluster
+vertx run MyVerticle -cp . -cluster
+
+# If the cluster.xml is in the conf directory
+java -jar ... -cp conf -cluster</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Another way to override the configuration is by providing the system property <code>vertx.hazelcast.config</code> with a
+location:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code># Use a cluster configuration located in an external file
+java -Dvertx.hazelcast.config=./config/my-cluster-config.xml -jar ... -cluster
+
+# Or use a custom configuration from the classpath
+java -Dvertx.hazelcast.config=classpath:my/package/config/my-cluster-config.xml -jar ... -cluster</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>vertx.hazelcast.config</code> system property, when present, overrides any <code>cluster.xml</code> on the classpath, but if
+loading
+from this system property fails, then loading falls back to either <code>cluster.xml</code> or the Hazelcast default configuration.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Caution</div>
+</td>
+<td class="content">
+Configuration of Hazelcast the <code>-Dhazelcast.config</code> system property is not supported by Vert.x and should
+not be used.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The xml file is a Hazelcast configuration file and is described in detail in the documentation on the Hazelcast
+web-site.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuring_programmatically"><a class="anchor" href="#_configuring_programmatically"></a>Configuring programmatically</h3>
+<div class="paragraph">
+<p>You can specify configuration programmatically if embedding:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Config hazelcastConfig = <span class="hljs-keyword">new</span> Config();
+
+<span class="hljs-comment">// Now set some stuff on the config (omitted)</span>
+
+ClusterManager mgr = <span class="hljs-keyword">new</span> HazelcastClusterManager(hazelcastConfig);
+
+VertxOptions options = <span class="hljs-keyword">new</span> VertxOptions().setClusterManager(mgr);
+
+Vertx.clusteredVertx(options, res -&gt; {
+  <span class="hljs-keyword">if</span> (res.succeeded()) {
+    Vertx vertx = res.result();
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// failed!</span>
+  }
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It might also be useful to customize an existing XML configuration.
+For example, you might want to change the cluster group name and password:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Config hazelcastConfig = ConfigUtil.loadConfig();
+
+hazelcastConfig.getGroupConfig()
+  .setName(<span class="hljs-string">"my-cluster-name"</span>)
+  .setPassword(<span class="hljs-string">"passwd"</span>);
+
+ClusterManager mgr = <span class="hljs-keyword">new</span> HazelcastClusterManager(hazelcastConfig);
+
+VertxOptions options = <span class="hljs-keyword">new</span> VertxOptions().setClusterManager(mgr);
+
+Vertx.clusteredVertx(options, res -&gt; {
+  <span class="hljs-keyword">if</span> (res.succeeded()) {
+    Vertx vertx = res.result();
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// failed!</span>
+  }
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>ConfigUtil#loadConfig</code> loads Hazelcast config XML and transform it into a <code>Config</code> object.
+The content is read from:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>the location denoted by the <code>vertx.hazelcast.config</code> sysprop, if present, or</p>
+</li>
+<li>
+<p>the <code>cluster.xml</code> file on the classpath, if present, or</p>
+</li>
+<li>
+<p>the default config file</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_discovery_options"><a class="anchor" href="#_discovery_options"></a>Discovery options</h3>
+<div class="paragraph">
+<p>Hazelcast supports several different discovery options.
+The default configuration uses multicast so you must have multicast enabled on your network for this to work.</p>
+</div>
+<div class="paragraph">
+<p>For full documentation on how to configure discovery differently please consult the Hazelcast documentation.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_an_existing_hazelcast_cluster"><a class="anchor" href="#_using_an_existing_hazelcast_cluster"></a>Using an existing Hazelcast cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can pass an existing <code>HazelcastInstance</code> in the cluster manager to reuse an existing cluster:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">ClusterManager mgr = <span class="hljs-keyword">new</span> HazelcastClusterManager(hazelcastInstance);
+VertxOptions options = <span class="hljs-keyword">new</span> VertxOptions().setClusterManager(mgr);
+Vertx.clusteredVertx(options, res -&gt; {
+  <span class="hljs-keyword">if</span> (res.succeeded()) {
+    Vertx vertx = res.result();
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// failed!</span>
+  }
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, vert.x is not the cluster owner and so do not shutdown the cluster on close.</p>
+</div>
+<div class="paragraph">
+<p>Notice that the custom Hazelcast instance need to be configured with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hazelcast.shutdownhook.enabled"</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">multimap</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"__vertx.subs"</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">backup-count</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">backup-count</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">multimap</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">map</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"__vertx.haInfo"</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">time-to-live-seconds</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">time-to-live-seconds</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">max-idle-seconds</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">max-idle-seconds</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">eviction-policy</span>&gt;</span>NONE<span class="hljs-tag">&lt;/<span class="hljs-name">eviction-policy</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">max-size</span> <span class="hljs-attr">policy</span>=<span class="hljs-string">"PER_NODE"</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">max-size</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">eviction-percentage</span>&gt;</span>25<span class="hljs-tag">&lt;/<span class="hljs-name">eviction-percentage</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">merge-policy</span>&gt;</span>com.hazelcast.map.merge.LatestUpdateMapMergePolicy<span class="hljs-tag">&lt;/<span class="hljs-name">merge-policy</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">map</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">semaphore</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"__vertx.*"</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">initial-permits</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">initial-permits</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">semaphore</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+Hazelcast clients or smart clients are not supported.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+Make sure Hazelcast is started before and shut down after Vert.x.
+Also, the Hazelcast shutdown hook should be disabled (see xml example, or via system property).
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_changing_timeout_for_failed_nodes"><a class="anchor" href="#_changing_timeout_for_failed_nodes"></a>Changing timeout for failed nodes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default a node will be removed from the cluster if Hazelcast didn&#8217;t receive a heartbeat for 300 seconds. To change
+this value <code>hazelcast.max.no.heartbeat.seconds</code> system property such as in:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>-Dhazelcast.max.no.heartbeat.seconds=5</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Afterwards a node will be removed from the cluster after 5 seconds without a heartbeat.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="http://docs.hazelcast.org/docs/3.6/manual/html-single/index.html#system-properties">Hazelcast
+system-properties</a> and
+<a href="http://docs.hazelcast.org/docs/3.6/manual/html-single/index.html#configuring-with-system-properties">configuring Hazelcast
+with system properties</a> for the other properties you can configure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_hazelcast_async_methods"><a class="anchor" href="#_using_hazelcast_async_methods"></a>Using Hazelcast async methods</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Hazelcast&#8217;s <code>IMap</code> and <code>IAtomicLong</code> interfaces can be used with async methods returning <code>ICompletableFuture&lt;V&gt;</code>, a natural fit for Vert.x threading model.</p>
+</div>
+<div class="paragraph">
+<p>Supplying the option <code>-Dvertx.hazelcast.async-api=true</code> on JVM startup, will indicate that the async Hazelcast API methods will be used to communicate with the hazelcast cluster.
+Effectively, this means that when this option is enabled, execution of all <code>Counter</code> operations and <code>AsyncMap.get</code>,<code>AsyncMap.put</code> and <code>AsyncMap.remove</code> operations will occur in the calling thread (the event loop), instead of a worker thread with <code>vertx.executeBlocking</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_trouble_shooting_clustering"><a class="anchor" href="#_trouble_shooting_clustering"></a>Trouble shooting clustering</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If the default multicast configuration is not working here are some common causes:</p>
+</div>
+<div class="sect2">
+<h3 id="_multicast_not_enabled_on_the_machine"><a class="anchor" href="#_multicast_not_enabled_on_the_machine"></a>Multicast not enabled on the machine.</h3>
+<div class="paragraph">
+<p>It is quite common in particular on OSX machines for multicast to be disabled by default. Please google for
+information on how to enable this.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_wrong_network_interface"><a class="anchor" href="#_using_wrong_network_interface"></a>Using wrong network interface</h3>
+<div class="paragraph">
+<p>If you have more than one network interface on your machine (and this can also be the case if you are running
+VPN software on your machine), then Hazelcast may be using the wrong one.</p>
+</div>
+<div class="paragraph">
+<p>To tell Hazelcast to use a specific interface you can provide the IP address of the interface in the <code>interfaces</code>
+element of the configuration. Make sure you set the <code>enabled</code> attribute to <code>true</code>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;interfaces enabled="true"&gt;
+ &lt;interface&gt;192.168.1.20&lt;/interface&gt;
+&lt;/interfaces&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When running Vert.x is in clustered mode, you should also make sure that Vert.x knows about the correct interface.
+When running at the command line this is done by specifying the <code>cluster-host</code> option:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>vertx run myverticle.js -cluster -cluster-host your-ip-address</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where <code>your-ip-address</code> is the same IP address you specified in the Hazelcast configuration.</p>
+</div>
+<div class="paragraph">
+<p>If using Vert.x programmatically you can specify this using
+<code><a href="../../apidocs/io/vertx/core/VertxOptions.html#setClusterHost-java.lang.String-">setClusterHost</a></code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_a_vpn"><a class="anchor" href="#_using_a_vpn"></a>Using a VPN</h3>
+<div class="paragraph">
+<p>This is a variation of the above case. VPN software often works by creating a virtual network interface which often
+doesn&#8217;t support multicast. If you have a VPN running and you do not specify the correct interface to use in both the
+hazelcast configuration and to Vert.x then the VPN interface may be chosen instead of the correct interface.</p>
+</div>
+<div class="paragraph">
+<p>So, if you have a VPN running you may have to configure both the Hazelcast and Vert.x to use the correct interface as
+described in the previous section.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_when_multicast_is_not_available"><a class="anchor" href="#_when_multicast_is_not_available"></a>When multicast is not available</h3>
+<div class="paragraph">
+<p>In some cases you may not be able to use multicast as it might not be available in your environment. In that case
+you should configure another transport, e.g. TCP  to use TCP sockets, or AWS when running on Amazon EC2.</p>
+</div>
+<div class="paragraph">
+<p>For more information on available Hazelcast transports and how to configure them please consult the Hazelcast
+documentation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enabling_logging"><a class="anchor" href="#_enabling_logging"></a>Enabling logging</h3>
+<div class="paragraph">
+<p>When trouble-shooting clustering issues with Hazelcast it&#8217;s often useful to get some logging output from Hazelcast
+to see if it&#8217;s forming a cluster properly. You can do this (when using the default JUL logging) by adding a file
+called <code>vertx-default-jul-logging.properties</code> on your classpath. This is a standard java.util.logging (JUL)
+configuration file. Inside it set:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>com.hazelcast.level=INFO</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and also</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>java.util.logging.ConsoleHandler.level=INFO
+java.util.logging.FileHandler.level=INFO</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hazelcast_logging"><a class="anchor" href="#_hazelcast_logging"></a>Hazelcast logging</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The logging backend used by Hazelcast is <code>jdk</code> by default (understand JUL). If you want to redirect the logging to
+another library, you need to set the <code>hazelcast.logging.type</code> system property such as in:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>-Dhazelcast.logging.type=slf4j</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the <a href="http://docs.hazelcast.org/docs/3.6.1/manual/html-single/index.html#logging-configuration">hazelcast documentation</a> for more details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_a_different_hazelcast_version"><a class="anchor" href="#_using_a_different_hazelcast_version"></a>Using a different Hazelcast version</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You may want to use a different version of Hazelcast. The default version is <code>3.12.2</code>. To do so, you
+need to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>put the version you want in the application classpath</p>
+</li>
+<li>
+<p>if you are running a fat jar, configure your build manager to use the right version</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In this later case, you would need in Maven:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.hazelcast<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hazelcast<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>ENTER_YOUR_VERSION_HERE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.vertx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>vertx-hazelcast<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Depending on the version, you may need to exclude some transitive dependencies.</p>
+</div>
+<div class="paragraph">
+<p>On Gradle, you can achieve the same overloading using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>dependencies {
+compile ("io.vertx:vertx-hazelcast:3.9.2"){
+  exclude group: 'com.hazelcast', module: 'hazelcast'
+}
+compile "com.hazelcast:hazelcast:ENTER_YOUR_VERSION_HERE"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuring_for_kubernetes"><a class="anchor" href="#_configuring_for_kubernetes"></a>Configuring for Kubernetes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>On Kubernetes, Hazelcast should be configured to use the <a href="https://github.com/hazelcast/hazelcast-kubernetes">Hazelcast Kubernetes</a> plugin.</p>
+</div>
+<div class="paragraph">
+<p>First, add the <code>io.vertx:vertx-hazelcast:${vertx.version}</code> and <code>com.hazelcast:hazelcast-kubernetes:${hazelcast-kubernetes.version}</code> dependencies to your project.
+With Maven it looks like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.vertx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>vertx-hazelcast<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${vertx.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.hazelcast<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hazelcast-kubernetes<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${hazelcast-kubernetes.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+If you use a different version of the Hazelcast core library, make sure to use a compatible version of the Kubernetes discovery plugin.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The second step is to configure the discovery plugin inside of your Hazelcast configuration, by either providing a custom <code>cluster.xml</code> file or programmatically, as described in <a href="#configcluster">Configuring this cluster manager</a>.</p>
+</div>
+<div class="paragraph">
+<p>The plugin provides two <a href="https://github.com/hazelcast/hazelcast-kubernetes#understanding-discovery-modes">discovery modes</a>: <em>Kubernetes API</em> and <em>DNS Lookup</em>.
+Please refer to the plugin project page for pros and cons of both modes.</p>
+</div>
+<div class="paragraph">
+<p>In this document, we will use <em>DNS Lookup</em> discovery. The following properties have to be changed / added:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">hazelcast</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hazelcast.discovery.enabled"</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span> <b class="conum">(1)</b>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">network</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">join</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">multicast</span> <span class="hljs-attr">enabled</span>=<span class="hljs-string">"false"</span>/&gt;</span> <b class="conum">(2)</b>
+     <span class="hljs-tag">&lt;<span class="hljs-name">tcp-ip</span> <span class="hljs-attr">enabled</span>=<span class="hljs-string">"false"</span> /&gt;</span>
+
+     <span class="hljs-tag">&lt;<span class="hljs-name">discovery-strategies</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">discovery-strategy</span> <span class="hljs-attr">enabled</span>=<span class="hljs-string">"true"</span> <b class="conum">(3)</b>
+           <span class="hljs-attr">class</span>=<span class="hljs-string">"com.hazelcast.kubernetes.HazelcastKubernetesDiscoveryStrategy"</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+           <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"service-dns"</span>&gt;</span>MY-SERVICE-DNS-NAME<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span> <b class="conum">(4)</b>
+         <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">discovery-strategy</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-name">discovery-strategies</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">join</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">network</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">hazelcast</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Activate Discovery SPI</p>
+</li>
+<li>
+<p>Deactivate other discoveries</p>
+</li>
+<li>
+<p>Activate the Kubernetes plugin</p>
+</li>
+<li>
+<p>Service DNS, usually in the form of <code>MY-SERVICE-NAME.MY-NAMESPACE.svc.cluster.local</code> but depends on the Kubernetes distribution</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <code>MY-SERVICE-DNS-NAME</code> value must be a <strong>headless</strong> Kubernetes service name that will be used by Hazelcast to identify all cluster members.
+A headless service can be created with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">v1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Service</span>
+<span class="hljs-attr">metadata:</span>
+ <span class="hljs-attr">namespace:</span> <span class="hljs-string">MY-NAMESPACE</span>
+ <span class="hljs-attr">name:</span> <span class="hljs-string">MY-SERVICE-NAME</span>
+<span class="hljs-attr">spec:</span>
+ <span class="hljs-attr">selector:</span>
+   <span class="hljs-attr">component:</span> <span class="hljs-string">MY-SERVICE-NAME</span> <b class="conum">(1)</b>
+ <span class="hljs-attr">clusterIP:</span> <span class="hljs-string">None</span>
+ <span class="hljs-attr">ports:</span>
+ <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">hz-port-name</span>
+   <span class="hljs-attr">port:</span> <span class="hljs-number">5701</span>
+   <span class="hljs-attr">protocol:</span> <span class="hljs-string">TCP</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Cluster members selected by label</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Eventually, attach the <code>component</code> label to all deployments that should be part of the cluster:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">extensions/v1beta1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Deployment</span>
+<span class="hljs-attr">metadata:</span>
+ <span class="hljs-attr">namespace:</span> <span class="hljs-string">MY-NAMESPACE</span>
+<span class="hljs-attr">spec:</span>
+ <span class="hljs-attr">template:</span>
+   <span class="hljs-attr">metadata:</span>
+     <span class="hljs-attr">labels:</span>
+       <span class="hljs-attr">component:</span> <span class="hljs-string">MY-SERVICE-NAME</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Further configuration details are available on the <a href="https://github.com/hazelcast/hazelcast-kubernetes">Hazelcast Kubernetes Plugin page</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_rolling_updates"><a class="anchor" href="#_rolling_updates"></a>Rolling updates</h3>
+<div class="paragraph">
+<p>During rolling updates, it is recommended to replace pods one by one.</p>
+</div>
+<div class="paragraph">
+<p>To do so, we must configure Kubernetes to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>never start more than one new pod at once</p>
+</li>
+<li>
+<p>forbid more than one unavailable pod during the process</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml"><span class="hljs-attr">spec:</span>
+ <span class="hljs-attr">strategy:</span>
+   <span class="hljs-attr">type:</span> <span class="hljs-string">Rolling</span>
+   <span class="hljs-attr">rollingParams:</span>
+     <span class="hljs-attr">updatePeriodSeconds:</span> <span class="hljs-number">10</span>
+     <span class="hljs-attr">intervalSeconds:</span> <span class="hljs-number">20</span>
+     <span class="hljs-attr">timeoutSeconds:</span> <span class="hljs-number">600</span>
+     <span class="hljs-attr">maxUnavailable:</span> <span class="hljs-number">1</span> <b class="conum">(1)</b>
+     <span class="hljs-attr">maxSurge:</span> <span class="hljs-number">1</span> <b class="conum">(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>the maximum number of pods that can be unavailable during the update process</p>
+</li>
+<li>
+<p>the maximum number of pods that can be created over the desired number of pods</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Also, the pod readiness probe must take the cluster state into account.
+Please refer to the <a href="#one-by-one">cluster administration</a> section for details on how to implement a readiness probe with <a href="../../vertx-health-check/java/">Vert.x Health Checks</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cluster_administration"><a class="anchor" href="#_cluster_administration"></a>Cluster administration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Hazelcast cluster manager works by turning Vert.x nodes into members of a Hazelcast cluster.
+As a consequence, Vert.x cluster manager administration should follow the Hazelcast management guidelines.</p>
+</div>
+<div class="paragraph">
+<p>First, let&#8217;s take a step back and introduce data partitioning and split-brain syndrome.</p>
+</div>
+<div class="sect2">
+<h3 id="_data_partitioning"><a class="anchor" href="#_data_partitioning"></a>Data partitioning</h3>
+<div class="paragraph">
+<p>Each Vert.x node holds pieces of the clustering data: eventbus subscriptions, async map entries, clustered counters&#8230;&#8203; etc.</p>
+</div>
+<div class="paragraph">
+<p>When a member joins or leaves the cluster, Hazelcast migrates data partitions.
+In other words, it moves data around to accomodate the new cluster topology.
+This process may take some time, depending on the amount of clustered data and number of nodes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_split_brain_syndrome"><a class="anchor" href="#_split_brain_syndrome"></a>Split-brain syndrome</h3>
+<div class="paragraph">
+<p>In a perfect world, there would be no network equipment failures.
+Reality is, though, that sooner or later your cluster will be divided into smaller groups, unable to see each others.</p>
+</div>
+<div class="paragraph">
+<p>Hazelcast is capable of merging the nodes back into a single cluster.
+But just as with data partition migrations, this process may take some time.
+Before the cluster is fully functional again, some eventbus consumers might not be able to get messages.
+Or high-availability may not be able to redeploy a failing verticle.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is difficult (if possible at all) to make a difference between a network partition and:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>long GC pauses (leading to missed heartbeats checks),</p>
+</li>
+<li>
+<p>many nodes being killed forcefully, at-once, because you are deploying a new version of your application</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_recommendations"><a class="anchor" href="#_recommendations"></a>Recommendations</h3>
+<div class="paragraph">
+<p>Considering the common clustering issues discussed above, it is recommended to stick to the following good practices.</p>
+</div>
+<div class="sect3">
+<h4 id="_graceful_shutdown"><a class="anchor" href="#_graceful_shutdown"></a>Graceful shutdown</h4>
+<div class="paragraph">
+<p>Avoid stopping members forcefully (e.g, <code>kill -9</code> a node).</p>
+</div>
+<div class="paragraph">
+<p>Of course process crashes are inevitable, but a graceful shutdown helps to get the remaining nodes in a stable state faster.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="one-by-one"><a class="anchor" href="#one-by-one"></a>One node after the other</h4>
+<div class="paragraph">
+<p>When rolling a new version of your app, scaling-up or down your cluster, add or remove nodes one after the other.</p>
+</div>
+<div class="paragraph">
+<p>Stopping nodes one by one prevents the cluster from thinking a network partition occured.
+Adding them one by one allows for clean, incremental data partition migrations.</p>
+</div>
+<div class="paragraph">
+<p>The cluster safety can be verified with <a href="../../vertx-health-check/java/">Vert.x Health Checks</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Handler&lt;Promise&lt;Status&gt;&gt; procedure = ClusterHealthCheck.createProcedure(vertx);
+HealthChecks checks = HealthChecks.create(vertx).register(<span class="hljs-string">"cluster-health"</span>, procedure);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After creation, the health check can be exposed over HTTP with a <a href="../../vertx-web/java/">Vert.x Web</a> router handler:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Router router = Router.router(vertx);
+router.get(<span class="hljs-string">"/readiness"</span>).handler(HealthCheckHandler.createWithHealthChecks(checks));</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_lite_members"><a class="anchor" href="#_using_lite_members"></a>Using Lite Members</h4>
+<div class="paragraph">
+<p>To minimize the time a Vert.x cluster spends accomodating a new topology, you may use external data nodes and mark Vert.x nodes as <a href="https://docs.hazelcast.org/docs/latest/manual/html-single/#enabling-lite-members"><em>Lite Members</em></a>.</p>
+</div>
+<div class="paragraph">
+<p><em>Lite Members</em> participate in a Hazelcast cluster like regular members, but they do not own any data partition.
+Therefore, Hazelcast does not need to migrate partitions when such members are added or removed.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+You must start the external data nodes beforehand as Hazelcast won&#8217;t create a cluster with <em>Lite Members</em> only.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To start an external node, you can use the Hazelcast distribution start script, or proceed programmatically.</p>
+</div>
+<div class="paragraph">
+<p>Vert.x nodes can be marked as <em>Lite Members</em> in the XML configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">lite-member</span> <span class="hljs-attr">enabled</span>=<span class="hljs-string">"true"</span>/&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also do it programmatically:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Config hazelcastConfig = ConfigUtil.loadConfig()
+  .setLiteMember(<span class="hljs-keyword">true</span>);
+
+ClusterManager mgr = <span class="hljs-keyword">new</span> HazelcastClusterManager(hazelcastConfig);
+
+VertxOptions options = <span class="hljs-keyword">new</span> VertxOptions().setClusterManager(mgr);
+
+Vertx.clusteredVertx(options, res -&gt; {
+  <span class="hljs-keyword">if</span> (res.succeeded()) {
+    Vertx vertx = res.result();
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// failed!</span>
+  }
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div></div></div></div></div><footer><div class="container"><div class="footer-nav-section"><div class="footer-nav-list footer-logo"><a href="/"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAxMTI1LjYgMzE1LjIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZT4uc3Qwe2ZpbGw6Izc4MmE5MX08L3N0eWxlPjxwYXRoIGQ9Ik0xMjAuOSAyMTQuMkwxOTAuNSAwaDUyLjNsLTk4LjUgMjczLjhIOTguMkwwIDBoNTIuMWw2OC44IDIxNC4yem0yOTEuMi02Mi42SDI5OS42djg0LjJINDMxdjM4SDI1MlYwaDE3Ny43djM4LjRIMjk5LjZWMTE0aDExMi41djM3LjZ6bTgzLjctMTEzLjJINTQ2YzE2LjUuMyAyOSA0LjQgMzcuMyAxMi40IDguMyA4IDEyLjUgMTkuNCAxMi41IDM0IDAgMTQtNC41IDI1LjEtMTMuNSAzMy4yLTkgOC4xLTIxLjYgMTIuMS0zNy42IDEyLjFoLTI3LjF2MjQuMmw4Ni4xIDExOS41aDUxdi0yLjRsLTc3LjItMTA2LjdjMjQuOS01LjUgNDMuMy0yMS43IDUyLjYtMzUuOSA4LjItMTIuNiAxMy4zLTI3LjcgMTMuMy00NiAwLTI2LjgtOC42LTQ3LjQtMjUuOC02MS41QzYwMC41IDcuMSA1NzYuMSAwIDU0NC41IDBoLTk2LjN2MjczLjhoNDcuNiIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMDUyLjMgMTU3LjdsLTQxLjUgNjIuNyAyOS43IDUzLjRoODUuMXoiLz48Y2lyY2xlIGNsYXNzPSJzdDAiIGN4PSI4MjcuOSIgY3k9IjI3NC43IiByPSI0MC41Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTEwMzcgMGwtNDcuNiA3NC4yTDk0OSAwaC04NGw4NS4zIDEzNS44LTY3LjEgMTA1LjdjNS43IDkuNSA5LjEgMjAuNSA5LjIgMzIuNGg1MC4xTDExMjEuMyAwSDEwMzd6Ii8+PHBhdGggZD0iTTc2My41IDI3My44Yy4xLTkuOSAyLjUtMTkuMiA2LjYtMjcuNVYzOC40aDg1LjRWMEg2MzguMnYzOC40aDg0LjZ2MjM1LjRoNDAuN3oiLz48L3N2Zz4=" alt="Vert.x Logo"/></a></div><div class="footer-nav-list"><h5>Eclipse Vert.x</h5><ul class=""><li><a class="navbar-menu-item" href="/docs/">Docs</a></li><li><a href="/download/">Download</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/blog/">Blog</a></li><li><a href="/community/">Community</a></li><li><a href="/channels/">Channels</a></li></ul></div><div class="footer-nav-list"><h5>Eclipse</h5><ul class=""><li><a href="https://www.eclipse.org/">Eclipse Foundation</a></li><li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li><li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li><li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li><li><a href="https://www.eclipse.org/legal/">Legal Resources</a></li></ul></div></div><div class="footer-copyright"><div class="footer-copyright-remarks">© <!-- -->2020<!-- --> Eclipse Vert.x<br/>Eclipse Vert.x is open source and dual-licensed under the <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">Eclipse Public License 2.0</a> and the <a href="https://www.apache.org/licenses/LICENSE-2.0.html" target="_blank" rel="noopener noreferrer">Apache License 2.0</a>. <br class="footer-copyright-break"/>Website design by <a href="https://michelkraemer.com" target="_blank" rel="noopener noreferrer">Michel Krämer</a>.</div><div class="footer-copyright-eclipse-logo"><a href="https://www.eclipse.org/" target="_blank" rel="noopener noreferrer"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAyODEuMyA5MS4xIiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGU+LnN0MHtmaWxsOiNmNzk0MjJ9LnN0MXtmaWxsOiMzZDNjM2J9PC9zdHlsZT48ZyBpZD0iTGF5ZXJfMV8xXyI+PHBhdGggY2xhc3M9InN0MCIgZD0iTTI2NS43IDg0TDI1NyA3M2gtMi43djE3LjdoMy4zdi0xMmw5LjMgMTJoMi4xVjczaC0zLjN2MTF6bS0zMi40LTguM2M0LjIgMCA1LjggMy4zIDUuOCA2LjNzLTEuNiA2LTUuOCA2LTUuNy0zLjEtNS44LTYgMS43LTYuMyA1LjgtNi4zem0wLTNjLTYuMSAwLTkuMSA0LjctOS4xIDkuMyAwIDQuNyAyLjkgOS4xIDkuMSA5LjFzOS00LjYgOS4xLTkuMi0zLTkuMi05LjEtOS4yem0tMjEuMiAxOFY3M2gtMy4zdjE3LjdoMy4zem0tMjMuNiAwaDMuM1Y3Nmg1LjZ2LTNoLTE0LjZ2M2g1LjZsLjEgMTQuN3ptLTE4LjktNi41SDE2M2wzLjMtNy42IDMuMyA3LjZ6bTIuOCA2LjVoMy42TDE2OC4yIDczaC0zLjZsLTggMTcuN2gzLjZsMS41LTMuM2g5LjNsMS40IDMuM3ptLTM4LTE0LjZoMy42YzMuOSAwIDUuNSAyLjggNS41IDUuNS4xIDIuOC0xLjUgNS44LTUuNSA1LjhoLTMuNlY3Ni4xem0zLjctMy4xaC02Ljl2MTcuN2g2LjljNi4yIDAgOC45LTQuNSA4LjktOXMtMi44LTguNy04LjktOC43em0tMjIuNCAxMUwxMDcgNzNoLTIuN3YxNy43aDMuM3YtMTJsOS4zIDEyaDIuMVY3M2gtMy4zdjExek04OC4yIDczdjEwLjJjMCAzLTEuNiA0LjktNC4zIDQuOXMtNC42LTEuNy00LjYtNC45VjczSDc2djEwLjFjMCA1LjMgMy42IDcuOSA3LjkgNy45IDQuNCAwIDcuNy0yLjcgNy43LTcuOVY3M2gtMy40em0tMzMgMi43YzQuMiAwIDUuOCAzLjMgNS44IDYuM3MtMS42IDYtNS44IDYtNS43LTMuMS01LjgtNiAxLjctNi4zIDUuOC02LjN6bTAtM2MtNi4xIDAtOS4xIDQuNy05LjEgOS4zczIuOSA5LjEgOS4xIDkuMSA5LTQuNiA5LjEtOS4yLTMtOS4yLTkuMS05LjJ6bS0yOS43IDE4di02LjVoOC45di0zLjFoLTguOXYtNC44aDkuNFY3M0gyMi4ydjE3LjZoMy4zeiIvPjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yNjkuNCA1NC40aC0yMi4ydi04LjloMjEuNHYtNi45aC0yMS40di05LjFoMjIuMnYtNy4yaC0yOS42djM5LjVoMjkuNnYtNy40em0tNDAtMjUuNmMtMy02LjEtOS40LTcuOC0xNS41LTcuOC03LjMgMC0xNS4zIDMuNC0xNS4zIDExLjUgMCA4LjkgNy40IDExIDE1LjUgMTIgNS4yLjYgOS4xIDIuMSA5LjEgNS44IDAgNC4zLTQuNCA1LjktOS4xIDUuOXMtOS40LTEuOS0xMS4xLTYuM2wtNi4yIDMuMmMyLjkgNy4yIDkuMSA5LjcgMTcuMiA5LjcgOC44IDAgMTYuNi0zLjggMTYuNi0xMi42IDAtOS40LTcuNy0xMS42LTE1LjktMTIuNi00LjctLjYtOC44LTEuNS04LjgtNSAwLTIuOSAyLjYtNS4yIDguMi01LjIgNC4zIDAgOCAyLjIgOS40IDQuNGw1LjktM3pNMTc2IDIyLjJjLTYuMi0uMS0xMi40IDAtMTguNiAwdjM5LjVoNy40VjUwLjFIMTc2YzE5LjQgMCAxOS40LTI3LjkgMC0yNy45em0tMTEuMSA3LjFIMTc2YzkuNSAwIDkuNSAxNCAwIDE0aC0xMS4ybC4xLTE0em0tMTggMzIuNVYyMi4yaC03LjR2MzkuNWw3LjQuMXptLTQ0LTM5LjZ2MzkuNWgyNy43di02LjloLTIwLjNWMjIuMmgtNy40ek05MC43IDUxLjdjLTIuNyAyLjUtNi4yIDQtOS45IDQtOS44IDAtMTMuNS02LjgtMTMuNi0xMy40czQuMS0xMy43IDEzLjYtMTMuN2MzLjUtLjEgNyAxLjMgOS41IDMuN2w1LTQuOGMtMy44LTMuOS05LjEtNi0xNC41LTYtMTQuMyAwLTIxIDEwLjUtMjAuOSAyMC44czYuMyAyMC4zIDIwLjkgMjAuM2M1LjYuMSAxMS0yIDE1LTUuOWwtNS4xLTV6bS0zOSAyLjdIMjkuNXYtOC45aDIxLjR2LTYuOUgyOS41di05LjFoMjIuMnYtNy4ySDIyLjJ2MzkuNWgyOS42bC0uMS03LjR6Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTkuOCAxOC4yQzE4LjggNC4xIDM2LjktLjggNTIuMSA2bC0xLS43QzM1LjctNC42IDE1LjItLjEgNS4zIDE1LjNzLTUuNCAzNS45IDEwIDQ1LjhsMS4xLjZDMy44IDUwLjguOCAzMi4zIDkuOCAxOC4yeiIvPjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yNzIuMiAyNi4xYzAtMi41IDIuMS00LjYgNC42LTQuNiAyLjUgMCA0LjYgMi4xIDQuNiA0LjYgMCAyLjUtMi4xIDQuNi00LjYgNC42LTIuNiAwLTQuNi0yLjEtNC42LTQuNnptOC42IDBjMC0yLjItMS44LTQuMS00LTQuMXMtNC4xIDEuOC00LjEgNC4xYzAgMi4yIDEuNyA0IDMuOSA0LjFoLjFjMi4zIDAgNC4xLTEuOCA0LjEtNC4xem0tNi0yLjVoMi4zYzEuMSAwIDEuOS41IDEuOSAxLjYgMCAuNy0uNCAxLjMtMS4xIDEuNWwxLjIgMS43aC0xLjRsLTEtMS41aC0uN3YxLjVoLTEuMWwtLjEtNC44em0yLjIgMi4zYy41IDAgLjgtLjMuOC0uN3MtLjMtLjctLjgtLjdoLTF2MS4zbDEgLjF6Ii8+PC9nPjwvc3ZnPg==" alt="Eclipse foundation Logo"/></a></div></div></div></footer></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"3.9.2/vertx-hazelcast/java","title":"Hazelcast Cluster Manager","fallbackGitHubStars":54,"toc":"\u003cdiv id=\"toc\" class=\"toc\"\u003e\n\u003cdiv id=\"toctitle\"\u003eTable of Contents\u003c/div\u003e\n\u003cul class=\"sectlevel1\"\u003e\n\u003cli\u003e\u003ca href=\"#_using_this_cluster_manager\"\u003eUsing this cluster manager\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#configcluster\"\u003eConfiguring this cluster manager\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_configuring_with_xml\"\u003eConfiguring with XML\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_configuring_programmatically\"\u003eConfiguring programmatically\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_discovery_options\"\u003eDiscovery options\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_using_an_existing_hazelcast_cluster\"\u003eUsing an existing Hazelcast cluster\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_changing_timeout_for_failed_nodes\"\u003eChanging timeout for failed nodes\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_using_hazelcast_async_methods\"\u003eUsing Hazelcast async methods\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_trouble_shooting_clustering\"\u003eTrouble shooting clustering\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_multicast_not_enabled_on_the_machine\"\u003eMulticast not enabled on the machine.\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_using_wrong_network_interface\"\u003eUsing wrong network interface\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_using_a_vpn\"\u003eUsing a VPN\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_when_multicast_is_not_available\"\u003eWhen multicast is not available\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_enabling_logging\"\u003eEnabling logging\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_hazelcast_logging\"\u003eHazelcast logging\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_using_a_different_hazelcast_version\"\u003eUsing a different Hazelcast version\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_configuring_for_kubernetes\"\u003eConfiguring for Kubernetes\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_rolling_updates\"\u003eRolling updates\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_cluster_administration\"\u003eCluster administration\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_data_partitioning\"\u003eData partitioning\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_split_brain_syndrome\"\u003eSplit-brain syndrome\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_recommendations\"\u003eRecommendations\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e","contents":"\u003ch1\u003eHazelcast Cluster Manager\u003c/h1\u003e\n\n\u003cdiv id=\"preamble\"\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThis is a cluster manager implementation for Vert.x that uses \u003ca href=\"http://hazelcast.com\"\u003eHazelcast\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIt is the default cluster manager used in the Vert.x distribution, but it can be replaced with another implementation as Vert.x\ncluster managers are pluggable.  This implementation is packaged inside:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003eio.vertx\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003evertx-hazelcast\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e3.9.2\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIn Vert.x a cluster manager is used for various functions including:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eDiscovery and group membership of Vert.x nodes in a cluster\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMaintaining cluster wide topic subscriber lists (so we know which nodes are interested in which event bus addresses)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDistributed Map support\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDistributed Locks\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDistributed Counters\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eCluster managersdo not* handle the event bus inter-node transport, this is done directly by Vert.x with TCP connections.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_using_this_cluster_manager\"\u003e\u003ca class=\"anchor\" href=\"#_using_this_cluster_manager\"\u003e\u003c/a\u003eUsing this cluster manager\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf you are using Vert.x from the command line, the jar corresponding to this cluster manager (it will be named \u003ccode\u003evertx-hazelcast-3.9.2.jar\u003c/code\u003e\nshould be in the \u003ccode\u003elib\u003c/code\u003e directory of the Vert.x installation.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf you want clustering with this cluster manager in your Vert.x Maven or Gradle project then just add a dependency to\nthe artifact: \u003ccode\u003eio.vertx:vertx-hazelcast:3.9.2\u003c/code\u003e in your project.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf the jar is on your classpath as above then Vert.x will automatically detect this and use it as the cluster manager.\nPlease make sure you don\u0026#8217;t have any other cluster managers on your classpath or Vert.x might\nchoose the wrong one.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou can also specify the cluster manager programmatically if you are embedding Vert.x by specifying it on the options\nwhen you are creating your Vert.x instance, for example:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eClusterManager mgr = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e HazelcastClusterManager();\n\nVertxOptions options = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e VertxOptions().setClusterManager(mgr);\n\nVertx.clusteredVertx(options, res -\u0026gt; {\n  \u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e (res.succeeded()) {\n    Vertx vertx = res.result();\n  } \u003cspan class=\"hljs-keyword\"\u003eelse\u003c/span\u003e {\n    \u003cspan class=\"hljs-comment\"\u003e// failed!\u003c/span\u003e\n  }\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"configcluster\"\u003e\u003ca class=\"anchor\" href=\"#configcluster\"\u003e\u003c/a\u003eConfiguring this cluster manager\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_configuring_with_xml\"\u003e\u003ca class=\"anchor\" href=\"#_configuring_with_xml\"\u003e\u003c/a\u003eConfiguring with XML\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eUsually the cluster manager is configured by a file\n\u003ca href=\"https://github.com/vert-x3/vertx-hazelcast/blob/master/src/main/resources/default-cluster.xml\"\u003e\u003ccode\u003edefault-cluster.xml\u003c/code\u003e\u003c/a\u003e\nwhich is packaged inside the jar.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf you want to override this configuration you can provide a file called \u003ccode\u003ecluster.xml\u003c/code\u003e on your classpath and this\nwill be used instead. If you want to embed the \u003ccode\u003ecluster.xml\u003c/code\u003e file in a fat jar, it must be located at the root of the\nfat jar. If it\u0026#8217;s an external file, the \u003cstrong\u003edirectory\u003c/strong\u003e containing the file must be added to the classpath. For\nexample, if you are using the \u003cem\u003elauncher\u003c/em\u003e class from Vert.x, the classpath enhancement can be done as follows:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003e# If the cluster.xml is in the current directory:\njava -jar ... -cp . -cluster\nvertx run MyVerticle -cp . -cluster\n\n# If the cluster.xml is in the conf directory\njava -jar ... -cp conf -cluster\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eAnother way to override the configuration is by providing the system property \u003ccode\u003evertx.hazelcast.config\u003c/code\u003e with a\nlocation:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003e# Use a cluster configuration located in an external file\njava -Dvertx.hazelcast.config=./config/my-cluster-config.xml -jar ... -cluster\n\n# Or use a custom configuration from the classpath\njava -Dvertx.hazelcast.config=classpath:my/package/config/my-cluster-config.xml -jar ... -cluster\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003evertx.hazelcast.config\u003c/code\u003e system property, when present, overrides any \u003ccode\u003ecluster.xml\u003c/code\u003e on the classpath, but if\nloading\nfrom this system property fails, then loading falls back to either \u003ccode\u003ecluster.xml\u003c/code\u003e or the Hazelcast default configuration.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock caution\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003eCaution\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nConfiguration of Hazelcast the \u003ccode\u003e-Dhazelcast.config\u003c/code\u003e system property is not supported by Vert.x and should\nnot be used.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe xml file is a Hazelcast configuration file and is described in detail in the documentation on the Hazelcast\nweb-site.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_configuring_programmatically\"\u003e\u003ca class=\"anchor\" href=\"#_configuring_programmatically\"\u003e\u003c/a\u003eConfiguring programmatically\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou can specify configuration programmatically if embedding:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eConfig hazelcastConfig = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e Config();\n\n\u003cspan class=\"hljs-comment\"\u003e// Now set some stuff on the config (omitted)\u003c/span\u003e\n\nClusterManager mgr = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e HazelcastClusterManager(hazelcastConfig);\n\nVertxOptions options = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e VertxOptions().setClusterManager(mgr);\n\nVertx.clusteredVertx(options, res -\u0026gt; {\n  \u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e (res.succeeded()) {\n    Vertx vertx = res.result();\n  } \u003cspan class=\"hljs-keyword\"\u003eelse\u003c/span\u003e {\n    \u003cspan class=\"hljs-comment\"\u003e// failed!\u003c/span\u003e\n  }\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIt might also be useful to customize an existing XML configuration.\nFor example, you might want to change the cluster group name and password:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eConfig hazelcastConfig = ConfigUtil.loadConfig();\n\nhazelcastConfig.getGroupConfig()\n  .setName(\u003cspan class=\"hljs-string\"\u003e\"my-cluster-name\"\u003c/span\u003e)\n  .setPassword(\u003cspan class=\"hljs-string\"\u003e\"passwd\"\u003c/span\u003e);\n\nClusterManager mgr = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e HazelcastClusterManager(hazelcastConfig);\n\nVertxOptions options = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e VertxOptions().setClusterManager(mgr);\n\nVertx.clusteredVertx(options, res -\u0026gt; {\n  \u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e (res.succeeded()) {\n    Vertx vertx = res.result();\n  } \u003cspan class=\"hljs-keyword\"\u003eelse\u003c/span\u003e {\n    \u003cspan class=\"hljs-comment\"\u003e// failed!\u003c/span\u003e\n  }\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003e\u003ccode\u003eConfigUtil#loadConfig\u003c/code\u003e loads Hazelcast config XML and transform it into a \u003ccode\u003eConfig\u003c/code\u003e object.\nThe content is read from:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"olist arabic\"\u003e\n\u003col class=\"arabic\"\u003e\n\u003cli\u003e\n\u003cp\u003ethe location denoted by the \u003ccode\u003evertx.hazelcast.config\u003c/code\u003e sysprop, if present, or\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ethe \u003ccode\u003ecluster.xml\u003c/code\u003e file on the classpath, if present, or\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ethe default config file\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_discovery_options\"\u003e\u003ca class=\"anchor\" href=\"#_discovery_options\"\u003e\u003c/a\u003eDiscovery options\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eHazelcast supports several different discovery options.\nThe default configuration uses multicast so you must have multicast enabled on your network for this to work.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eFor full documentation on how to configure discovery differently please consult the Hazelcast documentation.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_using_an_existing_hazelcast_cluster\"\u003e\u003ca class=\"anchor\" href=\"#_using_an_existing_hazelcast_cluster\"\u003e\u003c/a\u003eUsing an existing Hazelcast cluster\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou can pass an existing \u003ccode\u003eHazelcastInstance\u003c/code\u003e in the cluster manager to reuse an existing cluster:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eClusterManager mgr = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e HazelcastClusterManager(hazelcastInstance);\nVertxOptions options = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e VertxOptions().setClusterManager(mgr);\nVertx.clusteredVertx(options, res -\u0026gt; {\n  \u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e (res.succeeded()) {\n    Vertx vertx = res.result();\n  } \u003cspan class=\"hljs-keyword\"\u003eelse\u003c/span\u003e {\n    \u003cspan class=\"hljs-comment\"\u003e// failed!\u003c/span\u003e\n  }\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIn this case, vert.x is not the cluster owner and so do not shutdown the cluster on close.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eNotice that the custom Hazelcast instance need to be configured with:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eproperties\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eproperty\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003ename\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"hazelcast.shutdownhook.enabled\"\u003c/span\u003e\u0026gt;\u003c/span\u003efalse\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eproperty\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eproperties\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003emultimap\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003ename\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"__vertx.subs\"\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ebackup-count\u003c/span\u003e\u0026gt;\u003c/span\u003e1\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ebackup-count\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003emultimap\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003emap\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003ename\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"__vertx.haInfo\"\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003etime-to-live-seconds\u003c/span\u003e\u0026gt;\u003c/span\u003e0\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003etime-to-live-seconds\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003emax-idle-seconds\u003c/span\u003e\u0026gt;\u003c/span\u003e0\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003emax-idle-seconds\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eeviction-policy\u003c/span\u003e\u0026gt;\u003c/span\u003eNONE\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eeviction-policy\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003emax-size\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003epolicy\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"PER_NODE\"\u003c/span\u003e\u0026gt;\u003c/span\u003e0\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003emax-size\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eeviction-percentage\u003c/span\u003e\u0026gt;\u003c/span\u003e25\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eeviction-percentage\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003emerge-policy\u003c/span\u003e\u0026gt;\u003c/span\u003ecom.hazelcast.map.merge.LatestUpdateMapMergePolicy\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003emerge-policy\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003emap\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003esemaphore\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003ename\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"__vertx.*\"\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003einitial-permits\u003c/span\u003e\u0026gt;\u003c/span\u003e1\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003einitial-permits\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003esemaphore\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock important\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003eImportant\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nHazelcast clients or smart clients are not supported.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock important\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003eImportant\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nMake sure Hazelcast is started before and shut down after Vert.x.\nAlso, the Hazelcast shutdown hook should be disabled (see xml example, or via system property).\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_changing_timeout_for_failed_nodes\"\u003e\u003ca class=\"anchor\" href=\"#_changing_timeout_for_failed_nodes\"\u003e\u003c/a\u003eChanging timeout for failed nodes\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eBy default a node will be removed from the cluster if Hazelcast didn\u0026#8217;t receive a heartbeat for 300 seconds. To change\nthis value \u003ccode\u003ehazelcast.max.no.heartbeat.seconds\u003c/code\u003e system property such as in:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre\u003e-Dhazelcast.max.no.heartbeat.seconds=5\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eAfterwards a node will be removed from the cluster after 5 seconds without a heartbeat.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eSee \u003ca href=\"http://docs.hazelcast.org/docs/3.6/manual/html-single/index.html#system-properties\"\u003eHazelcast\nsystem-properties\u003c/a\u003e and\n\u003ca href=\"http://docs.hazelcast.org/docs/3.6/manual/html-single/index.html#configuring-with-system-properties\"\u003econfiguring Hazelcast\nwith system properties\u003c/a\u003e for the other properties you can configure.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_using_hazelcast_async_methods\"\u003e\u003ca class=\"anchor\" href=\"#_using_hazelcast_async_methods\"\u003e\u003c/a\u003eUsing Hazelcast async methods\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eHazelcast\u0026#8217;s \u003ccode\u003eIMap\u003c/code\u003e and \u003ccode\u003eIAtomicLong\u003c/code\u003e interfaces can be used with async methods returning \u003ccode\u003eICompletableFuture\u0026lt;V\u0026gt;\u003c/code\u003e, a natural fit for Vert.x threading model.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eSupplying the option \u003ccode\u003e-Dvertx.hazelcast.async-api=true\u003c/code\u003e on JVM startup, will indicate that the async Hazelcast API methods will be used to communicate with the hazelcast cluster.\nEffectively, this means that when this option is enabled, execution of all \u003ccode\u003eCounter\u003c/code\u003e operations and \u003ccode\u003eAsyncMap.get\u003c/code\u003e,\u003ccode\u003eAsyncMap.put\u003c/code\u003e and \u003ccode\u003eAsyncMap.remove\u003c/code\u003e operations will occur in the calling thread (the event loop), instead of a worker thread with \u003ccode\u003evertx.executeBlocking\u003c/code\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_trouble_shooting_clustering\"\u003e\u003ca class=\"anchor\" href=\"#_trouble_shooting_clustering\"\u003e\u003c/a\u003eTrouble shooting clustering\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf the default multicast configuration is not working here are some common causes:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_multicast_not_enabled_on_the_machine\"\u003e\u003ca class=\"anchor\" href=\"#_multicast_not_enabled_on_the_machine\"\u003e\u003c/a\u003eMulticast not enabled on the machine.\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIt is quite common in particular on OSX machines for multicast to be disabled by default. Please google for\ninformation on how to enable this.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_using_wrong_network_interface\"\u003e\u003ca class=\"anchor\" href=\"#_using_wrong_network_interface\"\u003e\u003c/a\u003eUsing wrong network interface\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf you have more than one network interface on your machine (and this can also be the case if you are running\nVPN software on your machine), then Hazelcast may be using the wrong one.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo tell Hazelcast to use a specific interface you can provide the IP address of the interface in the \u003ccode\u003einterfaces\u003c/code\u003e\nelement of the configuration. Make sure you set the \u003ccode\u003eenabled\u003c/code\u003e attribute to \u003ccode\u003etrue\u003c/code\u003e. For example:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre\u003e\u0026lt;interfaces enabled=\"true\"\u0026gt;\n \u0026lt;interface\u0026gt;192.168.1.20\u0026lt;/interface\u0026gt;\n\u0026lt;/interfaces\u0026gt;\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eWhen running Vert.x is in clustered mode, you should also make sure that Vert.x knows about the correct interface.\nWhen running at the command line this is done by specifying the \u003ccode\u003ecluster-host\u003c/code\u003e option:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre\u003evertx run myverticle.js -cluster -cluster-host your-ip-address\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eWhere \u003ccode\u003eyour-ip-address\u003c/code\u003e is the same IP address you specified in the Hazelcast configuration.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf using Vert.x programmatically you can specify this using\n\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/core/VertxOptions.html#setClusterHost-java.lang.String-\"\u003esetClusterHost\u003c/a\u003e\u003c/code\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_using_a_vpn\"\u003e\u003ca class=\"anchor\" href=\"#_using_a_vpn\"\u003e\u003c/a\u003eUsing a VPN\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThis is a variation of the above case. VPN software often works by creating a virtual network interface which often\ndoesn\u0026#8217;t support multicast. If you have a VPN running and you do not specify the correct interface to use in both the\nhazelcast configuration and to Vert.x then the VPN interface may be chosen instead of the correct interface.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eSo, if you have a VPN running you may have to configure both the Hazelcast and Vert.x to use the correct interface as\ndescribed in the previous section.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_when_multicast_is_not_available\"\u003e\u003ca class=\"anchor\" href=\"#_when_multicast_is_not_available\"\u003e\u003c/a\u003eWhen multicast is not available\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIn some cases you may not be able to use multicast as it might not be available in your environment. In that case\nyou should configure another transport, e.g. TCP  to use TCP sockets, or AWS when running on Amazon EC2.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eFor more information on available Hazelcast transports and how to configure them please consult the Hazelcast\ndocumentation.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_enabling_logging\"\u003e\u003ca class=\"anchor\" href=\"#_enabling_logging\"\u003e\u003c/a\u003eEnabling logging\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eWhen trouble-shooting clustering issues with Hazelcast it\u0026#8217;s often useful to get some logging output from Hazelcast\nto see if it\u0026#8217;s forming a cluster properly. You can do this (when using the default JUL logging) by adding a file\ncalled \u003ccode\u003evertx-default-jul-logging.properties\u003c/code\u003e on your classpath. This is a standard java.util.logging (JUL)\nconfiguration file. Inside it set:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre\u003ecom.hazelcast.level=INFO\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eand also\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre\u003ejava.util.logging.ConsoleHandler.level=INFO\njava.util.logging.FileHandler.level=INFO\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_hazelcast_logging\"\u003e\u003ca class=\"anchor\" href=\"#_hazelcast_logging\"\u003e\u003c/a\u003eHazelcast logging\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe logging backend used by Hazelcast is \u003ccode\u003ejdk\u003c/code\u003e by default (understand JUL). If you want to redirect the logging to\nanother library, you need to set the \u003ccode\u003ehazelcast.logging.type\u003c/code\u003e system property such as in:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre\u003e-Dhazelcast.logging.type=slf4j\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eSee the \u003ca href=\"http://docs.hazelcast.org/docs/3.6.1/manual/html-single/index.html#logging-configuration\"\u003ehazelcast documentation\u003c/a\u003e for more details.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_using_a_different_hazelcast_version\"\u003e\u003ca class=\"anchor\" href=\"#_using_a_different_hazelcast_version\"\u003e\u003c/a\u003eUsing a different Hazelcast version\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou may want to use a different version of Hazelcast. The default version is \u003ccode\u003e3.12.2\u003c/code\u003e. To do so, you\nneed to:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eput the version you want in the application classpath\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eif you are running a fat jar, configure your build manager to use the right version\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIn this later case, you would need in Maven:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003ecom.hazelcast\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003ehazelcast\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003eENTER_YOUR_VERSION_HERE\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003eio.vertx\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003evertx-hazelcast\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e3.9.2\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eDepending on the version, you may need to exclude some transitive dependencies.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eOn Gradle, you can achieve the same overloading using:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003edependencies {\ncompile (\"io.vertx:vertx-hazelcast:3.9.2\"){\n  exclude group: 'com.hazelcast', module: 'hazelcast'\n}\ncompile \"com.hazelcast:hazelcast:ENTER_YOUR_VERSION_HERE\"\n}\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_configuring_for_kubernetes\"\u003e\u003ca class=\"anchor\" href=\"#_configuring_for_kubernetes\"\u003e\u003c/a\u003eConfiguring for Kubernetes\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eOn Kubernetes, Hazelcast should be configured to use the \u003ca href=\"https://github.com/hazelcast/hazelcast-kubernetes\"\u003eHazelcast Kubernetes\u003c/a\u003e plugin.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eFirst, add the \u003ccode\u003eio.vertx:vertx-hazelcast:${vertx.version}\u003c/code\u003e and \u003ccode\u003ecom.hazelcast:hazelcast-kubernetes:${hazelcast-kubernetes.version}\u003c/code\u003e dependencies to your project.\nWith Maven it looks like:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003eio.vertx\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003evertx-hazelcast\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e${vertx.version}\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003ecom.hazelcast\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003ehazelcast-kubernetes\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e${hazelcast-kubernetes.version}\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock note\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003eNote\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nIf you use a different version of the Hazelcast core library, make sure to use a compatible version of the Kubernetes discovery plugin.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe second step is to configure the discovery plugin inside of your Hazelcast configuration, by either providing a custom \u003ccode\u003ecluster.xml\u003c/code\u003e file or programmatically, as described in \u003ca href=\"#configcluster\"\u003eConfiguring this cluster manager\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe plugin provides two \u003ca href=\"https://github.com/hazelcast/hazelcast-kubernetes#understanding-discovery-modes\"\u003ediscovery modes\u003c/a\u003e: \u003cem\u003eKubernetes API\u003c/em\u003e and \u003cem\u003eDNS Lookup\u003c/em\u003e.\nPlease refer to the plugin project page for pros and cons of both modes.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIn this document, we will use \u003cem\u003eDNS Lookup\u003c/em\u003e discovery. The following properties have to be changed / added:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ehazelcast\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eproperties\u003c/span\u003e\u0026gt;\u003c/span\u003e\n   \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eproperty\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003ename\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"hazelcast.discovery.enabled\"\u003c/span\u003e\u0026gt;\u003c/span\u003etrue\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eproperty\u003c/span\u003e\u0026gt;\u003c/span\u003e \u003cb class=\"conum\"\u003e(1)\u003c/b\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eproperties\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003enetwork\u003c/span\u003e\u0026gt;\u003c/span\u003e\n   \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ejoin\u003c/span\u003e\u0026gt;\u003c/span\u003e\n     \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003emulticast\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eenabled\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"false\"\u003c/span\u003e/\u0026gt;\u003c/span\u003e \u003cb class=\"conum\"\u003e(2)\u003c/b\u003e\n     \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003etcp-ip\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eenabled\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"false\"\u003c/span\u003e /\u0026gt;\u003c/span\u003e\n\n     \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ediscovery-strategies\u003c/span\u003e\u0026gt;\u003c/span\u003e\n       \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ediscovery-strategy\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eenabled\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"true\"\u003c/span\u003e \u003cb class=\"conum\"\u003e(3)\u003c/b\u003e\n           \u003cspan class=\"hljs-attr\"\u003eclass\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"com.hazelcast.kubernetes.HazelcastKubernetesDiscoveryStrategy\"\u003c/span\u003e\u0026gt;\u003c/span\u003e\n         \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eproperties\u003c/span\u003e\u0026gt;\u003c/span\u003e\n           \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eproperty\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003ename\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"service-dns\"\u003c/span\u003e\u0026gt;\u003c/span\u003eMY-SERVICE-DNS-NAME\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eproperty\u003c/span\u003e\u0026gt;\u003c/span\u003e \u003cb class=\"conum\"\u003e(4)\u003c/b\u003e\n         \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eproperties\u003c/span\u003e\u0026gt;\u003c/span\u003e\n       \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ediscovery-strategy\u003c/span\u003e\u0026gt;\u003c/span\u003e\n     \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ediscovery-strategies\u003c/span\u003e\u0026gt;\u003c/span\u003e\n   \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ejoin\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003enetwork\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ehazelcast\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"colist arabic\"\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eActivate Discovery SPI\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eDeactivate other discoveries\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eActivate the Kubernetes plugin\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eService DNS, usually in the form of \u003ccode\u003eMY-SERVICE-NAME.MY-NAMESPACE.svc.cluster.local\u003c/code\u003e but depends on the Kubernetes distribution\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003eMY-SERVICE-DNS-NAME\u003c/code\u003e value must be a \u003cstrong\u003eheadless\u003c/strong\u003e Kubernetes service name that will be used by Hazelcast to identify all cluster members.\nA headless service can be created with:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-yaml\" data-lang=\"yaml\"\u003e\u003cspan class=\"hljs-attr\"\u003eapiVersion:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003ev1\u003c/span\u003e\n\u003cspan class=\"hljs-attr\"\u003ekind:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003eService\u003c/span\u003e\n\u003cspan class=\"hljs-attr\"\u003emetadata:\u003c/span\u003e\n \u003cspan class=\"hljs-attr\"\u003enamespace:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003eMY-NAMESPACE\u003c/span\u003e\n \u003cspan class=\"hljs-attr\"\u003ename:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003eMY-SERVICE-NAME\u003c/span\u003e\n\u003cspan class=\"hljs-attr\"\u003espec:\u003c/span\u003e\n \u003cspan class=\"hljs-attr\"\u003eselector:\u003c/span\u003e\n   \u003cspan class=\"hljs-attr\"\u003ecomponent:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003eMY-SERVICE-NAME\u003c/span\u003e \u003cb class=\"conum\"\u003e(1)\u003c/b\u003e\n \u003cspan class=\"hljs-attr\"\u003eclusterIP:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003eNone\u003c/span\u003e\n \u003cspan class=\"hljs-attr\"\u003eports:\u003c/span\u003e\n \u003cspan class=\"hljs-bullet\"\u003e-\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003ename:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003ehz-port-name\u003c/span\u003e\n   \u003cspan class=\"hljs-attr\"\u003eport:\u003c/span\u003e \u003cspan class=\"hljs-number\"\u003e5701\u003c/span\u003e\n   \u003cspan class=\"hljs-attr\"\u003eprotocol:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003eTCP\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"colist arabic\"\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eCluster members selected by label\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eEventually, attach the \u003ccode\u003ecomponent\u003c/code\u003e label to all deployments that should be part of the cluster:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-yaml\" data-lang=\"yaml\"\u003e\u003cspan class=\"hljs-attr\"\u003eapiVersion:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003eextensions/v1beta1\u003c/span\u003e\n\u003cspan class=\"hljs-attr\"\u003ekind:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003eDeployment\u003c/span\u003e\n\u003cspan class=\"hljs-attr\"\u003emetadata:\u003c/span\u003e\n \u003cspan class=\"hljs-attr\"\u003enamespace:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003eMY-NAMESPACE\u003c/span\u003e\n\u003cspan class=\"hljs-attr\"\u003espec:\u003c/span\u003e\n \u003cspan class=\"hljs-attr\"\u003etemplate:\u003c/span\u003e\n   \u003cspan class=\"hljs-attr\"\u003emetadata:\u003c/span\u003e\n     \u003cspan class=\"hljs-attr\"\u003elabels:\u003c/span\u003e\n       \u003cspan class=\"hljs-attr\"\u003ecomponent:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003eMY-SERVICE-NAME\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eFurther configuration details are available on the \u003ca href=\"https://github.com/hazelcast/hazelcast-kubernetes\"\u003eHazelcast Kubernetes Plugin page\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_rolling_updates\"\u003e\u003ca class=\"anchor\" href=\"#_rolling_updates\"\u003e\u003c/a\u003eRolling updates\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eDuring rolling updates, it is recommended to replace pods one by one.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo do so, we must configure Kubernetes to:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003enever start more than one new pod at once\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eforbid more than one unavailable pod during the process\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-yaml\" data-lang=\"yaml\"\u003e\u003cspan class=\"hljs-attr\"\u003espec:\u003c/span\u003e\n \u003cspan class=\"hljs-attr\"\u003estrategy:\u003c/span\u003e\n   \u003cspan class=\"hljs-attr\"\u003etype:\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003eRolling\u003c/span\u003e\n   \u003cspan class=\"hljs-attr\"\u003erollingParams:\u003c/span\u003e\n     \u003cspan class=\"hljs-attr\"\u003eupdatePeriodSeconds:\u003c/span\u003e \u003cspan class=\"hljs-number\"\u003e10\u003c/span\u003e\n     \u003cspan class=\"hljs-attr\"\u003eintervalSeconds:\u003c/span\u003e \u003cspan class=\"hljs-number\"\u003e20\u003c/span\u003e\n     \u003cspan class=\"hljs-attr\"\u003etimeoutSeconds:\u003c/span\u003e \u003cspan class=\"hljs-number\"\u003e600\u003c/span\u003e\n     \u003cspan class=\"hljs-attr\"\u003emaxUnavailable:\u003c/span\u003e \u003cspan class=\"hljs-number\"\u003e1\u003c/span\u003e \u003cb class=\"conum\"\u003e(1)\u003c/b\u003e\n     \u003cspan class=\"hljs-attr\"\u003emaxSurge:\u003c/span\u003e \u003cspan class=\"hljs-number\"\u003e1\u003c/span\u003e \u003cb class=\"conum\"\u003e(2)\u003c/b\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"colist arabic\"\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003ethe maximum number of pods that can be unavailable during the update process\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ethe maximum number of pods that can be created over the desired number of pods\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eAlso, the pod readiness probe must take the cluster state into account.\nPlease refer to the \u003ca href=\"#one-by-one\"\u003ecluster administration\u003c/a\u003e section for details on how to implement a readiness probe with \u003ca href=\"../../vertx-health-check/java/\"\u003eVert.x Health Checks\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_cluster_administration\"\u003e\u003ca class=\"anchor\" href=\"#_cluster_administration\"\u003e\u003c/a\u003eCluster administration\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe Hazelcast cluster manager works by turning Vert.x nodes into members of a Hazelcast cluster.\nAs a consequence, Vert.x cluster manager administration should follow the Hazelcast management guidelines.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eFirst, let\u0026#8217;s take a step back and introduce data partitioning and split-brain syndrome.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_data_partitioning\"\u003e\u003ca class=\"anchor\" href=\"#_data_partitioning\"\u003e\u003c/a\u003eData partitioning\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eEach Vert.x node holds pieces of the clustering data: eventbus subscriptions, async map entries, clustered counters\u0026#8230;\u0026#8203; etc.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eWhen a member joins or leaves the cluster, Hazelcast migrates data partitions.\nIn other words, it moves data around to accomodate the new cluster topology.\nThis process may take some time, depending on the amount of clustered data and number of nodes.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_split_brain_syndrome\"\u003e\u003ca class=\"anchor\" href=\"#_split_brain_syndrome\"\u003e\u003c/a\u003eSplit-brain syndrome\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIn a perfect world, there would be no network equipment failures.\nReality is, though, that sooner or later your cluster will be divided into smaller groups, unable to see each others.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eHazelcast is capable of merging the nodes back into a single cluster.\nBut just as with data partition migrations, this process may take some time.\nBefore the cluster is fully functional again, some eventbus consumers might not be able to get messages.\nOr high-availability may not be able to redeploy a failing verticle.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock note\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003eNote\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIt is difficult (if possible at all) to make a difference between a network partition and:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003elong GC pauses (leading to missed heartbeats checks),\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003emany nodes being killed forcefully, at-once, because you are deploying a new version of your application\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_recommendations\"\u003e\u003ca class=\"anchor\" href=\"#_recommendations\"\u003e\u003c/a\u003eRecommendations\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eConsidering the common clustering issues discussed above, it is recommended to stick to the following good practices.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect3\"\u003e\n\u003ch4 id=\"_graceful_shutdown\"\u003e\u003ca class=\"anchor\" href=\"#_graceful_shutdown\"\u003e\u003c/a\u003eGraceful shutdown\u003c/h4\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eAvoid stopping members forcefully (e.g, \u003ccode\u003ekill -9\u003c/code\u003e a node).\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eOf course process crashes are inevitable, but a graceful shutdown helps to get the remaining nodes in a stable state faster.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect3\"\u003e\n\u003ch4 id=\"one-by-one\"\u003e\u003ca class=\"anchor\" href=\"#one-by-one\"\u003e\u003c/a\u003eOne node after the other\u003c/h4\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eWhen rolling a new version of your app, scaling-up or down your cluster, add or remove nodes one after the other.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eStopping nodes one by one prevents the cluster from thinking a network partition occured.\nAdding them one by one allows for clean, incremental data partition migrations.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe cluster safety can be verified with \u003ca href=\"../../vertx-health-check/java/\"\u003eVert.x Health Checks\u003c/a\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eHandler\u0026lt;Promise\u0026lt;Status\u0026gt;\u0026gt; procedure = ClusterHealthCheck.createProcedure(vertx);\nHealthChecks checks = HealthChecks.create(vertx).register(\u003cspan class=\"hljs-string\"\u003e\"cluster-health\"\u003c/span\u003e, procedure);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eAfter creation, the health check can be exposed over HTTP with a \u003ca href=\"../../vertx-web/java/\"\u003eVert.x Web\u003c/a\u003e router handler:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eRouter router = Router.router(vertx);\nrouter.get(\u003cspan class=\"hljs-string\"\u003e\"/readiness\"\u003c/span\u003e).handler(HealthCheckHandler.createWithHealthChecks(checks));\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect3\"\u003e\n\u003ch4 id=\"_using_lite_members\"\u003e\u003ca class=\"anchor\" href=\"#_using_lite_members\"\u003e\u003c/a\u003eUsing Lite Members\u003c/h4\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo minimize the time a Vert.x cluster spends accomodating a new topology, you may use external data nodes and mark Vert.x nodes as \u003ca href=\"https://docs.hazelcast.org/docs/latest/manual/html-single/#enabling-lite-members\"\u003e\u003cem\u003eLite Members\u003c/em\u003e\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003e\u003cem\u003eLite Members\u003c/em\u003e participate in a Hazelcast cluster like regular members, but they do not own any data partition.\nTherefore, Hazelcast does not need to migrate partitions when such members are added or removed.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock important\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003eImportant\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nYou must start the external data nodes beforehand as Hazelcast won\u0026#8217;t create a cluster with \u003cem\u003eLite Members\u003c/em\u003e only.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo start an external node, you can use the Hazelcast distribution start script, or proceed programmatically.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eVert.x nodes can be marked as \u003cem\u003eLite Members\u003c/em\u003e in the XML configuration:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003elite-member\u003c/span\u003e \u003cspan class=\"hljs-attr\"\u003eenabled\u003c/span\u003e=\u003cspan class=\"hljs-string\"\u003e\"true\"\u003c/span\u003e/\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou can also do it programmatically:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eConfig hazelcastConfig = ConfigUtil.loadConfig()\n  .setLiteMember(\u003cspan class=\"hljs-keyword\"\u003etrue\u003c/span\u003e);\n\nClusterManager mgr = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e HazelcastClusterManager(hazelcastConfig);\n\nVertxOptions options = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e VertxOptions().setClusterManager(mgr);\n\nVertx.clusteredVertx(options, res -\u0026gt; {\n  \u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e (res.succeeded()) {\n    Vertx vertx = res.result();\n  } \u003cspan class=\"hljs-keyword\"\u003eelse\u003c/span\u003e {\n    \u003cspan class=\"hljs-comment\"\u003e// failed!\u003c/span\u003e\n  }\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e","version":"3.9.2"},"__N_SSG":true},"page":"/docs/[[...slug]]","query":{"slug":["3.9.2","vertx-hazelcast","java"]},"buildId":"cxMtii29jU7JjusZsEK6B","nextExport":false,"isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/chunks/polyfills-7cde6f5ea12aaa40097b.js"></script><script src="/_next/static/chunks/main-b6e20584df76f29b6f35.js" async=""></script><script src="/_next/static/chunks/webpack-d7b2fb72fb7257504a38.js" async=""></script><script src="/_next/static/chunks/framework.fcef98db13e2318579fb.js" async=""></script><script src="/_next/static/chunks/commons.5b8771ac6e8a338f82f1.js" async=""></script><script src="/_next/static/chunks/styles.6a5cc0a07ce13c54adf1.js" async=""></script><script src="/_next/static/chunks/pages/_app-3dbbc9c041333077c167.js" async=""></script><script src="/_next/static/chunks/5e2acbba0c73eb7c5c0e969bcd552d3808de9969.4d0eb9c3d4239c66cc89.js" async=""></script><script src="/_next/static/chunks/31acfd8439b7c9eee4abe9f59c7500d6c943ee0d.46f4cf2c4741679ce3eb.js" async=""></script><script src="/_next/static/chunks/pages/docs/%5B%5B...slug%5D%5D-a0e26e250e9304ae7812.js" async=""></script><script src="/_next/static/cxMtii29jU7JjusZsEK6B/_buildManifest.js" async=""></script><script src="/_next/static/cxMtii29jU7JjusZsEK6B/_ssgManifest.js" async=""></script></body></html>
