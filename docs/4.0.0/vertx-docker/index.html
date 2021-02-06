@@ -1,0 +1,683 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="description" content="Vert.x | Reactive applications on the JVM"/><meta name="robots" content="index,follow"/><link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&amp;display=swap" rel="stylesheet"/><link rel="shortcut icon" href="/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png"/><link rel="alternate" type="application/rss+xml" href="/feed/rss.xml"/><link rel="alternate" type="application/atom+xml" href="/feed/atom.xml"/><link rel="alternate" type="application/json" href="/feed/feed.json"/><title>Vert.x Docker Images | Eclipse Vert.x</title><meta name="next-head-count" content="16"/><link rel="preload" href="/_next/static/css/styles.046582db.chunk.css" as="style"/><link rel="stylesheet" href="/_next/static/css/styles.046582db.chunk.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/main-b6e20584df76f29b6f35.js" as="script"/><link rel="preload" href="/_next/static/chunks/webpack-d7b2fb72fb7257504a38.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.fcef98db13e2318579fb.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.5b8771ac6e8a338f82f1.js" as="script"/><link rel="preload" href="/_next/static/chunks/styles.6a5cc0a07ce13c54adf1.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-3dbbc9c041333077c167.js" as="script"/><link rel="preload" href="/_next/static/chunks/5df0631eea625b022d3730b3f1bf573e1b8deb37.0bd5dabe881df892af8c.js" as="script"/><link rel="preload" href="/_next/static/chunks/31acfd8439b7c9eee4abe9f59c7500d6c943ee0d.d71b4b971aaf8d601736.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/docs/%5B%5B...slug%5D%5D-6bd7a161e85c1ec1d9eb.js" as="script"/></head><body><div id="__next"><main class="page docs"><header><div class="navbar"><div class="navbar-content container"><div class="navbar-logo"><a href="/"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAxMTI1LjYgMzE1LjIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZT4uc3Qwe2ZpbGw6Izc4MmE5MX08L3N0eWxlPjxwYXRoIGQ9Ik0xMjAuOSAyMTQuMkwxOTAuNSAwaDUyLjNsLTk4LjUgMjczLjhIOTguMkwwIDBoNTIuMWw2OC44IDIxNC4yem0yOTEuMi02Mi42SDI5OS42djg0LjJINDMxdjM4SDI1MlYwaDE3Ny43djM4LjRIMjk5LjZWMTE0aDExMi41djM3LjZ6bTgzLjctMTEzLjJINTQ2YzE2LjUuMyAyOSA0LjQgMzcuMyAxMi40IDguMyA4IDEyLjUgMTkuNCAxMi41IDM0IDAgMTQtNC41IDI1LjEtMTMuNSAzMy4yLTkgOC4xLTIxLjYgMTIuMS0zNy42IDEyLjFoLTI3LjF2MjQuMmw4Ni4xIDExOS41aDUxdi0yLjRsLTc3LjItMTA2LjdjMjQuOS01LjUgNDMuMy0yMS43IDUyLjYtMzUuOSA4LjItMTIuNiAxMy4zLTI3LjcgMTMuMy00NiAwLTI2LjgtOC42LTQ3LjQtMjUuOC02MS41QzYwMC41IDcuMSA1NzYuMSAwIDU0NC41IDBoLTk2LjN2MjczLjhoNDcuNiIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMDUyLjMgMTU3LjdsLTQxLjUgNjIuNyAyOS43IDUzLjRoODUuMXoiLz48Y2lyY2xlIGNsYXNzPSJzdDAiIGN4PSI4MjcuOSIgY3k9IjI3NC43IiByPSI0MC41Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTEwMzcgMGwtNDcuNiA3NC4yTDk0OSAwaC04NGw4NS4zIDEzNS44LTY3LjEgMTA1LjdjNS43IDkuNSA5LjEgMjAuNSA5LjIgMzIuNGg1MC4xTDExMjEuMyAwSDEwMzd6Ii8+PHBhdGggZD0iTTc2My41IDI3My44Yy4xLTkuOSAyLjUtMTkuMiA2LjYtMjcuNVYzOC40aDg1LjRWMEg2MzguMnYzOC40aDg0LjZ2MjM1LjRoNDAuN3oiLz48L3N2Zz4=" alt="Vert.x Logo"/></a></div><div class="navbar-collapse-button"><span></span><span></span><span></span></div><div class="navbar-right"><div class="navbar-menu"><a class="navbar-menu-item" href="/introduction-to-vertx-and-reactive/">简介</a><a class="navbar-menu-item" href="/docs/">文档</a><a class="navbar-menu-item" href="/faq/">答疑</a><a class="navbar-menu-item" href="/blog/">博客</a><a class="navbar-menu-item" href="/community/">社区</a><a class="navbar-menu-item" href="/translation/">翻译团队</a></div><div class="navbar-social"><a href="https://github.com/vert-x3/vertx-awesome" class="navbar-social-link" title="Awesome Vert.x" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="List of awesome Vert.x projects"><title>Awesome Vert.x</title><path d="M24 11.438l-6.154-5.645-.865.944 5.128 4.7H1.895l5.128-4.705-.865-.943-6.154 5.649H0v3.72c0 1.683 1.62 3.053 3.61 3.053h3.795c1.99 0 3.61-1.37 3.61-3.051v-2.446h1.97v2.446c0 1.68 1.62 3.051 3.61 3.051h3.794c1.99 0 3.61-1.37 3.61-3.051v-3.721z"></path></svg></a><a href="https://stackoverflow.com/questions/tagged/vert.x" class="navbar-social-link" title="Stack Overflow" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Stack Overflow questions related to Vert.x"><title>Stack Overflow</title><path d="M18.986 21.865v-6.404h2.134V24H1.844v-8.539h2.13v6.404h15.012zM6.111 19.731H16.85v-2.137H6.111v2.137zm.259-4.852l10.48 2.189.451-2.07-10.478-2.187-.453 2.068zm1.359-5.056l9.705 4.53.903-1.95-9.706-4.53-.902 1.936v.014zm2.715-4.785l8.217 6.855 1.359-1.62-8.216-6.853-1.35 1.617-.01.001zM15.751 0l-1.746 1.294 6.405 8.604 1.746-1.294L15.749 0h.002z"></path></svg></a><a href="https://www.youtube.com/channel/UCGN6L3tRhs92Uer3c6VxOSA" class="navbar-social-link" title="YouTube" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="YouTube channel of Vert.x"><title>YouTube</title><path d="M23.499 6.203a3.008 3.008 0 00-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 00-2.088 2.09A31.258 31.26 0 000 12.01a31.258 31.26 0 00.523 5.785 3.008 3.008 0 002.088 2.089c1.869.502 9.4.502 9.4.502s7.508 0 9.399-.502a3.008 3.008 0 002.089-2.09 31.258 31.26 0 00.5-5.784 31.258 31.26 0 00-.5-5.808zm-13.891 9.4V8.407l6.266 3.604z"></path></svg></a><a href="https://discord.gg/KzEMwP2" class="navbar-social-link" title="Discord" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Eclipse Vert.x channel on Discord"><title>Discord</title><path d="M20.222 0c1.406 0 2.54 1.137 2.607 2.475V24l-2.677-2.273-1.47-1.338-1.604-1.398.67 2.205H3.71c-1.402 0-2.54-1.065-2.54-2.476V2.48C1.17 1.142 2.31.003 3.715.003h16.5L20.222 0zm-6.118 5.683h-.03l-.202.2c2.073.6 3.076 1.537 3.076 1.537-1.336-.668-2.54-1.002-3.744-1.137-.87-.135-1.74-.064-2.475 0h-.2c-.47 0-1.47.2-2.81.735-.467.203-.735.336-.735.336s1.002-1.002 3.21-1.537l-.135-.135s-1.672-.064-3.477 1.27c0 0-1.805 3.144-1.805 7.02 0 0 1 1.74 3.743 1.806 0 0 .4-.533.805-1.002-1.54-.468-2.14-1.404-2.14-1.404s.134.066.335.2h.06c.03 0 .044.015.06.03v.006c.016.016.03.03.06.03.33.136.66.27.93.4.466.202 1.065.403 1.8.536.93.135 1.996.2 3.21 0 .6-.135 1.2-.267 1.8-.535.39-.2.87-.4 1.397-.737 0 0-.6.936-2.205 1.404.33.466.795 1 .795 1 2.744-.06 3.81-1.8 3.87-1.726 0-3.87-1.815-7.02-1.815-7.02-1.635-1.214-3.165-1.26-3.435-1.26l.056-.02zm.168 4.413c.703 0 1.27.6 1.27 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334.002-.74.573-1.338 1.27-1.338zm-4.543 0c.7 0 1.266.6 1.266 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334 0-.74.57-1.338 1.27-1.338z"></path></svg></a><a href="https://groups.google.com/forum/?fromgroups#!forum/vertx" class="navbar-social-link" title="Vert.x User Group" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="A Google group for Vert.x users"><title>Vert.x User Group</title><path d="M.92 3.332c-.776 0-1.216.67-.692 1.383l2.537 4.403v7.86c0 2.013 1.467 3.69 3.459 3.69H20.31a3.75 3.75 0 003.69-3.69V7.043a3.723 3.723 0 00-3.668-3.71zm5.786 3.71H20.1c.587 0 1.153.357 1.153.923 0 .566-.566.922-1.153.922H6.706c-.587 0-1.153-.356-1.153-.922 0-.566.566-.923 1.153-.923zm0 3.69H20.1c.587 0 1.153.356 1.153.922 0 .566-.566.922-1.153.922H6.706c-.587 0-1.153-.356-1.153-.922 0-.566.566-.922 1.153-.922zm-.021 3.71h9.705c.587 0 1.153.356 1.153.922 0 .566-.566.923-1.153.923H6.685c-.587 0-1.153-.357-1.153-.923 0-.566.566-.922 1.153-.922Z"></path></svg></a><a href="https://shang.qq.com/wpa/qunwpa?idkey=587f58cacb9557e3291b46098e0fe09427b98a1c0f866da23c04c2762bc7e2ad" class="navbar-social-link" title="Vert.x中国用户组QQ群" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Vert.x中国用户组QQ群"><title>Vert.x中国用户组QQ群</title><path d="M21.395 15.035a39.548 39.548 0 0 0-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 0 0-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673zM12.662 4.846c.039-1.052.659-1.878 1.385-1.846s1.281.912 1.242 1.964c-.039 1.051-.659 1.878-1.385 1.846s-1.282-.912-1.242-1.964zM9.954 3c.725-.033 1.345.794 1.384 1.846.04 1.052-.517 1.931-1.242 1.963-.726.033-1.346-.794-1.385-1.845C8.672 3.912 9.228 3.033 9.954 3zM7.421 8.294c.194-.43 2.147-.908 4.566-.908h.026c2.418 0 4.372.479 4.566.908a.14.14 0 0 1 .014.061c0 .031-.01.059-.026.083-.163.238-2.333 1.416-4.553 1.416h-.026c-2.221 0-4.39-1.178-4.553-1.416a.136.136 0 0 1-.014-.144zm10.422 8.622c-.22 3.676-2.403 5.987-5.774 6.021h-.137c-3.37-.033-5.554-2.345-5.773-6.021-.081-1.35.001-2.496.147-3.43.318.063.638.122.958.176v3.506s1.658.334 3.318.103v-3.225c.488.027.96.04 1.406.034h.025c1.678.021 3.714-.204 5.683-.594.146.934.227 2.08.147 3.43zM10.48 5.804c.313-.041.542-.409.508-.825-.033-.415-.314-.72-.629-.679-.313.04-.541.409-.508.824.034.417.315.72.629.68zM14.479 5.156c.078.037.221.042.289-.146.035-.095.025-.165-.009-.214-.023-.033-.133-.118-.371-.176-.904-.22-1.341.384-1.405.499-.04.072-.012.176.056.227.067.051.139.037.179-.006.58-.628 1.21-.208 1.261-.184z"></path></svg></a></div></div></div></div></header><div class="page-content docs-content"><div class="container"><div class="docs-content-wrapper"><aside class=""><div class="docs-content-wrapper-sidebar"><div class="search-panel"><div class="search"><input type="text" placeholder="Search..." value=""/><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon-delete"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></div><ul class="search-results"></ul><div class="search-results-none">No results.</div></div><div class="docs-content-toc"><div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_the_base_image">The base image</a>
+<ul class="sectlevel2">
+<li><a href="#_deploying_a_groovy_verticle_in_a_docker_container">Deploying a Groovy verticle in a docker container</a></li>
+<li><a href="#_deploying_a_java_verticle_in_a_docker_container">Deploying a Java verticle in a docker container</a></li>
+<li><a href="#_configuration">Configuration</a></li>
+<li><a href="#_build_docker_images_with_maven">Build Docker Images with Maven</a></li>
+<li><a href="#_build_docker_images_for_fabric_8">Build Docker Images for Fabric 8</a></li>
+</ul>
+</li>
+<li><a href="#_the_executable_image">The executable image</a>
+<ul class="sectlevel2">
+<li><a href="#_customizing_the_stack">Customizing the stack</a></li>
+</ul>
+</li>
+<li><a href="#_deploying_a_fat_jar">Deploying a fat jar</a></li>
+</ul>
+</div></div></div></aside><div class="docs-content-sidebar-toggle"><div style="position:relative"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div></div><div class="docs-content-inner"><div class="docs-content-metadata"><div class="docs-content-metadata-left"><div><a href="https://vertx.io/docs/apidocs"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> API</a></div><span class="docs-content-metadata-version"><div class="dropdown"><a class="dropdown-title">v3.9.5<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a><ul class="dropdown-menu"><a href="/docs/3.9.5undefined"><li class="dropdown-item">v<!-- -->3.9.5</li></a><a href="/docs/3.9.4undefined"><li class="dropdown-item">v<!-- -->3.9.4</li></a><a href="/docs/3.9.3undefined"><li class="dropdown-item">v<!-- -->3.9.3</li></a><a href="/docs/3.9.2undefined"><li class="dropdown-item">v<!-- -->3.9.2</li></a><a href="/docs/3.9.1undefined"><li class="dropdown-item">v<!-- -->3.9.1</li></a><a href="/docs/3.9.0undefined"><li class="dropdown-item">v<!-- -->3.9.0</li></a></ul></div></span></div></div><div><h1>Vert.x Docker Images</h1>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Execute Vert.x applications in Docker containers.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://www.docker.com/">Docker</a> lets you deploy applications inside lightweight and isolated software containers.
+Applications run side by side in isolated Linux containers. If you never used Docker before check this online <a href="https://docs.docker.com/get-started/">tutorial</a>.</p>
+</div>
+<div class="paragraph">
+<p>Vert.x provides Docker images that you can use to run your applications. Two Docker images are provided:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>vertx/vertx3</code> is the base image you need to extend to run your own application</p>
+</li>
+<li>
+<p><code>vertx/vertx3-exec</code> is providing the <code>vertx</code> command to your system without having to install <code>vert.x</code> yourself.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The images are available from <a href="https://hub.docker.com/u/vertx/">Docker Hub</a>.</p>
+</div>
+<div class="paragraph">
+<p>This guide presents how to use these two images but also how to automate Docker image creation using Maven, generate
+Fabric8 metadata and use <em>fat jars</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_base_image"><a class="anchor" href="#_the_base_image"></a>The base image</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The base image (<code>vertx/vertx3</code>) lets you run your vert.x application in a Docker container. For this, you must
+<em>extend</em> the image to deploy your own application - <em>i.e.</em> create your own <code>Dockerfile</code> inheriting from
+<code>vertx/vertx3</code>. Your application is then  launched using the <code>vertx</code> command (but in the container).</p>
+</div>
+<div class="sect2">
+<h3 id="_deploying_a_groovy_verticle_in_a_docker_container"><a class="anchor" href="#_deploying_a_groovy_verticle_in_a_docker_container"></a>Deploying a Groovy verticle in a docker container</h3>
+<div class="paragraph">
+<p>Running a groovy verticle in a docker container is not much different. Instead of the <code>hello-verticle.js</code> from the
+previous example, we now have a <code>hello-verticle.groovy</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">hello-verticle.groovy</div>
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">vertx.createHttpServer().requestHandler({ request -&gt;
+    request.response().end(<span class="hljs-string">"Groovy world"</span>)
+}).listen(<span class="hljs-number">8080</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So, in the <code>Dockerfile</code> we just change the verticle file name:</p>
+</div>
+<div class="listingblock">
+<div class="title">Dockerfile</div>
+<div class="content">
+<pre class="highlight"><code># Extend vert.x image
+FROM vertx/vertx3
+
+# Set the name of the verticle to deploy
+ENV VERTICLE_NAME hello-verticle.groovy
+
+# Set the location of the verticles
+ENV VERTICLE_HOME /usr/verticles
+
+EXPOSE 8080
+
+# Copy your verticle to the container
+COPY $VERTICLE_NAME $VERTICLE_HOME/
+
+# Launch the verticle
+WORKDIR $VERTICLE_HOME
+ENTRYPOINT ["sh", "-c"]
+CMD ["exec vertx run $VERTICLE_NAME -cp $VERTICLE_HOME/*"]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The build and run instructions are very close to the previous ones:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&gt; docker build -t sample/vertx-groovy .
+....
+&gt; docker run -t -i -p 8080:8080 sample/vertx-groovy</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deploying_a_java_verticle_in_a_docker_container"><a class="anchor" href="#_deploying_a_java_verticle_in_a_docker_container"></a>Deploying a Java verticle in a docker container</h3>
+<div class="paragraph">
+<p>So, now let&#8217;s see how to deploy a Java verticle. Again it&#8217;s not different from the previous examples, except that we
+copy the verticle <em>jar</em> file to the container. Let&#8217;s take the following verticle:</p>
+</div>
+<div class="listingblock">
+<div class="title">io.vertx.sample.hello.HelloVerticle</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java"><span class="hljs-keyword">package</span> io.vertx.sample.hello;
+
+<span class="hljs-keyword">import</span> io.vertx.core.AbstractVerticle;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloVerticle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractVerticle</span> </span>{
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">start</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+    vertx.createHttpServer().requestHandler(request -&gt; {
+      request.response().end(<span class="hljs-string">"Hello Java world"</span>);
+    }).listen(<span class="hljs-number">8080</span>);
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s now imagine that this verticle is packaged into the <code>target/hello-verticle-1.0.-SNAPSHOT.jar</code> jar file. So the
+<code>Dockerfile</code> needs to copy this file but also gives to vert.x the verticle class name:</p>
+</div>
+<div class="listingblock">
+<div class="title">Dockerfile</div>
+<div class="content">
+<pre># Extend vert.x image
+FROM vertx/vertx3
+
+#                                                       <b class="conum">(1)</b>
+ENV VERTICLE_NAME io.vertx.sample.hello.HelloVerticle
+ENV VERTICLE_FILE target/hello-verticle-1.0-SNAPSHOT.jar
+
+# Set the location of the verticles
+ENV VERTICLE_HOME /usr/verticles
+
+EXPOSE 8080
+
+# Copy your verticle to the container                   <b class="conum">(2)</b>
+COPY $VERTICLE_FILE $VERTICLE_HOME/
+
+# Launch the verticle
+WORKDIR $VERTICLE_HOME
+ENTRYPOINT ["sh", "-c"]
+CMD ["exec vertx run $VERTICLE_NAME -cp $VERTICLE_HOME/*"]</pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Unlike the previous examples, here we set the verticle class name and the jar file</p>
+</li>
+<li>
+<p>The jar file is copied.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Build and run instructions do not change:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&gt; docker build -t sample/vertx-java .
+....
+&gt; docker run -t -i -p 8080:8080 sample/vertx-java</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h3>
+<div class="paragraph">
+<p>The previous `Dockerfile`s did not configure vert.x. Let&#8217;s see how such configuration can be added.</p>
+</div>
+<div class="sect3">
+<h4 id="_configuring_the_java_virtual_machine"><a class="anchor" href="#_configuring_the_java_virtual_machine"></a>Configuring the Java Virtual Machine</h4>
+<div class="paragraph">
+<p>You can configure the Java Virtual Machine using the <code>JAVA_OPTS</code> environment variable. So in the <code>Dockerfile</code> adds:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ENV JAVA_OPTS "-Dfoo=bar"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vertx_opts"><a class="anchor" href="#_vertx_opts"></a>VERTX_OPTS</h4>
+<div class="paragraph">
+<p>System variables specific to vert.x can be configured using the <code>VERTX_OPTS</code> environment variable:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ENV VERTX_OPTS "-Dvertx.options.eventLoopPoolSize=26 -Dvertx.options.deployment.worker=true"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_classpath"><a class="anchor" href="#_classpath"></a>Classpath</h4>
+<div class="paragraph">
+<p>You can configure the classpath of the application using either the <code>-cp</code> parameter of the vert.x command or the
+<code>CLASSPATH</code> environment variable:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ENV CLASSPATH "/usr/verticles/libs/foo.jar:/usr/verticles/libs/bar.jar:"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_logging"><a class="anchor" href="#_logging"></a>Logging</h4>
+<div class="paragraph">
+<p>To configure the <code>logging.properties</code> file (that let you customize JUL loggers`), set the <code>VERTX_JUL_CONFIG</code>
+environment variables:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>COPY ./logging.properties $VERTICLE_HOME/                       <b class="conum">(1)</b>
+ENV VERTX_JUL_CONFIG $VERTICLE_HOME/logging.properties          <b class="conum">(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Copy your <code>logging.properties</code> file</p>
+</li>
+<li>
+<p>Set the <code>VERTX_JUL_CONFIG</code> environment variable</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_clustering"><a class="anchor" href="#_clustering"></a>Clustering</h4>
+<div class="paragraph">
+<p>You can provide your own <code>cluster.xml</code> file, and add it to the classpath. To build a dynamic classpath from all the
+file contained in <code>$VERTICLE_HOME</code> you can use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>COPY ./cluster.xml $VERTICLE_HOME/
+# ...
+CMD [export CLASSPATH=`find $VERTICLE_HOME -printf '%p:' | sed 's/:$//'`; exec vertx run $VERTICLE_NAME"]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice the <code>export CLASSPATH=&#8230;&#8203;;</code> part in the <code>CMD</code> instruction. It builds the value of the <code>CLASSPATH</code> variable from
+the content of the <code>$VERTICLE_HOME</code> directory. This tricks is useful to compute large and dynamic classpath.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_build_docker_images_with_maven"><a class="anchor" href="#_build_docker_images_with_maven"></a>Build Docker Images with Maven</h3>
+<div class="paragraph">
+<p>There are a couple of Maven plugins to build your Docker images during your Maven build process. This example uses the
+<a href="https://github.com/spotify/docker-maven-plugin">docker-maven-plugin</a> from Spotify.</p>
+</div>
+<div class="paragraph">
+<p>First, create your Java project as usual. So your sources are located in <code>src/main/java</code>&#8230;&#8203; Then create a
+<code>src/main/docker</code> directory and create a <code>Dockerfile</code> inside:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>.
+├── pom.xml
+├── src
+│   └── main
+│       ├── docker
+│       │   └── Dockerfile
+│       └── java
+│           └── io
+│               └── vertx
+│                   └── example
+│                       └── HelloWorldVerticle.java
+├── target</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the <code>pom.xml</code> file add the following plugin configuration</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.spotify<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>docker-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.2.8<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>docker<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">phase</span>&gt;</span>package<span class="hljs-tag">&lt;/<span class="hljs-name">phase</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>build<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dockerDirectory</span>&gt;</span>${project.basedir}/src/main/docker<span class="hljs-tag">&lt;/<span class="hljs-name">dockerDirectory</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- Configure the image name --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">imageName</span>&gt;</span>sample/vertx-hello<span class="hljs-tag">&lt;/<span class="hljs-name">imageName</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">targetPath</span>&gt;</span>/verticles<span class="hljs-tag">&lt;/<span class="hljs-name">targetPath</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>${project.build.directory}<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>${project.artifactId}-${project.version}.jar<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- don't forget to also add all the dependencies required by your application --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The plugin copies the listed content into <code>target/docker</code>. Each resource is copied into the set <code>targetPath</code>. So edit
+ the <code>src/main/docker/Dockerfile</code> and add the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>FROM vertx/vertx3
+
+ENV VERTICLE_HOME /usr/verticles
+ENV VERTICLE_NAME io.vertx.example.HelloWorldVerticle
+
+COPY ./verticles $VERTICLE_HOME
+
+ENTRYPOINT ["sh", "-c"]
+CMD ["exec vertx run $VERTICLE_NAME -cp $VERTICLE_HOME/*"]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It&#8217;s basically the same content as we saw above. The copy is a bit different as the plugin have placed
+files in the same directory as the <code>Dockerfile</code>.</p>
+</div>
+<div class="paragraph">
+<p>Once configured the image is built using: <code>mvn clean package</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_build_docker_images_for_fabric_8"><a class="anchor" href="#_build_docker_images_for_fabric_8"></a>Build Docker Images for Fabric 8</h3>
+<div class="paragraph">
+<p><a href="http://fabric8.io/">Fabric 8</a> is an open source set of micro-services that run on top of Kubernetes and OpenShift V3 to
+ provide management, continuous delivery and iPaas facilities. You can execute vert.x application on top of Fabric 8
+ by packaging them into a Docker image. However, additional metadata is required. In this example, we are going to
+ use the <a href="https://github.com/rhuss/docker-maven-plugin">docker-maven-plugin</a> from Roland Huß.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s set up the following structure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>.
+├── pom.xml
+├── src
+│   └── main
+│       ├── docker
+│       │   └── assembly.xml
+│       └── java
+│           └── io
+│               └── vertx
+│                   └── example
+│                       └── HelloWorldVerticle.java
+└── target</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Unlike the maven plugin from Spotify, this plugin takes an <code>assembly.xml</code> as input. The file lists all the files that
+ need to be copied to the docker container such as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"> <span class="hljs-tag">&lt;<span class="hljs-name">assembly</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">dependencySets</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">dependencySet</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>:${project.artifactId}<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-name">outputDirectory</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">outputDirectory</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-name">dependencySet</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">dependencySets</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">assembly</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The rest of the <code>Dockerfile configuration is given in the `pom.xml</code> file. Add the following plugin to the <code>pom.xml</code>
+ file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"> <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.jolokia<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>docker-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.11.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>build<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">phase</span>&gt;</span>package<span class="hljs-tag">&lt;/<span class="hljs-name">phase</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>build<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">images</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">image</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>${docker.image}<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">from</span>&gt;</span>vertx/vertx3<span class="hljs-tag">&lt;/<span class="hljs-name">from</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">tags</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tag</span>&gt;</span>${project.version}<span class="hljs-tag">&lt;/<span class="hljs-name">tag</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">tags</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ports</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">port</span>&gt;</span>8080<span class="hljs-tag">&lt;/<span class="hljs-name">port</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">ports</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">command</span>&gt;</span>vertx run io.vertx.example.HelloWorldVerticle -cp
+            /usr/verticles/${project.artifactId}-${project.version}.jar
+          <span class="hljs-tag">&lt;/<span class="hljs-name">command</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">assembly</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">mode</span>&gt;</span>dir<span class="hljs-tag">&lt;/<span class="hljs-name">mode</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">basedir</span>&gt;</span>/usr/verticles<span class="hljs-tag">&lt;/<span class="hljs-name">basedir</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">descriptor</span>&gt;</span>assembly.xml<span class="hljs-tag">&lt;/<span class="hljs-name">descriptor</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">assembly</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">image</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">images</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To configure the container more finely, check the
+<a href="https://github.com/rhuss/docker-maven-plugin/blob/master/doc/manual.md">manual</a>. All the <em>instructions</em> we put in the
+<code>Dockerfile</code> can be set from the plugin.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">注意</div>
+</td>
+<td class="content">
+The previous <code>pom.xml</code> file use a properties called <code>docker.image</code> setting the image name. Don&#8217;t forget to set
+it in your pom.xml` file.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Once you have this configuration in place, we need a second plugin to generate the metadata required by Fabric8:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.fabric8<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>fabric8-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>json<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">phase</span>&gt;</span>generate-resources<span class="hljs-tag">&lt;/<span class="hljs-name">phase</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>json<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>attach<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">phase</span>&gt;</span>package<span class="hljs-tag">&lt;/<span class="hljs-name">phase</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>attach<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once set up, you can build your docker image with: <code>mvn clean package</code>. It creates the <code>kubernates.json</code> file
+required by Fabric8. Then push your image on the Docker Registry provided by Fabric8:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sh" data-lang="sh">docker push <span class="hljs-variable">$DOCKER_REGISTRY</span>/sample/vertx-hello</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t forget to set the <code>DOCKER_REGISTRY</code> url to point on the registry managed by Fabric8. The last step is to
+<em>apply</em> it with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sh" data-lang="sh">mvn io.fabric8:fabric8-maven-plugin:2.1.4:apply</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_executable_image"><a class="anchor" href="#_the_executable_image"></a>The executable image</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>vertx/vertx3-exec</code> image provides the <code>vertx</code> command to the host. So no need to install vert.x on your machine,
+ you can just use this docker image.</p>
+</div>
+<div class="paragraph">
+<p>For instance:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell"><span class="hljs-meta">&gt;</span><span class="bash"> docker run -i -t vertx/vertx3-exec -version</span>
+4.0.0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To run a verticle:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">docker run -i -t -p 8080:8080 \
+    -v $PWD:/verticles vertx/vertx3-exec \
+    run io.vertx.sample.RandomGeneratorVerticle \
+    -cp /verticles/MY_VERTICLE.jar</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command mounts the current directory (<code>PWD</code>) into <code>/verticles</code> and then launch the <code>vertx run</code> command. Notice the
+<code>-cp</code> parameter reusing the <code>/verticles</code> directory.</p>
+</div>
+<div class="sect2">
+<h3 id="_customizing_the_stack"><a class="anchor" href="#_customizing_the_stack"></a>Customizing the stack</h3>
+<div class="paragraph">
+<p>The <code>vertx/vertx3-exec</code> image provides the default "full" Vert.x stack. You may want to customize this stack and create
+ your own exec image. First, create a <code>vertx-stack.json</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  <span class="hljs-attr">"variables"</span>: {
+    <span class="hljs-attr">"vertx.version"</span>: <span class="hljs-string">"3.3.3"</span>
+  },
+  <span class="hljs-attr">"dependencies"</span>: [
+    {
+      <span class="hljs-attr">"groupId"</span>: <span class="hljs-string">"io.vertx"</span>,
+      <span class="hljs-attr">"artifactId"</span>: <span class="hljs-string">"vertx-web"</span>,
+      <span class="hljs-attr">"version"</span>: <span class="hljs-string">"${vertx.version}"</span>,
+      <span class="hljs-attr">"included"</span>: <span class="hljs-literal">true</span>
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can list any dependency you need, not just the Vert.x artifacts
+(refer to the <a href="http://vertx.io/docs/vertx-stack-manager/stack-manager/">Stack Manager documentation</a> for details).</p>
+</div>
+<div class="paragraph">
+<p>Then write a <code>Dockerfile</code> for your custom executable image:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>FROM vertx/vertx3-exec                                     <b class="conum">(1)</b>
+
+COPY vertx-stack.json ${VERTX_HOME}/vertx-stack.json       <b class="conum">(2)</b>
+
+RUN vertx resolve &amp;&amp; rm -rf ${HOME}/.m2                    <b class="conum">(3)</b></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Extend the Vert.x executable image</p>
+</li>
+<li>
+<p>Replace the stack file in the Vert.x command installation</p>
+</li>
+<li>
+<p>Resolve dependencies</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You should know be able to build your custom executable image:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">docker build -t mycompany/my-vertx3-exec .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And run your verticle:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">docker run -i -t -p 8080:8080 \
+    -v $PWD:/verticles mycompany/my-vertx3-exec \
+    run io.vertx.sample.RandomGeneratorVerticle \
+    -cp /verticles/MY_VERTICLE.jar</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deploying_a_fat_jar"><a class="anchor" href="#_deploying_a_fat_jar"></a>Deploying a fat jar</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is also possible to deploy a Vert.x application packaged as a <em>fat jar</em> into a docker container. For this you
+don&#8217;t need the images provided by Vert.x, you can directly use a base <em>Java</em> image. Let&#8217;s have a look.</p>
+</div>
+<div class="paragraph">
+<p>First, be sure your application is packaged as a <em>fat jar</em>. Then, use the following <code>Dockerfile</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>FROM openjdk:8-jre-alpine                                           <b class="conum">(1)</b>
+
+ENV VERTICLE_FILE hello-verticle-fatjar-3.0.0-SNAPSHOT-fat.jar      <b class="conum">(2)</b>
+
+# Set the location of the verticles
+ENV VERTICLE_HOME /usr/verticles
+
+EXPOSE 8080
+
+# Copy your fat jar to the container
+COPY target/$VERTICLE_FILE $VERTICLE_HOME/                          <b class="conum">(3)</b>
+
+# Launch the verticle
+WORKDIR $VERTICLE_HOME
+ENTRYPOINT ["sh", "-c"]
+CMD ["exec java -jar $VERTICLE_FILE"]                               <b class="conum">(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Extend the image providing OpenJDK 8, use the one you want</p>
+</li>
+<li>
+<p>Set the <code>VERTICLE_FILE</code> to point on the <em>fat jar</em></p>
+</li>
+<li>
+<p>Copy the <em>Fat jar</em> from <em>target</em>. Change it if you don&#8217;t use Maven.</p>
+</li>
+<li>
+<p>Launch the application using the <code>java</code> executable (instead of <code>vertx</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>It&#8217;s basically the same <code>Dockerfile</code> as before. However, this time we extend <code>java:8</code> instead of the <code>vertx/vertx3</code>
+image. Then we copy the fat jar to the container, and launch it with the <code>java</code> executable. All the configuration
+settings presented above are still valid.</p>
+</div>
+<div class="paragraph">
+<p>Build and run the container with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&gt; docker build -t sample/vertx-java-fat .
+....
+&gt; docker run -t -i -p 8080:8080 sample/vertx-java-fat</code></pre>
+</div>
+</div>
+</div>
+</div></div></div></div></div></div><footer><div class="container"><div class="footer-nav-section"><div class="footer-nav-list footer-logo"><a href="/"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAxMTI1LjYgMzE1LjIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZT4uc3Qwe2ZpbGw6Izc4MmE5MX08L3N0eWxlPjxwYXRoIGQ9Ik0xMjAuOSAyMTQuMkwxOTAuNSAwaDUyLjNsLTk4LjUgMjczLjhIOTguMkwwIDBoNTIuMWw2OC44IDIxNC4yem0yOTEuMi02Mi42SDI5OS42djg0LjJINDMxdjM4SDI1MlYwaDE3Ny43djM4LjRIMjk5LjZWMTE0aDExMi41djM3LjZ6bTgzLjctMTEzLjJINTQ2YzE2LjUuMyAyOSA0LjQgMzcuMyAxMi40IDguMyA4IDEyLjUgMTkuNCAxMi41IDM0IDAgMTQtNC41IDI1LjEtMTMuNSAzMy4yLTkgOC4xLTIxLjYgMTIuMS0zNy42IDEyLjFoLTI3LjF2MjQuMmw4Ni4xIDExOS41aDUxdi0yLjRsLTc3LjItMTA2LjdjMjQuOS01LjUgNDMuMy0yMS43IDUyLjYtMzUuOSA4LjItMTIuNiAxMy4zLTI3LjcgMTMuMy00NiAwLTI2LjgtOC42LTQ3LjQtMjUuOC02MS41QzYwMC41IDcuMSA1NzYuMSAwIDU0NC41IDBoLTk2LjN2MjczLjhoNDcuNiIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMDUyLjMgMTU3LjdsLTQxLjUgNjIuNyAyOS43IDUzLjRoODUuMXoiLz48Y2lyY2xlIGNsYXNzPSJzdDAiIGN4PSI4MjcuOSIgY3k9IjI3NC43IiByPSI0MC41Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTEwMzcgMGwtNDcuNiA3NC4yTDk0OSAwaC04NGw4NS4zIDEzNS44LTY3LjEgMTA1LjdjNS43IDkuNSA5LjEgMjAuNSA5LjIgMzIuNGg1MC4xTDExMjEuMyAwSDEwMzd6Ii8+PHBhdGggZD0iTTc2My41IDI3My44Yy4xLTkuOSAyLjUtMTkuMiA2LjYtMjcuNVYzOC40aDg1LjRWMEg2MzguMnYzOC40aDg0LjZ2MjM1LjRoNDAuN3oiLz48L3N2Zz4=" alt="Vert.x Logo"/></a></div><div class="footer-nav-list"><h5>Eclipse Vert.x</h5><ul class=""><li><a class="navbar-menu-item" href="/docs/">文档</a></li><li><a href="/download/">下载</a></li><li><a href="/faq/">答疑</a></li><li><a href="/blog/">博客</a></li><li><a href="/community/">社区</a></li><li><a href="/translation/">翻译团队</a></li><li><a href="/channels/">Channels</a></li></ul></div><div class="footer-nav-list"><h5>Eclipse</h5><ul class=""><li><a href="https://www.eclipse.org/">Eclipse Foundation</a></li><li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li><li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li><li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li><li><a href="https://www.eclipse.org/legal/">Legal Resources</a></li></ul></div></div><div class="footer-copyright"><div class="footer-copyright-remarks">© <!-- -->2021<!-- --> Eclipse Vert.x<br/>Eclipse Vert.x is open source and dual-licensed under the <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">Eclipse Public License 2.0</a> and the <a href="https://www.apache.org/licenses/LICENSE-2.0.html" target="_blank" rel="noopener noreferrer">Apache License 2.0</a>. <br class="footer-copyright-break"/>Website design by <a href="https://michelkraemer.com" target="_blank" rel="noopener noreferrer">Michel Krämer</a>.</div><div class="footer-copyright-eclipse-logo"><a href="https://www.eclipse.org/" target="_blank" rel="noopener noreferrer"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAyODEuMyA5MS4xIiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGU+LnN0MHtmaWxsOiNmNzk0MjJ9LnN0MXtmaWxsOiMzZDNjM2J9PC9zdHlsZT48ZyBpZD0iTGF5ZXJfMV8xXyI+PHBhdGggY2xhc3M9InN0MCIgZD0iTTI2NS43IDg0TDI1NyA3M2gtMi43djE3LjdoMy4zdi0xMmw5LjMgMTJoMi4xVjczaC0zLjN2MTF6bS0zMi40LTguM2M0LjIgMCA1LjggMy4zIDUuOCA2LjNzLTEuNiA2LTUuOCA2LTUuNy0zLjEtNS44LTYgMS43LTYuMyA1LjgtNi4zem0wLTNjLTYuMSAwLTkuMSA0LjctOS4xIDkuMyAwIDQuNyAyLjkgOS4xIDkuMSA5LjFzOS00LjYgOS4xLTkuMi0zLTkuMi05LjEtOS4yem0tMjEuMiAxOFY3M2gtMy4zdjE3LjdoMy4zem0tMjMuNiAwaDMuM1Y3Nmg1LjZ2LTNoLTE0LjZ2M2g1LjZsLjEgMTQuN3ptLTE4LjktNi41SDE2M2wzLjMtNy42IDMuMyA3LjZ6bTIuOCA2LjVoMy42TDE2OC4yIDczaC0zLjZsLTggMTcuN2gzLjZsMS41LTMuM2g5LjNsMS40IDMuM3ptLTM4LTE0LjZoMy42YzMuOSAwIDUuNSAyLjggNS41IDUuNS4xIDIuOC0xLjUgNS44LTUuNSA1LjhoLTMuNlY3Ni4xem0zLjctMy4xaC02Ljl2MTcuN2g2LjljNi4yIDAgOC45LTQuNSA4LjktOXMtMi44LTguNy04LjktOC43em0tMjIuNCAxMUwxMDcgNzNoLTIuN3YxNy43aDMuM3YtMTJsOS4zIDEyaDIuMVY3M2gtMy4zdjExek04OC4yIDczdjEwLjJjMCAzLTEuNiA0LjktNC4zIDQuOXMtNC42LTEuNy00LjYtNC45VjczSDc2djEwLjFjMCA1LjMgMy42IDcuOSA3LjkgNy45IDQuNCAwIDcuNy0yLjcgNy43LTcuOVY3M2gtMy40em0tMzMgMi43YzQuMiAwIDUuOCAzLjMgNS44IDYuM3MtMS42IDYtNS44IDYtNS43LTMuMS01LjgtNiAxLjctNi4zIDUuOC02LjN6bTAtM2MtNi4xIDAtOS4xIDQuNy05LjEgOS4zczIuOSA5LjEgOS4xIDkuMSA5LTQuNiA5LjEtOS4yLTMtOS4yLTkuMS05LjJ6bS0yOS43IDE4di02LjVoOC45di0zLjFoLTguOXYtNC44aDkuNFY3M0gyMi4ydjE3LjZoMy4zeiIvPjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yNjkuNCA1NC40aC0yMi4ydi04LjloMjEuNHYtNi45aC0yMS40di05LjFoMjIuMnYtNy4yaC0yOS42djM5LjVoMjkuNnYtNy40em0tNDAtMjUuNmMtMy02LjEtOS40LTcuOC0xNS41LTcuOC03LjMgMC0xNS4zIDMuNC0xNS4zIDExLjUgMCA4LjkgNy40IDExIDE1LjUgMTIgNS4yLjYgOS4xIDIuMSA5LjEgNS44IDAgNC4zLTQuNCA1LjktOS4xIDUuOXMtOS40LTEuOS0xMS4xLTYuM2wtNi4yIDMuMmMyLjkgNy4yIDkuMSA5LjcgMTcuMiA5LjcgOC44IDAgMTYuNi0zLjggMTYuNi0xMi42IDAtOS40LTcuNy0xMS42LTE1LjktMTIuNi00LjctLjYtOC44LTEuNS04LjgtNSAwLTIuOSAyLjYtNS4yIDguMi01LjIgNC4zIDAgOCAyLjIgOS40IDQuNGw1LjktM3pNMTc2IDIyLjJjLTYuMi0uMS0xMi40IDAtMTguNiAwdjM5LjVoNy40VjUwLjFIMTc2YzE5LjQgMCAxOS40LTI3LjkgMC0yNy45em0tMTEuMSA3LjFIMTc2YzkuNSAwIDkuNSAxNCAwIDE0aC0xMS4ybC4xLTE0em0tMTggMzIuNVYyMi4yaC03LjR2MzkuNWw3LjQuMXptLTQ0LTM5LjZ2MzkuNWgyNy43di02LjloLTIwLjNWMjIuMmgtNy40ek05MC43IDUxLjdjLTIuNyAyLjUtNi4yIDQtOS45IDQtOS44IDAtMTMuNS02LjgtMTMuNi0xMy40czQuMS0xMy43IDEzLjYtMTMuN2MzLjUtLjEgNyAxLjMgOS41IDMuN2w1LTQuOGMtMy44LTMuOS05LjEtNi0xNC41LTYtMTQuMyAwLTIxIDEwLjUtMjAuOSAyMC44czYuMyAyMC4zIDIwLjkgMjAuM2M1LjYuMSAxMS0yIDE1LTUuOWwtNS4xLTV6bS0zOSAyLjdIMjkuNXYtOC45aDIxLjR2LTYuOUgyOS41di05LjFoMjIuMnYtNy4ySDIyLjJ2MzkuNWgyOS42bC0uMS03LjR6Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTkuOCAxOC4yQzE4LjggNC4xIDM2LjktLjggNTIuMSA2bC0xLS43QzM1LjctNC42IDE1LjItLjEgNS4zIDE1LjNzLTUuNCAzNS45IDEwIDQ1LjhsMS4xLjZDMy44IDUwLjguOCAzMi4zIDkuOCAxOC4yeiIvPjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yNzIuMiAyNi4xYzAtMi41IDIuMS00LjYgNC42LTQuNiAyLjUgMCA0LjYgMi4xIDQuNiA0LjYgMCAyLjUtMi4xIDQuNi00LjYgNC42LTIuNiAwLTQuNi0yLjEtNC42LTQuNnptOC42IDBjMC0yLjItMS44LTQuMS00LTQuMXMtNC4xIDEuOC00LjEgNC4xYzAgMi4yIDEuNyA0IDMuOSA0LjFoLjFjMi4zIDAgNC4xLTEuOCA0LjEtNC4xem0tNi0yLjVoMi4zYzEuMSAwIDEuOS41IDEuOSAxLjYgMCAuNy0uNCAxLjMtMS4xIDEuNWwxLjIgMS43aC0xLjRsLTEtMS41aC0uN3YxLjVoLTEuMWwtLjEtNC44em0yLjIgMi4zYy41IDAgLjgtLjMuOC0uN3MtLjMtLjctLjgtLjdoLTF2MS4zbDEgLjF6Ii8+PC9nPjwvc3ZnPg==" alt="Eclipse foundation Logo"/></a></div></div></div></footer></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"4.0.0/vertx-docker","title":"Vert.x Docker Images","fallbackGitHubStars":null,"toc":"\u003cdiv id=\"toc\" class=\"toc\"\u003e\n\u003cdiv id=\"toctitle\"\u003eTable of Contents\u003c/div\u003e\n\u003cul class=\"sectlevel1\"\u003e\n\u003cli\u003e\u003ca href=\"#_introduction\"\u003eIntroduction\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_the_base_image\"\u003eThe base image\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_deploying_a_groovy_verticle_in_a_docker_container\"\u003eDeploying a Groovy verticle in a docker container\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_deploying_a_java_verticle_in_a_docker_container\"\u003eDeploying a Java verticle in a docker container\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_configuration\"\u003eConfiguration\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_build_docker_images_with_maven\"\u003eBuild Docker Images with Maven\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_build_docker_images_for_fabric_8\"\u003eBuild Docker Images for Fabric 8\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_the_executable_image\"\u003eThe executable image\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_customizing_the_stack\"\u003eCustomizing the stack\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_deploying_a_fat_jar\"\u003eDeploying a fat jar\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e","contents":"\u003ch1\u003eVert.x Docker Images\u003c/h1\u003e\n\n\u003cdiv id=\"preamble\"\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eExecute Vert.x applications in Docker containers.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_introduction\"\u003e\u003ca class=\"anchor\" href=\"#_introduction\"\u003e\u003c/a\u003eIntroduction\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003e\u003ca href=\"https://www.docker.com/\"\u003eDocker\u003c/a\u003e lets you deploy applications inside lightweight and isolated software containers.\nApplications run side by side in isolated Linux containers. If you never used Docker before check this online \u003ca href=\"https://docs.docker.com/get-started/\"\u003etutorial\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eVert.x provides Docker images that you can use to run your applications. Two Docker images are provided:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003evertx/vertx3\u003c/code\u003e is the base image you need to extend to run your own application\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003evertx/vertx3-exec\u003c/code\u003e is providing the \u003ccode\u003evertx\u003c/code\u003e command to your system without having to install \u003ccode\u003evert.x\u003c/code\u003e yourself.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe images are available from \u003ca href=\"https://hub.docker.com/u/vertx/\"\u003eDocker Hub\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThis guide presents how to use these two images but also how to automate Docker image creation using Maven, generate\nFabric8 metadata and use \u003cem\u003efat jars\u003c/em\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_the_base_image\"\u003e\u003ca class=\"anchor\" href=\"#_the_base_image\"\u003e\u003c/a\u003eThe base image\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe base image (\u003ccode\u003evertx/vertx3\u003c/code\u003e) lets you run your vert.x application in a Docker container. For this, you must\n\u003cem\u003eextend\u003c/em\u003e the image to deploy your own application - \u003cem\u003ei.e.\u003c/em\u003e create your own \u003ccode\u003eDockerfile\u003c/code\u003e inheriting from\n\u003ccode\u003evertx/vertx3\u003c/code\u003e. Your application is then  launched using the \u003ccode\u003evertx\u003c/code\u003e command (but in the container).\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_deploying_a_groovy_verticle_in_a_docker_container\"\u003e\u003ca class=\"anchor\" href=\"#_deploying_a_groovy_verticle_in_a_docker_container\"\u003e\u003c/a\u003eDeploying a Groovy verticle in a docker container\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eRunning a groovy verticle in a docker container is not much different. Instead of the \u003ccode\u003ehello-verticle.js\u003c/code\u003e from the\nprevious example, we now have a \u003ccode\u003ehello-verticle.groovy\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"title\"\u003ehello-verticle.groovy\u003c/div\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-groovy\" data-lang=\"groovy\"\u003evertx.createHttpServer().requestHandler({ request -\u0026gt;\n    request.response().end(\u003cspan class=\"hljs-string\"\u003e\"Groovy world\"\u003c/span\u003e)\n}).listen(\u003cspan class=\"hljs-number\"\u003e8080\u003c/span\u003e)\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eSo, in the \u003ccode\u003eDockerfile\u003c/code\u003e we just change the verticle file name:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"title\"\u003eDockerfile\u003c/div\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003e# Extend vert.x image\nFROM vertx/vertx3\n\n# Set the name of the verticle to deploy\nENV VERTICLE_NAME hello-verticle.groovy\n\n# Set the location of the verticles\nENV VERTICLE_HOME /usr/verticles\n\nEXPOSE 8080\n\n# Copy your verticle to the container\nCOPY $VERTICLE_NAME $VERTICLE_HOME/\n\n# Launch the verticle\nWORKDIR $VERTICLE_HOME\nENTRYPOINT [\"sh\", \"-c\"]\nCMD [\"exec vertx run $VERTICLE_NAME -cp $VERTICLE_HOME/*\"]\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe build and run instructions are very close to the previous ones:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003e\u0026gt; docker build -t sample/vertx-groovy .\n....\n\u0026gt; docker run -t -i -p 8080:8080 sample/vertx-groovy\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_deploying_a_java_verticle_in_a_docker_container\"\u003e\u003ca class=\"anchor\" href=\"#_deploying_a_java_verticle_in_a_docker_container\"\u003e\u003c/a\u003eDeploying a Java verticle in a docker container\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eSo, now let\u0026#8217;s see how to deploy a Java verticle. Again it\u0026#8217;s not different from the previous examples, except that we\ncopy the verticle \u003cem\u003ejar\u003c/em\u003e file to the container. Let\u0026#8217;s take the following verticle:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"title\"\u003eio.vertx.sample.hello.HelloVerticle\u003c/div\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003e\u003cspan class=\"hljs-keyword\"\u003epackage\u003c/span\u003e io.vertx.sample.hello;\n\n\u003cspan class=\"hljs-keyword\"\u003eimport\u003c/span\u003e io.vertx.core.AbstractVerticle;\n\n\u003cspan class=\"hljs-keyword\"\u003epublic\u003c/span\u003e \u003cspan class=\"hljs-class\"\u003e\u003cspan class=\"hljs-keyword\"\u003eclass\u003c/span\u003e \u003cspan class=\"hljs-title\"\u003eHelloVerticle\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003eextends\u003c/span\u003e \u003cspan class=\"hljs-title\"\u003eAbstractVerticle\u003c/span\u003e \u003c/span\u003e{\n\n  \u003cspan class=\"hljs-meta\"\u003e@Override\u003c/span\u003e\n  \u003cspan class=\"hljs-function\"\u003e\u003cspan class=\"hljs-keyword\"\u003epublic\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003evoid\u003c/span\u003e \u003cspan class=\"hljs-title\"\u003estart\u003c/span\u003e\u003cspan class=\"hljs-params\"\u003e()\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003ethrows\u003c/span\u003e Exception \u003c/span\u003e{\n    vertx.createHttpServer().requestHandler(request -\u0026gt; {\n      request.response().end(\u003cspan class=\"hljs-string\"\u003e\"Hello Java world\"\u003c/span\u003e);\n    }).listen(\u003cspan class=\"hljs-number\"\u003e8080\u003c/span\u003e);\n  }\n}\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eLet\u0026#8217;s now imagine that this verticle is packaged into the \u003ccode\u003etarget/hello-verticle-1.0.-SNAPSHOT.jar\u003c/code\u003e jar file. So the\n\u003ccode\u003eDockerfile\u003c/code\u003e needs to copy this file but also gives to vert.x the verticle class name:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"title\"\u003eDockerfile\u003c/div\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre\u003e# Extend vert.x image\nFROM vertx/vertx3\n\n#                                                       \u003cb class=\"conum\"\u003e(1)\u003c/b\u003e\nENV VERTICLE_NAME io.vertx.sample.hello.HelloVerticle\nENV VERTICLE_FILE target/hello-verticle-1.0-SNAPSHOT.jar\n\n# Set the location of the verticles\nENV VERTICLE_HOME /usr/verticles\n\nEXPOSE 8080\n\n# Copy your verticle to the container                   \u003cb class=\"conum\"\u003e(2)\u003c/b\u003e\nCOPY $VERTICLE_FILE $VERTICLE_HOME/\n\n# Launch the verticle\nWORKDIR $VERTICLE_HOME\nENTRYPOINT [\"sh\", \"-c\"]\nCMD [\"exec vertx run $VERTICLE_NAME -cp $VERTICLE_HOME/*\"]\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"colist arabic\"\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eUnlike the previous examples, here we set the verticle class name and the jar file\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe jar file is copied.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eBuild and run instructions do not change:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003e\u0026gt; docker build -t sample/vertx-java .\n....\n\u0026gt; docker run -t -i -p 8080:8080 sample/vertx-java\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_configuration\"\u003e\u003ca class=\"anchor\" href=\"#_configuration\"\u003e\u003c/a\u003eConfiguration\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe previous `Dockerfile`s did not configure vert.x. Let\u0026#8217;s see how such configuration can be added.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect3\"\u003e\n\u003ch4 id=\"_configuring_the_java_virtual_machine\"\u003e\u003ca class=\"anchor\" href=\"#_configuring_the_java_virtual_machine\"\u003e\u003c/a\u003eConfiguring the Java Virtual Machine\u003c/h4\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou can configure the Java Virtual Machine using the \u003ccode\u003eJAVA_OPTS\u003c/code\u003e environment variable. So in the \u003ccode\u003eDockerfile\u003c/code\u003e adds:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003eENV JAVA_OPTS \"-Dfoo=bar\"\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect3\"\u003e\n\u003ch4 id=\"_vertx_opts\"\u003e\u003ca class=\"anchor\" href=\"#_vertx_opts\"\u003e\u003c/a\u003eVERTX_OPTS\u003c/h4\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eSystem variables specific to vert.x can be configured using the \u003ccode\u003eVERTX_OPTS\u003c/code\u003e environment variable:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003eENV VERTX_OPTS \"-Dvertx.options.eventLoopPoolSize=26 -Dvertx.options.deployment.worker=true\"\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect3\"\u003e\n\u003ch4 id=\"_classpath\"\u003e\u003ca class=\"anchor\" href=\"#_classpath\"\u003e\u003c/a\u003eClasspath\u003c/h4\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou can configure the classpath of the application using either the \u003ccode\u003e-cp\u003c/code\u003e parameter of the vert.x command or the\n\u003ccode\u003eCLASSPATH\u003c/code\u003e environment variable:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003eENV CLASSPATH \"/usr/verticles/libs/foo.jar:/usr/verticles/libs/bar.jar:\"\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect3\"\u003e\n\u003ch4 id=\"_logging\"\u003e\u003ca class=\"anchor\" href=\"#_logging\"\u003e\u003c/a\u003eLogging\u003c/h4\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo configure the \u003ccode\u003elogging.properties\u003c/code\u003e file (that let you customize JUL loggers`), set the \u003ccode\u003eVERTX_JUL_CONFIG\u003c/code\u003e\nenvironment variables:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003eCOPY ./logging.properties $VERTICLE_HOME/                       \u003cb class=\"conum\"\u003e(1)\u003c/b\u003e\nENV VERTX_JUL_CONFIG $VERTICLE_HOME/logging.properties          \u003cb class=\"conum\"\u003e(2)\u003c/b\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"colist arabic\"\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eCopy your \u003ccode\u003elogging.properties\u003c/code\u003e file\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSet the \u003ccode\u003eVERTX_JUL_CONFIG\u003c/code\u003e environment variable\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect3\"\u003e\n\u003ch4 id=\"_clustering\"\u003e\u003ca class=\"anchor\" href=\"#_clustering\"\u003e\u003c/a\u003eClustering\u003c/h4\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou can provide your own \u003ccode\u003ecluster.xml\u003c/code\u003e file, and add it to the classpath. To build a dynamic classpath from all the\nfile contained in \u003ccode\u003e$VERTICLE_HOME\u003c/code\u003e you can use:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003eCOPY ./cluster.xml $VERTICLE_HOME/\n# ...\nCMD [export CLASSPATH=`find $VERTICLE_HOME -printf '%p:' | sed 's/:$//'`; exec vertx run $VERTICLE_NAME\"]\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eNotice the \u003ccode\u003eexport CLASSPATH=\u0026#8230;\u0026#8203;;\u003c/code\u003e part in the \u003ccode\u003eCMD\u003c/code\u003e instruction. It builds the value of the \u003ccode\u003eCLASSPATH\u003c/code\u003e variable from\nthe content of the \u003ccode\u003e$VERTICLE_HOME\u003c/code\u003e directory. This tricks is useful to compute large and dynamic classpath.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_build_docker_images_with_maven\"\u003e\u003ca class=\"anchor\" href=\"#_build_docker_images_with_maven\"\u003e\u003c/a\u003eBuild Docker Images with Maven\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThere are a couple of Maven plugins to build your Docker images during your Maven build process. This example uses the\n\u003ca href=\"https://github.com/spotify/docker-maven-plugin\"\u003edocker-maven-plugin\u003c/a\u003e from Spotify.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eFirst, create your Java project as usual. So your sources are located in \u003ccode\u003esrc/main/java\u003c/code\u003e\u0026#8230;\u0026#8203; Then create a\n\u003ccode\u003esrc/main/docker\u003c/code\u003e directory and create a \u003ccode\u003eDockerfile\u003c/code\u003e inside:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003e.\n├── pom.xml\n├── src\n│   └── main\n│       ├── docker\n│       │   └── Dockerfile\n│       └── java\n│           └── io\n│               └── vertx\n│                   └── example\n│                       └── HelloWorldVerticle.java\n├── target\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIn the \u003ccode\u003epom.xml\u003c/code\u003e file add the following plugin configuration\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003ecom.spotify\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003edocker-maven-plugin\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e0.2.8\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eexecutions\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eexecution\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eid\u003c/span\u003e\u0026gt;\u003c/span\u003edocker\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eid\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ephase\u003c/span\u003e\u0026gt;\u003c/span\u003epackage\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ephase\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egoals\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egoal\u003c/span\u003e\u0026gt;\u003c/span\u003ebuild\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egoal\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egoals\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eexecution\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eexecutions\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003econfiguration\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edockerDirectory\u003c/span\u003e\u0026gt;\u003c/span\u003e${project.basedir}/src/main/docker\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edockerDirectory\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-comment\"\u003e\u0026lt;!-- Configure the image name --\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eimageName\u003c/span\u003e\u0026gt;\u003c/span\u003esample/vertx-hello\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eimageName\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eresources\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eresource\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003etargetPath\u003c/span\u003e\u0026gt;\u003c/span\u003e/verticles\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003etargetPath\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edirectory\u003c/span\u003e\u0026gt;\u003c/span\u003e${project.build.directory}\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edirectory\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eincludes\u003c/span\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003einclude\u003c/span\u003e\u0026gt;\u003c/span\u003e${project.artifactId}-${project.version}.jar\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003einclude\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eincludes\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eresource\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-comment\"\u003e\u0026lt;!-- don't forget to also add all the dependencies required by your application --\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eresources\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003econfiguration\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eplugin\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe plugin copies the listed content into \u003ccode\u003etarget/docker\u003c/code\u003e. Each resource is copied into the set \u003ccode\u003etargetPath\u003c/code\u003e. So edit\n the \u003ccode\u003esrc/main/docker/Dockerfile\u003c/code\u003e and add the following content:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003eFROM vertx/vertx3\n\nENV VERTICLE_HOME /usr/verticles\nENV VERTICLE_NAME io.vertx.example.HelloWorldVerticle\n\nCOPY ./verticles $VERTICLE_HOME\n\nENTRYPOINT [\"sh\", \"-c\"]\nCMD [\"exec vertx run $VERTICLE_NAME -cp $VERTICLE_HOME/*\"]\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIt\u0026#8217;s basically the same content as we saw above. The copy is a bit different as the plugin have placed\nfiles in the same directory as the \u003ccode\u003eDockerfile\u003c/code\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eOnce configured the image is built using: \u003ccode\u003emvn clean package\u003c/code\u003e\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_build_docker_images_for_fabric_8\"\u003e\u003ca class=\"anchor\" href=\"#_build_docker_images_for_fabric_8\"\u003e\u003c/a\u003eBuild Docker Images for Fabric 8\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003e\u003ca href=\"http://fabric8.io/\"\u003eFabric 8\u003c/a\u003e is an open source set of micro-services that run on top of Kubernetes and OpenShift V3 to\n provide management, continuous delivery and iPaas facilities. You can execute vert.x application on top of Fabric 8\n by packaging them into a Docker image. However, additional metadata is required. In this example, we are going to\n use the \u003ca href=\"https://github.com/rhuss/docker-maven-plugin\"\u003edocker-maven-plugin\u003c/a\u003e from Roland Huß.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eLet\u0026#8217;s set up the following structure:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003e.\n├── pom.xml\n├── src\n│   └── main\n│       ├── docker\n│       │   └── assembly.xml\n│       └── java\n│           └── io\n│               └── vertx\n│                   └── example\n│                       └── HelloWorldVerticle.java\n└── target\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eUnlike the maven plugin from Spotify, this plugin takes an \u003ccode\u003eassembly.xml\u003c/code\u003e as input. The file lists all the files that\n need to be copied to the docker container such as:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eassembly\u003c/span\u003e\u0026gt;\u003c/span\u003e\n   \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edependencySets\u003c/span\u003e\u0026gt;\u003c/span\u003e\n     \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edependencySet\u003c/span\u003e\u0026gt;\u003c/span\u003e\n       \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eincludes\u003c/span\u003e\u0026gt;\u003c/span\u003e\n         \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003einclude\u003c/span\u003e\u0026gt;\u003c/span\u003e:${project.artifactId}\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003einclude\u003c/span\u003e\u0026gt;\u003c/span\u003e\n       \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eincludes\u003c/span\u003e\u0026gt;\u003c/span\u003e\n       \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eoutputDirectory\u003c/span\u003e\u0026gt;\u003c/span\u003e.\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eoutputDirectory\u003c/span\u003e\u0026gt;\u003c/span\u003e\n     \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edependencySet\u003c/span\u003e\u0026gt;\u003c/span\u003e\n   \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edependencySets\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eassembly\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe rest of the \u003ccode\u003eDockerfile configuration is given in the `pom.xml\u003c/code\u003e file. Add the following plugin to the \u003ccode\u003epom.xml\u003c/code\u003e\n file:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eplugin\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003eorg.jolokia\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003edocker-maven-plugin\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e0.11.5\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eexecutions\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eexecution\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eid\u003c/span\u003e\u0026gt;\u003c/span\u003ebuild\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eid\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ephase\u003c/span\u003e\u0026gt;\u003c/span\u003epackage\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ephase\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egoals\u003c/span\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egoal\u003c/span\u003e\u0026gt;\u003c/span\u003ebuild\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egoal\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egoals\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eexecution\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eexecutions\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003econfiguration\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eimages\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eimage\u003c/span\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ename\u003c/span\u003e\u0026gt;\u003c/span\u003e${docker.image}\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ename\u003c/span\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ebuild\u003c/span\u003e\u0026gt;\u003c/span\u003e\n          \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003efrom\u003c/span\u003e\u0026gt;\u003c/span\u003evertx/vertx3\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003efrom\u003c/span\u003e\u0026gt;\u003c/span\u003e\n          \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003etags\u003c/span\u003e\u0026gt;\u003c/span\u003e\n            \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003etag\u003c/span\u003e\u0026gt;\u003c/span\u003e${project.version}\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003etag\u003c/span\u003e\u0026gt;\u003c/span\u003e\n          \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003etags\u003c/span\u003e\u0026gt;\u003c/span\u003e\n          \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eports\u003c/span\u003e\u0026gt;\u003c/span\u003e\n            \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eport\u003c/span\u003e\u0026gt;\u003c/span\u003e8080\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eport\u003c/span\u003e\u0026gt;\u003c/span\u003e\n          \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eports\u003c/span\u003e\u0026gt;\u003c/span\u003e\n          \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ecommand\u003c/span\u003e\u0026gt;\u003c/span\u003evertx run io.vertx.example.HelloWorldVerticle -cp\n            /usr/verticles/${project.artifactId}-${project.version}.jar\n          \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ecommand\u003c/span\u003e\u0026gt;\u003c/span\u003e\n          \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eassembly\u003c/span\u003e\u0026gt;\u003c/span\u003e\n            \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003emode\u003c/span\u003e\u0026gt;\u003c/span\u003edir\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003emode\u003c/span\u003e\u0026gt;\u003c/span\u003e\n            \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ebasedir\u003c/span\u003e\u0026gt;\u003c/span\u003e/usr/verticles\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ebasedir\u003c/span\u003e\u0026gt;\u003c/span\u003e\n            \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edescriptor\u003c/span\u003e\u0026gt;\u003c/span\u003eassembly.xml\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edescriptor\u003c/span\u003e\u0026gt;\u003c/span\u003e\n          \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eassembly\u003c/span\u003e\u0026gt;\u003c/span\u003e\n        \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ebuild\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eimage\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eimages\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003econfiguration\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eplugin\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo configure the container more finely, check the\n\u003ca href=\"https://github.com/rhuss/docker-maven-plugin/blob/master/doc/manual.md\"\u003emanual\u003c/a\u003e. All the \u003cem\u003einstructions\u003c/em\u003e we put in the\n\u003ccode\u003eDockerfile\u003c/code\u003e can be set from the plugin.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock note\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e注意\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nThe previous \u003ccode\u003epom.xml\u003c/code\u003e file use a properties called \u003ccode\u003edocker.image\u003c/code\u003e setting the image name. Don\u0026#8217;t forget to set\nit in your pom.xml` file.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eOnce you have this configuration in place, we need a second plugin to generate the metadata required by Fabric8:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eplugin\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003eio.fabric8\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003efabric8-maven-plugin\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e2.1.4\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eexecutions\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eexecution\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eid\u003c/span\u003e\u0026gt;\u003c/span\u003ejson\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eid\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ephase\u003c/span\u003e\u0026gt;\u003c/span\u003egenerate-resources\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ephase\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egoals\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egoal\u003c/span\u003e\u0026gt;\u003c/span\u003ejson\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egoal\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egoals\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eexecution\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eexecution\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eid\u003c/span\u003e\u0026gt;\u003c/span\u003eattach\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eid\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003ephase\u003c/span\u003e\u0026gt;\u003c/span\u003epackage\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003ephase\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egoals\u003c/span\u003e\u0026gt;\u003c/span\u003e\n      \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egoal\u003c/span\u003e\u0026gt;\u003c/span\u003eattach\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egoal\u003c/span\u003e\u0026gt;\u003c/span\u003e\n    \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egoals\u003c/span\u003e\u0026gt;\u003c/span\u003e\n  \u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eexecution\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eexecutions\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eplugin\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eOnce set up, you can build your docker image with: \u003ccode\u003emvn clean package\u003c/code\u003e. It creates the \u003ccode\u003ekubernates.json\u003c/code\u003e file\nrequired by Fabric8. Then push your image on the Docker Registry provided by Fabric8:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-sh\" data-lang=\"sh\"\u003edocker push \u003cspan class=\"hljs-variable\"\u003e$DOCKER_REGISTRY\u003c/span\u003e/sample/vertx-hello\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eDon\u0026#8217;t forget to set the \u003ccode\u003eDOCKER_REGISTRY\u003c/code\u003e url to point on the registry managed by Fabric8. The last step is to\n\u003cem\u003eapply\u003c/em\u003e it with:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-sh\" data-lang=\"sh\"\u003emvn io.fabric8:fabric8-maven-plugin:2.1.4:apply\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_the_executable_image\"\u003e\u003ca class=\"anchor\" href=\"#_the_executable_image\"\u003e\u003c/a\u003eThe executable image\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003evertx/vertx3-exec\u003c/code\u003e image provides the \u003ccode\u003evertx\u003c/code\u003e command to the host. So no need to install vert.x on your machine,\n you can just use this docker image.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eFor instance:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-shell\" data-lang=\"shell\"\u003e\u003cspan class=\"hljs-meta\"\u003e\u0026gt;\u003c/span\u003e\u003cspan class=\"bash\"\u003e docker run -i -t vertx/vertx3-exec -version\u003c/span\u003e\n4.0.0\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo run a verticle:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-shell\" data-lang=\"shell\"\u003edocker run -i -t -p 8080:8080 \\\n    -v $PWD:/verticles vertx/vertx3-exec \\\n    run io.vertx.sample.RandomGeneratorVerticle \\\n    -cp /verticles/MY_VERTICLE.jar\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThis command mounts the current directory (\u003ccode\u003ePWD\u003c/code\u003e) into \u003ccode\u003e/verticles\u003c/code\u003e and then launch the \u003ccode\u003evertx run\u003c/code\u003e command. Notice the\n\u003ccode\u003e-cp\u003c/code\u003e parameter reusing the \u003ccode\u003e/verticles\u003c/code\u003e directory.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_customizing_the_stack\"\u003e\u003ca class=\"anchor\" href=\"#_customizing_the_stack\"\u003e\u003c/a\u003eCustomizing the stack\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003evertx/vertx3-exec\u003c/code\u003e image provides the default \"full\" Vert.x stack. You may want to customize this stack and create\n your own exec image. First, create a \u003ccode\u003evertx-stack.json\u003c/code\u003e file:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-json\" data-lang=\"json\"\u003e{\n  \u003cspan class=\"hljs-attr\"\u003e\"variables\"\u003c/span\u003e: {\n    \u003cspan class=\"hljs-attr\"\u003e\"vertx.version\"\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e\"3.3.3\"\u003c/span\u003e\n  },\n  \u003cspan class=\"hljs-attr\"\u003e\"dependencies\"\u003c/span\u003e: [\n    {\n      \u003cspan class=\"hljs-attr\"\u003e\"groupId\"\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e\"io.vertx\"\u003c/span\u003e,\n      \u003cspan class=\"hljs-attr\"\u003e\"artifactId\"\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e\"vertx-web\"\u003c/span\u003e,\n      \u003cspan class=\"hljs-attr\"\u003e\"version\"\u003c/span\u003e: \u003cspan class=\"hljs-string\"\u003e\"${vertx.version}\"\u003c/span\u003e,\n      \u003cspan class=\"hljs-attr\"\u003e\"included\"\u003c/span\u003e: \u003cspan class=\"hljs-literal\"\u003etrue\u003c/span\u003e\n    }\n  ]\n}\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou can list any dependency you need, not just the Vert.x artifacts\n(refer to the \u003ca href=\"http://vertx.io/docs/vertx-stack-manager/stack-manager/\"\u003eStack Manager documentation\u003c/a\u003e for details).\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThen write a \u003ccode\u003eDockerfile\u003c/code\u003e for your custom executable image:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre\u003eFROM vertx/vertx3-exec                                     \u003cb class=\"conum\"\u003e(1)\u003c/b\u003e\n\nCOPY vertx-stack.json ${VERTX_HOME}/vertx-stack.json       \u003cb class=\"conum\"\u003e(2)\u003c/b\u003e\n\nRUN vertx resolve \u0026amp;\u0026amp; rm -rf ${HOME}/.m2                    \u003cb class=\"conum\"\u003e(3)\u003c/b\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"colist arabic\"\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eExtend the Vert.x executable image\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eReplace the stack file in the Vert.x command installation\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eResolve dependencies\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou should know be able to build your custom executable image:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-shell\" data-lang=\"shell\"\u003edocker build -t mycompany/my-vertx3-exec .\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eAnd run your verticle:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-shell\" data-lang=\"shell\"\u003edocker run -i -t -p 8080:8080 \\\n    -v $PWD:/verticles mycompany/my-vertx3-exec \\\n    run io.vertx.sample.RandomGeneratorVerticle \\\n    -cp /verticles/MY_VERTICLE.jar\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_deploying_a_fat_jar\"\u003e\u003ca class=\"anchor\" href=\"#_deploying_a_fat_jar\"\u003e\u003c/a\u003eDeploying a fat jar\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIt is also possible to deploy a Vert.x application packaged as a \u003cem\u003efat jar\u003c/em\u003e into a docker container. For this you\ndon\u0026#8217;t need the images provided by Vert.x, you can directly use a base \u003cem\u003eJava\u003c/em\u003e image. Let\u0026#8217;s have a look.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eFirst, be sure your application is packaged as a \u003cem\u003efat jar\u003c/em\u003e. Then, use the following \u003ccode\u003eDockerfile\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003eFROM openjdk:8-jre-alpine                                           \u003cb class=\"conum\"\u003e(1)\u003c/b\u003e\n\nENV VERTICLE_FILE hello-verticle-fatjar-3.0.0-SNAPSHOT-fat.jar      \u003cb class=\"conum\"\u003e(2)\u003c/b\u003e\n\n# Set the location of the verticles\nENV VERTICLE_HOME /usr/verticles\n\nEXPOSE 8080\n\n# Copy your fat jar to the container\nCOPY target/$VERTICLE_FILE $VERTICLE_HOME/                          \u003cb class=\"conum\"\u003e(3)\u003c/b\u003e\n\n# Launch the verticle\nWORKDIR $VERTICLE_HOME\nENTRYPOINT [\"sh\", \"-c\"]\nCMD [\"exec java -jar $VERTICLE_FILE\"]                               \u003cb class=\"conum\"\u003e(4)\u003c/b\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"colist arabic\"\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eExtend the image providing OpenJDK 8, use the one you want\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSet the \u003ccode\u003eVERTICLE_FILE\u003c/code\u003e to point on the \u003cem\u003efat jar\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCopy the \u003cem\u003eFat jar\u003c/em\u003e from \u003cem\u003etarget\u003c/em\u003e. Change it if you don\u0026#8217;t use Maven.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eLaunch the application using the \u003ccode\u003ejava\u003c/code\u003e executable (instead of \u003ccode\u003evertx\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIt\u0026#8217;s basically the same \u003ccode\u003eDockerfile\u003c/code\u003e as before. However, this time we extend \u003ccode\u003ejava:8\u003c/code\u003e instead of the \u003ccode\u003evertx/vertx3\u003c/code\u003e\nimage. Then we copy the fat jar to the container, and launch it with the \u003ccode\u003ejava\u003c/code\u003e executable. All the configuration\nsettings presented above are still valid.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eBuild and run the container with:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode\u003e\u0026gt; docker build -t sample/vertx-java-fat .\n....\n\u0026gt; docker run -t -i -p 8080:8080 sample/vertx-java-fat\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e","version":"4.0.0"},"__N_SSG":true},"page":"/docs/[[...slug]]","query":{"slug":["4.0.0","vertx-docker"]},"buildId":"bcFdoXwYdt6oE6qd4ipW2","nextExport":false,"isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/chunks/polyfills-9a5c89434732593ca2fd.js"></script><script src="/_next/static/chunks/main-b6e20584df76f29b6f35.js" async=""></script><script src="/_next/static/chunks/webpack-d7b2fb72fb7257504a38.js" async=""></script><script src="/_next/static/chunks/framework.fcef98db13e2318579fb.js" async=""></script><script src="/_next/static/chunks/commons.5b8771ac6e8a338f82f1.js" async=""></script><script src="/_next/static/chunks/styles.6a5cc0a07ce13c54adf1.js" async=""></script><script src="/_next/static/chunks/pages/_app-3dbbc9c041333077c167.js" async=""></script><script src="/_next/static/chunks/5df0631eea625b022d3730b3f1bf573e1b8deb37.0bd5dabe881df892af8c.js" async=""></script><script src="/_next/static/chunks/31acfd8439b7c9eee4abe9f59c7500d6c943ee0d.d71b4b971aaf8d601736.js" async=""></script><script src="/_next/static/chunks/pages/docs/%5B%5B...slug%5D%5D-6bd7a161e85c1ec1d9eb.js" async=""></script><script src="/_next/static/bcFdoXwYdt6oE6qd4ipW2/_buildManifest.js" async=""></script><script src="/_next/static/bcFdoXwYdt6oE6qd4ipW2/_ssgManifest.js" async=""></script></body></html>
