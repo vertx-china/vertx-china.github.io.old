@@ -6,8 +6,8 @@
     "description": "Vert.x is a tool-kit for building reactive applications on the JVM",
     "items": [
         {
-            "id": "https://vertx-china.github.io/whats-new-in-vert-x-4",
-            "url": "https://vertx-china.github.io/whats-new-in-vert-x-4",
+            "id": "https://vertx-china.github.io/blog/whats-new-in-vert-x-4",
+            "url": "https://vertx-china.github.io/blog/whats-new-in-vert-x-4",
             "title": "What's new in Vert.x 4",
             "summary": "See an overview of all new and exciting features in Vert.x 4, including futures, distributed tracing, reactive database clients, SQL templating, and more.",
             "date_modified": "2020-12-06T00:00:00.000Z",
@@ -20,8 +20,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/from-vert-x-3-to-vert-x-4",
-            "url": "https://vertx-china.github.io/from-vert-x-3-to-vert-x-4",
+            "id": "https://vertx-china.github.io/blog/from-vert-x-3-to-vert-x-4",
+            "url": "https://vertx-china.github.io/blog/from-vert-x-3-to-vert-x-4",
             "title": "Migrate from Vert.x 3 to Vert.x 4",
             "summary": "We provide a clear and well-documented migration path from Vert.x 3.9 to Vert.x 4. Existing users will feel at home with the new version.",
             "date_modified": "2020-12-02T00:00:00.000Z",
@@ -34,8 +34,22 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-4-0-2",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-4-0-2",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-6",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-6",
+            "title": "Eclipse Vert.x 3.9.6 released!",
+            "summary": "Eclipse Vert.x version 3.9.6 has just been released. It fixes quite a few bugs that have been reported by the community.",
+            "date_modified": "2021-02-26T00:00:00.000Z",
+            "author": {
+                "name": "Julien Viet",
+                "url": "https://github.com/vietj"
+            },
+            "tags": [
+                "releases"
+            ]
+        },
+        {
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-4-0-2",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-4-0-2",
             "title": "Eclipse Vert.x 4.0.2 released!",
             "summary": "Eclipse Vert.x version 4.0.2 has just been released. It fixes quite a few bugs that have been reported by the community.",
             "date_modified": "2021-02-05T00:00:00.000Z",
@@ -48,8 +62,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-9-5",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-9-5",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-5",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-5",
             "title": "Eclipse Vert.x 3.9.5 released!",
             "summary": "Eclipse Vert.x version 3.9.5 has just been released. It fixes quite a few bugs that have been reported by the community.",
             "date_modified": "2020-12-16T00:00:00.000Z",
@@ -62,8 +76,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-4-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-4-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-4-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-4-released",
             "title": "Eclipse Vert.x 4 released!",
             "summary": "Vert.x 4 has just been released and it’s the best thing since sliced buffers.",
             "date_modified": "2020-12-09T00:00:00.000Z",
@@ -76,8 +90,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-4-cr2-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-4-cr2-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-4-cr2-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-4-cr2-released",
             "title": "Eclipse Vert.x 4 CR2 released!",
             "summary": "The second release candidate of the upcoming Vert.x 4 has just been released. We consider it feature complete and invite the community to test it.",
             "date_modified": "2020-11-24T00:00:00.000Z",
@@ -90,8 +104,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-4-cr1-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-4-cr1-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-4-cr1-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-4-cr1-released",
             "title": "Eclipse Vert.x 4 CR1 released!",
             "summary": "The first release candidate of the upcoming Vert.x 4 has just been released. We consider it feature complete and invite the community to test it.",
             "date_modified": "2020-11-04T00:00:00.000Z",
@@ -104,8 +118,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-9-4-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-9-4-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-4-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-4-released",
             "title": "Eclipse Vert.x 3.9.4 released!",
             "summary": "Eclipse Vert.x version 3.9.4 has just been released. It fixes quite a few bugs that have been reported by the community.",
             "date_modified": "2020-10-15T00:00:00.000Z",
@@ -118,8 +132,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/jwt-authorization-for-vert-x-with-keycloak",
-            "url": "https://vertx-china.github.io/jwt-authorization-for-vert-x-with-keycloak",
+            "id": "https://vertx-china.github.io/blog/jwt-authorization-for-vert-x-with-keycloak",
+            "url": "https://vertx-china.github.io/blog/jwt-authorization-for-vert-x-with-keycloak",
             "title": "JWT Authorization for Vert.x with Keycloak",
             "summary": "In this blog post, you'll learn about JWT foundations, protect routes with JWT Authorization, JWT encoded tokens, and RBAC with Keycloak",
             "date_modified": "2020-10-01T00:00:00.000Z",
@@ -132,8 +146,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-4-beta-3-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-4-beta-3-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-4-beta-3-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-4-beta-3-released",
             "title": "Eclipse Vert.x 4 beta 3 released!",
             "summary": "The third beta version of Eclipse Vert.x 4.0 highlights many features including (but not limited to) HTTP client request creation, HTTP tunnel improvements, and WebSocket upgrade improvements.",
             "date_modified": "2020-09-25T00:00:00.000Z",
@@ -146,8 +160,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-9-3-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-9-3-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-3-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-3-released",
             "title": "Eclipse Vert.x 3.9.3 released!",
             "summary": "Eclipse Vert.x version 3.9.3 has just been released. It fixes quite a few bugs that have been reported by the community.",
             "date_modified": "2020-09-17T00:00:00.000Z",
@@ -160,8 +174,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-4-beta-1-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-4-beta-1-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-4-beta-1-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-4-beta-1-released",
             "title": "Eclipse Vert.x 4 beta 1 released!",
             "summary": "We are extremely pleased to announce the first 4.0 beta release of Eclipse Vert.x. Highlights of this release are the improved JDBC Client API, event loop affinity, and much more.",
             "date_modified": "2020-07-28T00:00:00.000Z",
@@ -174,8 +188,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-9-2-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-9-2-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-2-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-2-released",
             "title": "Eclipse Vert.x 3.9.2 released!",
             "summary": "The new Eclipse Vert.x version 3.9.2 has just been released. It includes a few bug fixes, a new reactive DB2 client, and reactive MySQL Client domain socket support.",
             "date_modified": "2020-07-21T00:00:00.000Z",
@@ -188,8 +202,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-4-milestone-5-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-4-milestone-5-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-5-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-5-released",
             "title": "Eclipse Vert.x 4 milestone 5 released!",
             "summary": "We are extremely pleased to announce the fifth 4.0 milestone release of Eclipse Vert.x. This release aims to provide a reliable distribution of the current development of Vert.x 4.",
             "date_modified": "2020-06-10T00:00:00.000Z",
@@ -202,8 +216,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-9-1-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-9-1-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-1-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-1-released",
             "title": "Eclipse Vert.x 3.9.1 released!",
             "summary": "The new version comes with many enhancements including an SQL client for DB2 and out-of-the-box support for HTTP/2 on JDK 8.",
             "date_modified": "2020-05-22T00:00:00.000Z",
@@ -216,8 +230,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-9-0-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-9-0-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-0-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-9-0-released",
             "title": "Eclipse Vert.x 3.9.0 released!",
             "summary": "New features include fluent queries in SQL clients, a new Redis client, an updated Kafka client, an improved Future API, and many more things.",
             "date_modified": "2020-04-02T00:00:00.000Z",
@@ -230,8 +244,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/easy-sso-for-vert-x-with-keycloak",
-            "url": "https://vertx-china.github.io/easy-sso-for-vert-x-with-keycloak",
+            "id": "https://vertx-china.github.io/blog/easy-sso-for-vert-x-with-keycloak",
+            "url": "https://vertx-china.github.io/blog/easy-sso-for-vert-x-with-keycloak",
             "title": "Easy SSO for Vert.x with Keycloak",
             "summary": "In this blog post, you'll learn how to implement Single Sign-on with OpenID Connect and how to use Keycloak together with Eclipse Vert.x.",
             "date_modified": "2020-03-16T00:00:00.000Z",
@@ -244,8 +258,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-8-5",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-8-5",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-8-5",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-8-5",
             "title": "Eclipse Vert.x 3.8.5",
             "summary": "This version is a minor bug fix release addressing issues found in Vert.x 3.8.4. We would like to thank you all for reporting these issues.",
             "date_modified": "2020-01-24T00:00:00.000Z",
@@ -258,8 +272,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-4-milestone-4-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-4-milestone-4-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-4-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-4-released",
             "title": "Eclipse Vert.x 4 milestone 4 released!",
             "summary": "The new milestone of Vert.x 4 makes progress in futurisation and includes improvements on the mail client, general clients, and security.",
             "date_modified": "2019-12-13T00:00:00.000Z",
@@ -272,8 +286,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-8-4",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-8-4",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-8-4",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-8-4",
             "title": "Eclipse Vert.x 3.8.4",
             "summary": "This version is a bug fix release of Vert.x 3.8.3, which addresses quite a few bugs reported by the community.",
             "date_modified": "2019-11-28T00:00:00.000Z",
@@ -286,8 +300,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/send-web-requests-and-assert-results-with-vertx-junit5-web-client",
-            "url": "https://vertx-china.github.io/send-web-requests-and-assert-results-with-vertx-junit5-web-client",
+            "id": "https://vertx-china.github.io/blog/send-web-requests-and-assert-results-with-vertx-junit5-web-client",
+            "url": "https://vertx-china.github.io/blog/send-web-requests-and-assert-results-with-vertx-junit5-web-client",
             "title": "Send web requests and assert results with vertx-junit5-web-client",
             "summary": "In this blog post, you'll learn how to use the new vertx-junit5-web-client module to send web requests in your unit tests and to make assertions.",
             "date_modified": "2019-10-22T00:00:00.000Z",
@@ -300,8 +314,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-8-3",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-8-3",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-8-3",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-8-3",
             "title": "Eclipse Vert.x 3.8.3",
             "summary": "This new version is a minor bug fix release that addresses issues reported in Eclipse Vert.x 3.8.2. We would like to thank you all for reporting these bugs.",
             "date_modified": "2019-10-18T00:00:00.000Z",
@@ -314,8 +328,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-8-2",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-8-2",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-8-2",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-8-2",
             "title": "Eclipse Vert.x 3.8.2",
             "summary": "This version is a bug fix release of Vert.x 3.8.3, which addresses quite a few bugs reported by the community.",
             "date_modified": "2019-10-07T00:00:00.000Z",
@@ -328,8 +342,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-4-milestone-3-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-4-milestone-3-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-3-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-3-released",
             "title": "Eclipse Vert.x 4 milestone 3 released!",
             "summary": "The next milestone release of Vert.x 4 aims to provide a reliable distribution of the current development for people who want to try it and provide feedback.",
             "date_modified": "2019-09-19T00:00:00.000Z",
@@ -342,8 +356,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-for-scala-next-steps",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-for-scala-next-steps",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-for-scala-next-steps",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-for-scala-next-steps",
             "title": "Eclipse Vert.x for Scala next steps",
             "summary": "This blog post gives an overview of the current plans for the vertx-lang-scala module, in particular with respect to the upcoming Vert.x 4.",
             "date_modified": "2019-08-30T00:00:00.000Z",
@@ -356,8 +370,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-4-milestone-2-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-4-milestone-2-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-2-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-2-released",
             "title": "Eclipse Vert.x 4 milestone 2 released!",
             "summary": "The new milestone release of Vert.x 4 includes progress on futurisation, tracing, and many other improvements.",
             "date_modified": "2019-08-26T00:00:00.000Z",
@@ -370,8 +384,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-8-1",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-8-1",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-8-1",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-8-1",
             "title": "Eclipse Vert.x 3.8.1",
             "summary": "This new version is a bug fix release that addresses issues reported in Eclipse Vert.x 3.8.1. We also updated Netty to version 4.1.39.Final to fix some CVEs.",
             "date_modified": "2019-08-23T00:00:00.000Z",
@@ -384,8 +398,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-4-milestone-1-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-4-milestone-1-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-1-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-1-released",
             "title": "Eclipse Vert.x 4 milestone 1 released!",
             "summary": "This is the first milestone of the upcoming Vert.x 4. It extends the 3.x callback asynchronous model to a future/callback hybrid model and introduces a Tracing API.",
             "date_modified": "2019-07-26T00:00:00.000Z",
@@ -398,8 +412,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-8-0-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-8-0-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-8-0-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-8-0-released",
             "title": "Eclipse Vert.x 3.8.0 released!",
             "summary": "We are extremely pleased to announce that Eclipse Vert.x 3.8.0 has been released. This is an important release introduceing a few changes ramping up to Vert.x 4.",
             "date_modified": "2019-07-19T00:00:00.000Z",
@@ -412,8 +426,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vs-code-vert-x-starter-extension",
-            "url": "https://vertx-china.github.io/vs-code-vert-x-starter-extension",
+            "id": "https://vertx-china.github.io/blog/vs-code-vert-x-starter-extension",
+            "url": "https://vertx-china.github.io/blog/vs-code-vert-x-starter-extension",
             "title": "VS Code Vert.x Starter Extension",
             "summary": "Today, we are really excited to announce the Visual Studio Code Vert.x Starter extension. It allows you to create a Vert.x project, customize the creation, and search for dependencies.",
             "date_modified": "2019-05-29T00:00:00.000Z",
@@ -426,8 +440,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-7-1",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-7-1",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-7-1",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-7-1",
             "title": "Eclipse Vert.x 3.7.1",
             "summary": "We have just released Vert.x 3.7.1, a bug fix release of Vert.x 3.7.x and a few small features.",
             "date_modified": "2019-05-27T00:00:00.000Z",
@@ -440,8 +454,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-7-0-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-7-0-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-7-0-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-7-0-released",
             "title": "Eclipse Vert.x 3.7.0 released!",
             "summary": "We are extremely pleased to announce that the Eclipse Vert.x version 3.7.0 has been released.",
             "date_modified": "2019-04-02T00:00:00.000Z",
@@ -454,8 +468,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-6-3",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-6-3",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-6-3",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-6-3",
             "title": "Eclipse Vert.x 3.6.3",
             "summary": "We have just released Vert.x 3.6.3, a bug fix release of Vert.x 3.6.x.",
             "date_modified": "2019-02-04T00:00:00.000Z",
@@ -468,8 +482,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-6-2",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-6-2",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-6-2",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-6-2",
             "title": "Eclipse Vert.x 3.6.2",
             "summary": "We have just released Vert.x 3.6.2, a bug fix release of Vert.x 3.6.x.",
             "date_modified": "2018-12-17T00:00:00.000Z",
@@ -482,8 +496,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-web-api-service-introduction",
-            "url": "https://vertx-china.github.io/vert-x-web-api-service-introduction",
+            "id": "https://vertx-china.github.io/blog/vert-x-web-api-service-introduction",
+            "url": "https://vertx-china.github.io/blog/vert-x-web-api-service-introduction",
             "title": "Vert.x Web API Service Introduction",
             "summary": "This blog post teaches you how to use the new module vertx-web-api-service to combine the Web Router and the OpenAPI Router Factory with service proxies.",
             "date_modified": "2018-12-13T00:00:00.000Z",
@@ -496,8 +510,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/http-response-validation-with-the-vert-x-web-client",
-            "url": "https://vertx-china.github.io/http-response-validation-with-the-vert-x-web-client",
+            "id": "https://vertx-china.github.io/blog/http-response-validation-with-the-vert-x-web-client",
+            "url": "https://vertx-china.github.io/blog/http-response-validation-with-the-vert-x-web-client",
             "title": "HTTP response validation with the Vert.x Web Client",
             "summary": "Learn how to use response predicates from the Vert.x Web module to validate HTTP responses and to automatically generate error messages.",
             "date_modified": "2018-12-10T00:00:00.000Z",
@@ -510,8 +524,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/the-rss-reader-tutorial-step-3",
-            "url": "https://vertx-china.github.io/the-rss-reader-tutorial-step-3",
+            "id": "https://vertx-china.github.io/blog/the-rss-reader-tutorial-step-3",
+            "url": "https://vertx-china.github.io/blog/the-rss-reader-tutorial-step-3",
             "title": "The RSS reader tutorial (Step 3)",
             "summary": "This is the third installment of our Vert.x Cassandra Client tutorial. We will implement the last RSS endpoint serving a list of articles related to a specific channel.",
             "date_modified": "2018-12-06T00:00:00.000Z",
@@ -524,8 +538,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-6-0-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-6-0-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-6-0-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-6-0-released",
             "title": "Eclipse Vert.x 3.6.0 released!",
             "summary": "We are pleased to announce the Eclipse Vert.x 3.6.0 release.",
             "date_modified": "2018-12-03T00:00:00.000Z",
@@ -538,8 +552,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-5-4",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-5-4",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-5-4",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-5-4",
             "title": "Eclipse Vert.x 3.5.4",
             "summary": "We have just released Vert.x 3.5.4, a bug fix release of Vert.x 3.5.x.",
             "date_modified": "2018-10-03T00:00:00.000Z",
@@ -552,8 +566,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/the-rss-reader-tutorial-step-2",
-            "url": "https://vertx-china.github.io/the-rss-reader-tutorial-step-2",
+            "id": "https://vertx-china.github.io/blog/the-rss-reader-tutorial-step-2",
+            "url": "https://vertx-china.github.io/blog/the-rss-reader-tutorial-step-2",
             "title": "The RSS reader tutorial (Step 2)",
             "summary": "In this second installment of our Vert.x Cassandra Client tutorial, we will add an endpoint that produces an array of RSS channels for a given user ID.",
             "date_modified": "2018-09-05T00:00:00.000Z",
@@ -566,8 +580,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/the-rss-reader-tutorial",
-            "url": "https://vertx-china.github.io/the-rss-reader-tutorial",
+            "id": "https://vertx-china.github.io/blog/the-rss-reader-tutorial",
+            "url": "https://vertx-china.github.io/blog/the-rss-reader-tutorial",
             "title": "The RSS reader tutorial",
             "summary": "In this tutorial, you will learn how to use the Eclipse Vert.x Cassandra client in practice. We will develop an RSS reader with three HTTP endpoints.",
             "date_modified": "2018-08-20T00:00:00.000Z",
@@ -580,8 +594,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-5-3",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-5-3",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-5-3",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-5-3",
             "title": "Eclipse Vert.x 3.5.3",
             "summary": "We have just released Vert.x 3.5.3, a bug fix release of Vert.x 3.5.x.",
             "date_modified": "2018-07-13T00:00:00.000Z",
@@ -594,8 +608,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/simplified-database-transaction-management-with-the-vert-x-rxjava-api",
-            "url": "https://vertx-china.github.io/simplified-database-transaction-management-with-the-vert-x-rxjava-api",
+            "id": "https://vertx-china.github.io/blog/simplified-database-transaction-management-with-the-vert-x-rxjava-api",
+            "url": "https://vertx-china.github.io/blog/simplified-database-transaction-management-with-the-vert-x-rxjava-api",
             "title": "Simplified database transaction management with the Vert.x RxJava API",
             "summary": "As of Vert.x 3.5, managing database transactions requires a lot of boilerplate code. Vert.x 3.6 provides helpers to easily make a reactive flow transactional.",
             "date_modified": "2018-07-02T00:00:00.000Z",
@@ -608,8 +622,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-5-2",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-5-2",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-5-2",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-5-2",
             "title": "Eclipse Vert.x 3.5.2",
             "summary": "We have just released Vert.x 3.5.2, a bug fix release of Vert.x 3.5.x.",
             "date_modified": "2018-06-08T00:00:00.000Z",
@@ -622,8 +636,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-goes-native",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-goes-native",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-goes-native",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-goes-native",
             "title": "Eclipse Vert.x goes Native",
             "summary": "This blog post introduces native image generation of Vert.x applications with GraalVM. Generated executables can be run without a JVM.",
             "date_modified": "2018-06-04T00:00:00.000Z",
@@ -636,8 +650,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-rabbitmq-client-gets-a-new-consumer-api",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-rabbitmq-client-gets-a-new-consumer-api",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-rabbitmq-client-gets-a-new-consumer-api",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-rabbitmq-client-gets-a-new-consumer-api",
             "title": "Eclipse Vert.x RabbitMQ client gets a new consumer API!",
             "summary": "In this blog post, we present the new consumer API of the RabbitMQ client that will be released with Eclipse Vert.x 3.6.0.",
             "date_modified": "2018-04-23T00:00:00.000Z",
@@ -650,8 +664,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/new-community-channels",
-            "url": "https://vertx-china.github.io/new-community-channels",
+            "id": "https://vertx-china.github.io/blog/new-community-channels",
+            "url": "https://vertx-china.github.io/blog/new-community-channels",
             "title": "New community channels",
             "summary": "In order to better support the community, we (the core team and module maintainers) now also provide help on Stack Overflow and Gitter.",
             "date_modified": "2018-04-13T00:00:00.000Z",
@@ -664,8 +678,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-metrics-now-with-micrometer-io",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-metrics-now-with-micrometer-io",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-metrics-now-with-micrometer-io",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-metrics-now-with-micrometer-io",
             "title": "Eclipse Vert.x metrics now with Micrometer.io",
             "summary": "The new vertx-micrometer-metrics module provides support for collecting metrics with Micrometer.io and storing them in backends such as Graphite or InfluxDB.",
             "date_modified": "2018-04-09T00:00:00.000Z",
@@ -678,8 +692,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/google-summer-of-code-2018",
-            "url": "https://vertx-china.github.io/google-summer-of-code-2018",
+            "id": "https://vertx-china.github.io/blog/google-summer-of-code-2018",
+            "url": "https://vertx-china.github.io/blog/google-summer-of-code-2018",
             "title": "Google Summer of Code 2018",
             "summary": "It's this time of year again! Google Summer of Code 2018 submission period has just started!",
             "date_modified": "2018-03-13T00:00:00.000Z",
@@ -692,8 +706,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-5-1-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-5-1-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-5-1-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-5-1-released",
             "title": "Eclipse Vert.x 3.5.1 released!",
             "summary": "We have just released Vert.x 3.5.1!",
             "date_modified": "2018-02-13T00:00:00.000Z",
@@ -706,8 +720,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-based-framework-url-shortener-backend",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-based-framework-url-shortener-backend",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-based-framework-url-shortener-backend",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-based-framework-url-shortener-backend",
             "title": "Eclipse Vert.x based Framework URL Shortener Backend",
             "summary": "We combine Vert.x with the serverless framework to write a microservice that runs on AWS Lambda.",
             "date_modified": "2017-12-21T00:00:00.000Z",
@@ -720,8 +734,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/tcp-client-using-eclipse-vert-x-kotlin-and-gradle-build",
-            "url": "https://vertx-china.github.io/tcp-client-using-eclipse-vert-x-kotlin-and-gradle-build",
+            "id": "https://vertx-china.github.io/blog/tcp-client-using-eclipse-vert-x-kotlin-and-gradle-build",
+            "url": "https://vertx-china.github.io/blog/tcp-client-using-eclipse-vert-x-kotlin-and-gradle-build",
             "title": "TCP Client using Eclipse Vert.x, Kotlin and Gradle build",
             "summary": "In this blog post, I demonstrate how to write a very simple TCP client that keeps a connection open to a custom-written server in cloud.",
             "date_modified": "2017-12-20T00:00:00.000Z",
@@ -734,8 +748,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-meets-graphql",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-meets-graphql",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-meets-graphql",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-meets-graphql",
             "title": "Eclipse Vert.x meets GraphQL",
             "summary": "In this blog post, we will look at an example application written in Vert.x that uses the new GraphQL API of Gentics Mesh.",
             "date_modified": "2017-11-14T00:00:00.000Z",
@@ -748,8 +762,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/eclipse-vert-x-3-5-0-released",
-            "url": "https://vertx-china.github.io/eclipse-vert-x-3-5-0-released",
+            "id": "https://vertx-china.github.io/blog/eclipse-vert-x-3-5-0-released",
+            "url": "https://vertx-china.github.io/blog/eclipse-vert-x-3-5-0-released",
             "title": "Eclipse Vert.x 3.5.0 released!",
             "summary": "The Vert.x team is pleased to announce the release of Eclipse Vert.x 3.5.0.",
             "date_modified": "2017-10-20T00:00:00.000Z",
@@ -762,8 +776,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/an-eclipse-vert-x-gradle-plugin",
-            "url": "https://vertx-china.github.io/an-eclipse-vert-x-gradle-plugin",
+            "id": "https://vertx-china.github.io/blog/an-eclipse-vert-x-gradle-plugin",
+            "url": "https://vertx-china.github.io/blog/an-eclipse-vert-x-gradle-plugin",
             "title": "An Eclipse Vert.x Gradle Plugin",
             "summary": "The new Vert.x Gradle plugin offers an opinionated plugin for building Vert.x applications with Gradle.",
             "date_modified": "2017-09-28T00:00:00.000Z",
@@ -776,8 +790,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/introducing-vert-x-mqtt-client",
-            "url": "https://vertx-china.github.io/introducing-vert-x-mqtt-client",
+            "id": "https://vertx-china.github.io/blog/introducing-vert-x-mqtt-client",
+            "url": "https://vertx-china.github.io/blog/introducing-vert-x-mqtt-client",
             "title": "Introducing Vert.x MQTT client",
             "summary": "In this article, we will see how to set up the new Vert.x MQTT client. An example project is available on GitHub.",
             "date_modified": "2017-08-21T00:00:00.000Z",
@@ -790,8 +804,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-3-5-0-beta1",
-            "url": "https://vertx-china.github.io/vert-x-3-5-0-beta1",
+            "id": "https://vertx-china.github.io/blog/vert-x-3-5-0-beta1",
+            "url": "https://vertx-china.github.io/blog/vert-x-3-5-0-beta1",
             "title": "Vert.x 3.5.0.Beta1",
             "summary": "It's summer time and we have just released Vert.x 3.5.0.Beta1!",
             "date_modified": "2017-08-10T00:00:00.000Z",
@@ -804,8 +818,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/openapi-fka-swagger-3-support-in-eclipse-vert-x-now-in-test-stage",
-            "url": "https://vertx-china.github.io/openapi-fka-swagger-3-support-in-eclipse-vert-x-now-in-test-stage",
+            "id": "https://vertx-china.github.io/blog/openapi-fka-swagger-3-support-in-eclipse-vert-x-now-in-test-stage",
+            "url": "https://vertx-china.github.io/blog/openapi-fka-swagger-3-support-in-eclipse-vert-x-now-in-test-stage",
             "title": "OpenAPI (fka Swagger) 3 support in Eclipse Vert.x now in test stage!",
             "summary": "As GSoC 2017's student, I'm working on an embedded support to OpenAPI 3 standard inside Eclipse Vert.x framework. Now, after a lot of work, you can try it!",
             "date_modified": "2017-07-04T00:00:00.000Z",
@@ -818,8 +832,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/preview-of-a-guide-for-java-developers",
-            "url": "https://vertx-china.github.io/preview-of-a-guide-for-java-developers",
+            "id": "https://vertx-china.github.io/blog/preview-of-a-guide-for-java-developers",
+            "url": "https://vertx-china.github.io/blog/preview-of-a-guide-for-java-developers",
             "title": "Preview of a guide for Java developers",
             "summary": "We are introducing the book “A gentle guide to asynchronous programming with Eclipse Vert.x for enterprise application developers”.",
             "date_modified": "2017-06-09T00:00:00.000Z",
@@ -832,8 +846,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/presentation-of-the-vert-x-swagger-project",
-            "url": "https://vertx-china.github.io/presentation-of-the-vert-x-swagger-project",
+            "id": "https://vertx-china.github.io/blog/presentation-of-the-vert-x-swagger-project",
+            "url": "https://vertx-china.github.io/blog/presentation-of-the-vert-x-swagger-project",
             "title": "Presentation of the Vert.x-Swagger project",
             "summary": "This post is an introduction to the Vert.x-Swagger project, and describe how to use the Swagger-Codegen plugin and the SwaggerRouter class.",
             "date_modified": "2017-05-22T00:00:00.000Z",
@@ -846,8 +860,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/time-scheduling-with-chime",
-            "url": "https://vertx-china.github.io/time-scheduling-with-chime",
+            "id": "https://vertx-china.github.io/blog/time-scheduling-with-chime",
+            "url": "https://vertx-china.github.io/blog/time-scheduling-with-chime",
             "title": "Time scheduling with Chime",
             "summary": "Eclipse Vert.x executes periodic and delayed actions with periodic and one-shot timers. Chime is a time scheduler verticle that works on the Vert.x event bus.",
             "date_modified": "2017-05-09T00:00:00.000Z",
@@ -860,8 +874,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/building-a-real-time-web-app-with-angular-ngrx-and-vert-x",
-            "url": "https://vertx-china.github.io/building-a-real-time-web-app-with-angular-ngrx-and-vert-x",
+            "id": "https://vertx-china.github.io/blog/building-a-real-time-web-app-with-angular-ngrx-and-vert-x",
+            "url": "https://vertx-china.github.io/blog/building-a-real-time-web-app-with-angular-ngrx-and-vert-x",
             "title": "Building a real-time web app with Angular/Ngrx and Vert.x",
             "summary": "There are multiple tech stacks to build a real-time web app. What are the best choices to build Angular client apps, connected to a JVM-based backend?",
             "date_modified": "2017-04-26T00:00:00.000Z",
@@ -874,8 +888,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/dynamic-routing-in-serverless-microservice-with-vert-x-event-bus",
-            "url": "https://vertx-china.github.io/dynamic-routing-in-serverless-microservice-with-vert-x-event-bus",
+            "id": "https://vertx-china.github.io/blog/dynamic-routing-in-serverless-microservice-with-vert-x-event-bus",
+            "url": "https://vertx-china.github.io/blog/dynamic-routing-in-serverless-microservice-with-vert-x-event-bus",
             "title": "Dynamic Routing in Serverless Microservice with Vert.x Event Bus",
             "summary": "The Serverless Framework has become the de facto toolkit for building and deploying serverless functions or applications.",
             "date_modified": "2017-04-14T00:00:00.000Z",
@@ -888,8 +902,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/scala-is-here",
-            "url": "https://vertx-china.github.io/scala-is-here",
+            "id": "https://vertx-china.github.io/blog/scala-is-here",
+            "url": "https://vertx-china.github.io/blog/scala-is-here",
             "title": "Scala is here",
             "summary": "The rise of Scala as one of the most important languages on the JVM caught many (me included) by surprise. This hybrid of functional and imperative paradigms struck a chord with many developers.",
             "date_modified": "2017-03-20T00:00:00.000Z",
@@ -902,8 +916,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/data-driven-apps-made-easy-with-vert-x-3-4-0-and-headless-cms-gentics-mesh",
-            "url": "https://vertx-china.github.io/data-driven-apps-made-easy-with-vert-x-3-4-0-and-headless-cms-gentics-mesh",
+            "id": "https://vertx-china.github.io/blog/data-driven-apps-made-easy-with-vert-x-3-4-0-and-headless-cms-gentics-mesh",
+            "url": "https://vertx-china.github.io/blog/data-driven-apps-made-easy-with-vert-x-3-4-0-and-headless-cms-gentics-mesh",
             "title": "Data-driven Apps made easy with Vert.x 3.4.0 and headless CMS Gentics Mesh",
             "summary": "I would like to share why Vert.x is not only a robust foundation for the headless Content Management System Gentics Mesh but also how it can be used to build a template-based web server.",
             "date_modified": "2017-03-13T00:00:00.000Z",
@@ -916,8 +930,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-3-4-0-is-released",
-            "url": "https://vertx-china.github.io/vert-x-3-4-0-is-released",
+            "id": "https://vertx-china.github.io/blog/vert-x-3-4-0-is-released",
+            "url": "https://vertx-china.github.io/blog/vert-x-3-4-0-is-released",
             "title": "Vert.x 3.4.0 is released!",
             "summary": "Vert.x 3.4.0 has just been released with many new exciting features!",
             "date_modified": "2017-03-07T00:00:00.000Z",
@@ -930,8 +944,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-3-4-0-beta1-release",
-            "url": "https://vertx-china.github.io/vert-x-3-4-0-beta1-release",
+            "id": "https://vertx-china.github.io/blog/vert-x-3-4-0-beta1-release",
+            "url": "https://vertx-china.github.io/blog/vert-x-3-4-0-beta1-release",
             "title": "Vert.x 3.4.0.Beta1 release",
             "summary": "We have released 3.4.0.Beta1, this release is the biggest since Vert.x 3.0.0 with plenty of great features.",
             "date_modified": "2017-02-09T00:00:00.000Z",
@@ -944,8 +958,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/an-introduction-to-the-vert-x-context-object",
-            "url": "https://vertx-china.github.io/an-introduction-to-the-vert-x-context-object",
+            "id": "https://vertx-china.github.io/blog/an-introduction-to-the-vert-x-context-object",
+            "url": "https://vertx-china.github.io/blog/an-introduction-to-the-vert-x-context-object",
             "title": "An Introduction to the Vert.x Context Object",
             "summary": "Under the hood, the vert.x Context class plays a critical part in maintaining the thread-safety guarantees of verticles. Most of the time, vert.x coders don't need to make use of Context objects directly.",
             "date_modified": "2017-01-31T00:00:00.000Z",
@@ -958,8 +972,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/building-services-and-apis-with-amqp-1-0",
-            "url": "https://vertx-china.github.io/building-services-and-apis-with-amqp-1-0",
+            "id": "https://vertx-china.github.io/blog/building-services-and-apis-with-amqp-1-0",
+            "url": "https://vertx-china.github.io/blog/building-services-and-apis-with-amqp-1-0",
             "title": "Building services and APIs with AMQP 1.0",
             "summary": "Microservices and APIs are everywhere. Everyone talks about them, presentation slides are full of them ... some people are actually even building them.",
             "date_modified": "2017-01-25T00:00:00.000Z",
@@ -972,8 +986,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/internet-of-things-reactive-and-asynchronous-with-vert-x",
-            "url": "https://vertx-china.github.io/internet-of-things-reactive-and-asynchronous-with-vert-x",
+            "id": "https://vertx-china.github.io/blog/internet-of-things-reactive-and-asynchronous-with-vert-x",
+            "url": "https://vertx-china.github.io/blog/internet-of-things-reactive-and-asynchronous-with-vert-x",
             "title": "Internet of Things - Reactive and Asynchronous with Vert.x",
             "summary": "I have to admit … before joining Red Hat I didn’t know about the Eclipse Vert.x project but it took me few days to fall in love with it!",
             "date_modified": "2016-12-29T00:00:00.000Z",
@@ -986,8 +1000,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/getting-started-with-new-fabric8-vert-x-maven-plugin",
-            "url": "https://vertx-china.github.io/getting-started-with-new-fabric8-vert-x-maven-plugin",
+            "id": "https://vertx-china.github.io/blog/getting-started-with-new-fabric8-vert-x-maven-plugin",
+            "url": "https://vertx-china.github.io/blog/getting-started-with-new-fabric8-vert-x-maven-plugin",
             "title": "Getting started with new fabric8 Vert.x Maven Plugin",
             "summary": "The all new fabric8 Vert.x Maven Plugin allows you to setup, package, run, start, stop and redeploy easily with a very little configuration resulting in a less verbose pom.xml.",
             "date_modified": "2016-12-07T00:00:00.000Z",
@@ -1000,8 +1014,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/oauth2-got-easy",
-            "url": "https://vertx-china.github.io/oauth2-got-easy",
+            "id": "https://vertx-china.github.io/blog/oauth2-got-easy",
+            "url": "https://vertx-china.github.io/blog/oauth2-got-easy",
             "title": "OAuth2 got easy",
             "summary": "Oauth2 support exists in Eclipse Vert.x since version 3.2.0. The implementation follows the principles that rule the whole vert.x ecosystem.",
             "date_modified": "2016-12-02T00:00:00.000Z",
@@ -1014,8 +1028,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-featuring-continuous-delivery-with-jenkins-and-ansible",
-            "url": "https://vertx-china.github.io/vert-x-featuring-continuous-delivery-with-jenkins-and-ansible",
+            "id": "https://vertx-china.github.io/blog/vert-x-featuring-continuous-delivery-with-jenkins-and-ansible",
+            "url": "https://vertx-china.github.io/blog/vert-x-featuring-continuous-delivery-with-jenkins-and-ansible",
             "title": "Vert.x featuring Continuous Delivery with Jenkins and Ansible",
             "summary": "This blog entry describes an approach to adopt Continuous Delivery for Vert.x applications using Jenkins and Ansible by taking advantage of the Jenkins Job DSL and Ansible plugins.",
             "date_modified": "2016-09-28T00:00:00.000Z",
@@ -1028,8 +1042,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-3-3-3-is-released",
-            "url": "https://vertx-china.github.io/vert-x-3-3-3-is-released",
+            "id": "https://vertx-china.github.io/blog/vert-x-3-3-3-is-released",
+            "url": "https://vertx-china.github.io/blog/vert-x-3-3-3-is-released",
             "title": "Vert.x 3.3.3 is released!",
             "summary": "We have just released Vert.x 3.3.3, a bug fix release of Vert.x 3.3.x.",
             "date_modified": "2016-09-12T00:00:00.000Z",
@@ -1042,8 +1056,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/centralized-logging-for-vert-x-applications-using-the-elk-stack",
-            "url": "https://vertx-china.github.io/centralized-logging-for-vert-x-applications-using-the-elk-stack",
+            "id": "https://vertx-china.github.io/blog/centralized-logging-for-vert-x-applications-using-the-elk-stack",
+            "url": "https://vertx-china.github.io/blog/centralized-logging-for-vert-x-applications-using-the-elk-stack",
             "title": "Centralized logging for Vert.x applications using the ELK stack",
             "summary": "This post entry describes a solution to achieve centralized logging of Vert.x applications using the ELK stack (Logstash, Elasticsearch, and Kibana).",
             "date_modified": "2016-09-08T00:00:00.000Z",
@@ -1056,8 +1070,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-blueprint-tutorials",
-            "url": "https://vertx-china.github.io/vert-x-blueprint-tutorials",
+            "id": "https://vertx-china.github.io/blog/vert-x-blueprint-tutorials",
+            "url": "https://vertx-china.github.io/blog/vert-x-blueprint-tutorials",
             "title": "Vert.x Blueprint Tutorials",
             "summary": "The Vert.x Blueprint project aims to provide guidelines to Vert.x users to implement various applications such as message-based applications and microservices.",
             "date_modified": "2016-09-01T00:00:00.000Z",
@@ -1070,8 +1084,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-fall-conferences",
-            "url": "https://vertx-china.github.io/vert-x-fall-conferences",
+            "id": "https://vertx-china.github.io/blog/vert-x-fall-conferences",
+            "url": "https://vertx-china.github.io/blog/vert-x-fall-conferences",
             "title": "Vert.x fall conferences",
             "summary": "A lot of Vert.x conferences are planned this fall around the world, here is a quick recap of these events.",
             "date_modified": "2016-08-26T00:00:00.000Z",
@@ -1084,8 +1098,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-3-3-2-is-released",
-            "url": "https://vertx-china.github.io/vert-x-3-3-2-is-released",
+            "id": "https://vertx-china.github.io/blog/vert-x-3-3-2-is-released",
+            "url": "https://vertx-china.github.io/blog/vert-x-3-3-2-is-released",
             "title": "Vert.x 3.3.2 is released!",
             "summary": "We have just released Vert.x 3.3.2, the first bug fix release of Vert.x 3.3.x.",
             "date_modified": "2016-07-12T00:00:00.000Z",
@@ -1098,8 +1112,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-3-3-0-is-released",
-            "url": "https://vertx-china.github.io/vert-x-3-3-0-is-released",
+            "id": "https://vertx-china.github.io/blog/vert-x-3-3-0-is-released",
+            "url": "https://vertx-china.github.io/blog/vert-x-3-3-0-is-released",
             "title": "Vert.x 3.3.0 is released!",
             "summary": "That was a long run … but here we are. We are very pleased to announce the release of Vert.x 3.3.0!",
             "date_modified": "2016-06-24T00:00:00.000Z",
@@ -1112,8 +1126,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vertx-3-and-keycloak-tutorial",
-            "url": "https://vertx-china.github.io/vertx-3-and-keycloak-tutorial",
+            "id": "https://vertx-china.github.io/blog/vertx-3-and-keycloak-tutorial",
+            "url": "https://vertx-china.github.io/blog/vertx-3-and-keycloak-tutorial",
             "title": "Vertx 3 and Keycloak tutorial",
             "summary": "With the upcoming release of Vert.x 3.3 securing your application with Keycloak is even easier than before.",
             "date_modified": "2016-03-30T00:00:00.000Z",
@@ -1126,8 +1140,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vertx-3-and-azure-cloud-platform-tutorial",
-            "url": "https://vertx-china.github.io/vertx-3-and-azure-cloud-platform-tutorial",
+            "id": "https://vertx-china.github.io/blog/vertx-3-and-azure-cloud-platform-tutorial",
+            "url": "https://vertx-china.github.io/blog/vertx-3-and-azure-cloud-platform-tutorial",
             "title": "Vert.x 3 and Azure cloud platform tutorial",
             "summary": "Vert.x 3.2.1 applications can quickly be deployed on Microsoft Azure. Deployment is independent of your build so it is all about configuration.",
             "date_modified": "2016-03-17T00:00:00.000Z",
@@ -1140,8 +1154,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-3-2-1-is-released",
-            "url": "https://vertx-china.github.io/vert-x-3-2-1-is-released",
+            "id": "https://vertx-china.github.io/blog/vert-x-3-2-1-is-released",
+            "url": "https://vertx-china.github.io/blog/vert-x-3-2-1-is-released",
             "title": "Vert.x 3.2.1 is released!",
             "summary": "We are pleased to announce the release of Vert.x 3.2.1!",
             "date_modified": "2016-02-05T00:00:00.000Z",
@@ -1154,8 +1168,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/intro-to-vert-x-shell",
-            "url": "https://vertx-china.github.io/intro-to-vert-x-shell",
+            "id": "https://vertx-china.github.io/blog/intro-to-vert-x-shell",
+            "url": "https://vertx-china.github.io/blog/intro-to-vert-x-shell",
             "title": "Intro to Vert.x Shell",
             "summary": "Vert.x Shell provides an extensible command line for Vert.x, accessible via SSH, Telnet or a nice Web interface. Vert.x Shell comes out of the box with plenty of commands.",
             "date_modified": "2016-01-25T00:00:00.000Z",
@@ -1168,8 +1182,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/using-hamcrest-matchers-with-vert-x-unit",
-            "url": "https://vertx-china.github.io/using-hamcrest-matchers-with-vert-x-unit",
+            "id": "https://vertx-china.github.io/blog/using-hamcrest-matchers-with-vert-x-unit",
+            "url": "https://vertx-china.github.io/blog/using-hamcrest-matchers-with-vert-x-unit",
             "title": "Using Hamcrest Matchers with Vert.x Unit",
             "summary": "Vert.x Unit is a very elegant library to test asynchronous applications developed with vert.x. However because of this asynchronous aspect, reporting test failures is not natural for JUnit users.",
             "date_modified": "2016-01-18T00:00:00.000Z",
@@ -1182,8 +1196,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/real-time-bidding-with-websockets-and-vert-x",
-            "url": "https://vertx-china.github.io/real-time-bidding-with-websockets-and-vert-x",
+            "id": "https://vertx-china.github.io/blog/real-time-bidding-with-websockets-and-vert-x",
+            "url": "https://vertx-china.github.io/blog/real-time-bidding-with-websockets-and-vert-x",
             "title": "Real-time bidding with Websockets and Vert.x",
             "summary": "The expectations of users for interactivity with web applications have changed over the past few years.\n    Users during bidding in auction no longer want to press the refresh button.",
             "date_modified": "2016-01-15T00:00:00.000Z",
@@ -1196,8 +1210,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/ecmascript-6-7-on-the-jvm-with-typescript-and-vert-x",
-            "url": "https://vertx-china.github.io/ecmascript-6-7-on-the-jvm-with-typescript-and-vert-x",
+            "id": "https://vertx-china.github.io/blog/ecmascript-6-7-on-the-jvm-with-typescript-and-vert-x",
+            "url": "https://vertx-china.github.io/blog/ecmascript-6-7-on-the-jvm-with-typescript-and-vert-x",
             "title": "ECMAScript 6/7 on the JVM with TypeScript and Vert.x",
             "summary": "I figured it would be a good idea to give you a couple of examples how teaming\n  Vert.x and TypeScript helps you use ECMAScript 6 and 7 features on the JVM today.",
             "date_modified": "2016-01-03T00:00:00.000Z",
@@ -1210,8 +1224,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/automatic-redeployment-in-eclipse-ide",
-            "url": "https://vertx-china.github.io/automatic-redeployment-in-eclipse-ide",
+            "id": "https://vertx-china.github.io/blog/automatic-redeployment-in-eclipse-ide",
+            "url": "https://vertx-china.github.io/blog/automatic-redeployment-in-eclipse-ide",
             "title": "Automatic redeployment in Eclipse IDE",
             "summary": "Vert.x 3.1 has (re-)introduced the redeploy feature. This blog post explains how to use this feature in the Eclipse IDE. However, you can easily adapt the content to your IDE.",
             "date_modified": "2015-12-20T00:00:00.000Z",
@@ -1224,8 +1238,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-3-2-0-is-released",
-            "url": "https://vertx-china.github.io/vert-x-3-2-0-is-released",
+            "id": "https://vertx-china.github.io/blog/vert-x-3-2-0-is-released",
+            "url": "https://vertx-china.github.io/blog/vert-x-3-2-0-is-released",
             "title": "Vert.x 3.2.0 is released!",
             "summary": "We are pleased to announce the release of Vert.x 3.2.0!",
             "date_modified": "2015-12-15T00:00:00.000Z",
@@ -1238,8 +1252,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/combine-vert-x-and-mongo-to-build-a-giant",
-            "url": "https://vertx-china.github.io/combine-vert-x-and-mongo-to-build-a-giant",
+            "id": "https://vertx-china.github.io/blog/combine-vert-x-and-mongo-to-build-a-giant",
+            "url": "https://vertx-china.github.io/blog/combine-vert-x-and-mongo-to-build-a-giant",
             "title": "Combine vert.x and mongo to build a giant",
             "summary": "This blog post is part of the introduction to Vert.x series. We are now going to replace this JDBC client by the vertx-mongo-client, and thus connect to a Mongo database.",
             "date_modified": "2015-11-30T00:00:00.000Z",
@@ -1252,8 +1266,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-es6-back-to-the-future",
-            "url": "https://vertx-china.github.io/vert-x-es6-back-to-the-future",
+            "id": "https://vertx-china.github.io/blog/vert-x-es6-back-to-the-future",
+            "url": "https://vertx-china.github.io/blog/vert-x-es6-back-to-the-future",
             "title": "Vert.x ES6 back to the future",
             "summary": "On October 21th, 2015 we all rejoiced with the return from the past of Marty McFly with his flying car and so on, however in the Vert.x world we were quite sad about our rather old JavaScript support.",
             "date_modified": "2015-11-25T00:00:00.000Z",
@@ -1266,8 +1280,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/using-the-asynchronous-sql-client",
-            "url": "https://vertx-china.github.io/using-the-asynchronous-sql-client",
+            "id": "https://vertx-china.github.io/blog/using-the-asynchronous-sql-client",
+            "url": "https://vertx-china.github.io/blog/using-the-asynchronous-sql-client",
             "title": "Using the asynchronous SQL client",
             "summary": "Finally, back... This post is the fifth post of the introduction to vert.x blog series, after a not-that-small break. In this post we are going to see how we can use JDBC in a vert.x application.",
             "date_modified": "2015-10-19T00:00:00.000Z",
@@ -1280,8 +1294,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-3-1-0-is-released",
-            "url": "https://vertx-china.github.io/vert-x-3-1-0-is-released",
+            "id": "https://vertx-china.github.io/blog/vert-x-3-1-0-is-released",
+            "url": "https://vertx-china.github.io/blog/vert-x-3-1-0-is-released",
             "title": "Vert.x 3.1.0 is released!",
             "summary": "I'm pleased to announce the release of Vert.x 3.1!",
             "date_modified": "2015-10-08T00:00:00.000Z",
@@ -1294,8 +1308,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/contract-driven-rest-services-with-vert-x3",
-            "url": "https://vertx-china.github.io/contract-driven-rest-services-with-vert-x3",
+            "id": "https://vertx-china.github.io/blog/contract-driven-rest-services-with-vert-x3",
+            "url": "https://vertx-china.github.io/blog/contract-driven-rest-services-with-vert-x3",
             "title": "Contract Driven REST Services with Vert.x3",
             "summary": "We see a new trend in development where we are shifting from developing applications to APIs. More and more we see services being offered as REST APIs that we are allowed to consume.",
             "date_modified": "2015-09-17T00:00:00.000Z",
@@ -1308,8 +1322,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/writing-secure-vert-x-web-apps",
-            "url": "https://vertx-china.github.io/writing-secure-vert-x-web-apps",
+            "id": "https://vertx-china.github.io/blog/writing-secure-vert-x-web-apps",
+            "url": "https://vertx-china.github.io/blog/writing-secure-vert-x-web-apps",
             "title": "Writing secure Vert.x Web apps",
             "summary": "This is a starting guide for securing Vert.x web applications. Standard rules and practices apply to Vert.x apps as if they would to any other web framework.",
             "date_modified": "2015-09-14T00:00:00.000Z",
@@ -1322,8 +1336,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x3-real-time-web-apps",
-            "url": "https://vertx-china.github.io/vert-x3-real-time-web-apps",
+            "id": "https://vertx-china.github.io/blog/vert-x3-real-time-web-apps",
+            "url": "https://vertx-china.github.io/blog/vert-x3-real-time-web-apps",
             "title": "Vert.x 3 real time web apps",
             "summary": "One of the interesting features of Vert.x is the SockJS event bus bridge. It allows external applications to communicate with Vert.x event bus using Websockets.",
             "date_modified": "2015-08-31T00:00:00.000Z",
@@ -1336,8 +1350,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/unit-and-integration-tests",
-            "url": "https://vertx-china.github.io/unit-and-integration-tests",
+            "id": "https://vertx-china.github.io/blog/unit-and-integration-tests",
+            "url": "https://vertx-china.github.io/blog/unit-and-integration-tests",
             "title": "Unit and Integration Tests",
             "summary": "Let’s refresh our mind about what we developed so far in the introduction to vert.x series. We forgot an important task. We didn’t test the API.",
             "date_modified": "2015-08-03T00:00:00.000Z",
@@ -1350,8 +1364,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/some-rest-with-vert-x",
-            "url": "https://vertx-china.github.io/some-rest-with-vert-x",
+            "id": "https://vertx-china.github.io/blog/some-rest-with-vert-x",
+            "url": "https://vertx-china.github.io/blog/some-rest-with-vert-x",
             "title": "Some Rest with Vert.x",
             "summary": "This post is part of the Introduction to Vert.x series. Let’s go a bit further this time and develop a CRUD-ish application",
             "date_modified": "2015-07-27T00:00:00.000Z",
@@ -1364,8 +1378,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-application-configuration",
-            "url": "https://vertx-china.github.io/vert-x-application-configuration",
+            "id": "https://vertx-china.github.io/blog/vert-x-application-configuration",
+            "url": "https://vertx-china.github.io/blog/vert-x-application-configuration",
             "title": "Vert.x Application Configuration",
             "summary": "In our previous post, we developed a very simple Vert.x 3 application, and saw how this application can be tested, packaged and executed. That was nice, wasn’t it?",
             "date_modified": "2015-07-20T00:00:00.000Z",
@@ -1378,8 +1392,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/my-first-vert-x-3-application",
-            "url": "https://vertx-china.github.io/my-first-vert-x-3-application",
+            "id": "https://vertx-china.github.io/blog/my-first-vert-x-3-application",
+            "url": "https://vertx-china.github.io/blog/my-first-vert-x-3-application",
             "title": "My first Vert.x 3 Application",
             "summary": "Let's say, you heard someone saying that Vert.x is awesome. Ok great, but you may want to try it by yourself. Well, the next natural question is “where do I start ?”",
             "date_modified": "2015-07-14T00:00:00.000Z",
@@ -1392,8 +1406,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x3-says-hello-to-npm-users",
-            "url": "https://vertx-china.github.io/vert-x3-says-hello-to-npm-users",
+            "id": "https://vertx-china.github.io/blog/vert-x3-says-hello-to-npm-users",
+            "url": "https://vertx-china.github.io/blog/vert-x3-says-hello-to-npm-users",
             "title": "Vert.x 3 says “hello” to NPM users",
             "summary": "In programming literature it has become the standard to create a hello world program as the first example. In this article, I'll demonstrate how NPM users can quickly get started with Vert.x.",
             "date_modified": "2015-07-13T00:00:00.000Z",
@@ -1406,8 +1420,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/checklist-for-migrating-from-vert-x-2-1-x-to-vert-x-3-part-one",
-            "url": "https://vertx-china.github.io/checklist-for-migrating-from-vert-x-2-1-x-to-vert-x-3-part-one",
+            "id": "https://vertx-china.github.io/blog/checklist-for-migrating-from-vert-x-2-1-x-to-vert-x-3-part-one",
+            "url": "https://vertx-china.github.io/blog/checklist-for-migrating-from-vert-x-2-1-x-to-vert-x-3-part-one",
             "title": "Checklist for Migrating from Vert.x 2.1.x to Vert.x 3 - Part One",
             "summary": "So while upgrading our application, I thought I should note down all the changes that we had to do in the process. Since Vert.x 3 is a major upgrade from the previous version, with so many changes.",
             "date_modified": "2015-07-06T00:00:00.000Z",
@@ -1420,8 +1434,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x3-and-postgresql-json-type",
-            "url": "https://vertx-china.github.io/vert-x3-and-postgresql-json-type",
+            "id": "https://vertx-china.github.io/blog/vert-x3-and-postgresql-json-type",
+            "url": "https://vertx-china.github.io/blog/vert-x3-and-postgresql-json-type",
             "title": "Vert.x 3 and PostgreSQL JSON type",
             "summary": "One of the interesting features of NoSQL databases is their schema-less mode of operation. This feature is very useful during project prototyping and early development since at early the stages of development of projects all data structures are not clear or have been defined yet.",
             "date_modified": "2015-07-03T00:00:00.000Z",
@@ -1434,8 +1448,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-3-init-d-script",
-            "url": "https://vertx-china.github.io/vert-x-3-init-d-script",
+            "id": "https://vertx-china.github.io/blog/vert-x-3-init-d-script",
+            "url": "https://vertx-china.github.io/blog/vert-x-3-init-d-script",
             "title": "Vert.x 3 init.d Script",
             "summary": "Let's say you have a Vert.x 3 application you want to install on a Linux server. But you want the old school way (I mean not the Docker way).",
             "date_modified": "2015-07-02T00:00:00.000Z",
@@ -1448,8 +1462,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x3-web-easy-as-pi",
-            "url": "https://vertx-china.github.io/vert-x3-web-easy-as-pi",
+            "id": "https://vertx-china.github.io/blog/vert-x3-web-easy-as-pi",
+            "url": "https://vertx-china.github.io/blog/vert-x3-web-easy-as-pi",
             "title": "Vert.x 3 Web easy as Pi",
             "summary": "Vert.x Web distinguishes itself from traditional application servers like JavaEE by just being a simple extension toolkit to Vert.x, which makes it quite lightweight and small but nevertheless very powerful.",
             "date_modified": "2015-07-01T00:00:00.000Z",
@@ -1462,8 +1476,8 @@
             ]
         },
         {
-            "id": "https://vertx-china.github.io/vert-x-2-1-6-released",
-            "url": "https://vertx-china.github.io/vert-x-2-1-6-released",
+            "id": "https://vertx-china.github.io/blog/vert-x-2-1-6-released",
+            "url": "https://vertx-china.github.io/blog/vert-x-2-1-6-released",
             "title": "Vert.x 2.1.6 released!",
             "summary": "The Vert.x team is pleased to announce the release of Vert.x 2.1.6",
             "date_modified": "2015-06-30T00:00:00.000Z",
