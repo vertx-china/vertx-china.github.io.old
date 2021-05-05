@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://vertx-china.github.io</id>
     <title>Vert.x</title>
-    <updated>2021-05-05T07:29:17.834Z</updated>
+    <updated>2021-05-05T09:05:35.343Z</updated>
     <generator>Vert.x</generator>
     <link rel="alternate" href="https://vertx-china.github.io"/>
     <link rel="self" href="https://vertx-china.github.io/feed/atom.xml"/>
