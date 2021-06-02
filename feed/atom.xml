@@ -1,20 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://vertx-china.github.io</id>
+    <id>https://vertx.io</id>
     <title>Vert.x</title>
-    <updated>2021-05-29T07:24:12.936Z</updated>
+    <updated>2021-06-02T06:35:17.494Z</updated>
     <generator>Vert.x</generator>
-    <link rel="alternate" href="https://vertx-china.github.io"/>
-    <link rel="self" href="https://vertx-china.github.io/feed/atom.xml"/>
+    <link rel="alternate" href="https://vertx.io"/>
+    <link rel="self" href="https://vertx.io/feed/atom.xml"/>
     <subtitle>Vert.x is a tool-kit for building reactive applications on the JVM</subtitle>
-    <icon>https://vertx-china.github.io/favicons/favicon.ico</icon>
+    <icon>https://vertx.io/favicons/favicon.ico</icon>
     <category term="releases"/>
     <category term="guides"/>
     <category term="news"/>
     <entry>
+        <title type="html"><![CDATA[What's new in Vert.x 4.1]]></title>
+        <id>https://vertx.io/blog/whats-new-in-vert-x-4-1</id>
+        <link href="https://vertx.io/blog/whats-new-in-vert-x-4-1"/>
+        <updated>2021-05-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[See an overview of all new and exciting features in Vert.x 4.1, including Vert.x HTTP proxy, RxJava 3, Open Telemetry, and more.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate from Vert.x 3 to Vert.x 4]]></title>
+        <id>https://vertx.io/blog/from-vert-x-3-to-vert-x-4</id>
+        <link href="https://vertx.io/blog/from-vert-x-3-to-vert-x-4"/>
+        <updated>2020-12-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We provide a clear and well-documented migration path from Vert.x 3.9 to Vert.x 4. Existing users will feel at home with the new version.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="guides"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4.1.0 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-1-0</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-1-0"/>
+        <updated>2021-06-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 4.1.0 has just been released. It comes with a set of new exciting features!]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4.1.0.CR2 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-1-CR2-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-1-CR2-released"/>
+        <updated>2021-05-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The second candidate release of the upcoming Vert.x 4.1 has just been released. We consider it feature complete and invite the community to test it.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4.1.0.CR1 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-1-CR1-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-1-CR1-released"/>
+        <updated>2021-05-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The first candidate release of the upcoming Vert.x 4.1 has just been released. We consider it feature complete and invite the community to test it.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4.1.0.Beta1 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-1-Beta1-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-1-Beta1-released"/>
+        <updated>2021-05-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The first beta of the upcoming Vert.x 4.1 has just been released. We consider it feature complete and invite the community to test it.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 3.9.7 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-9-7</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-9-7"/>
+        <updated>2021-04-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 3.9.7 has just been released. It fixes quite a few bugs that have been reported by the community.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4.0.3 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-0-3</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-0-3"/>
+        <updated>2021-03-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 4.0.3 has just been released. It fixes quite a few bugs that have been reported by the community.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 3.9.6 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-9-6</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-9-6"/>
+        <updated>2021-02-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 3.9.6 has just been released. It fixes quite a few bugs that have been reported by the community.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4.0.2 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-0-2</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-0-2"/>
+        <updated>2021-02-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 4.0.2 has just been released. It fixes quite a few bugs that have been reported by the community.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Things to keep in mind concerning CSRF attacks]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-CSRF-concerns</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-CSRF-concerns"/>
+        <updated>2021-01-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x like most frameworks provides an anti-CSRF defense. However, no framework can prevent all attack vectors that exist in the web. Therefore, developers need to be aware of some dangers and common attack vectors concerning CSRF defenses.]]></summary>
+        <author>
+            <name>Xhelal Likaj</name>
+            <uri>https://github.com/xhlika</uri>
+        </author>
+        <category label="guides"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 3.9.5 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-9-5</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-9-5"/>
+        <updated>2020-12-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 3.9.5 has just been released. It fixes quite a few bugs that have been reported by the community.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-released"/>
+        <updated>2020-12-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Vert.x 4 has just been released and it’s the best thing since sliced buffers.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[What's new in Vert.x 4]]></title>
-        <id>https://vertx-china.github.io/blog/whats-new-in-vert-x-4</id>
-        <link href="https://vertx-china.github.io/blog/whats-new-in-vert-x-4"/>
+        <id>https://vertx.io/blog/whats-new-in-vert-x-4</id>
+        <link href="https://vertx.io/blog/whats-new-in-vert-x-4"/>
         <updated>2020-12-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[See an overview of all new and exciting features in Vert.x 4, including futures, distributed tracing, reactive database clients, SQL templating, and more.]]></summary>
         <author>
@@ -32,81 +188,9 @@
         <category label="releases"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Migrate from Vert.x 3 to Vert.x 4]]></title>
-        <id>https://vertx-china.github.io/blog/from-vert-x-3-to-vert-x-4</id>
-        <link href="https://vertx-china.github.io/blog/from-vert-x-3-to-vert-x-4"/>
-        <updated>2020-12-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[We provide a clear and well-documented migration path from Vert.x 3.9 to Vert.x 4. Existing users will feel at home with the new version.]]></summary>
-        <author>
-            <name>Julien Viet</name>
-            <uri>https://github.com/vietj</uri>
-        </author>
-        <category label="guides"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Eclipse Vert.x 4.0.3 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-4-0-3</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-4-0-3"/>
-        <updated>2021-03-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Eclipse Vert.x version 4.0.3 has just been released. It fixes quite a few bugs that have been reported by the community.]]></summary>
-        <author>
-            <name>Julien Viet</name>
-            <uri>https://github.com/vietj</uri>
-        </author>
-        <category label="releases"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Eclipse Vert.x 3.9.6 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-9-6</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-9-6"/>
-        <updated>2021-02-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Eclipse Vert.x version 3.9.6 has just been released. It fixes quite a few bugs that have been reported by the community.]]></summary>
-        <author>
-            <name>Julien Viet</name>
-            <uri>https://github.com/vietj</uri>
-        </author>
-        <category label="releases"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Eclipse Vert.x 4.0.2 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-4-0-2</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-4-0-2"/>
-        <updated>2021-02-05T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Eclipse Vert.x version 4.0.2 has just been released. It fixes quite a few bugs that have been reported by the community.]]></summary>
-        <author>
-            <name>Julien Viet</name>
-            <uri>https://github.com/vietj</uri>
-        </author>
-        <category label="releases"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Eclipse Vert.x 3.9.5 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-9-5</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-9-5"/>
-        <updated>2020-12-16T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Eclipse Vert.x version 3.9.5 has just been released. It fixes quite a few bugs that have been reported by the community.]]></summary>
-        <author>
-            <name>Julien Viet</name>
-            <uri>https://github.com/vietj</uri>
-        </author>
-        <category label="releases"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Eclipse Vert.x 4 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-4-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-4-released"/>
-        <updated>2020-12-09T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Vert.x 4 has just been released and it’s the best thing since sliced buffers.]]></summary>
-        <author>
-            <name>Julien Viet</name>
-            <uri>https://github.com/vietj</uri>
-        </author>
-        <category label="releases"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 4 CR2 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-4-cr2-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-4-cr2-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-cr2-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-cr2-released"/>
         <updated>2020-11-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The second release candidate of the upcoming Vert.x 4 has just been released. We consider it feature complete and invite the community to test it.]]></summary>
         <author>
@@ -117,8 +201,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 4 CR1 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-4-cr1-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-4-cr1-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-cr1-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-cr1-released"/>
         <updated>2020-11-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The first release candidate of the upcoming Vert.x 4 has just been released. We consider it feature complete and invite the community to test it.]]></summary>
         <author>
@@ -129,8 +213,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.9.4 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-9-4-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-9-4-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-9-4-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-9-4-released"/>
         <updated>2020-10-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Eclipse Vert.x version 3.9.4 has just been released. It fixes quite a few bugs that have been reported by the community.]]></summary>
         <author>
@@ -141,8 +225,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[JWT Authorization for Vert.x with Keycloak]]></title>
-        <id>https://vertx-china.github.io/blog/jwt-authorization-for-vert-x-with-keycloak</id>
-        <link href="https://vertx-china.github.io/blog/jwt-authorization-for-vert-x-with-keycloak"/>
+        <id>https://vertx.io/blog/jwt-authorization-for-vert-x-with-keycloak</id>
+        <link href="https://vertx.io/blog/jwt-authorization-for-vert-x-with-keycloak"/>
         <updated>2020-10-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In this blog post, you'll learn about JWT foundations, protect routes with JWT Authorization, JWT encoded tokens, and RBAC with Keycloak]]></summary>
         <author>
@@ -153,8 +237,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 4 beta 3 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-4-beta-3-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-4-beta-3-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-beta-3-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-beta-3-released"/>
         <updated>2020-09-25T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The third beta version of Eclipse Vert.x 4.0 highlights many features including (but not limited to) HTTP client request creation, HTTP tunnel improvements, and WebSocket upgrade improvements.]]></summary>
         <author>
@@ -165,8 +249,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.9.3 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-9-3-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-9-3-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-9-3-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-9-3-released"/>
         <updated>2020-09-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Eclipse Vert.x version 3.9.3 has just been released. It fixes quite a few bugs that have been reported by the community.]]></summary>
         <author>
@@ -177,8 +261,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 4 beta 1 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-4-beta-1-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-4-beta-1-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-beta-1-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-beta-1-released"/>
         <updated>2020-07-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We are extremely pleased to announce the first 4.0 beta release of Eclipse Vert.x. Highlights of this release are the improved JDBC Client API, event loop affinity, and much more.]]></summary>
         <author>
@@ -189,8 +273,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.9.2 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-9-2-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-9-2-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-9-2-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-9-2-released"/>
         <updated>2020-07-21T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The new Eclipse Vert.x version 3.9.2 has just been released. It includes a few bug fixes, a new reactive DB2 client, and reactive MySQL Client domain socket support.]]></summary>
         <author>
@@ -201,8 +285,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 4 milestone 5 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-5-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-5-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-milestone-5-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-milestone-5-released"/>
         <updated>2020-06-10T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We are extremely pleased to announce the fifth 4.0 milestone release of Eclipse Vert.x. This release aims to provide a reliable distribution of the current development of Vert.x 4.]]></summary>
         <author>
@@ -213,8 +297,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.9.1 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-9-1-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-9-1-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-9-1-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-9-1-released"/>
         <updated>2020-05-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The new version comes with many enhancements including an SQL client for DB2 and out-of-the-box support for HTTP/2 on JDK 8.]]></summary>
         <author>
@@ -225,8 +309,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.9.0 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-9-0-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-9-0-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-9-0-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-9-0-released"/>
         <updated>2020-04-02T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[New features include fluent queries in SQL clients, a new Redis client, an updated Kafka client, an improved Future API, and many more things.]]></summary>
         <author>
@@ -237,8 +321,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Easy SSO for Vert.x with Keycloak]]></title>
-        <id>https://vertx-china.github.io/blog/easy-sso-for-vert-x-with-keycloak</id>
-        <link href="https://vertx-china.github.io/blog/easy-sso-for-vert-x-with-keycloak"/>
+        <id>https://vertx.io/blog/easy-sso-for-vert-x-with-keycloak</id>
+        <link href="https://vertx.io/blog/easy-sso-for-vert-x-with-keycloak"/>
         <updated>2020-03-16T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In this blog post, you'll learn how to implement Single Sign-on with OpenID Connect and how to use Keycloak together with Eclipse Vert.x.]]></summary>
         <author>
@@ -249,8 +333,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.8.5]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-8-5</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-8-5"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-8-5</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-8-5"/>
         <updated>2020-01-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This version is a minor bug fix release addressing issues found in Vert.x 3.8.4. We would like to thank you all for reporting these issues.]]></summary>
         <author>
@@ -261,8 +345,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 4 milestone 4 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-4-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-4-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-milestone-4-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-milestone-4-released"/>
         <updated>2019-12-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The new milestone of Vert.x 4 makes progress in futurisation and includes improvements on the mail client, general clients, and security.]]></summary>
         <author>
@@ -273,8 +357,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.8.4]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-8-4</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-8-4"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-8-4</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-8-4"/>
         <updated>2019-11-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This version is a bug fix release of Vert.x 3.8.3, which addresses quite a few bugs reported by the community.]]></summary>
         <author>
@@ -285,8 +369,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Send web requests and assert results with vertx-junit5-web-client]]></title>
-        <id>https://vertx-china.github.io/blog/send-web-requests-and-assert-results-with-vertx-junit5-web-client</id>
-        <link href="https://vertx-china.github.io/blog/send-web-requests-and-assert-results-with-vertx-junit5-web-client"/>
+        <id>https://vertx.io/blog/send-web-requests-and-assert-results-with-vertx-junit5-web-client</id>
+        <link href="https://vertx.io/blog/send-web-requests-and-assert-results-with-vertx-junit5-web-client"/>
         <updated>2019-10-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In this blog post, you'll learn how to use the new vertx-junit5-web-client module to send web requests in your unit tests and to make assertions.]]></summary>
         <author>
@@ -297,8 +381,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.8.3]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-8-3</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-8-3"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-8-3</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-8-3"/>
         <updated>2019-10-18T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This new version is a minor bug fix release that addresses issues reported in Eclipse Vert.x 3.8.2. We would like to thank you all for reporting these bugs.]]></summary>
         <author>
@@ -309,8 +393,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.8.2]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-8-2</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-8-2"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-8-2</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-8-2"/>
         <updated>2019-10-07T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This version is a bug fix release of Vert.x 3.8.3, which addresses quite a few bugs reported by the community.]]></summary>
         <author>
@@ -321,8 +405,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 4 milestone 3 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-3-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-3-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-milestone-3-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-milestone-3-released"/>
         <updated>2019-09-19T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The next milestone release of Vert.x 4 aims to provide a reliable distribution of the current development for people who want to try it and provide feedback.]]></summary>
         <author>
@@ -333,8 +417,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x for Scala next steps]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-for-scala-next-steps</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-for-scala-next-steps"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-for-scala-next-steps</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-for-scala-next-steps"/>
         <updated>2019-08-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This blog post gives an overview of the current plans for the vertx-lang-scala module, in particular with respect to the upcoming Vert.x 4.]]></summary>
         <author>
@@ -345,8 +429,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 4 milestone 2 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-2-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-2-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-milestone-2-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-milestone-2-released"/>
         <updated>2019-08-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The new milestone release of Vert.x 4 includes progress on futurisation, tracing, and many other improvements.]]></summary>
         <author>
@@ -357,8 +441,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.8.1]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-8-1</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-8-1"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-8-1</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-8-1"/>
         <updated>2019-08-23T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This new version is a bug fix release that addresses issues reported in Eclipse Vert.x 3.8.1. We also updated Netty to version 4.1.39.Final to fix some CVEs.]]></summary>
         <author>
@@ -369,8 +453,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 4 milestone 1 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-1-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-4-milestone-1-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-milestone-1-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-milestone-1-released"/>
         <updated>2019-07-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This is the first milestone of the upcoming Vert.x 4. It extends the 3.x callback asynchronous model to a future/callback hybrid model and introduces a Tracing API.]]></summary>
         <author>
@@ -381,8 +465,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.8.0 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-8-0-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-8-0-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-8-0-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-8-0-released"/>
         <updated>2019-07-19T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We are extremely pleased to announce that Eclipse Vert.x 3.8.0 has been released. This is an important release introduceing a few changes ramping up to Vert.x 4.]]></summary>
         <author>
@@ -393,8 +477,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[VS Code Vert.x Starter Extension]]></title>
-        <id>https://vertx-china.github.io/blog/vs-code-vert-x-starter-extension</id>
-        <link href="https://vertx-china.github.io/blog/vs-code-vert-x-starter-extension"/>
+        <id>https://vertx.io/blog/vs-code-vert-x-starter-extension</id>
+        <link href="https://vertx.io/blog/vs-code-vert-x-starter-extension"/>
         <updated>2019-05-29T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Today, we are really excited to announce the Visual Studio Code Vert.x Starter extension. It allows you to create a Vert.x project, customize the creation, and search for dependencies.]]></summary>
         <author>
@@ -405,8 +489,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.7.1]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-7-1</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-7-1"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-7-1</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-7-1"/>
         <updated>2019-05-27T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have just released Vert.x 3.7.1, a bug fix release of Vert.x 3.7.x and a few small features.]]></summary>
         <author>
@@ -417,8 +501,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.7.0 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-7-0-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-7-0-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-7-0-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-7-0-released"/>
         <updated>2019-04-02T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We are extremely pleased to announce that the Eclipse Vert.x version 3.7.0 has been released.]]></summary>
         <author>
@@ -429,8 +513,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.6.3]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-6-3</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-6-3"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-6-3</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-6-3"/>
         <updated>2019-02-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have just released Vert.x 3.6.3, a bug fix release of Vert.x 3.6.x.]]></summary>
         <author>
@@ -441,8 +525,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.6.2]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-6-2</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-6-2"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-6-2</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-6-2"/>
         <updated>2018-12-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have just released Vert.x 3.6.2, a bug fix release of Vert.x 3.6.x.]]></summary>
         <author>
@@ -453,8 +537,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x Web API Service Introduction]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-web-api-service-introduction</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-web-api-service-introduction"/>
+        <id>https://vertx.io/blog/vert-x-web-api-service-introduction</id>
+        <link href="https://vertx.io/blog/vert-x-web-api-service-introduction"/>
         <updated>2018-12-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This blog post teaches you how to use the new module vertx-web-api-service to combine the Web Router and the OpenAPI Router Factory with service proxies.]]></summary>
         <author>
@@ -465,8 +549,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[HTTP response validation with the Vert.x Web Client]]></title>
-        <id>https://vertx-china.github.io/blog/http-response-validation-with-the-vert-x-web-client</id>
-        <link href="https://vertx-china.github.io/blog/http-response-validation-with-the-vert-x-web-client"/>
+        <id>https://vertx.io/blog/http-response-validation-with-the-vert-x-web-client</id>
+        <link href="https://vertx.io/blog/http-response-validation-with-the-vert-x-web-client"/>
         <updated>2018-12-10T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use response predicates from the Vert.x Web module to validate HTTP responses and to automatically generate error messages.]]></summary>
         <author>
@@ -477,8 +561,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[The RSS reader tutorial (Step 3)]]></title>
-        <id>https://vertx-china.github.io/blog/the-rss-reader-tutorial-step-3</id>
-        <link href="https://vertx-china.github.io/blog/the-rss-reader-tutorial-step-3"/>
+        <id>https://vertx.io/blog/the-rss-reader-tutorial-step-3</id>
+        <link href="https://vertx.io/blog/the-rss-reader-tutorial-step-3"/>
         <updated>2018-12-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This is the third installment of our Vert.x Cassandra Client tutorial. We will implement the last RSS endpoint serving a list of articles related to a specific channel.]]></summary>
         <author>
@@ -489,8 +573,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.6.0 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-6-0-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-6-0-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-6-0-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-6-0-released"/>
         <updated>2018-12-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We are pleased to announce the Eclipse Vert.x 3.6.0 release.]]></summary>
         <author>
@@ -501,8 +585,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.5.4]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-5-4</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-5-4"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-5-4</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-5-4"/>
         <updated>2018-10-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have just released Vert.x 3.5.4, a bug fix release of Vert.x 3.5.x.]]></summary>
         <author>
@@ -513,8 +597,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[The RSS reader tutorial (Step 2)]]></title>
-        <id>https://vertx-china.github.io/blog/the-rss-reader-tutorial-step-2</id>
-        <link href="https://vertx-china.github.io/blog/the-rss-reader-tutorial-step-2"/>
+        <id>https://vertx.io/blog/the-rss-reader-tutorial-step-2</id>
+        <link href="https://vertx.io/blog/the-rss-reader-tutorial-step-2"/>
         <updated>2018-09-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In this second installment of our Vert.x Cassandra Client tutorial, we will add an endpoint that produces an array of RSS channels for a given user ID.]]></summary>
         <author>
@@ -525,8 +609,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[The RSS reader tutorial]]></title>
-        <id>https://vertx-china.github.io/blog/the-rss-reader-tutorial</id>
-        <link href="https://vertx-china.github.io/blog/the-rss-reader-tutorial"/>
+        <id>https://vertx.io/blog/the-rss-reader-tutorial</id>
+        <link href="https://vertx.io/blog/the-rss-reader-tutorial"/>
         <updated>2018-08-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In this tutorial, you will learn how to use the Eclipse Vert.x Cassandra client in practice. We will develop an RSS reader with three HTTP endpoints.]]></summary>
         <author>
@@ -537,8 +621,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.5.3]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-5-3</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-5-3"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-5-3</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-5-3"/>
         <updated>2018-07-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have just released Vert.x 3.5.3, a bug fix release of Vert.x 3.5.x.]]></summary>
         <author>
@@ -549,8 +633,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Simplified database transaction management with the Vert.x RxJava API]]></title>
-        <id>https://vertx-china.github.io/blog/simplified-database-transaction-management-with-the-vert-x-rxjava-api</id>
-        <link href="https://vertx-china.github.io/blog/simplified-database-transaction-management-with-the-vert-x-rxjava-api"/>
+        <id>https://vertx.io/blog/simplified-database-transaction-management-with-the-vert-x-rxjava-api</id>
+        <link href="https://vertx.io/blog/simplified-database-transaction-management-with-the-vert-x-rxjava-api"/>
         <updated>2018-07-02T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[As of Vert.x 3.5, managing database transactions requires a lot of boilerplate code. Vert.x 3.6 provides helpers to easily make a reactive flow transactional.]]></summary>
         <author>
@@ -561,8 +645,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.5.2]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-5-2</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-5-2"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-5-2</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-5-2"/>
         <updated>2018-06-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have just released Vert.x 3.5.2, a bug fix release of Vert.x 3.5.x.]]></summary>
         <author>
@@ -573,8 +657,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x goes Native]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-goes-native</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-goes-native"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-goes-native</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-goes-native"/>
         <updated>2018-06-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This blog post introduces native image generation of Vert.x applications with GraalVM. Generated executables can be run without a JVM.]]></summary>
         <author>
@@ -585,8 +669,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x RabbitMQ client gets a new consumer API!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-rabbitmq-client-gets-a-new-consumer-api</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-rabbitmq-client-gets-a-new-consumer-api"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-rabbitmq-client-gets-a-new-consumer-api</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-rabbitmq-client-gets-a-new-consumer-api"/>
         <updated>2018-04-23T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In this blog post, we present the new consumer API of the RabbitMQ client that will be released with Eclipse Vert.x 3.6.0.]]></summary>
         <author>
@@ -597,8 +681,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[New community channels]]></title>
-        <id>https://vertx-china.github.io/blog/new-community-channels</id>
-        <link href="https://vertx-china.github.io/blog/new-community-channels"/>
+        <id>https://vertx.io/blog/new-community-channels</id>
+        <link href="https://vertx.io/blog/new-community-channels"/>
         <updated>2018-04-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In order to better support the community, we (the core team and module maintainers) now also provide help on Stack Overflow and Gitter.]]></summary>
         <author>
@@ -609,8 +693,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x metrics now with Micrometer.io]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-metrics-now-with-micrometer-io</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-metrics-now-with-micrometer-io"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-metrics-now-with-micrometer-io</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-metrics-now-with-micrometer-io"/>
         <updated>2018-04-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The new vertx-micrometer-metrics module provides support for collecting metrics with Micrometer.io and storing them in backends such as Graphite or InfluxDB.]]></summary>
         <author>
@@ -621,8 +705,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Google Summer of Code 2018]]></title>
-        <id>https://vertx-china.github.io/blog/google-summer-of-code-2018</id>
-        <link href="https://vertx-china.github.io/blog/google-summer-of-code-2018"/>
+        <id>https://vertx.io/blog/google-summer-of-code-2018</id>
+        <link href="https://vertx.io/blog/google-summer-of-code-2018"/>
         <updated>2018-03-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[It's this time of year again! Google Summer of Code 2018 submission period has just started!]]></summary>
         <author>
@@ -633,8 +717,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.5.1 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-5-1-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-5-1-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-5-1-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-5-1-released"/>
         <updated>2018-02-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have just released Vert.x 3.5.1!]]></summary>
         <author>
@@ -645,8 +729,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x based Framework URL Shortener Backend]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-based-framework-url-shortener-backend</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-based-framework-url-shortener-backend"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-based-framework-url-shortener-backend</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-based-framework-url-shortener-backend"/>
         <updated>2017-12-21T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We combine Vert.x with the serverless framework to write a microservice that runs on AWS Lambda.]]></summary>
         <author>
@@ -657,8 +741,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[TCP Client using Eclipse Vert.x, Kotlin and Gradle build]]></title>
-        <id>https://vertx-china.github.io/blog/tcp-client-using-eclipse-vert-x-kotlin-and-gradle-build</id>
-        <link href="https://vertx-china.github.io/blog/tcp-client-using-eclipse-vert-x-kotlin-and-gradle-build"/>
+        <id>https://vertx.io/blog/tcp-client-using-eclipse-vert-x-kotlin-and-gradle-build</id>
+        <link href="https://vertx.io/blog/tcp-client-using-eclipse-vert-x-kotlin-and-gradle-build"/>
         <updated>2017-12-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In this blog post, I demonstrate how to write a very simple TCP client that keeps a connection open to a custom-written server in cloud.]]></summary>
         <author>
@@ -669,8 +753,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x meets GraphQL]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-meets-graphql</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-meets-graphql"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-meets-graphql</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-meets-graphql"/>
         <updated>2017-11-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In this blog post, we will look at an example application written in Vert.x that uses the new GraphQL API of Gentics Mesh.]]></summary>
         <author>
@@ -681,8 +765,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.5.0 released!]]></title>
-        <id>https://vertx-china.github.io/blog/eclipse-vert-x-3-5-0-released</id>
-        <link href="https://vertx-china.github.io/blog/eclipse-vert-x-3-5-0-released"/>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-5-0-released</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-5-0-released"/>
         <updated>2017-10-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The Vert.x team is pleased to announce the release of Eclipse Vert.x 3.5.0.]]></summary>
         <author>
@@ -693,8 +777,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[An Eclipse Vert.x Gradle Plugin]]></title>
-        <id>https://vertx-china.github.io/blog/an-eclipse-vert-x-gradle-plugin</id>
-        <link href="https://vertx-china.github.io/blog/an-eclipse-vert-x-gradle-plugin"/>
+        <id>https://vertx.io/blog/an-eclipse-vert-x-gradle-plugin</id>
+        <link href="https://vertx.io/blog/an-eclipse-vert-x-gradle-plugin"/>
         <updated>2017-09-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The new Vert.x Gradle plugin offers an opinionated plugin for building Vert.x applications with Gradle.]]></summary>
         <author>
@@ -705,8 +789,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Introducing Vert.x MQTT client]]></title>
-        <id>https://vertx-china.github.io/blog/introducing-vert-x-mqtt-client</id>
-        <link href="https://vertx-china.github.io/blog/introducing-vert-x-mqtt-client"/>
+        <id>https://vertx.io/blog/introducing-vert-x-mqtt-client</id>
+        <link href="https://vertx.io/blog/introducing-vert-x-mqtt-client"/>
         <updated>2017-08-21T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In this article, we will see how to set up the new Vert.x MQTT client. An example project is available on GitHub.]]></summary>
         <author>
@@ -717,8 +801,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3.5.0.Beta1]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-3-5-0-beta1</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-3-5-0-beta1"/>
+        <id>https://vertx.io/blog/vert-x-3-5-0-beta1</id>
+        <link href="https://vertx.io/blog/vert-x-3-5-0-beta1"/>
         <updated>2017-08-10T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[It's summer time and we have just released Vert.x 3.5.0.Beta1!]]></summary>
         <author>
@@ -729,8 +813,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[OpenAPI (fka Swagger) 3 support in Eclipse Vert.x now in test stage!]]></title>
-        <id>https://vertx-china.github.io/blog/openapi-fka-swagger-3-support-in-eclipse-vert-x-now-in-test-stage</id>
-        <link href="https://vertx-china.github.io/blog/openapi-fka-swagger-3-support-in-eclipse-vert-x-now-in-test-stage"/>
+        <id>https://vertx.io/blog/openapi-fka-swagger-3-support-in-eclipse-vert-x-now-in-test-stage</id>
+        <link href="https://vertx.io/blog/openapi-fka-swagger-3-support-in-eclipse-vert-x-now-in-test-stage"/>
         <updated>2017-07-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[As GSoC 2017's student, I'm working on an embedded support to OpenAPI 3 standard inside Eclipse Vert.x framework. Now, after a lot of work, you can try it!]]></summary>
         <author>
@@ -741,8 +825,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Preview of a guide for Java developers]]></title>
-        <id>https://vertx-china.github.io/blog/preview-of-a-guide-for-java-developers</id>
-        <link href="https://vertx-china.github.io/blog/preview-of-a-guide-for-java-developers"/>
+        <id>https://vertx.io/blog/preview-of-a-guide-for-java-developers</id>
+        <link href="https://vertx.io/blog/preview-of-a-guide-for-java-developers"/>
         <updated>2017-06-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We are introducing the book “A gentle guide to asynchronous programming with Eclipse Vert.x for enterprise application developers”.]]></summary>
         <author>
@@ -753,8 +837,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Presentation of the Vert.x-Swagger project]]></title>
-        <id>https://vertx-china.github.io/blog/presentation-of-the-vert-x-swagger-project</id>
-        <link href="https://vertx-china.github.io/blog/presentation-of-the-vert-x-swagger-project"/>
+        <id>https://vertx.io/blog/presentation-of-the-vert-x-swagger-project</id>
+        <link href="https://vertx.io/blog/presentation-of-the-vert-x-swagger-project"/>
         <updated>2017-05-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This post is an introduction to the Vert.x-Swagger project, and describe how to use the Swagger-Codegen plugin and the SwaggerRouter class.]]></summary>
         <author>
@@ -765,8 +849,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Time scheduling with Chime]]></title>
-        <id>https://vertx-china.github.io/blog/time-scheduling-with-chime</id>
-        <link href="https://vertx-china.github.io/blog/time-scheduling-with-chime"/>
+        <id>https://vertx.io/blog/time-scheduling-with-chime</id>
+        <link href="https://vertx.io/blog/time-scheduling-with-chime"/>
         <updated>2017-05-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Eclipse Vert.x executes periodic and delayed actions with periodic and one-shot timers. Chime is a time scheduler verticle that works on the Vert.x event bus.]]></summary>
         <author>
@@ -777,8 +861,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Building a real-time web app with Angular/Ngrx and Vert.x]]></title>
-        <id>https://vertx-china.github.io/blog/building-a-real-time-web-app-with-angular-ngrx-and-vert-x</id>
-        <link href="https://vertx-china.github.io/blog/building-a-real-time-web-app-with-angular-ngrx-and-vert-x"/>
+        <id>https://vertx.io/blog/building-a-real-time-web-app-with-angular-ngrx-and-vert-x</id>
+        <link href="https://vertx.io/blog/building-a-real-time-web-app-with-angular-ngrx-and-vert-x"/>
         <updated>2017-04-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[There are multiple tech stacks to build a real-time web app. What are the best choices to build Angular client apps, connected to a JVM-based backend?]]></summary>
         <author>
@@ -789,8 +873,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Dynamic Routing in Serverless Microservice with Vert.x Event Bus]]></title>
-        <id>https://vertx-china.github.io/blog/dynamic-routing-in-serverless-microservice-with-vert-x-event-bus</id>
-        <link href="https://vertx-china.github.io/blog/dynamic-routing-in-serverless-microservice-with-vert-x-event-bus"/>
+        <id>https://vertx.io/blog/dynamic-routing-in-serverless-microservice-with-vert-x-event-bus</id>
+        <link href="https://vertx.io/blog/dynamic-routing-in-serverless-microservice-with-vert-x-event-bus"/>
         <updated>2017-04-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The Serverless Framework has become the de facto toolkit for building and deploying serverless functions or applications.]]></summary>
         <author>
@@ -801,8 +885,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Scala is here]]></title>
-        <id>https://vertx-china.github.io/blog/scala-is-here</id>
-        <link href="https://vertx-china.github.io/blog/scala-is-here"/>
+        <id>https://vertx.io/blog/scala-is-here</id>
+        <link href="https://vertx.io/blog/scala-is-here"/>
         <updated>2017-03-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The rise of Scala as one of the most important languages on the JVM caught many (me included) by surprise. This hybrid of functional and imperative paradigms struck a chord with many developers.]]></summary>
         <author>
@@ -813,8 +897,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Data-driven Apps made easy with Vert.x 3.4.0 and headless CMS Gentics Mesh]]></title>
-        <id>https://vertx-china.github.io/blog/data-driven-apps-made-easy-with-vert-x-3-4-0-and-headless-cms-gentics-mesh</id>
-        <link href="https://vertx-china.github.io/blog/data-driven-apps-made-easy-with-vert-x-3-4-0-and-headless-cms-gentics-mesh"/>
+        <id>https://vertx.io/blog/data-driven-apps-made-easy-with-vert-x-3-4-0-and-headless-cms-gentics-mesh</id>
+        <link href="https://vertx.io/blog/data-driven-apps-made-easy-with-vert-x-3-4-0-and-headless-cms-gentics-mesh"/>
         <updated>2017-03-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I would like to share why Vert.x is not only a robust foundation for the headless Content Management System Gentics Mesh but also how it can be used to build a template-based web server.]]></summary>
         <author>
@@ -825,8 +909,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3.4.0 is released!]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-3-4-0-is-released</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-3-4-0-is-released"/>
+        <id>https://vertx.io/blog/vert-x-3-4-0-is-released</id>
+        <link href="https://vertx.io/blog/vert-x-3-4-0-is-released"/>
         <updated>2017-03-07T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Vert.x 3.4.0 has just been released with many new exciting features!]]></summary>
         <author>
@@ -837,8 +921,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3.4.0.Beta1 release]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-3-4-0-beta1-release</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-3-4-0-beta1-release"/>
+        <id>https://vertx.io/blog/vert-x-3-4-0-beta1-release</id>
+        <link href="https://vertx.io/blog/vert-x-3-4-0-beta1-release"/>
         <updated>2017-02-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have released 3.4.0.Beta1, this release is the biggest since Vert.x 3.0.0 with plenty of great features.]]></summary>
         <author>
@@ -849,8 +933,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[An Introduction to the Vert.x Context Object]]></title>
-        <id>https://vertx-china.github.io/blog/an-introduction-to-the-vert-x-context-object</id>
-        <link href="https://vertx-china.github.io/blog/an-introduction-to-the-vert-x-context-object"/>
+        <id>https://vertx.io/blog/an-introduction-to-the-vert-x-context-object</id>
+        <link href="https://vertx.io/blog/an-introduction-to-the-vert-x-context-object"/>
         <updated>2017-01-31T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Under the hood, the vert.x Context class plays a critical part in maintaining the thread-safety guarantees of verticles. Most of the time, vert.x coders don't need to make use of Context objects directly.]]></summary>
         <author>
@@ -861,8 +945,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Building services and APIs with AMQP 1.0]]></title>
-        <id>https://vertx-china.github.io/blog/building-services-and-apis-with-amqp-1-0</id>
-        <link href="https://vertx-china.github.io/blog/building-services-and-apis-with-amqp-1-0"/>
+        <id>https://vertx.io/blog/building-services-and-apis-with-amqp-1-0</id>
+        <link href="https://vertx.io/blog/building-services-and-apis-with-amqp-1-0"/>
         <updated>2017-01-25T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Microservices and APIs are everywhere. Everyone talks about them, presentation slides are full of them ... some people are actually even building them.]]></summary>
         <author>
@@ -873,8 +957,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Internet of Things - Reactive and Asynchronous with Vert.x]]></title>
-        <id>https://vertx-china.github.io/blog/internet-of-things-reactive-and-asynchronous-with-vert-x</id>
-        <link href="https://vertx-china.github.io/blog/internet-of-things-reactive-and-asynchronous-with-vert-x"/>
+        <id>https://vertx.io/blog/internet-of-things-reactive-and-asynchronous-with-vert-x</id>
+        <link href="https://vertx.io/blog/internet-of-things-reactive-and-asynchronous-with-vert-x"/>
         <updated>2016-12-29T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I have to admit … before joining Red Hat I didn’t know about the Eclipse Vert.x project but it took me few days to fall in love with it!]]></summary>
         <author>
@@ -885,8 +969,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Getting started with new fabric8 Vert.x Maven Plugin]]></title>
-        <id>https://vertx-china.github.io/blog/getting-started-with-new-fabric8-vert-x-maven-plugin</id>
-        <link href="https://vertx-china.github.io/blog/getting-started-with-new-fabric8-vert-x-maven-plugin"/>
+        <id>https://vertx.io/blog/getting-started-with-new-fabric8-vert-x-maven-plugin</id>
+        <link href="https://vertx.io/blog/getting-started-with-new-fabric8-vert-x-maven-plugin"/>
         <updated>2016-12-07T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The all new fabric8 Vert.x Maven Plugin allows you to setup, package, run, start, stop and redeploy easily with a very little configuration resulting in a less verbose pom.xml.]]></summary>
         <author>
@@ -897,8 +981,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[OAuth2 got easy]]></title>
-        <id>https://vertx-china.github.io/blog/oauth2-got-easy</id>
-        <link href="https://vertx-china.github.io/blog/oauth2-got-easy"/>
+        <id>https://vertx.io/blog/oauth2-got-easy</id>
+        <link href="https://vertx.io/blog/oauth2-got-easy"/>
         <updated>2016-12-02T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Oauth2 support exists in Eclipse Vert.x since version 3.2.0. The implementation follows the principles that rule the whole vert.x ecosystem.]]></summary>
         <author>
@@ -909,8 +993,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x featuring Continuous Delivery with Jenkins and Ansible]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-featuring-continuous-delivery-with-jenkins-and-ansible</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-featuring-continuous-delivery-with-jenkins-and-ansible"/>
+        <id>https://vertx.io/blog/vert-x-featuring-continuous-delivery-with-jenkins-and-ansible</id>
+        <link href="https://vertx.io/blog/vert-x-featuring-continuous-delivery-with-jenkins-and-ansible"/>
         <updated>2016-09-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This blog entry describes an approach to adopt Continuous Delivery for Vert.x applications using Jenkins and Ansible by taking advantage of the Jenkins Job DSL and Ansible plugins.]]></summary>
         <author>
@@ -921,8 +1005,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3.3.3 is released!]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-3-3-3-is-released</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-3-3-3-is-released"/>
+        <id>https://vertx.io/blog/vert-x-3-3-3-is-released</id>
+        <link href="https://vertx.io/blog/vert-x-3-3-3-is-released"/>
         <updated>2016-09-12T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have just released Vert.x 3.3.3, a bug fix release of Vert.x 3.3.x.]]></summary>
         <author>
@@ -933,8 +1017,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Centralized logging for Vert.x applications using the ELK stack]]></title>
-        <id>https://vertx-china.github.io/blog/centralized-logging-for-vert-x-applications-using-the-elk-stack</id>
-        <link href="https://vertx-china.github.io/blog/centralized-logging-for-vert-x-applications-using-the-elk-stack"/>
+        <id>https://vertx.io/blog/centralized-logging-for-vert-x-applications-using-the-elk-stack</id>
+        <link href="https://vertx.io/blog/centralized-logging-for-vert-x-applications-using-the-elk-stack"/>
         <updated>2016-09-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This post entry describes a solution to achieve centralized logging of Vert.x applications using the ELK stack (Logstash, Elasticsearch, and Kibana).]]></summary>
         <author>
@@ -945,8 +1029,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x Blueprint Tutorials]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-blueprint-tutorials</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-blueprint-tutorials"/>
+        <id>https://vertx.io/blog/vert-x-blueprint-tutorials</id>
+        <link href="https://vertx.io/blog/vert-x-blueprint-tutorials"/>
         <updated>2016-09-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The Vert.x Blueprint project aims to provide guidelines to Vert.x users to implement various applications such as message-based applications and microservices.]]></summary>
         <author>
@@ -957,8 +1041,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x fall conferences]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-fall-conferences</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-fall-conferences"/>
+        <id>https://vertx.io/blog/vert-x-fall-conferences</id>
+        <link href="https://vertx.io/blog/vert-x-fall-conferences"/>
         <updated>2016-08-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[A lot of Vert.x conferences are planned this fall around the world, here is a quick recap of these events.]]></summary>
         <author>
@@ -969,8 +1053,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3.3.2 is released!]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-3-3-2-is-released</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-3-3-2-is-released"/>
+        <id>https://vertx.io/blog/vert-x-3-3-2-is-released</id>
+        <link href="https://vertx.io/blog/vert-x-3-3-2-is-released"/>
         <updated>2016-07-12T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We have just released Vert.x 3.3.2, the first bug fix release of Vert.x 3.3.x.]]></summary>
         <author>
@@ -981,8 +1065,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3.3.0 is released!]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-3-3-0-is-released</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-3-3-0-is-released"/>
+        <id>https://vertx.io/blog/vert-x-3-3-0-is-released</id>
+        <link href="https://vertx.io/blog/vert-x-3-3-0-is-released"/>
         <updated>2016-06-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[That was a long run … but here we are. We are very pleased to announce the release of Vert.x 3.3.0!]]></summary>
         <author>
@@ -993,8 +1077,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vertx 3 and Keycloak tutorial]]></title>
-        <id>https://vertx-china.github.io/blog/vertx-3-and-keycloak-tutorial</id>
-        <link href="https://vertx-china.github.io/blog/vertx-3-and-keycloak-tutorial"/>
+        <id>https://vertx.io/blog/vertx-3-and-keycloak-tutorial</id>
+        <link href="https://vertx.io/blog/vertx-3-and-keycloak-tutorial"/>
         <updated>2016-03-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[With the upcoming release of Vert.x 3.3 securing your application with Keycloak is even easier than before.]]></summary>
         <author>
@@ -1005,8 +1089,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3 and Azure cloud platform tutorial]]></title>
-        <id>https://vertx-china.github.io/blog/vertx-3-and-azure-cloud-platform-tutorial</id>
-        <link href="https://vertx-china.github.io/blog/vertx-3-and-azure-cloud-platform-tutorial"/>
+        <id>https://vertx.io/blog/vertx-3-and-azure-cloud-platform-tutorial</id>
+        <link href="https://vertx.io/blog/vertx-3-and-azure-cloud-platform-tutorial"/>
         <updated>2016-03-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Vert.x 3.2.1 applications can quickly be deployed on Microsoft Azure. Deployment is independent of your build so it is all about configuration.]]></summary>
         <author>
@@ -1017,8 +1101,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3.2.1 is released!]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-3-2-1-is-released</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-3-2-1-is-released"/>
+        <id>https://vertx.io/blog/vert-x-3-2-1-is-released</id>
+        <link href="https://vertx.io/blog/vert-x-3-2-1-is-released"/>
         <updated>2016-02-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We are pleased to announce the release of Vert.x 3.2.1!]]></summary>
         <author>
@@ -1029,8 +1113,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Intro to Vert.x Shell]]></title>
-        <id>https://vertx-china.github.io/blog/intro-to-vert-x-shell</id>
-        <link href="https://vertx-china.github.io/blog/intro-to-vert-x-shell"/>
+        <id>https://vertx.io/blog/intro-to-vert-x-shell</id>
+        <link href="https://vertx.io/blog/intro-to-vert-x-shell"/>
         <updated>2016-01-25T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Vert.x Shell provides an extensible command line for Vert.x, accessible via SSH, Telnet or a nice Web interface. Vert.x Shell comes out of the box with plenty of commands.]]></summary>
         <author>
@@ -1041,8 +1125,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Using Hamcrest Matchers with Vert.x Unit]]></title>
-        <id>https://vertx-china.github.io/blog/using-hamcrest-matchers-with-vert-x-unit</id>
-        <link href="https://vertx-china.github.io/blog/using-hamcrest-matchers-with-vert-x-unit"/>
+        <id>https://vertx.io/blog/using-hamcrest-matchers-with-vert-x-unit</id>
+        <link href="https://vertx.io/blog/using-hamcrest-matchers-with-vert-x-unit"/>
         <updated>2016-01-18T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Vert.x Unit is a very elegant library to test asynchronous applications developed with vert.x. However because of this asynchronous aspect, reporting test failures is not natural for JUnit users.]]></summary>
         <author>
@@ -1053,8 +1137,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Real-time bidding with Websockets and Vert.x]]></title>
-        <id>https://vertx-china.github.io/blog/real-time-bidding-with-websockets-and-vert-x</id>
-        <link href="https://vertx-china.github.io/blog/real-time-bidding-with-websockets-and-vert-x"/>
+        <id>https://vertx.io/blog/real-time-bidding-with-websockets-and-vert-x</id>
+        <link href="https://vertx.io/blog/real-time-bidding-with-websockets-and-vert-x"/>
         <updated>2016-01-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The expectations of users for interactivity with web applications have changed over the past few years.
     Users during bidding in auction no longer want to press the refresh button.]]></summary>
@@ -1066,8 +1150,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[ECMAScript 6/7 on the JVM with TypeScript and Vert.x]]></title>
-        <id>https://vertx-china.github.io/blog/ecmascript-6-7-on-the-jvm-with-typescript-and-vert-x</id>
-        <link href="https://vertx-china.github.io/blog/ecmascript-6-7-on-the-jvm-with-typescript-and-vert-x"/>
+        <id>https://vertx.io/blog/ecmascript-6-7-on-the-jvm-with-typescript-and-vert-x</id>
+        <link href="https://vertx.io/blog/ecmascript-6-7-on-the-jvm-with-typescript-and-vert-x"/>
         <updated>2016-01-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I figured it would be a good idea to give you a couple of examples how teaming
   Vert.x and TypeScript helps you use ECMAScript 6 and 7 features on the JVM today.]]></summary>
@@ -1079,8 +1163,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Automatic redeployment in Eclipse IDE]]></title>
-        <id>https://vertx-china.github.io/blog/automatic-redeployment-in-eclipse-ide</id>
-        <link href="https://vertx-china.github.io/blog/automatic-redeployment-in-eclipse-ide"/>
+        <id>https://vertx.io/blog/automatic-redeployment-in-eclipse-ide</id>
+        <link href="https://vertx.io/blog/automatic-redeployment-in-eclipse-ide"/>
         <updated>2015-12-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Vert.x 3.1 has (re-)introduced the redeploy feature. This blog post explains how to use this feature in the Eclipse IDE. However, you can easily adapt the content to your IDE.]]></summary>
         <author>
@@ -1091,8 +1175,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3.2.0 is released!]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-3-2-0-is-released</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-3-2-0-is-released"/>
+        <id>https://vertx.io/blog/vert-x-3-2-0-is-released</id>
+        <link href="https://vertx.io/blog/vert-x-3-2-0-is-released"/>
         <updated>2015-12-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We are pleased to announce the release of Vert.x 3.2.0!]]></summary>
         <author>
@@ -1103,8 +1187,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Combine vert.x and mongo to build a giant]]></title>
-        <id>https://vertx-china.github.io/blog/combine-vert-x-and-mongo-to-build-a-giant</id>
-        <link href="https://vertx-china.github.io/blog/combine-vert-x-and-mongo-to-build-a-giant"/>
+        <id>https://vertx.io/blog/combine-vert-x-and-mongo-to-build-a-giant</id>
+        <link href="https://vertx.io/blog/combine-vert-x-and-mongo-to-build-a-giant"/>
         <updated>2015-11-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This blog post is part of the introduction to Vert.x series. We are now going to replace this JDBC client by the vertx-mongo-client, and thus connect to a Mongo database.]]></summary>
         <author>
@@ -1115,8 +1199,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x ES6 back to the future]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-es6-back-to-the-future</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-es6-back-to-the-future"/>
+        <id>https://vertx.io/blog/vert-x-es6-back-to-the-future</id>
+        <link href="https://vertx.io/blog/vert-x-es6-back-to-the-future"/>
         <updated>2015-11-25T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[On October 21th, 2015 we all rejoiced with the return from the past of Marty McFly with his flying car and so on, however in the Vert.x world we were quite sad about our rather old JavaScript support.]]></summary>
         <author>
@@ -1127,8 +1211,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Using the asynchronous SQL client]]></title>
-        <id>https://vertx-china.github.io/blog/using-the-asynchronous-sql-client</id>
-        <link href="https://vertx-china.github.io/blog/using-the-asynchronous-sql-client"/>
+        <id>https://vertx.io/blog/using-the-asynchronous-sql-client</id>
+        <link href="https://vertx.io/blog/using-the-asynchronous-sql-client"/>
         <updated>2015-10-19T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Finally, back... This post is the fifth post of the introduction to vert.x blog series, after a not-that-small break. In this post we are going to see how we can use JDBC in a vert.x application.]]></summary>
         <author>
@@ -1139,8 +1223,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3.1.0 is released!]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-3-1-0-is-released</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-3-1-0-is-released"/>
+        <id>https://vertx.io/blog/vert-x-3-1-0-is-released</id>
+        <link href="https://vertx.io/blog/vert-x-3-1-0-is-released"/>
         <updated>2015-10-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I'm pleased to announce the release of Vert.x 3.1!]]></summary>
         <author>
@@ -1151,8 +1235,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Contract Driven REST Services with Vert.x3]]></title>
-        <id>https://vertx-china.github.io/blog/contract-driven-rest-services-with-vert-x3</id>
-        <link href="https://vertx-china.github.io/blog/contract-driven-rest-services-with-vert-x3"/>
+        <id>https://vertx.io/blog/contract-driven-rest-services-with-vert-x3</id>
+        <link href="https://vertx.io/blog/contract-driven-rest-services-with-vert-x3"/>
         <updated>2015-09-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We see a new trend in development where we are shifting from developing applications to APIs. More and more we see services being offered as REST APIs that we are allowed to consume.]]></summary>
         <author>
@@ -1163,8 +1247,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Writing secure Vert.x Web apps]]></title>
-        <id>https://vertx-china.github.io/blog/writing-secure-vert-x-web-apps</id>
-        <link href="https://vertx-china.github.io/blog/writing-secure-vert-x-web-apps"/>
+        <id>https://vertx.io/blog/writing-secure-vert-x-web-apps</id>
+        <link href="https://vertx.io/blog/writing-secure-vert-x-web-apps"/>
         <updated>2015-09-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This is a starting guide for securing Vert.x web applications. Standard rules and practices apply to Vert.x apps as if they would to any other web framework.]]></summary>
         <author>
@@ -1175,8 +1259,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3 real time web apps]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x3-real-time-web-apps</id>
-        <link href="https://vertx-china.github.io/blog/vert-x3-real-time-web-apps"/>
+        <id>https://vertx.io/blog/vert-x3-real-time-web-apps</id>
+        <link href="https://vertx.io/blog/vert-x3-real-time-web-apps"/>
         <updated>2015-08-31T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[One of the interesting features of Vert.x is the SockJS event bus bridge. It allows external applications to communicate with Vert.x event bus using Websockets.]]></summary>
         <author>
@@ -1187,8 +1271,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Unit and Integration Tests]]></title>
-        <id>https://vertx-china.github.io/blog/unit-and-integration-tests</id>
-        <link href="https://vertx-china.github.io/blog/unit-and-integration-tests"/>
+        <id>https://vertx.io/blog/unit-and-integration-tests</id>
+        <link href="https://vertx.io/blog/unit-and-integration-tests"/>
         <updated>2015-08-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Let’s refresh our mind about what we developed so far in the introduction to vert.x series. We forgot an important task. We didn’t test the API.]]></summary>
         <author>
@@ -1199,8 +1283,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Some Rest with Vert.x]]></title>
-        <id>https://vertx-china.github.io/blog/some-rest-with-vert-x</id>
-        <link href="https://vertx-china.github.io/blog/some-rest-with-vert-x"/>
+        <id>https://vertx.io/blog/some-rest-with-vert-x</id>
+        <link href="https://vertx.io/blog/some-rest-with-vert-x"/>
         <updated>2015-07-27T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This post is part of the Introduction to Vert.x series. Let’s go a bit further this time and develop a CRUD-ish application]]></summary>
         <author>
@@ -1211,8 +1295,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x Application Configuration]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-application-configuration</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-application-configuration"/>
+        <id>https://vertx.io/blog/vert-x-application-configuration</id>
+        <link href="https://vertx.io/blog/vert-x-application-configuration"/>
         <updated>2015-07-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In our previous post, we developed a very simple Vert.x 3 application, and saw how this application can be tested, packaged and executed. That was nice, wasn’t it?]]></summary>
         <author>
@@ -1223,8 +1307,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[My first Vert.x 3 Application]]></title>
-        <id>https://vertx-china.github.io/blog/my-first-vert-x-3-application</id>
-        <link href="https://vertx-china.github.io/blog/my-first-vert-x-3-application"/>
+        <id>https://vertx.io/blog/my-first-vert-x-3-application</id>
+        <link href="https://vertx.io/blog/my-first-vert-x-3-application"/>
         <updated>2015-07-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Let's say, you heard someone saying that Vert.x is awesome. Ok great, but you may want to try it by yourself. Well, the next natural question is “where do I start ?”]]></summary>
         <author>
@@ -1235,8 +1319,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3 says “hello” to NPM users]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x3-says-hello-to-npm-users</id>
-        <link href="https://vertx-china.github.io/blog/vert-x3-says-hello-to-npm-users"/>
+        <id>https://vertx.io/blog/vert-x3-says-hello-to-npm-users</id>
+        <link href="https://vertx.io/blog/vert-x3-says-hello-to-npm-users"/>
         <updated>2015-07-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In programming literature it has become the standard to create a hello world program as the first example. In this article, I'll demonstrate how NPM users can quickly get started with Vert.x.]]></summary>
         <author>
@@ -1247,8 +1331,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Checklist for Migrating from Vert.x 2.1.x to Vert.x 3 - Part One]]></title>
-        <id>https://vertx-china.github.io/blog/checklist-for-migrating-from-vert-x-2-1-x-to-vert-x-3-part-one</id>
-        <link href="https://vertx-china.github.io/blog/checklist-for-migrating-from-vert-x-2-1-x-to-vert-x-3-part-one"/>
+        <id>https://vertx.io/blog/checklist-for-migrating-from-vert-x-2-1-x-to-vert-x-3-part-one</id>
+        <link href="https://vertx.io/blog/checklist-for-migrating-from-vert-x-2-1-x-to-vert-x-3-part-one"/>
         <updated>2015-07-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[So while upgrading our application, I thought I should note down all the changes that we had to do in the process. Since Vert.x 3 is a major upgrade from the previous version, with so many changes.]]></summary>
         <author>
@@ -1259,8 +1343,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3 and PostgreSQL JSON type]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x3-and-postgresql-json-type</id>
-        <link href="https://vertx-china.github.io/blog/vert-x3-and-postgresql-json-type"/>
+        <id>https://vertx.io/blog/vert-x3-and-postgresql-json-type</id>
+        <link href="https://vertx.io/blog/vert-x3-and-postgresql-json-type"/>
         <updated>2015-07-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[One of the interesting features of NoSQL databases is their schema-less mode of operation. This feature is very useful during project prototyping and early development since at early the stages of development of projects all data structures are not clear or have been defined yet.]]></summary>
         <author>
@@ -1271,8 +1355,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3 init.d Script]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-3-init-d-script</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-3-init-d-script"/>
+        <id>https://vertx.io/blog/vert-x-3-init-d-script</id>
+        <link href="https://vertx.io/blog/vert-x-3-init-d-script"/>
         <updated>2015-07-02T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Let's say you have a Vert.x 3 application you want to install on a Linux server. But you want the old school way (I mean not the Docker way).]]></summary>
         <author>
@@ -1283,8 +1367,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 3 Web easy as Pi]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x3-web-easy-as-pi</id>
-        <link href="https://vertx-china.github.io/blog/vert-x3-web-easy-as-pi"/>
+        <id>https://vertx.io/blog/vert-x3-web-easy-as-pi</id>
+        <link href="https://vertx.io/blog/vert-x3-web-easy-as-pi"/>
         <updated>2015-07-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Vert.x Web distinguishes itself from traditional application servers like JavaEE by just being a simple extension toolkit to Vert.x, which makes it quite lightweight and small but nevertheless very powerful.]]></summary>
         <author>
@@ -1295,8 +1379,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vert.x 2.1.6 released!]]></title>
-        <id>https://vertx-china.github.io/blog/vert-x-2-1-6-released</id>
-        <link href="https://vertx-china.github.io/blog/vert-x-2-1-6-released"/>
+        <id>https://vertx.io/blog/vert-x-2-1-6-released</id>
+        <link href="https://vertx.io/blog/vert-x-2-1-6-released"/>
         <updated>2015-06-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The Vert.x team is pleased to announce the release of Vert.x 2.1.6]]></summary>
         <author>
