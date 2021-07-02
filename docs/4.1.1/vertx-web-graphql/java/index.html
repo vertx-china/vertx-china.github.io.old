@@ -1,0 +1,593 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="description" content="Vert.x | Reactive applications on the JVM"/><meta name="robots" content="index,follow"/><link rel="stylesheet" data-href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" data-optimized-fonts="true"/><link rel="stylesheet" data-href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" data-optimized-fonts="true"/><link rel="stylesheet" data-href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&amp;display=swap" data-optimized-fonts="true"/><link rel="shortcut icon" href="/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png"/><link rel="alternate" type="application/rss+xml" href="/feed/rss.xml"/><link rel="alternate" type="application/atom+xml" href="/feed/atom.xml"/><link rel="alternate" type="application/json" href="/feed/feed.json"/><title>GraphQL | Eclipse Vert.x</title><link rel="preload" href="https://api.github.com/repos/vert-x3/vertx-web" as="fetch" crossorigin="anonymous"/><meta name="next-head-count" content="17"/><link rel="preload" href="/_next/static/css/styles.e1237c95.chunk.css" as="style"/><link rel="stylesheet" href="/_next/static/css/styles.e1237c95.chunk.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/webpack-147ea3ada7109f6dc0bb.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.2d0daf90a2fa7e03281a.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.58af5f72dd3f80f51ddc.js" as="script"/><link rel="preload" href="/_next/static/chunks/main-78880972fb4b65194263.js" as="script"/><link rel="preload" href="/_next/static/chunks/styles.eb11bd7b649b32af6115.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-e598384803edc4a6782d.js" as="script"/><link rel="preload" href="/_next/static/chunks/5df0631eea625b022d3730b3f1bf573e1b8deb37.0b8151d407694e31e2a2.js" as="script"/><link rel="preload" href="/_next/static/chunks/31acfd8439b7c9eee4abe9f59c7500d6c943ee0d.74b85118e963a61f1bf8.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/docs/%5B%5B...slug%5D%5D-de110bc5466c276a0759.js" as="script"/><style data-href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBBc-.woff) format('woff')}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxM.woff) format('woff')}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBBc-.woff) format('woff')}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style><style data-href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400">@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCQYaQ.woff) format('woff')}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7Cw.woff) format('woff')}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCkYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCAYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCgYb9lecyVC4A.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCcYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCsYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCoYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCQYb9lecyU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19-7DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19a7DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-1967DQk6YvNkeg.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19G7DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-1927DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19y7DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQk6YvM.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style><style data-href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap">@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vqPQA.woff) format('woff')}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_SeW-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_QOW-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_R-W-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_S-W-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_SuW-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_ROW-AJi8SJQt.woff) format('woff');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body data-build-time="2021-07-02T04:08:16.820Z" data-build-commit-id="5efaf0bd434bea6d8b2b527840654ffca79bae08" data-build-run-id="992373186"><div id="__next"><main class="page docs"><header><div class="navbar"><div class="navbar-content container"><div class="navbar-logo"><a href="/"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAxMjMyLjYgMzE1LjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEyMzIuNiAzMTUuMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlPi5zdDB7ZmlsbDojNzgyYTkxfTwvc3R5bGU+PHBhdGggZD0iTTEyMC45IDIxNC4yIDE5MC41IDBoNTIuM2wtOTguNSAyNzMuOEg5OC4yTDAgMGg1Mi4xbDY4LjggMjE0LjJ6bTI5MS4yLTYyLjZIMjk5LjZ2ODQuMkg0MzF2MzhIMjUyVjBoMTc3Ljd2MzguNEgyOTkuNlYxMTRoMTEyLjV2MzcuNnptODMuNy0xMTMuMkg1NDZjMTYuNS4zIDI5IDQuNCAzNy4zIDEyLjQgOC4zIDggMTIuNSAxOS40IDEyLjUgMzQgMCAxNC00LjUgMjUuMS0xMy41IDMzLjItOSA4LjEtMjEuNiAxMi4xLTM3LjYgMTIuMWgtMjcuMXYyNC4ybDg2LjEgMTE5LjVoNTF2LTIuNGwtNzcuMi0xMDYuN2MyNC45LTUuNSA0My4zLTIxLjcgNTIuNi0zNS45IDguMi0xMi42IDEzLjMtMjcuNyAxMy4zLTQ2IDAtMjYuOC04LjYtNDcuNC0yNS44LTYxLjVDNjAwLjUgNy4xIDU3Ni4xIDAgNTQ0LjUgMGgtOTYuM3YyNzMuOGg0Ny42Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0ibTEwNTIuMyAxNTcuNy00MS41IDYyLjcgMjkuNyA1My40aDg1LjF6Ii8+PGNpcmNsZSBjbGFzcz0ic3QwIiBjeD0iODI3LjkiIGN5PSIyNzQuNyIgcj0iNDAuNSIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Im0xMDM3IDAtNDcuNiA3NC4yTDk0OSAwaC04NGw4NS4zIDEzNS44LTY3LjEgMTA1LjdjNS43IDkuNSA5LjEgMjAuNSA5LjIgMzIuNGg1MC4xTDExMjEuMyAwSDEwMzd6Ii8+PHBhdGggZD0iTTc2My41IDI3My44Yy4xLTkuOSAyLjUtMTkuMiA2LjYtMjcuNVYzOC40aDg1LjRWMEg2MzguMnYzOC40aDg0LjZ2MjM1LjRoNDAuN3ptNDE0LTI2Ni45aC0xNS4zdjQyLjJoLTguNVY2LjloLTE1LjJWMGgzOXY2Ljl6TTExOTMgMGwxNC4yIDM3LjdMMTIyMS4zIDBoMTF2NDkuMWgtOC41VjMyLjlsLjgtMjEuNy0xNC41IDM3LjloLTYuMWwtMTQuNS0zNy44LjggMjEuNnYxNi4yaC04LjVWMGgxMS4yeiIvPjwvc3ZnPg==" alt="Vert.x Logo"/></a></div><div class="navbar-collapse-button"><span></span><span></span><span></span></div><div class="navbar-right"><div class="navbar-menu"><span class="navbar-menu-item with-drop-down"><div class="dropdown"><a class="dropdown-title">开始<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a><ul class="dropdown-menu"><a href="/introduction-to-vertx-and-reactive/"><li class="dropdown-item">简介</li></a><a href="/get-started/"><li class="dropdown-item">开始</li></a><a href="https://start.vertx.io/" target="_blank" rel="noreferrer"><li class="dropdown-item">应用生成器 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></li></a></ul></div></span><a class="navbar-menu-item" href="/docs/">文档</a><span class="navbar-menu-item with-drop-down"><div class="dropdown"><a class="dropdown-title">资源<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a><ul class="dropdown-menu"><a href="/faq/"><li class="dropdown-item">答疑</li></a><a href="/channels/"><li class="dropdown-item">联系渠道</li></a><a href="https://how-to.vertx.io/" target="_blank" rel="noreferrer"><li class="dropdown-item">操作指南 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></li></a><a href="https://github.com/vert-x3/vertx-eventbus-bridge-clients" target="_blank" rel="noreferrer"><li class="dropdown-item">EventBus Bridge Clients <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></li></a></ul></div></span><a class="navbar-menu-item" href="/blog/">博客</a><a class="navbar-menu-item" href="/community/">社区</a><a class="navbar-menu-item" href="/translation/">翻译团队</a></div><div class="navbar-social"><a href="https://github.com/vert-x3/vertx-awesome" class="navbar-social-link" title="Awesome Vert.x" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="List of awesome Vert.x projects"><title>Awesome Vert.x</title><path d="M24 11.438l-6.154-5.645-.865.944 5.128 4.7H1.895l5.128-4.705-.865-.943-6.154 5.649H0v3.72c0 1.683 1.62 3.053 3.61 3.053h3.795c1.99 0 3.61-1.37 3.61-3.051v-2.446h1.97v2.446c0 1.68 1.62 3.051 3.61 3.051h3.794c1.99 0 3.61-1.37 3.61-3.051v-3.721z"></path></svg></a><a href="https://stackoverflow.com/questions/tagged/vert.x" class="navbar-social-link" title="Stack Overflow" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Stack Overflow questions related to Vert.x"><title>Stack Overflow</title><path d="M15.725 0l-1.72 1.277 6.39 8.588 1.716-1.277L15.725 0zm-3.94 3.418l-1.369 1.644 8.225 6.85 1.369-1.644-8.225-6.85zm-3.15 4.465l-.905 1.94 9.702 4.517.904-1.94-9.701-4.517zm-1.85 4.86l-.44 2.093 10.473 2.201.44-2.092-10.473-2.203zM1.89 15.47V24h19.19v-8.53h-2.133v6.397H4.021v-6.396H1.89zm4.265 2.133v2.13h10.66v-2.13H6.154Z"></path></svg></a><a href="https://www.youtube.com/channel/UCGN6L3tRhs92Uer3c6VxOSA" class="navbar-social-link" title="YouTube" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="YouTube channel of Vert.x"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg></a><a href="https://discord.gg/KzEMwP2" class="navbar-social-link" title="Discord" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Eclipse Vert.x channel on Discord"><title>Discord</title><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"></path></svg></a><a href="https://groups.google.com/forum/?fromgroups#!forum/vertx" class="navbar-social-link" title="Vert.x 用户组" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="A Google group for Vert.x users"><title>Vert.x 用户组</title><path d="M.92 3.332c-.776 0-1.216.67-.692 1.383l2.537 4.403v7.86c0 2.013 1.467 3.69 3.459 3.69H20.31a3.75 3.75 0 003.69-3.69V7.043a3.723 3.723 0 00-3.668-3.71zm5.786 3.71H20.1c.587 0 1.153.357 1.153.923 0 .566-.566.922-1.153.922H6.706c-.587 0-1.153-.356-1.153-.922 0-.566.566-.923 1.153-.923zm0 3.69H20.1c.587 0 1.153.356 1.153.922 0 .566-.566.922-1.153.922H6.706c-.587 0-1.153-.356-1.153-.922 0-.566.566-.922 1.153-.922zm-.021 3.71h9.705c.587 0 1.153.356 1.153.922 0 .566-.566.923-1.153.923H6.685c-.587 0-1.153-.357-1.153-.923 0-.566.566-.922 1.153-.922Z"></path></svg></a><a href="https://shang.qq.com/wpa/qunwpa?idkey=587f58cacb9557e3291b46098e0fe09427b98a1c0f866da23c04c2762bc7e2ad" class="navbar-social-link" title="Vert.x中国用户组QQ群" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Vert.x中国用户组QQ群"><title>Vert.x中国用户组QQ群</title><path d="M21.395 15.035a39.548 39.548 0 0 0-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 0 0-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673zM12.662 4.846c.039-1.052.659-1.878 1.385-1.846s1.281.912 1.242 1.964c-.039 1.051-.659 1.878-1.385 1.846s-1.282-.912-1.242-1.964zM9.954 3c.725-.033 1.345.794 1.384 1.846.04 1.052-.517 1.931-1.242 1.963-.726.033-1.346-.794-1.385-1.845C8.672 3.912 9.228 3.033 9.954 3zM7.421 8.294c.194-.43 2.147-.908 4.566-.908h.026c2.418 0 4.372.479 4.566.908a.14.14 0 0 1 .014.061c0 .031-.01.059-.026.083-.163.238-2.333 1.416-4.553 1.416h-.026c-2.221 0-4.39-1.178-4.553-1.416a.136.136 0 0 1-.014-.144zm10.422 8.622c-.22 3.676-2.403 5.987-5.774 6.021h-.137c-3.37-.033-5.554-2.345-5.773-6.021-.081-1.35.001-2.496.147-3.43.318.063.638.122.958.176v3.506s1.658.334 3.318.103v-3.225c.488.027.96.04 1.406.034h.025c1.678.021 3.714-.204 5.683-.594.146.934.227 2.08.147 3.43zM10.48 5.804c.313-.041.542-.409.508-.825-.033-.415-.314-.72-.629-.679-.313.04-.541.409-.508.824.034.417.315.72.629.68zM14.479 5.156c.078.037.221.042.289-.146.035-.095.025-.165-.009-.214-.023-.033-.133-.118-.371-.176-.904-.22-1.341.384-1.405.499-.04.072-.012.176.056.227.067.051.139.037.179-.006.58-.628 1.21-.208 1.261-.184z"></path></svg></a></div></div></div></div></header><div class="page-content docs-content"><div class="container"><div class="docs-content-wrapper"><aside class=""><div class="docs-content-wrapper-sidebar"><div class="search-panel"><div class="search"><input type="text" placeholder="Search..." value=""/><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon-delete"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></div><ul class="search-results"></ul><div class="search-results-none">No results.</div></div><div class="docs-content-toc"><div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_getting_started">Getting started</a></li>
+<li><a href="#_handlers_setup">Handlers setup</a>
+<ul class="sectlevel2">
+<li><a href="#_http">HTTP</a></li>
+<li><a href="#_graphiql_ide">GraphiQL IDE</a></li>
+<li><a href="#_apollo_websocketlink">Apollo WebSocketLink</a></li>
+</ul>
+</li>
+<li><a href="#_fetching_data">Fetching data</a>
+<ul class="sectlevel2">
+<li><a href="#_working_with_callback_based_apis">Working with callback-based APIs</a></li>
+<li><a href="#_working_with_vert_x_futures">Working with Vert.x Futures</a></li>
+<li><a href="#_providing_data_fetchers_with_some_context">Providing data fetchers with some context</a></li>
+<li><a href="#_json_data_results">JSON data results</a></li>
+<li><a href="#_batch_loading">Batch loading</a></li>
+<li><a href="#_file_uploads">File uploads</a></li>
+</ul>
+</li>
+<li><a href="#_rxjava_3_api">RxJava 3 API</a>
+<ul class="sectlevel2">
+<li><a href="#_setting_up_with_an_rxified_router">Setting up with an Rxified router</a></li>
+<li><a href="#_working_with_vert_x_rxified_apis">Working with Vert.x Rxified APIs</a></li>
+</ul>
+</li>
+</ul>
+</div></div></div></aside><div class="docs-content-sidebar-toggle"><div style="position:relative"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div></div><div class="docs-content-inner"><div class="docs-content-metadata"><div class="docs-content-metadata-left"><div class="docs-content-metadata-repo"><div class="github-stars"><a href="https://github.com/vert-x3/vertx-web"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>null stars</a></div></div><div><a href="https://vertx.io/docs/apidocs"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> API</a></div><div class="docs-content-metadata-examples"><a href="https://github.com/vert-x3/vertx-examples/tree/4.x/web-graphql-examples"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg> Examples</a></div><div class="docs-content-metadata-edit"><a href="https://github.com/vertx-china/vertx-web-site/tree/master/docs/translation/vertx-web-graphql/java"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> 改进翻译</a></div><span class="docs-content-metadata-version"><div class="dropdown"><a class="dropdown-title">v4.1.1<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a><ul class="dropdown-menu align-right"><a href="/docs/vertx-web-graphql/java/"><li class="dropdown-item active has-active-siblings"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-check-icon"><polyline points="20 6 9 17 4 12"></polyline></svg>Latest (v<!-- -->4.1.1<!-- -->)</li></a><a href="/docs/4.0.3/vertx-web-graphql/java/"><li class="dropdown-item has-active-siblings">v<!-- -->4.0.3</li></a><a href="/docs/3.9.8/vertx-web-graphql/java/"><li class="dropdown-item has-active-siblings">v<!-- -->3.9.8</li></a></ul></div></span></div></div><div><h1>Vert.x Web GraphQL</h1>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vert.x Web GraphQL extends Vert.x Web with the <a href="https://www.graphql-java.com">GraphQL-Java</a> library so that you can build a GraphQL server.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">提示</div>
+</td>
+<td class="content">
+This is the reference documentation for Vert.x Web GraphQL.
+It is highly recommended to get familiar with the GraphQL-Java API first.
+You may start by reading the <a href="https://www.graphql-java.com/documentation/v16/">GraphQL-Java documentation</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started"><a class="anchor" href="#_getting_started"></a>Getting started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To use this module, add the following to the <em>dependencies</em> section of your Maven POM file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.vertx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>vertx-web-graphql<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.1.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or, if you use Gradle:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">compile <span class="hljs-string">&#x27;io.vertx:vertx-web-graphql:4.1.1&#x27;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_handlers_setup"><a class="anchor" href="#_handlers_setup"></a>Handlers setup</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_http"><a class="anchor" href="#_http"></a>HTTP</h3>
+<div class="paragraph">
+<p>Create a Vert.x Web <code><a href="../../apidocs/io/vertx/ext/web/Route.html">Route</a></code> and a <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html">GraphQLHandler</a></code> for it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">GraphQL graphQL = setupGraphQLJava();
+
+router.route(<span class="hljs-string">&quot;/graphql&quot;</span>).handler(GraphQLHandler.create(graphQL));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The handler serves both <code>GET</code> and <code>POST</code> requests.
+However, you can restrict the service to one type of HTTP method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">GraphQL graphQL = setupGraphQLJava();
+
+router.post(<span class="hljs-string">&quot;/graphql&quot;</span>).handler(GraphQLHandler.create(graphQL));</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">重要</div>
+</td>
+<td class="content">
+The <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html">GraphQLHandler</a></code> requires a <code><a href="../../apidocs/io/vertx/ext/web/handler/BodyHandler.html">BodyHandler</a></code> to read <code>POST</code> requests content.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_query_batching"><a class="anchor" href="#_query_batching"></a>Query batching</h4>
+<div class="paragraph">
+<p>Query batching consists in posting an array instead of a single object to the GraphQL endpoint.</p>
+</div>
+<div class="paragraph">
+<p>Vert.x Web GraphQL can handle such requests but by default the feature is disabled.
+To enable it, create the <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html">GraphQLHandler</a></code> with options:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">GraphQLHandlerOptions options = <span class="hljs-keyword">new</span> GraphQLHandlerOptions()
+  .setRequestBatchingEnabled(<span class="hljs-keyword">true</span>);
+
+GraphQLHandler handler = GraphQLHandler.create(graphQL, options);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_graphiql_ide"><a class="anchor" href="#_graphiql_ide"></a>GraphiQL IDE</h3>
+<div class="paragraph">
+<p>As you are building your application, testing your GraphQL queries in <a href="https://github.com/graphql/graphiql">GraphiQL</a> can be handy.</p>
+</div>
+<div class="paragraph">
+<p>To do so, create a route for GraphiQL resources and a <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/GraphiQLHandler.html">GraphiQLHandler</a></code> for them:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">GraphiQLHandlerOptions options = <span class="hljs-keyword">new</span> GraphiQLHandlerOptions()
+  .setEnabled(<span class="hljs-keyword">true</span>);
+
+router.route(<span class="hljs-string">&quot;/graphiql/*&quot;</span>).handler(GraphiQLHandler.create(options));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then browse to <a href="http://localhost:8080/graphiql/" class="bare">http://localhost:8080/graphiql/</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">注意</div>
+</td>
+<td class="content">
+The GraphiQL user interface is disabled by default for security reasons.
+This is why you must configure the <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/GraphiQLHandlerOptions.html">GraphiQLHandlerOptions</a></code> to enable it.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">提示</div>
+</td>
+<td class="content">
+GraphiQL is enabled automatically when Vert.x Web runs in development mode.
+To switch the development mode on, use the <code>VERTXWEB_ENVIRONMENT</code> environment variable or <code>vertxweb.environment</code> system property and set it to <code>dev</code>.
+In this case, create the <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/GraphiQLHandler.html">GraphiQLHandler</a></code> without changing the <code>enabled</code> property.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If your application is protected by authentication, you can customize the headers sent by GraphiQL dynamically:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">graphiQLHandler.graphiQLRequestHeaders(rc -&gt; {
+  String token = rc.get(<span class="hljs-string">&quot;token&quot;</span>);
+  <span class="hljs-keyword">return</span> MultiMap.caseInsensitiveMultiMap().add(<span class="hljs-string">&quot;Authorization&quot;</span>, <span class="hljs-string">&quot;Bearer &quot;</span> + token);
+});
+
+router.route(<span class="hljs-string">&quot;/graphiql/*&quot;</span>).handler(graphiQLHandler);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Please refer to the <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/GraphiQLHandlerOptions.html">GraphiQLHandlerOptions</a></code> documentation for further details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_apollo_websocketlink"><a class="anchor" href="#_apollo_websocketlink"></a>Apollo WebSocketLink</h3>
+<div class="paragraph">
+<p>You can use an <a href="https://www.apollographql.com/docs/link/links/ws/">Apollo WebSocketLink</a> which connects over a websocket.
+This is specially useful if you want to add subscriptions to your GraphQL schema, but you can also use the websocket for queries and mutations.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">GraphQL graphQL = setupGraphQLJava();
+
+router.route(<span class="hljs-string">&quot;/graphql&quot;</span>).handler(ApolloWSHandler.create(graphQL));</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">重要</div>
+</td>
+<td class="content">
+To support the <code>graphql-ws</code> websocket subprotocol, it has to be added to the server configuration:
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">HttpServerOptions httpServerOptions = <span class="hljs-keyword">new</span> HttpServerOptions()
+  .addWebSocketSubProtocol(<span class="hljs-string">&quot;graphql-ws&quot;</span>);
+vertx.createHttpServer(httpServerOptions)
+  .requestHandler(router)
+  .listen(<span class="hljs-number">8080</span>);</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">注意</div>
+</td>
+<td class="content">
+If you want to support a WebSocketLink and a HttpLink in the same path, you can add the ApolloWSHandler in first place and then the GraphQLHandler.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">GraphQL graphQL = setupGraphQLJava();
+
+router.route(<span class="hljs-string">&quot;/graphql&quot;</span>).handler(ApolloWSHandler.create(graphQL));
+router.route(<span class="hljs-string">&quot;/graphql&quot;</span>).handler(GraphQLHandler.create(graphQL));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here you can find how to configure the Apollo SubscriptionClient: <a href="https://github.com/apollographql/subscriptions-transport-ws" class="bare">https://github.com/apollographql/subscriptions-transport-ws</a></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">重要</div>
+</td>
+<td class="content">
+A subscription <code>DataFetcher</code> has to return a <code>org.reactivestreams.Publisher</code> instance.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fetching_data"><a class="anchor" href="#_fetching_data"></a>Fetching data</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The GraphQL-Java API is very well suited for the asynchronous world: the asynchronous execution strategy is the default for queries (serial asynchronous for mutations).</p>
+</div>
+<div class="paragraph">
+<p>To <a href="https://vertx.io/docs/vertx-core/java/#golden_rule">avoid blocking the event loop</a>, all you have to do is implement <a href="https://www.graphql-java.com/documentation/v16/data-fetching/">data fetchers</a> that return a <code>CompletionStage</code> instead of the result directly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">DataFetcher&lt;CompletionStage&lt;List&lt;Link&gt;&gt;&gt; dataFetcher = environment -&gt; {
+
+  CompletableFuture&lt;List&lt;Link&gt;&gt; completableFuture = <span class="hljs-keyword">new</span> CompletableFuture&lt;&gt;();
+
+  retrieveLinksFromBackend(environment, ar -&gt; {
+    <span class="hljs-keyword">if</span> (ar.succeeded()) {
+      completableFuture.complete(ar.result());
+    } <span class="hljs-keyword">else</span> {
+      completableFuture.completeExceptionally(ar.cause());
+    }
+  });
+
+  <span class="hljs-keyword">return</span> completableFuture;
+};
+
+RuntimeWiring runtimeWiring = RuntimeWiring.newRuntimeWiring()
+  .type(<span class="hljs-string">&quot;Query&quot;</span>, builder -&gt; builder.dataFetcher(<span class="hljs-string">&quot;allLinks&quot;</span>, dataFetcher))
+  .build();</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_working_with_callback_based_apis"><a class="anchor" href="#_working_with_callback_based_apis"></a>Working with callback-based APIs</h3>
+<div class="paragraph">
+<p>Implementing a data fetcher that returns a <code>CompletionStage</code> is not a complex task.
+But when you work with Vert.x callback-based APIs, it requires a bit of boilerplate.</p>
+</div>
+<div class="paragraph">
+<p>This is where the <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/schema/VertxDataFetcher.html">VertxDataFetcher</a></code> can help:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">VertxDataFetcher&lt;List&lt;Link&gt;&gt; dataFetcher = VertxDataFetcher.create((env, promise) -&gt; {
+  retrieveLinksFromBackend(env, promise);
+});
+
+RuntimeWiring runtimeWiring = RuntimeWiring.newRuntimeWiring()
+  .type(<span class="hljs-string">&quot;Query&quot;</span>, builder -&gt; builder.dataFetcher(<span class="hljs-string">&quot;allLinks&quot;</span>, dataFetcher))
+  .build();</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_working_with_vert_x_futures"><a class="anchor" href="#_working_with_vert_x_futures"></a>Working with Vert.x Futures</h3>
+<div class="paragraph">
+<p><code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/schema/VertxDataFetcher.html">VertxDataFetcher</a></code> can also help with futurized APIs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">VertxDataFetcher&lt;List&lt;Link&gt;&gt; dataFetcher = VertxDataFetcher.create(environment -&gt; {
+  Future&lt;List&lt;Link&gt;&gt; future = retrieveLinksFromBackend(environment);
+  <span class="hljs-keyword">return</span> future;
+});
+
+RuntimeWiring runtimeWiring = RuntimeWiring.newRuntimeWiring()
+  .type(<span class="hljs-string">&quot;Query&quot;</span>, builder -&gt; builder.dataFetcher(<span class="hljs-string">&quot;allLinks&quot;</span>, dataFetcher))
+  .build();</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_providing_data_fetchers_with_some_context"><a class="anchor" href="#_providing_data_fetchers_with_some_context"></a>Providing data fetchers with some context</h3>
+<div class="paragraph">
+<p>Very often, the <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html">GraphQLHandler</a></code> will be declared after other route handlers.
+For example, you could protect your application with authentication.</p>
+</div>
+<div class="paragraph">
+<p>In this case, it is likely that your data fetchers will need to know which user is logged-in to narrow down the results.
+Let&#8217;s say your authentication layer stores a <code>User</code> object in the <code><a href="../../apidocs/io/vertx/ext/web/RoutingContext.html">RoutingContext</a></code>.</p>
+</div>
+<div class="paragraph">
+<p>You may retrieve this object by inspecting the <code>DataFetchingEnvironment</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">VertxDataFetcher&lt;List&lt;Link&gt;&gt; dataFetcher = VertxDataFetcher.create((environment, promise) -&gt; {
+
+  RoutingContext routingContext = environment.getContext();
+
+  User user = routingContext.get(<span class="hljs-string">&quot;user&quot;</span>);
+
+  retrieveLinksPostedBy(user, promise);
+
+});</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">注意</div>
+</td>
+<td class="content">
+The routing context is available with any kind of data fetchers, not just <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/schema/VertxDataFetcher.html">VertxDataFetcher</a></code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you prefer not to expose the routing context to your data fetchers, configure the GraphQL handler to customize the context object:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">VertxDataFetcher&lt;List&lt;Link&gt;&gt; dataFetcher = VertxDataFetcher.create((environment, promise) -&gt; {
+
+  <span class="hljs-comment">// User as custom context object</span>
+  User user = environment.getContext();
+
+  retrieveLinksPostedBy(user, promise);
+
+});
+
+GraphQL graphQL = setupGraphQLJava(dataFetcher);
+
+<span class="hljs-comment">// Customize the query context object when setting up the handler</span>
+GraphQLHandler handler = GraphQLHandler.create(graphQL).queryContext(routingContext -&gt; {
+
+  <span class="hljs-keyword">return</span> routingContext.get(<span class="hljs-string">&quot;user&quot;</span>);
+
+});
+
+router.route(<span class="hljs-string">&quot;/graphql&quot;</span>).handler(handler);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_json_data_results"><a class="anchor" href="#_json_data_results"></a>JSON data results</h3>
+<div class="paragraph">
+<p>The default GraphQL data fetcher is <code>PropertyDataFetcher</code>.
+As a consequence, it will be able to read the fields of your domain objects without further configuration.</p>
+</div>
+<div class="paragraph">
+<p>Nevertheless, some Vert.x data clients return <code><a href="../../apidocs/io/vertx/core/json/JsonArray.html">JsonArray</a></code> and <code><a href="../../apidocs/io/vertx/core/json/JsonObject.html">JsonObject</a></code> results.</p>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t need (or don&#8217;t wish to) use a domain object layer, you can configure GraphQL-Java to use <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/schema/VertxPropertyDataFetcher.html">VertxPropertyDataFetcher</a></code> instead:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">RuntimeWiring.Builder builder = RuntimeWiring.newRuntimeWiring();
+
+builder.wiringFactory(<span class="hljs-keyword">new</span> WiringFactory() {
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> DataFetcher&lt;Object&gt; <span class="hljs-title">getDefaultDataFetcher</span><span class="hljs-params">(FieldWiringEnvironment environment)</span> </span>{
+
+    <span class="hljs-keyword">return</span> VertxPropertyDataFetcher.create(environment.getFieldDefinition().getName());
+
+  }
+});</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">提示</div>
+</td>
+<td class="content">
+<code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/schema/VertxPropertyDataFetcher.html">VertxPropertyDataFetcher</a></code> wraps a <code>PropertyDataFetcher</code> so you can still use it with domain objects.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_batch_loading"><a class="anchor" href="#_batch_loading"></a>Batch loading</h3>
+<div class="paragraph">
+<p>Dataloaders help you to load data efficiently by batching fetch requests and caching results.</p>
+</div>
+<div class="paragraph">
+<p>First, create a batch loader:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">BatchLoaderWithContext&lt;String, Link&gt; linksBatchLoader = <span class="hljs-keyword">this</span>::retrieveLinksFromBackend;</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">提示</div>
+</td>
+<td class="content">
+If you work with Vert.x callback-based APIs, you may use a <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/dataloader/VertxBatchLoader.html">VertxBatchLoader</a></code>
+or a <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/dataloader/VertxMappedBatchLoader.html">VertxMappedBatchLoader</a></code> to simplify your code.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Then, configure the <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html">GraphQLHandler</a></code> to create a <code>DataLoaderRegistry</code> for each request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">GraphQLHandler handler = GraphQLHandler.create(graphQL).dataLoaderRegistry(rc -&gt; {
+
+  DataLoader&lt;String, Link&gt; linkDataLoader = DataLoader.newDataLoader(linksBatchLoader);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DataLoaderRegistry().register(<span class="hljs-string">&quot;link&quot;</span>, linkDataLoader);
+
+});</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_file_uploads"><a class="anchor" href="#_file_uploads"></a>File uploads</h3>
+<div class="paragraph">
+<p><a href="https://github.com/jaydenseric/graphql-multipart-request-spec">GraphQL multipart request</a> is an interoperable multipart form field structure for <code>GraphQL</code> requests.
+By enabling this functionality, GraphQL clients will be able to upload files using a single mutation call.
+All the server-side file handling will be abstracted by the <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html">GraphQLHandler</a></code>.</p>
+</div>
+<div class="paragraph">
+<p>To enable it, create a <code><a href="../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html">GraphQLHandler</a></code> with the requestMultipartEnabled configuration set to true and add the <code><a href="../../apidocs/io/vertx/ext/web/handler/BodyHandler.html">BodyHandler</a></code> to the router.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">GraphQLHandler graphQLHandler = GraphQLHandler.create(
+  setupGraphQLJava(),
+  <span class="hljs-keyword">new</span> GraphQLHandlerOptions().setRequestMultipartEnabled(<span class="hljs-keyword">true</span>)
+);
+
+Router router = Router.router(vertx);
+
+router.route().handler(BodyHandler.create());
+router.route(<span class="hljs-string">&quot;/graphql&quot;</span>).handler(graphQLHandler);</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">重要</div>
+</td>
+<td class="content">
+If the router does not have a <code><a href="../../apidocs/io/vertx/ext/web/handler/BodyHandler.html">BodyHandler</a></code>, the multipart request parser will not be able to handle the GraphQL mutation call.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Finally, create the <code>Upload</code> scalar and set it to the <code>RuntimeWiring</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">RuntimeWiring runtimeWiring = RuntimeWiring.newRuntimeWiring().scalar(UploadScalar.build()).build();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>FileUpload</code> instance can be accessed using the <code>DataFetchingEnvironment::getArgument</code> method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">FileUpload file = environment.getArgument(<span class="hljs-string">&quot;myFile&quot;</span>);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rxjava_3_api"><a class="anchor" href="#_rxjava_3_api"></a>RxJava 3 API</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_setting_up_with_an_rxified_router"><a class="anchor" href="#_setting_up_with_an_rxified_router"></a>Setting up with an Rxified router</h3>
+<div class="paragraph">
+<p>To handle GraphQL requests on a Rxified <code><a href="../../apidocs/io/vertx/rxjava3/ext/web/Route.html">Route</a></code>, make sure to import the <code><a href="../../apidocs/io/vertx/rxjava3/ext/web/handler/graphql/GraphQLHandler.html">GraphQLHandler</a></code> class.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_working_with_vert_x_rxified_apis"><a class="anchor" href="#_working_with_vert_x_rxified_apis"></a>Working with Vert.x Rxified APIs</h3>
+<div class="paragraph">
+<p>GraphQL-Java expects <code>CompletionStage</code> for asynchronous results in data fetchers and batch loaders.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, if you work with the Vert.x Rxified APIs (e.g. the <a href="https://vertx.io/docs/vertx-web-client/java/#_rxjava_3_api">Web Client</a> or the <a href="https://vertx.io/docs/vertx-cassandra-client/java/#_rxjava_3_api">Cassandra Client</a>), you will have to adapt the <code>Single</code> and <code>Maybe</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>The <code>RxJavaJdk8Interop</code> library provides the tooling to do just that.
+Add the following to the <em>dependencies</em> section of your Maven build file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.github.akarnokd<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>rxjava3-jdk8-interop<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.0-RC6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or if you use Gradle:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation <span class="hljs-string">&#x27;com.github.akarnokd:rxjava3-jdk8-interop:3.0.0-RC6&#x27;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then you can create a data fetcher from a <code>Single</code> result:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Single&lt;String&gt; data = loadDataFromBackend();
+DataFetcher&lt;CompletionStage&lt;String&gt;&gt; fetcher = environment -&gt; {
+ <span class="hljs-keyword">return</span> data.to(SingleInterop.get());
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For <code>Maybe</code> results, use <code>MaybeInterop</code>.</p>
+</div>
+</div>
+</div>
+</div></div></div></div></div></div><footer><div class="container"><div class="footer-nav-section"><div class="footer-nav-list footer-logo"><a href="/"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAxMjMyLjYgMzE1LjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEyMzIuNiAzMTUuMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlPi5zdDB7ZmlsbDojNzgyYTkxfTwvc3R5bGU+PHBhdGggZD0iTTEyMC45IDIxNC4yIDE5MC41IDBoNTIuM2wtOTguNSAyNzMuOEg5OC4yTDAgMGg1Mi4xbDY4LjggMjE0LjJ6bTI5MS4yLTYyLjZIMjk5LjZ2ODQuMkg0MzF2MzhIMjUyVjBoMTc3Ljd2MzguNEgyOTkuNlYxMTRoMTEyLjV2MzcuNnptODMuNy0xMTMuMkg1NDZjMTYuNS4zIDI5IDQuNCAzNy4zIDEyLjQgOC4zIDggMTIuNSAxOS40IDEyLjUgMzQgMCAxNC00LjUgMjUuMS0xMy41IDMzLjItOSA4LjEtMjEuNiAxMi4xLTM3LjYgMTIuMWgtMjcuMXYyNC4ybDg2LjEgMTE5LjVoNTF2LTIuNGwtNzcuMi0xMDYuN2MyNC45LTUuNSA0My4zLTIxLjcgNTIuNi0zNS45IDguMi0xMi42IDEzLjMtMjcuNyAxMy4zLTQ2IDAtMjYuOC04LjYtNDcuNC0yNS44LTYxLjVDNjAwLjUgNy4xIDU3Ni4xIDAgNTQ0LjUgMGgtOTYuM3YyNzMuOGg0Ny42Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0ibTEwNTIuMyAxNTcuNy00MS41IDYyLjcgMjkuNyA1My40aDg1LjF6Ii8+PGNpcmNsZSBjbGFzcz0ic3QwIiBjeD0iODI3LjkiIGN5PSIyNzQuNyIgcj0iNDAuNSIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Im0xMDM3IDAtNDcuNiA3NC4yTDk0OSAwaC04NGw4NS4zIDEzNS44LTY3LjEgMTA1LjdjNS43IDkuNSA5LjEgMjAuNSA5LjIgMzIuNGg1MC4xTDExMjEuMyAwSDEwMzd6Ii8+PHBhdGggZD0iTTc2My41IDI3My44Yy4xLTkuOSAyLjUtMTkuMiA2LjYtMjcuNVYzOC40aDg1LjRWMEg2MzguMnYzOC40aDg0LjZ2MjM1LjRoNDAuN3ptNDE0LTI2Ni45aC0xNS4zdjQyLjJoLTguNVY2LjloLTE1LjJWMGgzOXY2Ljl6TTExOTMgMGwxNC4yIDM3LjdMMTIyMS4zIDBoMTF2NDkuMWgtOC41VjMyLjlsLjgtMjEuNy0xNC41IDM3LjloLTYuMWwtMTQuNS0zNy44LjggMjEuNnYxNi4yaC04LjVWMGgxMS4yeiIvPjwvc3ZnPg==" alt="Vert.x Logo"/></a></div><div class="footer-nav-list"><h5>Eclipse Vert.x</h5><ul class=""><li><a class="navbar-menu-item" href="/docs/">文档</a></li><li><a href="/download/">下载</a></li><li><a href="/blog/">博客</a></li><li><a href="/community/">社区</a></li><li><a href="/translation/">翻译团队</a></li><li><a href="https://github.com/eclipse-vertx/vert.x">GitHub</a></li><li><a href="https://github.com/vertx-china/vertx-web-site">翻译GitHub</a></li></ul></div><div class="footer-nav-list"><h5>资源</h5><ul class=""><li><a href="/faq/">答疑</a></li><li><a href="/channels/">联系渠道</a></li><li><a href="https://how-to.vertx.io/">操作指南</a></li><li><a href="https://start.vertx.io/">应用生成器</a></li></ul></div><div class="footer-nav-list"><h5>Eclipse</h5><ul class=""><li><a href="https://www.eclipse.org/">Eclipse 基金会</a></li><li><a href="https://www.eclipse.org/legal/privacy.php">隐私政策</a></li><li><a href="https://www.eclipse.org/legal/termsofuse.php">使用条款</a></li><li><a href="https://www.eclipse.org/legal/copyright.php">版权代理</a></li><li><a href="https://www.eclipse.org/legal/">法律资源</a></li></ul></div></div><div class="footer-copyright"><div class="footer-copyright-remarks">© <!-- -->2021<!-- --> Eclipse Vert.x™<br/>Eclipse Vert.x™ 是开源的，并在<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">Eclipse Public License 2.0</a>和<a href="https://www.apache.org/licenses/LICENSE-2.0.html" target="_blank" rel="noopener noreferrer">Apache License 2.0</a>协议下获得了双重许可。<br class="footer-copyright-break"/>网站由 <a href="https://michelkraemer.com" target="_blank" rel="noopener noreferrer">Michel Krämer</a> 设计。</div><div class="footer-copyright-eclipse-logo"><a href="https://www.eclipse.org/" target="_blank" rel="noopener noreferrer"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAyODEuMyA5MS4xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyODEuMyA5MS4xIiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGU+LnN0MHtmaWxsOiNmNzk0MjJ9LnN0MXtmaWxsOiMzZDNjM2J9PC9zdHlsZT48ZyBpZD0iTGF5ZXJfMV8xXyI+PHBhdGggY2xhc3M9InN0MCIgZD0iTTI2NS43IDg0IDI1NyA3M2gtMi43djE3LjdoMy4zdi0xMmw5LjMgMTJoMi4xVjczaC0zLjN2MTF6bS0zMi40LTguM2M0LjIgMCA1LjggMy4zIDUuOCA2LjNzLTEuNiA2LTUuOCA2LTUuNy0zLjEtNS44LTYgMS43LTYuMyA1LjgtNi4zem0wLTNjLTYuMSAwLTkuMSA0LjctOS4xIDkuMyAwIDQuNyAyLjkgOS4xIDkuMSA5LjFzOS00LjYgOS4xLTkuMi0zLTkuMi05LjEtOS4yem0tMjEuMiAxOFY3M2gtMy4zdjE3LjdoMy4zem0tMjMuNiAwaDMuM1Y3Nmg1LjZ2LTNoLTE0LjZ2M2g1LjZsLjEgMTQuN3ptLTE4LjktNi41SDE2M2wzLjMtNy42IDMuMyA3LjZ6bTIuOCA2LjVoMy42TDE2OC4yIDczaC0zLjZsLTggMTcuN2gzLjZsMS41LTMuM2g5LjNsMS40IDMuM3ptLTM4LTE0LjZoMy42YzMuOSAwIDUuNSAyLjggNS41IDUuNS4xIDIuOC0xLjUgNS44LTUuNSA1LjhoLTMuNlY3Ni4xem0zLjctMy4xaC02Ljl2MTcuN2g2LjljNi4yIDAgOC45LTQuNSA4LjktOXMtMi44LTguNy04LjktOC43em0tMjIuNCAxMUwxMDcgNzNoLTIuN3YxNy43aDMuM3YtMTJsOS4zIDEyaDIuMVY3M2gtMy4zdjExek04OC4yIDczdjEwLjJjMCAzLTEuNiA0LjktNC4zIDQuOXMtNC42LTEuNy00LjYtNC45VjczSDc2djEwLjFjMCA1LjMgMy42IDcuOSA3LjkgNy45IDQuNCAwIDcuNy0yLjcgNy43LTcuOVY3M2gtMy40em0tMzMgMi43YzQuMiAwIDUuOCAzLjMgNS44IDYuM3MtMS42IDYtNS44IDYtNS43LTMuMS01LjgtNiAxLjctNi4zIDUuOC02LjN6bTAtM2MtNi4xIDAtOS4xIDQuNy05LjEgOS4zczIuOSA5LjEgOS4xIDkuMSA5LTQuNiA5LjEtOS4yLTMtOS4yLTkuMS05LjJ6bS0yOS43IDE4di02LjVoOC45di0zLjFoLTguOXYtNC44aDkuNFY3M0gyMi4ydjE3LjZoMy4zeiIvPjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yNjkuNCA1NC40aC0yMi4ydi04LjloMjEuNHYtNi45aC0yMS40di05LjFoMjIuMnYtNy4yaC0yOS42djM5LjVoMjkuNnYtNy40em0tNDAtMjUuNmMtMy02LjEtOS40LTcuOC0xNS41LTcuOC03LjMgMC0xNS4zIDMuNC0xNS4zIDExLjUgMCA4LjkgNy40IDExIDE1LjUgMTIgNS4yLjYgOS4xIDIuMSA5LjEgNS44IDAgNC4zLTQuNCA1LjktOS4xIDUuOXMtOS40LTEuOS0xMS4xLTYuM2wtNi4yIDMuMmMyLjkgNy4yIDkuMSA5LjcgMTcuMiA5LjcgOC44IDAgMTYuNi0zLjggMTYuNi0xMi42IDAtOS40LTcuNy0xMS42LTE1LjktMTIuNi00LjctLjYtOC44LTEuNS04LjgtNSAwLTIuOSAyLjYtNS4yIDguMi01LjIgNC4zIDAgOCAyLjIgOS40IDQuNGw1LjktM3pNMTc2IDIyLjJjLTYuMi0uMS0xMi40IDAtMTguNiAwdjM5LjVoNy40VjUwLjFIMTc2YzE5LjQgMCAxOS40LTI3LjkgMC0yNy45em0tMTEuMSA3LjFIMTc2YzkuNSAwIDkuNSAxNCAwIDE0aC0xMS4ybC4xLTE0em0tMTggMzIuNVYyMi4yaC03LjR2MzkuNWw3LjQuMXptLTQ0LTM5LjZ2MzkuNWgyNy43di02LjloLTIwLjNWMjIuMmgtNy40ek05MC43IDUxLjdjLTIuNyAyLjUtNi4yIDQtOS45IDQtOS44IDAtMTMuNS02LjgtMTMuNi0xMy40czQuMS0xMy43IDEzLjYtMTMuN2MzLjUtLjEgNyAxLjMgOS41IDMuN2w1LTQuOGMtMy44LTMuOS05LjEtNi0xNC41LTYtMTQuMyAwLTIxIDEwLjUtMjAuOSAyMC44czYuMyAyMC4zIDIwLjkgMjAuM2M1LjYuMSAxMS0yIDE1LTUuOWwtNS4xLTV6bS0zOSAyLjdIMjkuNXYtOC45aDIxLjR2LTYuOUgyOS41di05LjFoMjIuMnYtNy4ySDIyLjJ2MzkuNWgyOS42bC0uMS03LjR6Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTkuOCAxOC4yQzE4LjggNC4xIDM2LjktLjggNTIuMSA2bC0xLS43QzM1LjctNC42IDE1LjItLjEgNS4zIDE1LjNzLTUuNCAzNS45IDEwIDQ1LjhsMS4xLjZDMy44IDUwLjguOCAzMi4zIDkuOCAxOC4yeiIvPjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yNzIuMiAyNi4xYzAtMi41IDIuMS00LjYgNC42LTQuNiAyLjUgMCA0LjYgMi4xIDQuNiA0LjYgMCAyLjUtMi4xIDQuNi00LjYgNC42LTIuNiAwLTQuNi0yLjEtNC42LTQuNnptOC42IDBjMC0yLjItMS44LTQuMS00LTQuMXMtNC4xIDEuOC00LjEgNC4xYzAgMi4yIDEuNyA0IDMuOSA0LjFoLjFjMi4zIDAgNC4xLTEuOCA0LjEtNC4xem0tNi0yLjVoMi4zYzEuMSAwIDEuOS41IDEuOSAxLjYgMCAuNy0uNCAxLjMtMS4xIDEuNWwxLjIgMS43aC0xLjRsLTEtMS41aC0uN3YxLjVoLTEuMWwtLjEtNC44em0yLjIgMi4zYy41IDAgLjgtLjMuOC0uN3MtLjMtLjctLjgtLjdoLTF2MS4zbDEgLjF6Ii8+PC9nPjwvc3ZnPg==" alt="Eclipse foundation Logo"/></a></div></div></div></footer></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"4.1.1/vertx-web-graphql/java","title":"Vert.x Web GraphQL","fallbackGitHubStars":null,"toc":"\u003cdiv id=\"toc\" class=\"toc\"\u003e\n\u003cdiv id=\"toctitle\"\u003eTable of Contents\u003c/div\u003e\n\u003cul class=\"sectlevel1\"\u003e\n\u003cli\u003e\u003ca href=\"#_getting_started\"\u003eGetting started\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_handlers_setup\"\u003eHandlers setup\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_http\"\u003eHTTP\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_graphiql_ide\"\u003eGraphiQL IDE\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_apollo_websocketlink\"\u003eApollo WebSocketLink\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_fetching_data\"\u003eFetching data\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_working_with_callback_based_apis\"\u003eWorking with callback-based APIs\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_working_with_vert_x_futures\"\u003eWorking with Vert.x Futures\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_providing_data_fetchers_with_some_context\"\u003eProviding data fetchers with some context\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_json_data_results\"\u003eJSON data results\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_batch_loading\"\u003eBatch loading\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_file_uploads\"\u003eFile uploads\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_rxjava_3_api\"\u003eRxJava 3 API\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_setting_up_with_an_rxified_router\"\u003eSetting up with an Rxified router\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_working_with_vert_x_rxified_apis\"\u003eWorking with Vert.x Rxified APIs\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e","contents":"\u003ch1\u003eVert.x Web GraphQL\u003c/h1\u003e\n\n\u003cdiv id=\"preamble\"\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eVert.x Web GraphQL extends Vert.x Web with the \u003ca href=\"https://www.graphql-java.com\"\u003eGraphQL-Java\u003c/a\u003e library so that you can build a GraphQL server.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock tip\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e提示\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nThis is the reference documentation for Vert.x Web GraphQL.\nIt is highly recommended to get familiar with the GraphQL-Java API first.\nYou may start by reading the \u003ca href=\"https://www.graphql-java.com/documentation/v16/\"\u003eGraphQL-Java documentation\u003c/a\u003e.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_getting_started\"\u003e\u003ca class=\"anchor\" href=\"#_getting_started\"\u003e\u003c/a\u003eGetting started\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo use this module, add the following to the \u003cem\u003edependencies\u003c/em\u003e section of your Maven POM file:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003eio.vertx\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003evertx-web-graphql\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e4.1.1\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eOr, if you use Gradle:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-groovy\" data-lang=\"groovy\"\u003ecompile \u003cspan class=\"hljs-string\"\u003e\u0026#x27;io.vertx:vertx-web-graphql:4.1.1\u0026#x27;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_handlers_setup\"\u003e\u003ca class=\"anchor\" href=\"#_handlers_setup\"\u003e\u003c/a\u003eHandlers setup\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_http\"\u003e\u003ca class=\"anchor\" href=\"#_http\"\u003e\u003c/a\u003eHTTP\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eCreate a Vert.x Web \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/Route.html\"\u003eRoute\u003c/a\u003e\u003c/code\u003e and a \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html\"\u003eGraphQLHandler\u003c/a\u003e\u003c/code\u003e for it:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eGraphQL graphQL = setupGraphQLJava();\n\nrouter.route(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/graphql\u0026quot;\u003c/span\u003e).handler(GraphQLHandler.create(graphQL));\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe handler serves both \u003ccode\u003eGET\u003c/code\u003e and \u003ccode\u003ePOST\u003c/code\u003e requests.\nHowever, you can restrict the service to one type of HTTP method:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eGraphQL graphQL = setupGraphQLJava();\n\nrouter.post(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/graphql\u0026quot;\u003c/span\u003e).handler(GraphQLHandler.create(graphQL));\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock important\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e重要\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html\"\u003eGraphQLHandler\u003c/a\u003e\u003c/code\u003e requires a \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/BodyHandler.html\"\u003eBodyHandler\u003c/a\u003e\u003c/code\u003e to read \u003ccode\u003ePOST\u003c/code\u003e requests content.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect3\"\u003e\n\u003ch4 id=\"_query_batching\"\u003e\u003ca class=\"anchor\" href=\"#_query_batching\"\u003e\u003c/a\u003eQuery batching\u003c/h4\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eQuery batching consists in posting an array instead of a single object to the GraphQL endpoint.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eVert.x Web GraphQL can handle such requests but by default the feature is disabled.\nTo enable it, create the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html\"\u003eGraphQLHandler\u003c/a\u003e\u003c/code\u003e with options:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eGraphQLHandlerOptions options = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e GraphQLHandlerOptions()\n  .setRequestBatchingEnabled(\u003cspan class=\"hljs-keyword\"\u003etrue\u003c/span\u003e);\n\nGraphQLHandler handler = GraphQLHandler.create(graphQL, options);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_graphiql_ide\"\u003e\u003ca class=\"anchor\" href=\"#_graphiql_ide\"\u003e\u003c/a\u003eGraphiQL IDE\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eAs you are building your application, testing your GraphQL queries in \u003ca href=\"https://github.com/graphql/graphiql\"\u003eGraphiQL\u003c/a\u003e can be handy.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo do so, create a route for GraphiQL resources and a \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/GraphiQLHandler.html\"\u003eGraphiQLHandler\u003c/a\u003e\u003c/code\u003e for them:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eGraphiQLHandlerOptions options = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e GraphiQLHandlerOptions()\n  .setEnabled(\u003cspan class=\"hljs-keyword\"\u003etrue\u003c/span\u003e);\n\nrouter.route(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/graphiql/*\u0026quot;\u003c/span\u003e).handler(GraphiQLHandler.create(options));\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThen browse to \u003ca href=\"http://localhost:8080/graphiql/\" class=\"bare\"\u003ehttp://localhost:8080/graphiql/\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock note\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e注意\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nThe GraphiQL user interface is disabled by default for security reasons.\nThis is why you must configure the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/GraphiQLHandlerOptions.html\"\u003eGraphiQLHandlerOptions\u003c/a\u003e\u003c/code\u003e to enable it.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock tip\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e提示\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nGraphiQL is enabled automatically when Vert.x Web runs in development mode.\nTo switch the development mode on, use the \u003ccode\u003eVERTXWEB_ENVIRONMENT\u003c/code\u003e environment variable or \u003ccode\u003evertxweb.environment\u003c/code\u003e system property and set it to \u003ccode\u003edev\u003c/code\u003e.\nIn this case, create the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/GraphiQLHandler.html\"\u003eGraphiQLHandler\u003c/a\u003e\u003c/code\u003e without changing the \u003ccode\u003eenabled\u003c/code\u003e property.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf your application is protected by authentication, you can customize the headers sent by GraphiQL dynamically:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003egraphiQLHandler.graphiQLRequestHeaders(rc -\u0026gt; {\n  String token = rc.get(\u003cspan class=\"hljs-string\"\u003e\u0026quot;token\u0026quot;\u003c/span\u003e);\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e MultiMap.caseInsensitiveMultiMap().add(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Authorization\u0026quot;\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e\u0026quot;Bearer \u0026quot;\u003c/span\u003e + token);\n});\n\nrouter.route(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/graphiql/*\u0026quot;\u003c/span\u003e).handler(graphiQLHandler);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003ePlease refer to the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/GraphiQLHandlerOptions.html\"\u003eGraphiQLHandlerOptions\u003c/a\u003e\u003c/code\u003e documentation for further details.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_apollo_websocketlink\"\u003e\u003ca class=\"anchor\" href=\"#_apollo_websocketlink\"\u003e\u003c/a\u003eApollo WebSocketLink\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou can use an \u003ca href=\"https://www.apollographql.com/docs/link/links/ws/\"\u003eApollo WebSocketLink\u003c/a\u003e which connects over a websocket.\nThis is specially useful if you want to add subscriptions to your GraphQL schema, but you can also use the websocket for queries and mutations.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eGraphQL graphQL = setupGraphQLJava();\n\nrouter.route(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/graphql\u0026quot;\u003c/span\u003e).handler(ApolloWSHandler.create(graphQL));\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock important\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e重要\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nTo support the \u003ccode\u003egraphql-ws\u003c/code\u003e websocket subprotocol, it has to be added to the server configuration:\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eHttpServerOptions httpServerOptions = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e HttpServerOptions()\n  .addWebSocketSubProtocol(\u003cspan class=\"hljs-string\"\u003e\u0026quot;graphql-ws\u0026quot;\u003c/span\u003e);\nvertx.createHttpServer(httpServerOptions)\n  .requestHandler(router)\n  .listen(\u003cspan class=\"hljs-number\"\u003e8080\u003c/span\u003e);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock note\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e注意\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nIf you want to support a WebSocketLink and a HttpLink in the same path, you can add the ApolloWSHandler in first place and then the GraphQLHandler.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eGraphQL graphQL = setupGraphQLJava();\n\nrouter.route(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/graphql\u0026quot;\u003c/span\u003e).handler(ApolloWSHandler.create(graphQL));\nrouter.route(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/graphql\u0026quot;\u003c/span\u003e).handler(GraphQLHandler.create(graphQL));\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eHere you can find how to configure the Apollo SubscriptionClient: \u003ca href=\"https://github.com/apollographql/subscriptions-transport-ws\" class=\"bare\"\u003ehttps://github.com/apollographql/subscriptions-transport-ws\u003c/a\u003e\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock important\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e重要\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nA subscription \u003ccode\u003eDataFetcher\u003c/code\u003e has to return a \u003ccode\u003eorg.reactivestreams.Publisher\u003c/code\u003e instance.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_fetching_data\"\u003e\u003ca class=\"anchor\" href=\"#_fetching_data\"\u003e\u003c/a\u003eFetching data\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe GraphQL-Java API is very well suited for the asynchronous world: the asynchronous execution strategy is the default for queries (serial asynchronous for mutations).\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo \u003ca href=\"https://vertx.io/docs/vertx-core/java/#golden_rule\"\u003eavoid blocking the event loop\u003c/a\u003e, all you have to do is implement \u003ca href=\"https://www.graphql-java.com/documentation/v16/data-fetching/\"\u003edata fetchers\u003c/a\u003e that return a \u003ccode\u003eCompletionStage\u003c/code\u003e instead of the result directly.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eDataFetcher\u0026lt;CompletionStage\u0026lt;List\u0026lt;Link\u0026gt;\u0026gt;\u0026gt; dataFetcher = environment -\u0026gt; {\n\n  CompletableFuture\u0026lt;List\u0026lt;Link\u0026gt;\u0026gt; completableFuture = \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e CompletableFuture\u0026lt;\u0026gt;();\n\n  retrieveLinksFromBackend(environment, ar -\u0026gt; {\n    \u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e (ar.succeeded()) {\n      completableFuture.complete(ar.result());\n    } \u003cspan class=\"hljs-keyword\"\u003eelse\u003c/span\u003e {\n      completableFuture.completeExceptionally(ar.cause());\n    }\n  });\n\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e completableFuture;\n};\n\nRuntimeWiring runtimeWiring = RuntimeWiring.newRuntimeWiring()\n  .type(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Query\u0026quot;\u003c/span\u003e, builder -\u0026gt; builder.dataFetcher(\u003cspan class=\"hljs-string\"\u003e\u0026quot;allLinks\u0026quot;\u003c/span\u003e, dataFetcher))\n  .build();\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_working_with_callback_based_apis\"\u003e\u003ca class=\"anchor\" href=\"#_working_with_callback_based_apis\"\u003e\u003c/a\u003eWorking with callback-based APIs\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eImplementing a data fetcher that returns a \u003ccode\u003eCompletionStage\u003c/code\u003e is not a complex task.\nBut when you work with Vert.x callback-based APIs, it requires a bit of boilerplate.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThis is where the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/schema/VertxDataFetcher.html\"\u003eVertxDataFetcher\u003c/a\u003e\u003c/code\u003e can help:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eVertxDataFetcher\u0026lt;List\u0026lt;Link\u0026gt;\u0026gt; dataFetcher = VertxDataFetcher.create((env, promise) -\u0026gt; {\n  retrieveLinksFromBackend(env, promise);\n});\n\nRuntimeWiring runtimeWiring = RuntimeWiring.newRuntimeWiring()\n  .type(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Query\u0026quot;\u003c/span\u003e, builder -\u0026gt; builder.dataFetcher(\u003cspan class=\"hljs-string\"\u003e\u0026quot;allLinks\u0026quot;\u003c/span\u003e, dataFetcher))\n  .build();\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_working_with_vert_x_futures\"\u003e\u003ca class=\"anchor\" href=\"#_working_with_vert_x_futures\"\u003e\u003c/a\u003eWorking with Vert.x Futures\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003e\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/schema/VertxDataFetcher.html\"\u003eVertxDataFetcher\u003c/a\u003e\u003c/code\u003e can also help with futurized APIs:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eVertxDataFetcher\u0026lt;List\u0026lt;Link\u0026gt;\u0026gt; dataFetcher = VertxDataFetcher.create(environment -\u0026gt; {\n  Future\u0026lt;List\u0026lt;Link\u0026gt;\u0026gt; future = retrieveLinksFromBackend(environment);\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e future;\n});\n\nRuntimeWiring runtimeWiring = RuntimeWiring.newRuntimeWiring()\n  .type(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Query\u0026quot;\u003c/span\u003e, builder -\u0026gt; builder.dataFetcher(\u003cspan class=\"hljs-string\"\u003e\u0026quot;allLinks\u0026quot;\u003c/span\u003e, dataFetcher))\n  .build();\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_providing_data_fetchers_with_some_context\"\u003e\u003ca class=\"anchor\" href=\"#_providing_data_fetchers_with_some_context\"\u003e\u003c/a\u003eProviding data fetchers with some context\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eVery often, the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html\"\u003eGraphQLHandler\u003c/a\u003e\u003c/code\u003e will be declared after other route handlers.\nFor example, you could protect your application with authentication.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIn this case, it is likely that your data fetchers will need to know which user is logged-in to narrow down the results.\nLet\u0026#8217;s say your authentication layer stores a \u003ccode\u003eUser\u003c/code\u003e object in the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/RoutingContext.html\"\u003eRoutingContext\u003c/a\u003e\u003c/code\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou may retrieve this object by inspecting the \u003ccode\u003eDataFetchingEnvironment\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eVertxDataFetcher\u0026lt;List\u0026lt;Link\u0026gt;\u0026gt; dataFetcher = VertxDataFetcher.create((environment, promise) -\u0026gt; {\n\n  RoutingContext routingContext = environment.getContext();\n\n  User user = routingContext.get(\u003cspan class=\"hljs-string\"\u003e\u0026quot;user\u0026quot;\u003c/span\u003e);\n\n  retrieveLinksPostedBy(user, promise);\n\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock note\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e注意\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nThe routing context is available with any kind of data fetchers, not just \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/schema/VertxDataFetcher.html\"\u003eVertxDataFetcher\u003c/a\u003e\u003c/code\u003e.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf you prefer not to expose the routing context to your data fetchers, configure the GraphQL handler to customize the context object:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eVertxDataFetcher\u0026lt;List\u0026lt;Link\u0026gt;\u0026gt; dataFetcher = VertxDataFetcher.create((environment, promise) -\u0026gt; {\n\n  \u003cspan class=\"hljs-comment\"\u003e// User as custom context object\u003c/span\u003e\n  User user = environment.getContext();\n\n  retrieveLinksPostedBy(user, promise);\n\n});\n\nGraphQL graphQL = setupGraphQLJava(dataFetcher);\n\n\u003cspan class=\"hljs-comment\"\u003e// Customize the query context object when setting up the handler\u003c/span\u003e\nGraphQLHandler handler = GraphQLHandler.create(graphQL).queryContext(routingContext -\u0026gt; {\n\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e routingContext.get(\u003cspan class=\"hljs-string\"\u003e\u0026quot;user\u0026quot;\u003c/span\u003e);\n\n});\n\nrouter.route(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/graphql\u0026quot;\u003c/span\u003e).handler(handler);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_json_data_results\"\u003e\u003ca class=\"anchor\" href=\"#_json_data_results\"\u003e\u003c/a\u003eJSON data results\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe default GraphQL data fetcher is \u003ccode\u003ePropertyDataFetcher\u003c/code\u003e.\nAs a consequence, it will be able to read the fields of your domain objects without further configuration.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eNevertheless, some Vert.x data clients return \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/core/json/JsonArray.html\"\u003eJsonArray\u003c/a\u003e\u003c/code\u003e and \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/core/json/JsonObject.html\"\u003eJsonObject\u003c/a\u003e\u003c/code\u003e results.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf you don\u0026#8217;t need (or don\u0026#8217;t wish to) use a domain object layer, you can configure GraphQL-Java to use \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/schema/VertxPropertyDataFetcher.html\"\u003eVertxPropertyDataFetcher\u003c/a\u003e\u003c/code\u003e instead:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eRuntimeWiring.Builder builder = RuntimeWiring.newRuntimeWiring();\n\nbuilder.wiringFactory(\u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e WiringFactory() {\n\n  \u003cspan class=\"hljs-meta\"\u003e@Override\u003c/span\u003e\n  \u003cspan class=\"hljs-function\"\u003e\u003cspan class=\"hljs-keyword\"\u003epublic\u003c/span\u003e DataFetcher\u0026lt;Object\u0026gt; \u003cspan class=\"hljs-title\"\u003egetDefaultDataFetcher\u003c/span\u003e\u003cspan class=\"hljs-params\"\u003e(FieldWiringEnvironment environment)\u003c/span\u003e \u003c/span\u003e{\n\n    \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e VertxPropertyDataFetcher.create(environment.getFieldDefinition().getName());\n\n  }\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock tip\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e提示\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\n\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/schema/VertxPropertyDataFetcher.html\"\u003eVertxPropertyDataFetcher\u003c/a\u003e\u003c/code\u003e wraps a \u003ccode\u003ePropertyDataFetcher\u003c/code\u003e so you can still use it with domain objects.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_batch_loading\"\u003e\u003ca class=\"anchor\" href=\"#_batch_loading\"\u003e\u003c/a\u003eBatch loading\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eDataloaders help you to load data efficiently by batching fetch requests and caching results.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eFirst, create a batch loader:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eBatchLoaderWithContext\u0026lt;String, Link\u0026gt; linksBatchLoader = \u003cspan class=\"hljs-keyword\"\u003ethis\u003c/span\u003e::retrieveLinksFromBackend;\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock tip\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e提示\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nIf you work with Vert.x callback-based APIs, you may use a \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/dataloader/VertxBatchLoader.html\"\u003eVertxBatchLoader\u003c/a\u003e\u003c/code\u003e\nor a \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/dataloader/VertxMappedBatchLoader.html\"\u003eVertxMappedBatchLoader\u003c/a\u003e\u003c/code\u003e to simplify your code.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThen, configure the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html\"\u003eGraphQLHandler\u003c/a\u003e\u003c/code\u003e to create a \u003ccode\u003eDataLoaderRegistry\u003c/code\u003e for each request:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eGraphQLHandler handler = GraphQLHandler.create(graphQL).dataLoaderRegistry(rc -\u0026gt; {\n\n  DataLoader\u0026lt;String, Link\u0026gt; linkDataLoader = DataLoader.newDataLoader(linksBatchLoader);\n\n  \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e DataLoaderRegistry().register(\u003cspan class=\"hljs-string\"\u003e\u0026quot;link\u0026quot;\u003c/span\u003e, linkDataLoader);\n\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_file_uploads\"\u003e\u003ca class=\"anchor\" href=\"#_file_uploads\"\u003e\u003c/a\u003eFile uploads\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/jaydenseric/graphql-multipart-request-spec\"\u003eGraphQL multipart request\u003c/a\u003e is an interoperable multipart form field structure for \u003ccode\u003eGraphQL\u003c/code\u003e requests.\nBy enabling this functionality, GraphQL clients will be able to upload files using a single mutation call.\nAll the server-side file handling will be abstracted by the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html\"\u003eGraphQLHandler\u003c/a\u003e\u003c/code\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo enable it, create a \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/graphql/GraphQLHandler.html\"\u003eGraphQLHandler\u003c/a\u003e\u003c/code\u003e with the requestMultipartEnabled configuration set to true and add the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/BodyHandler.html\"\u003eBodyHandler\u003c/a\u003e\u003c/code\u003e to the router.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eGraphQLHandler graphQLHandler = GraphQLHandler.create(\n  setupGraphQLJava(),\n  \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e GraphQLHandlerOptions().setRequestMultipartEnabled(\u003cspan class=\"hljs-keyword\"\u003etrue\u003c/span\u003e)\n);\n\nRouter router = Router.router(vertx);\n\nrouter.route().handler(BodyHandler.create());\nrouter.route(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/graphql\u0026quot;\u003c/span\u003e).handler(graphQLHandler);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock important\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e重要\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nIf the router does not have a \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/ext/web/handler/BodyHandler.html\"\u003eBodyHandler\u003c/a\u003e\u003c/code\u003e, the multipart request parser will not be able to handle the GraphQL mutation call.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eFinally, create the \u003ccode\u003eUpload\u003c/code\u003e scalar and set it to the \u003ccode\u003eRuntimeWiring\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eRuntimeWiring runtimeWiring = RuntimeWiring.newRuntimeWiring().scalar(UploadScalar.build()).build();\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003eFileUpload\u003c/code\u003e instance can be accessed using the \u003ccode\u003eDataFetchingEnvironment::getArgument\u003c/code\u003e method.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eFileUpload file = environment.getArgument(\u003cspan class=\"hljs-string\"\u003e\u0026quot;myFile\u0026quot;\u003c/span\u003e);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_rxjava_3_api\"\u003e\u003ca class=\"anchor\" href=\"#_rxjava_3_api\"\u003e\u003c/a\u003eRxJava 3 API\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_setting_up_with_an_rxified_router\"\u003e\u003ca class=\"anchor\" href=\"#_setting_up_with_an_rxified_router\"\u003e\u003c/a\u003eSetting up with an Rxified router\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo handle GraphQL requests on a Rxified \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/rxjava3/ext/web/Route.html\"\u003eRoute\u003c/a\u003e\u003c/code\u003e, make sure to import the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/rxjava3/ext/web/handler/graphql/GraphQLHandler.html\"\u003eGraphQLHandler\u003c/a\u003e\u003c/code\u003e class.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_working_with_vert_x_rxified_apis\"\u003e\u003ca class=\"anchor\" href=\"#_working_with_vert_x_rxified_apis\"\u003e\u003c/a\u003eWorking with Vert.x Rxified APIs\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eGraphQL-Java expects \u003ccode\u003eCompletionStage\u003c/code\u003e for asynchronous results in data fetchers and batch loaders.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTherefore, if you work with the Vert.x Rxified APIs (e.g. the \u003ca href=\"https://vertx.io/docs/vertx-web-client/java/#_rxjava_3_api\"\u003eWeb Client\u003c/a\u003e or the \u003ca href=\"https://vertx.io/docs/vertx-cassandra-client/java/#_rxjava_3_api\"\u003eCassandra Client\u003c/a\u003e), you will have to adapt the \u003ccode\u003eSingle\u003c/code\u003e and \u003ccode\u003eMaybe\u003c/code\u003e objects.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003eRxJavaJdk8Interop\u003c/code\u003e library provides the tooling to do just that.\nAdd the following to the \u003cem\u003edependencies\u003c/em\u003e section of your Maven build file:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003ecom.github.akarnokd\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003erxjava3-jdk8-interop\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e3.0.0-RC6\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eOr if you use Gradle:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-groovy\" data-lang=\"groovy\"\u003eimplementation \u003cspan class=\"hljs-string\"\u003e\u0026#x27;com.github.akarnokd:rxjava3-jdk8-interop:3.0.0-RC6\u0026#x27;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThen you can create a data fetcher from a \u003ccode\u003eSingle\u003c/code\u003e result:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eSingle\u0026lt;String\u0026gt; data = loadDataFromBackend();\nDataFetcher\u0026lt;CompletionStage\u0026lt;String\u0026gt;\u0026gt; fetcher = environment -\u0026gt; {\n \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e data.to(SingleInterop.get());\n};\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eFor \u003ccode\u003eMaybe\u003c/code\u003e results, use \u003ccode\u003eMaybeInterop\u003c/code\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e","version":"4.1.1"},"__N_SSG":true},"page":"/docs/[[...slug]]","query":{"slug":["4.1.1","vertx-web-graphql","java"]},"buildId":"Cj3espJ92rjWQIrIt8cFj","isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/chunks/polyfills-ad30d1320810fa304e64.js"></script><script src="/_next/static/chunks/webpack-147ea3ada7109f6dc0bb.js" async=""></script><script src="/_next/static/chunks/framework.2d0daf90a2fa7e03281a.js" async=""></script><script src="/_next/static/chunks/commons.58af5f72dd3f80f51ddc.js" async=""></script><script src="/_next/static/chunks/main-78880972fb4b65194263.js" async=""></script><script src="/_next/static/chunks/styles.eb11bd7b649b32af6115.js" async=""></script><script src="/_next/static/chunks/pages/_app-e598384803edc4a6782d.js" async=""></script><script src="/_next/static/chunks/5df0631eea625b022d3730b3f1bf573e1b8deb37.0b8151d407694e31e2a2.js" async=""></script><script src="/_next/static/chunks/31acfd8439b7c9eee4abe9f59c7500d6c943ee0d.74b85118e963a61f1bf8.js" async=""></script><script src="/_next/static/chunks/pages/docs/%5B%5B...slug%5D%5D-de110bc5466c276a0759.js" async=""></script><script src="/_next/static/Cj3espJ92rjWQIrIt8cFj/_buildManifest.js" async=""></script><script src="/_next/static/Cj3espJ92rjWQIrIt8cFj/_ssgManifest.js" async=""></script></body></html>

@@ -34,6 +34,34 @@
             ]
         },
         {
+            "id": "https://vertx.io/blog/eclipse-vert-x-4-1-1",
+            "url": "https://vertx.io/blog/eclipse-vert-x-4-1-1",
+            "title": "Eclipse Vert.x 4.1.1 released!",
+            "summary": "Eclipse Vert.x version 4.1.1 has just been released. It fixes quite a few bugs that have been reported by the community and provides a couple of features",
+            "date_modified": "2021-07-01T00:00:00.000Z",
+            "author": {
+                "name": "Julien Viet",
+                "url": "https://github.com/vietj"
+            },
+            "tags": [
+                "releases"
+            ]
+        },
+        {
+            "id": "https://vertx.io/blog/eclipse-vert-x-3-9-8",
+            "url": "https://vertx.io/blog/eclipse-vert-x-3-9-8",
+            "title": "Eclipse Vert.x 3.9.8 released!",
+            "summary": "Eclipse Vert.x version 3.9.8 has just been released. It fixes quite a few bugs that have been reported by the community.",
+            "date_modified": "2021-06-10T00:00:00.000Z",
+            "author": {
+                "name": "Julien Viet",
+                "url": "https://github.com/vietj"
+            },
+            "tags": [
+                "releases"
+            ]
+        },
+        {
             "id": "https://vertx.io/blog/eclipse-vert-x-4-1-0",
             "url": "https://vertx.io/blog/eclipse-vert-x-4-1-0",
             "title": "Eclipse Vert.x 4.1.0 released!",
