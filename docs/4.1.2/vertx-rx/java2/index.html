@@ -1,0 +1,891 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="description" content="Vert.x | Reactive applications on the JVM"/><meta name="robots" content="index,follow"/><link rel="stylesheet" data-href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" data-optimized-fonts="true"/><link rel="stylesheet" data-href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" data-optimized-fonts="true"/><link rel="stylesheet" data-href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&amp;display=swap" data-optimized-fonts="true"/><link rel="shortcut icon" href="/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png"/><link rel="alternate" type="application/rss+xml" href="/feed/rss.xml"/><link rel="alternate" type="application/atom+xml" href="/feed/atom.xml"/><link rel="alternate" type="application/json" href="/feed/feed.json"/><title>RxJava 2 | Eclipse Vert.x</title><link rel="preload" href="https://api.github.com/repos/vert-x3/vertx-rx" as="fetch" crossorigin="anonymous"/><meta name="next-head-count" content="17"/><link rel="preload" href="/_next/static/css/styles.e1237c95.chunk.css" as="style"/><link rel="stylesheet" href="/_next/static/css/styles.e1237c95.chunk.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/webpack-147ea3ada7109f6dc0bb.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.2d0daf90a2fa7e03281a.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.58af5f72dd3f80f51ddc.js" as="script"/><link rel="preload" href="/_next/static/chunks/main-78880972fb4b65194263.js" as="script"/><link rel="preload" href="/_next/static/chunks/styles.eb11bd7b649b32af6115.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-e598384803edc4a6782d.js" as="script"/><link rel="preload" href="/_next/static/chunks/5df0631eea625b022d3730b3f1bf573e1b8deb37.0b8151d407694e31e2a2.js" as="script"/><link rel="preload" href="/_next/static/chunks/31acfd8439b7c9eee4abe9f59c7500d6c943ee0d.4628583c14f4497ece94.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/docs/%5B%5B...slug%5D%5D-de110bc5466c276a0759.js" as="script"/><style data-href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBBc-.woff) format('woff')}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxM.woff) format('woff')}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBBc-.woff) format('woff')}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style><style data-href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400">@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCQYaQ.woff) format('woff')}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7Cw.woff) format('woff')}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCkYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCAYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCgYb9lecyVC4A.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCcYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCsYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCoYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCQYb9lecyU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19-7DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19a7DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-1967DQk6YvNkeg.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19G7DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-1927DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19y7DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQk6YvM.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style><style data-href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap">@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vqPQA.woff) format('woff')}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_SeW-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_QOW-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_R-W-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_S-W-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_SuW-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_ROW-AJi8SJQt.woff) format('woff');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body data-build-time="2021-07-21T02:23:51.324Z" data-build-commit-id="d388fd75fbc2522cb5fb2ed597e29e252c7231a3" data-build-run-id="1051029301"><div id="__next"><main class="page docs"><header><div class="navbar"><div class="navbar-content container"><div class="navbar-logo"><a href="/"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAxMjMyLjYgMzE1LjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEyMzIuNiAzMTUuMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlPi5zdDB7ZmlsbDojNzgyYTkxfTwvc3R5bGU+PHBhdGggZD0iTTEyMC45IDIxNC4yIDE5MC41IDBoNTIuM2wtOTguNSAyNzMuOEg5OC4yTDAgMGg1Mi4xbDY4LjggMjE0LjJ6bTI5MS4yLTYyLjZIMjk5LjZ2ODQuMkg0MzF2MzhIMjUyVjBoMTc3Ljd2MzguNEgyOTkuNlYxMTRoMTEyLjV2MzcuNnptODMuNy0xMTMuMkg1NDZjMTYuNS4zIDI5IDQuNCAzNy4zIDEyLjQgOC4zIDggMTIuNSAxOS40IDEyLjUgMzQgMCAxNC00LjUgMjUuMS0xMy41IDMzLjItOSA4LjEtMjEuNiAxMi4xLTM3LjYgMTIuMWgtMjcuMXYyNC4ybDg2LjEgMTE5LjVoNTF2LTIuNGwtNzcuMi0xMDYuN2MyNC45LTUuNSA0My4zLTIxLjcgNTIuNi0zNS45IDguMi0xMi42IDEzLjMtMjcuNyAxMy4zLTQ2IDAtMjYuOC04LjYtNDcuNC0yNS44LTYxLjVDNjAwLjUgNy4xIDU3Ni4xIDAgNTQ0LjUgMGgtOTYuM3YyNzMuOGg0Ny42Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0ibTEwNTIuMyAxNTcuNy00MS41IDYyLjcgMjkuNyA1My40aDg1LjF6Ii8+PGNpcmNsZSBjbGFzcz0ic3QwIiBjeD0iODI3LjkiIGN5PSIyNzQuNyIgcj0iNDAuNSIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Im0xMDM3IDAtNDcuNiA3NC4yTDk0OSAwaC04NGw4NS4zIDEzNS44LTY3LjEgMTA1LjdjNS43IDkuNSA5LjEgMjAuNSA5LjIgMzIuNGg1MC4xTDExMjEuMyAwSDEwMzd6Ii8+PHBhdGggZD0iTTc2My41IDI3My44Yy4xLTkuOSAyLjUtMTkuMiA2LjYtMjcuNVYzOC40aDg1LjRWMEg2MzguMnYzOC40aDg0LjZ2MjM1LjRoNDAuN3ptNDE0LTI2Ni45aC0xNS4zdjQyLjJoLTguNVY2LjloLTE1LjJWMGgzOXY2Ljl6TTExOTMgMGwxNC4yIDM3LjdMMTIyMS4zIDBoMTF2NDkuMWgtOC41VjMyLjlsLjgtMjEuNy0xNC41IDM3LjloLTYuMWwtMTQuNS0zNy44LjggMjEuNnYxNi4yaC04LjVWMGgxMS4yeiIvPjwvc3ZnPg==" alt="Vert.x Logo"/></a></div><div class="navbar-collapse-button"><span></span><span></span><span></span></div><div class="navbar-right"><div class="navbar-menu"><span class="navbar-menu-item with-drop-down"><div class="dropdown"><a class="dropdown-title">开始<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a><ul class="dropdown-menu"><a href="/introduction-to-vertx-and-reactive/"><li class="dropdown-item">简介</li></a><a href="/get-started/"><li class="dropdown-item">开始</li></a><a href="https://start.vertx.io/" target="_blank" rel="noreferrer"><li class="dropdown-item">应用生成器 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></li></a></ul></div></span><a class="navbar-menu-item" href="/docs/">文档</a><span class="navbar-menu-item with-drop-down"><div class="dropdown"><a class="dropdown-title">资源<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a><ul class="dropdown-menu"><a href="/faq/"><li class="dropdown-item">答疑</li></a><a href="/channels/"><li class="dropdown-item">联系渠道</li></a><a href="https://how-to.vertx.io/" target="_blank" rel="noreferrer"><li class="dropdown-item">操作指南 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></li></a><a href="https://github.com/vert-x3/vertx-eventbus-bridge-clients" target="_blank" rel="noreferrer"><li class="dropdown-item">EventBus Bridge Clients <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></li></a></ul></div></span><a class="navbar-menu-item" href="/blog/">博客</a><a class="navbar-menu-item" href="/community/">社区</a><a class="navbar-menu-item" href="/translation/">翻译团队</a></div><div class="navbar-social"><a href="https://github.com/vert-x3/vertx-awesome" class="navbar-social-link" title="Awesome Vert.x" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="List of awesome Vert.x projects"><title>Awesome Vert.x</title><path d="M24 11.438l-6.154-5.645-.865.944 5.128 4.7H1.895l5.128-4.705-.865-.943-6.154 5.649H0v3.72c0 1.683 1.62 3.053 3.61 3.053h3.795c1.99 0 3.61-1.37 3.61-3.051v-2.446h1.97v2.446c0 1.68 1.62 3.051 3.61 3.051h3.794c1.99 0 3.61-1.37 3.61-3.051v-3.721z"></path></svg></a><a href="https://stackoverflow.com/questions/tagged/vert.x" class="navbar-social-link" title="Stack Overflow" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Stack Overflow questions related to Vert.x"><title>Stack Overflow</title><path d="M15.725 0l-1.72 1.277 6.39 8.588 1.716-1.277L15.725 0zm-3.94 3.418l-1.369 1.644 8.225 6.85 1.369-1.644-8.225-6.85zm-3.15 4.465l-.905 1.94 9.702 4.517.904-1.94-9.701-4.517zm-1.85 4.86l-.44 2.093 10.473 2.201.44-2.092-10.473-2.203zM1.89 15.47V24h19.19v-8.53h-2.133v6.397H4.021v-6.396H1.89zm4.265 2.133v2.13h10.66v-2.13H6.154Z"></path></svg></a><a href="https://www.youtube.com/channel/UCGN6L3tRhs92Uer3c6VxOSA" class="navbar-social-link" title="YouTube" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="YouTube channel of Vert.x"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg></a><a href="https://discord.gg/KzEMwP2" class="navbar-social-link" title="Discord" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Eclipse Vert.x channel on Discord"><title>Discord</title><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"></path></svg></a><a href="https://groups.google.com/forum/?fromgroups#!forum/vertx" class="navbar-social-link" title="Vert.x 用户组" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="A Google group for Vert.x users"><title>Vert.x 用户组</title><path d="M.92 3.332c-.776 0-1.216.67-.692 1.383l2.537 4.403v7.86c0 2.013 1.467 3.69 3.459 3.69H20.31a3.75 3.75 0 003.69-3.69V7.043a3.723 3.723 0 00-3.668-3.71zm5.786 3.71H20.1c.587 0 1.153.357 1.153.923 0 .566-.566.922-1.153.922H6.706c-.587 0-1.153-.356-1.153-.922 0-.566.566-.923 1.153-.923zm0 3.69H20.1c.587 0 1.153.356 1.153.922 0 .566-.566.922-1.153.922H6.706c-.587 0-1.153-.356-1.153-.922 0-.566.566-.922 1.153-.922zm-.021 3.71h9.705c.587 0 1.153.356 1.153.922 0 .566-.566.923-1.153.923H6.685c-.587 0-1.153-.357-1.153-.923 0-.566.566-.922 1.153-.922Z"></path></svg></a><a href="https://shang.qq.com/wpa/qunwpa?idkey=587f58cacb9557e3291b46098e0fe09427b98a1c0f866da23c04c2762bc7e2ad" class="navbar-social-link" title="Vert.x中国用户组QQ群" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Vert.x中国用户组QQ群"><title>Vert.x中国用户组QQ群</title><path d="M21.395 15.035a39.548 39.548 0 0 0-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 0 0-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673zM12.662 4.846c.039-1.052.659-1.878 1.385-1.846s1.281.912 1.242 1.964c-.039 1.051-.659 1.878-1.385 1.846s-1.282-.912-1.242-1.964zM9.954 3c.725-.033 1.345.794 1.384 1.846.04 1.052-.517 1.931-1.242 1.963-.726.033-1.346-.794-1.385-1.845C8.672 3.912 9.228 3.033 9.954 3zM7.421 8.294c.194-.43 2.147-.908 4.566-.908h.026c2.418 0 4.372.479 4.566.908a.14.14 0 0 1 .014.061c0 .031-.01.059-.026.083-.163.238-2.333 1.416-4.553 1.416h-.026c-2.221 0-4.39-1.178-4.553-1.416a.136.136 0 0 1-.014-.144zm10.422 8.622c-.22 3.676-2.403 5.987-5.774 6.021h-.137c-3.37-.033-5.554-2.345-5.773-6.021-.081-1.35.001-2.496.147-3.43.318.063.638.122.958.176v3.506s1.658.334 3.318.103v-3.225c.488.027.96.04 1.406.034h.025c1.678.021 3.714-.204 5.683-.594.146.934.227 2.08.147 3.43zM10.48 5.804c.313-.041.542-.409.508-.825-.033-.415-.314-.72-.629-.679-.313.04-.541.409-.508.824.034.417.315.72.629.68zM14.479 5.156c.078.037.221.042.289-.146.035-.095.025-.165-.009-.214-.023-.033-.133-.118-.371-.176-.904-.22-1.341.384-1.405.499-.04.072-.012.176.056.227.067.051.139.037.179-.006.58-.628 1.21-.208 1.261-.184z"></path></svg></a></div></div></div></div></header><div class="page-content docs-content"><div class="container"><div class="docs-content-wrapper"><aside class=""><div class="docs-content-wrapper-sidebar"><div class="search-panel"><div class="search"><input type="text" placeholder="Search..." value=""/><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon-delete"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></div><ul class="search-results"></ul><div class="search-results-none">No results.</div></div><div class="docs-content-toc"><div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_vert_x_api_for_rxjava2">Vert.x API for RxJava2</a>
+<ul class="sectlevel2">
+<li><a href="#_using_vert_x_api_for_rxjava2">Using Vert.x API for RxJava2</a></li>
+<li><a href="#_read_stream_support">Read stream support</a></li>
+<li><a href="#_write_stream_support">Write stream support</a></li>
+<li><a href="#_async_result_support">Async result support</a></li>
+<li><a href="#_scheduler_support">Scheduler support</a></li>
+<li><a href="#_json_unmarshalling">Json unmarshalling</a></li>
+<li><a href="#_deploying_a_verticle">Deploying a Verticle</a></li>
+</ul>
+</li>
+<li><a href="#_rxified_api">Rxified API</a>
+<ul class="sectlevel2">
+<li><a href="#_embedding_rxfified_vert_x">Embedding Rxfified Vert.x</a></li>
+<li><a href="#_as_a_verticle">As a Verticle</a></li>
+</ul>
+</li>
+<li><a href="#_api_examples">Api examples</a>
+<ul class="sectlevel2">
+<li><a href="#_eventbus_message_stream">EventBus message stream</a></li>
+<li><a href="#_timers">Timers</a></li>
+<li><a href="#_http_client_requests">Http client requests</a></li>
+<li><a href="#_http_server_requests">Http server requests</a></li>
+<li><a href="#_websocket_client">Websocket client</a></li>
+<li><a href="#_websocket_server">Websocket server</a></li>
+</ul>
+</li>
+</ul>
+</div></div></div></aside><div class="docs-content-sidebar-toggle"><div style="position:relative"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div></div><div class="docs-content-inner"><div class="docs-content-metadata"><div class="docs-content-metadata-left"><div class="docs-content-metadata-repo"><div class="github-stars"><a href="https://github.com/vert-x3/vertx-rx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>null stars</a></div></div><div><a href="https://vertx.io/docs/apidocs"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> API</a></div><div class="docs-content-metadata-examples"><a href="https://github.com/vert-x3/vertx-examples/tree/4.x/rxjava-2-examples"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg> Examples</a></div><div class="docs-content-metadata-edit"><a href="https://github.com/vertx-china/vertx-web-site/tree/master/docs/translation/vertx-rx-java2/java"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> 改进翻译</a></div><span class="docs-content-metadata-version"><div class="dropdown"><a class="dropdown-title">v4.1.2<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a><ul class="dropdown-menu align-right"><a href="/docs/vertx-rx/java2/"><li class="dropdown-item active has-active-siblings"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-check-icon"><polyline points="20 6 9 17 4 12"></polyline></svg>Latest (v<!-- -->4.1.2<!-- -->)</li></a><a href="/docs/4.0.3/vertx-rx/java2/"><li class="dropdown-item has-active-siblings">v<!-- -->4.0.3</li></a><a href="/docs/3.9.8/vertx-rx/java2/"><li class="dropdown-item has-active-siblings">v<!-- -->3.9.8</li></a></ul></div></span></div></div><div><h1>Vert.x RxJava</h1>
+
+<div class="sect1">
+<h2 id="_vert_x_api_for_rxjava2"><a class="anchor" href="#_vert_x_api_for_rxjava2"></a>Vert.x API for RxJava2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/ReactiveX/RxJava">RxJava</a> is a popular library for composing asynchronous and event based programs using
+observable sequences for the Java VM.</p>
+</div>
+<div class="paragraph">
+<p>Vert.x integrates naturally with RxJava, allowing using RxJava wherever you can use streams or asynchronous results.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_vert_x_api_for_rxjava2"><a class="anchor" href="#_using_vert_x_api_for_rxjava2"></a>Using Vert.x API for RxJava2</h3>
+<div class="paragraph">
+<p>To use Vert.x API for RxJava2, add the following dependency to the <em>dependencies</em> section of your build descriptor:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Maven (in your <code>pom.xml</code>):</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.vertx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>vertx-rx-java2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.1.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Gradle (in your <code>build.gradle</code> file):</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">compile <span class="hljs-string">&#x27;io.vertx:vertx-rx-java2:4.1.2&#x27;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are two ways for using the RxJava 2 API with Vert.x:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>via the original Vert.x API with helpers class that provides static methods for converting objects between Vert.x core
+API and RxJava 2 API</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="../../apidocs/io/vertx/reactivex/RxHelper.html">RxHelper</a></code></p>
+</li>
+<li>
+<p><code><a href="../../apidocs/io/vertx/reactivex/ObservableHelper.html">ObservableHelper</a></code></p>
+</li>
+<li>
+<p><code><a href="../../apidocs/io/vertx/reactivex/FlowableHelper.html">FlowableHelper</a></code></p>
+</li>
+<li>
+<p><code><a href="../../apidocs/io/vertx/reactivex/SingleHelper.html">SingleHelper</a></code></p>
+</li>
+<li>
+<p><code><a href="../../apidocs/io/vertx/reactivex/MaybeHelper.html">MaybeHelper</a></code></p>
+</li>
+<li>
+<p><code><a href="../../apidocs/io/vertx/reactivex/CompletableHelper.html">CompletableHelper</a></code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>via the <em>Rxified</em> Vert.x API enhancing the core Vert.x API.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_read_stream_support"><a class="anchor" href="#_read_stream_support"></a>Read stream support</h3>
+<div class="paragraph">
+<p>RxJava <code>Flowable</code> is a perfect match for Vert.x <code>ReadStream</code> class : both provide a flow of items.</p>
+</div>
+<div class="paragraph">
+<p>The <code><a href="../../apidocs/io/vertx/reactivex/FlowableHelper.html#toFlowable-io.vertx.core.streams.ReadStream-">FlowableHelper.toFlowable</a></code> static methods convert
+a Vert.x read stream to a <code>Flowable</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">FileSystem fileSystem = vertx.fileSystem();
+fileSystem.open(<span class="hljs-string">&quot;/data.txt&quot;</span>, <span class="hljs-keyword">new</span> OpenOptions(), result -&gt; {
+  AsyncFile file = result.result();
+  Flowable&lt;Buffer&gt; observable = FlowableHelper.toFlowable(file);
+  observable.forEach(data -&gt; System.out.println(<span class="hljs-string">&quot;Read data: &quot;</span> + data.toString(<span class="hljs-string">&quot;UTF-8&quot;</span>)));
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <em>Rxified</em> Vert.x API provides a <code><a href="../../apidocs/io/vertx/reactivex/core/streams/ReadStream.html#toFlowable--">toFlowable</a></code>  method on
+<code><a href="../../apidocs/io/vertx/reactivex/core/streams/ReadStream.html">ReadStream</a></code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">FileSystem fs = vertx.fileSystem();
+fs.open(<span class="hljs-string">&quot;/data.txt&quot;</span>, <span class="hljs-keyword">new</span> OpenOptions(), result -&gt; {
+  AsyncFile file = result.result();
+  Flowable&lt;Buffer&gt; observable = file.toFlowable();
+  observable.forEach(data -&gt; System.out.println(<span class="hljs-string">&quot;Read data: &quot;</span> + data.toString(<span class="hljs-string">&quot;UTF-8&quot;</span>)));
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Such flowables are <strong>hot</strong> flowables, i.e. they will produce notifications regardless of subscriptions because
+a <code>ReadStream</code> can potentially emit items spontaneously or not, depending on the implementation:</p>
+</div>
+<div class="paragraph">
+<p>At subscription time, the adapter calls <code><a href="../../apidocs/io/vertx/core/streams/ReadStream.html#handler-io.vertx.core.Handler-">handler</a></code>
+to set its own handler.</p>
+</div>
+<div class="paragraph">
+<p>Some <code>ReadStream</code> implementations can start to emit events after this call, others will emit events wether an
+handler is set:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AsyncFile</code> produces buffer events after the handler is set</p>
+</li>
+<li>
+<p><code>HttpServerRequest</code> produces events independantly of the handler (i.e buffer may be lost if no handler is set)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In both cases, subscribing to the <code>Flowable</code> in the same call is safe because the event loop or the worker
+verticles cannot be called concurrently, so the subscription will always happens before the handler starts emitting
+data.</p>
+</div>
+<div class="paragraph">
+<p>When you need to delay the subscription, you need to <code>pause</code> the <code>ReadStream</code> and then <code>resume</code> it, which is what
+you would do with a <code>ReadStream</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">server.requestHandler(request -&gt; {
+  <span class="hljs-keyword">if</span> (request.method() == HttpMethod.POST) {
+
+    <span class="hljs-comment">// Stop receiving buffers</span>
+    request.pause();
+
+    checkAuth(res -&gt; {
+
+      <span class="hljs-comment">// Now we can receive buffers again</span>
+      request.resume();
+
+      <span class="hljs-keyword">if</span> (res.succeeded()) {
+        Flowable&lt;Buffer&gt; flowable = request.toFlowable();
+        flowable.subscribe(buff -&gt; {
+          <span class="hljs-comment">// Get buffers</span>
+        });
+      }
+    });
+  }
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Likewise it is possible to turn an existing <code>Flowable</code> into a Vert.x <code>ReadStream</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code><a href="../../apidocs/io/vertx/reactivex/FlowableHelper.html#toReadStream-io.reactivex.Flowable-">FlowableHelper.toReadStream</a></code>  static methods convert
+a <code>Flowable</code> to a Vert.x read stream:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Flowable&lt;Buffer&gt; observable = getFlowable();
+ReadStream&lt;Buffer&gt; readStream = FlowableHelper.toReadStream(observable);
+Pump pump = Pump.pump(readStream, response);
+pump.start();</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_write_stream_support"><a class="anchor" href="#_write_stream_support"></a>Write stream support</h3>
+<div class="paragraph">
+<p>A <code><a href="../../apidocs/io/vertx/core/streams/WriteStream.html">WriteStream</a></code>, like a <code>org.reactivestreams.Subscriber</code>, consumes items, and, when it can&#8217;t keep-up, collaborates with the producer to avoid an ever-growing backlog.</p>
+</div>
+<div class="paragraph">
+<p>Vert.x provides the <code><a href="../../apidocs/io/vertx/reactivex/WriteStreamSubscriber.html">WriteStreamSubscriber</a></code> adapter that you can use to send <code>Flowable</code> items to any <code><a href="../../apidocs/io/vertx/core/streams/WriteStream.html">WriteStream</a></code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Sending buffers to an HTTP server response</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">response.setChunked(<span class="hljs-keyword">true</span>);
+WriteStreamSubscriber&lt;io.vertx.core.buffer.Buffer&gt; subscriber = io.vertx.reactivex.RxHelper.toSubscriber(response);
+flowable.subscribe(subscriber);</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">提示</div>
+</td>
+<td class="content">
+There is also a <code>io.vertx.reactivex.WriteStreamObserver</code> adapter for the non-backpressured <code>io.reactivex.Observable</code>.
+The difference is that this adapter will send items to the <code><a href="../../apidocs/io/vertx/core/streams/WriteStream.html">WriteStream</a></code> even when it can&#8217;t keep-up with the producer rate.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you are progamming with the <em>Rxified</em> Vert.x API, the <code><a href="../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html">WriteStream</a></code> implementations provide a <code>toSubscriber</code> method.
+The previous example then becomes even more straightforward:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">response.setChunked(<span class="hljs-keyword">true</span>);
+flowable.subscribe(response.toSubscriber());</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">注意</div>
+</td>
+<td class="content">
+When the <code>Flowable</code> terminates successfully, the adapter invokes the <code><a href="../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html#end--">end</a></code> method.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<div class="title">小心</div>
+</td>
+<td class="content">
+The adapter sets the <code><a href="../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html">WriteStream</a></code> <code>drain</code> and <code>exception</code> handlers, so don&#8217;t use them after subscribing.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code><a href="../../apidocs/io/vertx/reactivex/WriteStreamSubscriber.html">WriteStreamSubscriber</a></code> adapter is able to invoke callbacks when:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the <code>Flowable</code> terminates with an error, or</p>
+</li>
+<li>
+<p>the <code><a href="../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html">WriteStream</a></code> fails (e.g. HTTP connection is closed or filesystem is full), or</p>
+</li>
+<li>
+<p>the <code><a href="../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html">WriteStream</a></code> ends (i.e. all writes done and file is closed), or</p>
+</li>
+<li>
+<p>the <code><a href="../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html">WriteStream</a></code> ends with an error (i.e. all writes done and an error occured when closing the file)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This allows for a more robust program design, as well as scheduling other tasks after the stream has been handled:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">response.setChunked(<span class="hljs-keyword">true</span>);
+
+WriteStreamSubscriber&lt;Buffer&gt; subscriber = response.toSubscriber();
+
+subscriber.onError(throwable -&gt; {
+  <span class="hljs-keyword">if</span> (!response.headWritten() &amp;&amp; response.closed()) {
+    response.setStatusCode(<span class="hljs-number">500</span>).end(<span class="hljs-string">&quot;oops&quot;</span>);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// log error</span>
+  }
+});
+
+subscriber.onWriteStreamError(throwable -&gt; {
+  <span class="hljs-comment">// log error</span>
+});
+
+subscriber.onWriteStreamEnd(() -&gt; {
+  <span class="hljs-comment">// log end of transaction to audit system...</span>
+});
+
+flowable.subscribe(subscriber);</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">注意</div>
+</td>
+<td class="content">
+If the <code><a href="../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html">WriteStream</a></code> fails, the adapter cancels the <code>org.reactivestreams.Subscription</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_async_result_support"><a class="anchor" href="#_async_result_support"></a>Async result support</h3>
+<div class="paragraph">
+<p>You can create an RxJava <code>Observer</code> from an existing Vert.x <code>Handler&lt;AsyncResult&lt;T&gt;&gt;</code> and subscribe
+it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Handler&lt;AsyncResult&lt;String&gt;&gt; handler = getHandler();
+
+<span class="hljs-comment">// Subscribe to a Single</span>
+Single.just(<span class="hljs-string">&quot;hello&quot;</span>).subscribe(SingleHelper.toObserver(handler));</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Handler&lt;AsyncResult&lt;String&gt;&gt; handler = getHandler();
+
+<span class="hljs-comment">// Subscribe to a Single</span>
+Maybe.just(<span class="hljs-string">&quot;hello&quot;</span>).subscribe(MaybeHelper.toObserver(handler));</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Handler&lt;AsyncResult&lt;Void&gt;&gt; handler = getHandler();
+
+<span class="hljs-comment">// Subscribe to a Single</span>
+Completable.complete().subscribe(CompletableHelper.toObserver(handler));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <em>Rxified</em> Vert.x API duplicates each such method with the <code>rx</code> prefix that returns an RxJava <code>Single</code>,
+<code>Maybe</code> or <code>Completable</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Single&lt;HttpServer&gt; single = vertx
+  .createHttpServer()
+  .rxListen(<span class="hljs-number">1234</span>, <span class="hljs-string">&quot;localhost&quot;</span>);
+
+<span class="hljs-comment">// Subscribe to bind the server</span>
+single.
+    subscribe(
+        server -&gt; {
+          <span class="hljs-comment">// Server is listening</span>
+        },
+        failure -&gt; {
+          <span class="hljs-comment">// Server could not start</span>
+        }
+    );</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Such single are <strong>cold</strong> singles, and the corresponding API method is called on subscribe.</p>
+</div>
+<div class="paragraph">
+<p><code>Maybe</code> can produce a result or no result:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">DnsClient client = vertx.createDnsClient(dnsPort, dnsHost);
+
+<span class="hljs-comment">// Obtain a maybe that performs the actual reverse lookup on subscribe</span>
+Maybe&lt;String&gt; maybe = client.rxReverseLookup(ipAddress);
+
+<span class="hljs-comment">// Subscribe to perform the lookup</span>
+maybe.
+  subscribe(
+    name -&gt; {
+      <span class="hljs-comment">// Lookup produced a result</span>
+    },
+    failure -&gt; {
+      <span class="hljs-comment">// Lookup failed</span>
+    },
+    () -&gt; {
+      <span class="hljs-comment">// Lookup produced no result</span>
+    }
+  );</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>Completable</code> is usually mapped to <code>Handler&lt;AsyncResult&lt;Void&gt;&gt;</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Completable single = server.rxClose();
+
+<span class="hljs-comment">// Subscribe to bind the server</span>
+single.
+  subscribe(
+    () -&gt; {
+      <span class="hljs-comment">// Server is closed</span>
+    },
+    failure -&gt; {
+      <span class="hljs-comment">// Server closed but encoutered issue</span>
+    }
+  );</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<div class="title">提示</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you cannot use the Vert.x <em>Rxified</em> API or, if you have your own, callback-based, asynchronous methods, Vert.x provides adapters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><a href="../../apidocs/io/vertx/reactivex/SingleHelper.html#toSingle-java.util.function.Consumer-">SingleHelper.toSingle</a></code>,</p>
+</li>
+<li>
+<p><code><a href="../../apidocs/io/vertx/reactivex/MaybeHelper.html#toMaybe-java.util.function.Consumer-">MaybeHelper.toMaybe</a></code> and</p>
+</li>
+<li>
+<p><code><a href="../../apidocs/io/vertx/reactivex/CompletableHelper.html#toCompletable-java.util.function.Consumer-">CompletableHelper.toCompletable</a></code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Adapting Vert.x core <em>executeBlocking</em> method</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Maybe&lt;String&gt; maybe = MaybeHelper.toMaybe(handler -&gt; {
+  vertx.executeBlocking(fut -&gt; fut.complete(invokeBlocking()), handler);
+});</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scheduler_support"><a class="anchor" href="#_scheduler_support"></a>Scheduler support</h3>
+<div class="paragraph">
+<p>The reactive extension sometimes needs to schedule actions, for instance <code>Flowable#timer</code> creates and returns
+a timer that emit periodic events. By default, scheduled actions are managed by RxJava, it means that the
+timer threads are not Vert.x threads and therefore not executing in a Vert.x event loop nor on a Vert.x worker thread.</p>
+</div>
+<div class="paragraph">
+<p>When an RxJava method deals with a scheduler, it accepts an overloaded method accepting an extra <code>io.reactivex.Scheduler</code>,
+the <code><a href="../../apidocs/io/vertx/reactivex/RxHelper.html#scheduler-io.vertx.core.Vertx-">RxHelper.scheduler</a></code>  method will return a scheduler that can be used
+in such places.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Scheduler scheduler = RxHelper.scheduler(vertx);
+Observable&lt;Long&gt; timer = Observable.interval(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, TimeUnit.MILLISECONDS, scheduler);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For blocking scheduled actions, a scheduler can be created with the <code><a href="../../apidocs/io/vertx/reactivex/RxHelper.html#blockingScheduler-io.vertx.core.Vertx-">RxHelper.blockingScheduler</a></code>
+method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Scheduler scheduler = RxHelper.blockingScheduler(vertx);
+Observable&lt;Long&gt; timer = Observable.interval(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, TimeUnit.MILLISECONDS, scheduler);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>RxJava can also be reconfigured to use the Vert.x scheduler:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">RxJavaPlugins.setComputationSchedulerHandler(s -&gt; RxHelper.scheduler(vertx));
+RxJavaPlugins.setIoSchedulerHandler(s -&gt; RxHelper.blockingScheduler(vertx));
+RxJavaPlugins.setNewThreadSchedulerHandler(s -&gt; RxHelper.scheduler(vertx));</code></pre>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<div class="title">小心</div>
+</td>
+<td class="content">
+RxJava uses the words <em>computation</em> for non-blocking tasks and <em>io</em> for blocking tasks
+which is the opposite of the Vert.x terminology
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <em>Rxified</em> Vert.x API provides also similar method on the <code><a href="../../apidocs/io/vertx/reactivex/core/RxHelper.html">RxHelper</a></code> class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Scheduler scheduler = RxHelper.scheduler(vertx);
+Observable&lt;Long&gt; timer = Observable.interval(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, TimeUnit.MILLISECONDS, scheduler);</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">RxJavaPlugins.setComputationSchedulerHandler(s -&gt; RxHelper.scheduler(vertx));
+RxJavaPlugins.setIoSchedulerHandler(s -&gt; RxHelper.blockingScheduler(vertx));
+RxJavaPlugins.setNewThreadSchedulerHandler(s -&gt; RxHelper.scheduler(vertx));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is also possible to create a scheduler backed by a named worker pool. This can be useful if you want to re-use
+the specific thread pool for scheduling blocking actions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Scheduler scheduler = RxHelper.blockingScheduler(workerExecutor);
+Observable&lt;Long&gt; timer = Observable.interval(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, TimeUnit.MILLISECONDS, scheduler);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_json_unmarshalling"><a class="anchor" href="#_json_unmarshalling"></a>Json unmarshalling</h3>
+<div class="paragraph">
+<p>The <code><a href="../../apidocs/io/vertx/reactivex/FlowableHelper.html#unmarshaller-java.lang.Class-">FlowableHelper.unmarshaller</a></code> creates an <code>io.reactivex.rxjava2.FlowableOperator</code> that
+transforms an <code>Flowable&lt;Buffer&gt;</code> in json format into an object flowable:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">fileSystem.open(<span class="hljs-string">&quot;/data.txt&quot;</span>, <span class="hljs-keyword">new</span> OpenOptions(), result -&gt; {
+  AsyncFile file = result.result();
+  Flowable&lt;Buffer&gt; observable = FlowableHelper.toFlowable(file);
+  observable.compose(FlowableHelper.unmarshaller(MyPojo.class)).subscribe(
+      mypojo -&gt; {
+        <span class="hljs-comment">// Process the object</span>
+      }
+  );
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The same can be done with the <em>Rxified</em> helper:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">fileSystem.open(<span class="hljs-string">&quot;/data.txt&quot;</span>, <span class="hljs-keyword">new</span> OpenOptions(), result -&gt; {
+  AsyncFile file = result.result();
+  Observable&lt;Buffer&gt; observable = file.toObservable();
+  observable.compose(ObservableHelper.unmarshaller((MyPojo.class))).subscribe(
+    mypojo -&gt; {
+      <span class="hljs-comment">// Process the object</span>
+    }
+  );
+});</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deploying_a_verticle"><a class="anchor" href="#_deploying_a_verticle"></a>Deploying a Verticle</h3>
+<div class="paragraph">
+<p>To deploy existing Verticle instances, you can use <code><a href="../../apidocs/io/vertx/reactivex/core/RxHelper.html#deployVerticle-io.vertx.reactivex.core.Vertx-io.vertx.core.Verticle-">RxHelper.deployVerticle</a></code>
+, it deploys a <code>Verticle</code> and returns an <code>Single&lt;String&gt;</code> of the deployment ID.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Single&lt;String&gt; deployment = RxHelper.deployVerticle(vertx, verticle);
+
+deployment.subscribe(id -&gt; {
+  <span class="hljs-comment">// Deployed</span>
+}, err -&gt; {
+  <span class="hljs-comment">// Could not deploy</span>
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rxified_api"><a class="anchor" href="#_rxified_api"></a>Rxified API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <em>Rxified</em> API is a code generated version of the Vert.x API, just like the <em>JavaScript</em> or <em>Groovy</em>
+language. The API uses the <code>io.vertx.rxjava</code> prefix, for instance the <code>io.vertx.core.Vertx</code> class is
+translated to the <code><a href="../../apidocs/io/vertx/reactivex/core/Vertx.html">Vertx</a></code> class.</p>
+</div>
+<div class="sect2">
+<h3 id="_embedding_rxfified_vert_x"><a class="anchor" href="#_embedding_rxfified_vert_x"></a>Embedding Rxfified Vert.x</h3>
+<div class="paragraph">
+<p>Just use the <code><a href="../../apidocs/io/vertx/reactivex/core/Vertx.html#vertx--">Vertx.vertx</a></code> methods:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Vertx vertx = io.vertx.reactivex.core.Vertx.vertx();</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_as_a_verticle"><a class="anchor" href="#_as_a_verticle"></a>As a Verticle</h3>
+<div class="paragraph">
+<p>Extend the <code><a href="../../apidocs/io/vertx/reactivex/core/AbstractVerticle.html">AbstractVerticle</a></code> class, it will wrap it for you:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyVerticle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">io</span>.<span class="hljs-title">vertx</span>.<span class="hljs-title">reactivex</span>.<span class="hljs-title">core</span>.<span class="hljs-title">AbstractVerticle</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">start</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Use Rxified Vertx here</span>
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deploying an RxJava verticle is still performed by the Java deployer and does not need a specified
+deployer.</p>
+</div>
+<div class="paragraph">
+<p>Verticles having an asynchronous start can override instead the <code>rxStart</code> method and return a <code>Completable</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyVerticle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">io</span>.<span class="hljs-title">vertx</span>.<span class="hljs-title">reactivex</span>.<span class="hljs-title">core</span>.<span class="hljs-title">AbstractVerticle</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">public</span> Completable <span class="hljs-title">rxStart</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> vertx.createHttpServer()
+      .requestHandler(req -&gt; req.response().end(<span class="hljs-string">&quot;Hello World&quot;</span>))
+      .rxListen()
+      .toCompletable();
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_examples"><a class="anchor" href="#_api_examples"></a>Api examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let&#8217;s study now a few examples of using Vert.x with RxJava.</p>
+</div>
+<div class="sect2">
+<h3 id="_eventbus_message_stream"><a class="anchor" href="#_eventbus_message_stream"></a>EventBus message stream</h3>
+<div class="paragraph">
+<p>The event bus <code><a href="../../apidocs/io/vertx/reactivex/core/eventbus/MessageConsumer.html">MessageConsumer</a></code> provides naturally an <code>Observable&lt;Message&lt;T&gt;&gt;</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">EventBus eb = vertx.eventBus();
+MessageConsumer&lt;String&gt; consumer = eb.&lt;String&gt;consumer(<span class="hljs-string">&quot;the-address&quot;</span>);
+Observable&lt;Message&lt;String&gt;&gt; observable = consumer.toObservable();
+Disposable sub = observable.subscribe(msg -&gt; {
+  <span class="hljs-comment">// Got message</span>
+});
+
+<span class="hljs-comment">// Unregisters the stream after 10 seconds</span>
+vertx.setTimer(<span class="hljs-number">10000</span>, id -&gt; {
+  sub.dispose();
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code><a href="../../apidocs/io/vertx/reactivex/core/eventbus/MessageConsumer.html">MessageConsumer</a></code> provides a stream of <code><a href="../../apidocs/io/vertx/reactivex/core/eventbus/Message.html">Message</a></code>.
+The <code><a href="../../apidocs/io/vertx/reactivex/core/eventbus/Message.html#body--">body</a></code> gives access to a new stream of message bodies if needed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">EventBus eb = vertx.eventBus();
+MessageConsumer&lt;String&gt; consumer = eb.&lt;String&gt;consumer(<span class="hljs-string">&quot;the-address&quot;</span>);
+Observable&lt;String&gt; observable = consumer.bodyStream().toObservable();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>RxJava map/reduce composition style can then be used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Observable&lt;Double&gt; observable = vertx.eventBus().
+    &lt;Double&gt;consumer(<span class="hljs-string">&quot;heat-sensor&quot;</span>).
+    bodyStream().
+    toObservable();
+
+observable.
+    buffer(<span class="hljs-number">1</span>, TimeUnit.SECONDS).
+    map(samples -&gt; samples.
+        stream().
+        collect(Collectors.averagingDouble(d -&gt; d))).
+    subscribe(heat -&gt; {
+      vertx.eventBus().send(<span class="hljs-string">&quot;news-feed&quot;</span>, <span class="hljs-string">&quot;Current heat is &quot;</span> + heat);
+    });</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_timers"><a class="anchor" href="#_timers"></a>Timers</h3>
+<div class="paragraph">
+<p>Timer task can be created with <code><a href="../../apidocs/io/vertx/reactivex/core/Vertx.html#timerStream-long-">timerStream</a></code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">vertx.timerStream(<span class="hljs-number">1000</span>).
+    toObservable().
+    subscribe(
+        id -&gt; {
+          System.out.println(<span class="hljs-string">&quot;Callback after 1 second&quot;</span>);
+        }
+    );</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Periodic task can be created with <code><a href="../../apidocs/io/vertx/reactivex/core/Vertx.html#periodicStream-long-">periodicStream</a></code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">vertx.periodicStream(<span class="hljs-number">1000</span>).
+    toObservable().
+    subscribe(
+        id -&gt; {
+          System.out.println(<span class="hljs-string">&quot;Callback every second&quot;</span>);
+        }
+    );</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The observable can be cancelled with an unsubscription:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">vertx.periodicStream(<span class="hljs-number">1000</span>).
+    toObservable().
+    subscribe(<span class="hljs-keyword">new</span> Observer&lt;Long&gt;() {
+      <span class="hljs-keyword">private</span> Disposable sub;
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSubscribe</span><span class="hljs-params">(<span class="hljs-meta">@NonNull</span> Disposable d)</span> </span>{
+        sub = d;
+      }
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNext</span><span class="hljs-params">(Long aLong)</span> </span>{
+        <span class="hljs-comment">// Callback</span>
+        sub.dispose();
+      }
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onError</span><span class="hljs-params">(Throwable e)</span> </span>{}
+      <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onComplete</span><span class="hljs-params">()</span> </span>{}
+    });</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_http_client_requests"><a class="anchor" href="#_http_client_requests"></a>Http client requests</h3>
+<div class="paragraph">
+<p>We recommend to use the <a href="http://vertx.io/docs/vertx-web-client/java/#_rxjava_api">Vert.x Web Client</a> with RxJava.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_http_server_requests"><a class="anchor" href="#_http_server_requests"></a>Http server requests</h3>
+<div class="paragraph">
+<p>The <code><a href="../../apidocs/io/vertx/reactivex/core/http/HttpServer.html#requestStream--">requestStream</a></code> provides a callback for each incoming
+request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Observable&lt;HttpServerRequest&gt; requestObservable = server.requestStream().toObservable();
+requestObservable.subscribe(request -&gt; {
+  <span class="hljs-comment">// Process request</span>
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code><a href="../../apidocs/io/vertx/core/http/HttpServerRequest.html">HttpServerRequest</a></code> can then be adapted to an <code>Observable&lt;Buffer&gt;</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Observable&lt;HttpServerRequest&gt; requestObservable = server.requestStream().toObservable();
+requestObservable.subscribe(request -&gt; {
+  Observable&lt;Buffer&gt; observable = request.toObservable();
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code><a href="../../apidocs/io/vertx/reactivex/ObservableHelper.html#unmarshaller-java.lang.Class-">ObservableHelper.unmarshaller</a></code> can be used to parse and map
+a json request to an object:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Observable&lt;HttpServerRequest&gt; requestObservable = server.requestStream().toObservable();
+requestObservable.subscribe(request -&gt; {
+  Observable&lt;MyPojo&gt; observable = request.
+    toObservable().
+    compose(io.vertx.reactivex.core.ObservableHelper.unmarshaller(MyPojo.class));
+});</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_websocket_client"><a class="anchor" href="#_websocket_client"></a>Websocket client</h3>
+<div class="paragraph">
+<p>The <code><a href="../../apidocs/io/vertx/reactivex/core/http/HttpClient.html#rxWebSocket-int-java.lang.String-java.lang.String-">rxWebSocket</a></code> provides a single callback when the websocket
+connects, otherwise a failure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">HttpClient client = vertx.createHttpClient(<span class="hljs-keyword">new</span> HttpClientOptions());
+client.rxWebSocket(<span class="hljs-number">8080</span>, <span class="hljs-string">&quot;localhost&quot;</span>, <span class="hljs-string">&quot;/the_uri&quot;</span>).subscribe(
+    ws -&gt; {
+      <span class="hljs-comment">// Use the websocket</span>
+    },
+    error -&gt; {
+      <span class="hljs-comment">// Could not connect</span>
+    }
+);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code><a href="../../apidocs/io/vertx/reactivex/core/http/WebSocket.html">WebSocket</a></code> can then be turned into an <code>Observable&lt;Buffer&gt;</code> easily:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">socketObservable.subscribe(
+    socket -&gt; {
+      Flowable&lt;Buffer&gt; dataObs = socket.toFlowable();
+      dataObs.subscribe(buffer -&gt; {
+        System.out.println(<span class="hljs-string">&quot;Got message &quot;</span> + buffer.toString(<span class="hljs-string">&quot;UTF-8&quot;</span>));
+      });
+    }
+);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_websocket_server"><a class="anchor" href="#_websocket_server"></a>Websocket server</h3>
+<div class="paragraph">
+<p>The <code><a href="../../apidocs/io/vertx/reactivex/core/http/HttpServer.html#webSocketStream--">webSocketStream</a></code> provides a callback for each incoming
+connection:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Observable&lt;ServerWebSocket&gt; socketObservable = server.webSocketStream().toObservable();
+socketObservable.subscribe(
+    socket -&gt; System.out.println(<span class="hljs-string">&quot;Web socket connect&quot;</span>),
+    failure -&gt; System.out.println(<span class="hljs-string">&quot;Should never be called&quot;</span>),
+    () -&gt; {
+      System.out.println(<span class="hljs-string">&quot;Subscription ended or server closed&quot;</span>);
+    }
+);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code><a href="../../apidocs/io/vertx/core/http/ServerWebSocket.html">ServerWebSocket</a></code> can be turned into an <code>Observable&lt;Buffer&gt;</code> easily:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">socketObservable.subscribe(
+    socket -&gt; {
+      Observable&lt;Buffer&gt; dataObs = socket.toObservable();
+      dataObs.subscribe(buffer -&gt; {
+        System.out.println(<span class="hljs-string">&quot;Got message &quot;</span> + buffer.toString(<span class="hljs-string">&quot;UTF-8&quot;</span>));
+      });
+    }
+);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div></div></div></div></div></div><footer><div class="container"><div class="footer-nav-section"><div class="footer-nav-list footer-logo"><a href="/"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAxMjMyLjYgMzE1LjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDEyMzIuNiAzMTUuMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlPi5zdDB7ZmlsbDojNzgyYTkxfTwvc3R5bGU+PHBhdGggZD0iTTEyMC45IDIxNC4yIDE5MC41IDBoNTIuM2wtOTguNSAyNzMuOEg5OC4yTDAgMGg1Mi4xbDY4LjggMjE0LjJ6bTI5MS4yLTYyLjZIMjk5LjZ2ODQuMkg0MzF2MzhIMjUyVjBoMTc3Ljd2MzguNEgyOTkuNlYxMTRoMTEyLjV2MzcuNnptODMuNy0xMTMuMkg1NDZjMTYuNS4zIDI5IDQuNCAzNy4zIDEyLjQgOC4zIDggMTIuNSAxOS40IDEyLjUgMzQgMCAxNC00LjUgMjUuMS0xMy41IDMzLjItOSA4LjEtMjEuNiAxMi4xLTM3LjYgMTIuMWgtMjcuMXYyNC4ybDg2LjEgMTE5LjVoNTF2LTIuNGwtNzcuMi0xMDYuN2MyNC45LTUuNSA0My4zLTIxLjcgNTIuNi0zNS45IDguMi0xMi42IDEzLjMtMjcuNyAxMy4zLTQ2IDAtMjYuOC04LjYtNDcuNC0yNS44LTYxLjVDNjAwLjUgNy4xIDU3Ni4xIDAgNTQ0LjUgMGgtOTYuM3YyNzMuOGg0Ny42Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0ibTEwNTIuMyAxNTcuNy00MS41IDYyLjcgMjkuNyA1My40aDg1LjF6Ii8+PGNpcmNsZSBjbGFzcz0ic3QwIiBjeD0iODI3LjkiIGN5PSIyNzQuNyIgcj0iNDAuNSIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Im0xMDM3IDAtNDcuNiA3NC4yTDk0OSAwaC04NGw4NS4zIDEzNS44LTY3LjEgMTA1LjdjNS43IDkuNSA5LjEgMjAuNSA5LjIgMzIuNGg1MC4xTDExMjEuMyAwSDEwMzd6Ii8+PHBhdGggZD0iTTc2My41IDI3My44Yy4xLTkuOSAyLjUtMTkuMiA2LjYtMjcuNVYzOC40aDg1LjRWMEg2MzguMnYzOC40aDg0LjZ2MjM1LjRoNDAuN3ptNDE0LTI2Ni45aC0xNS4zdjQyLjJoLTguNVY2LjloLTE1LjJWMGgzOXY2Ljl6TTExOTMgMGwxNC4yIDM3LjdMMTIyMS4zIDBoMTF2NDkuMWgtOC41VjMyLjlsLjgtMjEuNy0xNC41IDM3LjloLTYuMWwtMTQuNS0zNy44LjggMjEuNnYxNi4yaC04LjVWMGgxMS4yeiIvPjwvc3ZnPg==" alt="Vert.x Logo"/></a></div><div class="footer-nav-list"><h5>Eclipse Vert.x</h5><ul class=""><li><a class="navbar-menu-item" href="/docs/">文档</a></li><li><a href="/download/">下载</a></li><li><a href="/blog/">博客</a></li><li><a href="/community/">社区</a></li><li><a href="/translation/">翻译团队</a></li><li><a href="https://github.com/eclipse-vertx/vert.x">GitHub</a></li><li><a href="https://github.com/vertx-china/vertx-web-site">翻译GitHub</a></li></ul></div><div class="footer-nav-list"><h5>资源</h5><ul class=""><li><a href="/faq/">答疑</a></li><li><a href="/channels/">联系渠道</a></li><li><a href="https://how-to.vertx.io/">操作指南</a></li><li><a href="https://start.vertx.io/">应用生成器</a></li></ul></div><div class="footer-nav-list"><h5>Eclipse</h5><ul class=""><li><a href="https://www.eclipse.org/">Eclipse 基金会</a></li><li><a href="https://www.eclipse.org/legal/privacy.php">隐私政策</a></li><li><a href="https://www.eclipse.org/legal/termsofuse.php">使用条款</a></li><li><a href="https://www.eclipse.org/legal/copyright.php">版权代理</a></li><li><a href="https://www.eclipse.org/legal/">法律资源</a></li></ul></div></div><div class="footer-copyright"><div class="footer-copyright-remarks">© <!-- -->2021<!-- --> Eclipse Vert.x™<br/>Eclipse Vert.x™ 是开源的，并在<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">Eclipse Public License 2.0</a>和<a href="https://www.apache.org/licenses/LICENSE-2.0.html" target="_blank" rel="noopener noreferrer">Apache License 2.0</a>协议下获得了双重许可。<br class="footer-copyright-break"/>网站由 <a href="https://michelkraemer.com" target="_blank" rel="noopener noreferrer">Michel Krämer</a> 设计。</div><div class="footer-copyright-eclipse-logo"><a href="https://www.eclipse.org/" target="_blank" rel="noopener noreferrer"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9IjAiIHZpZXdCb3g9IjAgMCAyODEuMyA5MS4xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyODEuMyA5MS4xIiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGU+LnN0MHtmaWxsOiNmNzk0MjJ9LnN0MXtmaWxsOiMzZDNjM2J9PC9zdHlsZT48ZyBpZD0iTGF5ZXJfMV8xXyI+PHBhdGggY2xhc3M9InN0MCIgZD0iTTI2NS43IDg0IDI1NyA3M2gtMi43djE3LjdoMy4zdi0xMmw5LjMgMTJoMi4xVjczaC0zLjN2MTF6bS0zMi40LTguM2M0LjIgMCA1LjggMy4zIDUuOCA2LjNzLTEuNiA2LTUuOCA2LTUuNy0zLjEtNS44LTYgMS43LTYuMyA1LjgtNi4zem0wLTNjLTYuMSAwLTkuMSA0LjctOS4xIDkuMyAwIDQuNyAyLjkgOS4xIDkuMSA5LjFzOS00LjYgOS4xLTkuMi0zLTkuMi05LjEtOS4yem0tMjEuMiAxOFY3M2gtMy4zdjE3LjdoMy4zem0tMjMuNiAwaDMuM1Y3Nmg1LjZ2LTNoLTE0LjZ2M2g1LjZsLjEgMTQuN3ptLTE4LjktNi41SDE2M2wzLjMtNy42IDMuMyA3LjZ6bTIuOCA2LjVoMy42TDE2OC4yIDczaC0zLjZsLTggMTcuN2gzLjZsMS41LTMuM2g5LjNsMS40IDMuM3ptLTM4LTE0LjZoMy42YzMuOSAwIDUuNSAyLjggNS41IDUuNS4xIDIuOC0xLjUgNS44LTUuNSA1LjhoLTMuNlY3Ni4xem0zLjctMy4xaC02Ljl2MTcuN2g2LjljNi4yIDAgOC45LTQuNSA4LjktOXMtMi44LTguNy04LjktOC43em0tMjIuNCAxMUwxMDcgNzNoLTIuN3YxNy43aDMuM3YtMTJsOS4zIDEyaDIuMVY3M2gtMy4zdjExek04OC4yIDczdjEwLjJjMCAzLTEuNiA0LjktNC4zIDQuOXMtNC42LTEuNy00LjYtNC45VjczSDc2djEwLjFjMCA1LjMgMy42IDcuOSA3LjkgNy45IDQuNCAwIDcuNy0yLjcgNy43LTcuOVY3M2gtMy40em0tMzMgMi43YzQuMiAwIDUuOCAzLjMgNS44IDYuM3MtMS42IDYtNS44IDYtNS43LTMuMS01LjgtNiAxLjctNi4zIDUuOC02LjN6bTAtM2MtNi4xIDAtOS4xIDQuNy05LjEgOS4zczIuOSA5LjEgOS4xIDkuMSA5LTQuNiA5LjEtOS4yLTMtOS4yLTkuMS05LjJ6bS0yOS43IDE4di02LjVoOC45di0zLjFoLTguOXYtNC44aDkuNFY3M0gyMi4ydjE3LjZoMy4zeiIvPjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yNjkuNCA1NC40aC0yMi4ydi04LjloMjEuNHYtNi45aC0yMS40di05LjFoMjIuMnYtNy4yaC0yOS42djM5LjVoMjkuNnYtNy40em0tNDAtMjUuNmMtMy02LjEtOS40LTcuOC0xNS41LTcuOC03LjMgMC0xNS4zIDMuNC0xNS4zIDExLjUgMCA4LjkgNy40IDExIDE1LjUgMTIgNS4yLjYgOS4xIDIuMSA5LjEgNS44IDAgNC4zLTQuNCA1LjktOS4xIDUuOXMtOS40LTEuOS0xMS4xLTYuM2wtNi4yIDMuMmMyLjkgNy4yIDkuMSA5LjcgMTcuMiA5LjcgOC44IDAgMTYuNi0zLjggMTYuNi0xMi42IDAtOS40LTcuNy0xMS42LTE1LjktMTIuNi00LjctLjYtOC44LTEuNS04LjgtNSAwLTIuOSAyLjYtNS4yIDguMi01LjIgNC4zIDAgOCAyLjIgOS40IDQuNGw1LjktM3pNMTc2IDIyLjJjLTYuMi0uMS0xMi40IDAtMTguNiAwdjM5LjVoNy40VjUwLjFIMTc2YzE5LjQgMCAxOS40LTI3LjkgMC0yNy45em0tMTEuMSA3LjFIMTc2YzkuNSAwIDkuNSAxNCAwIDE0aC0xMS4ybC4xLTE0em0tMTggMzIuNVYyMi4yaC03LjR2MzkuNWw3LjQuMXptLTQ0LTM5LjZ2MzkuNWgyNy43di02LjloLTIwLjNWMjIuMmgtNy40ek05MC43IDUxLjdjLTIuNyAyLjUtNi4yIDQtOS45IDQtOS44IDAtMTMuNS02LjgtMTMuNi0xMy40czQuMS0xMy43IDEzLjYtMTMuN2MzLjUtLjEgNyAxLjMgOS41IDMuN2w1LTQuOGMtMy44LTMuOS05LjEtNi0xNC41LTYtMTQuMyAwLTIxIDEwLjUtMjAuOSAyMC44czYuMyAyMC4zIDIwLjkgMjAuM2M1LjYuMSAxMS0yIDE1LTUuOWwtNS4xLTV6bS0zOSAyLjdIMjkuNXYtOC45aDIxLjR2LTYuOUgyOS41di05LjFoMjIuMnYtNy4ySDIyLjJ2MzkuNWgyOS42bC0uMS03LjR6Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTkuOCAxOC4yQzE4LjggNC4xIDM2LjktLjggNTIuMSA2bC0xLS43QzM1LjctNC42IDE1LjItLjEgNS4zIDE1LjNzLTUuNCAzNS45IDEwIDQ1LjhsMS4xLjZDMy44IDUwLjguOCAzMi4zIDkuOCAxOC4yeiIvPjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yNzIuMiAyNi4xYzAtMi41IDIuMS00LjYgNC42LTQuNiAyLjUgMCA0LjYgMi4xIDQuNiA0LjYgMCAyLjUtMi4xIDQuNi00LjYgNC42LTIuNiAwLTQuNi0yLjEtNC42LTQuNnptOC42IDBjMC0yLjItMS44LTQuMS00LTQuMXMtNC4xIDEuOC00LjEgNC4xYzAgMi4yIDEuNyA0IDMuOSA0LjFoLjFjMi4zIDAgNC4xLTEuOCA0LjEtNC4xem0tNi0yLjVoMi4zYzEuMSAwIDEuOS41IDEuOSAxLjYgMCAuNy0uNCAxLjMtMS4xIDEuNWwxLjIgMS43aC0xLjRsLTEtMS41aC0uN3YxLjVoLTEuMWwtLjEtNC44em0yLjIgMi4zYy41IDAgLjgtLjMuOC0uN3MtLjMtLjctLjgtLjdoLTF2MS4zbDEgLjF6Ii8+PC9nPjwvc3ZnPg==" alt="Eclipse foundation Logo"/></a></div></div></div></footer></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"4.1.2/vertx-rx/java2","title":"Vert.x RxJava","fallbackGitHubStars":null,"toc":"\u003cdiv id=\"toc\" class=\"toc\"\u003e\n\u003cdiv id=\"toctitle\"\u003eTable of Contents\u003c/div\u003e\n\u003cul class=\"sectlevel1\"\u003e\n\u003cli\u003e\u003ca href=\"#_vert_x_api_for_rxjava2\"\u003eVert.x API for RxJava2\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_using_vert_x_api_for_rxjava2\"\u003eUsing Vert.x API for RxJava2\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_read_stream_support\"\u003eRead stream support\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_write_stream_support\"\u003eWrite stream support\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_async_result_support\"\u003eAsync result support\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_scheduler_support\"\u003eScheduler support\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_json_unmarshalling\"\u003eJson unmarshalling\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_deploying_a_verticle\"\u003eDeploying a Verticle\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_rxified_api\"\u003eRxified API\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_embedding_rxfified_vert_x\"\u003eEmbedding Rxfified Vert.x\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_as_a_verticle\"\u003eAs a Verticle\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_api_examples\"\u003eApi examples\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_eventbus_message_stream\"\u003eEventBus message stream\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_timers\"\u003eTimers\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_http_client_requests\"\u003eHttp client requests\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_http_server_requests\"\u003eHttp server requests\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_websocket_client\"\u003eWebsocket client\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_websocket_server\"\u003eWebsocket server\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e","contents":"\u003ch1\u003eVert.x RxJava\u003c/h1\u003e\n\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_vert_x_api_for_rxjava2\"\u003e\u003ca class=\"anchor\" href=\"#_vert_x_api_for_rxjava2\"\u003e\u003c/a\u003eVert.x API for RxJava2\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/ReactiveX/RxJava\"\u003eRxJava\u003c/a\u003e is a popular library for composing asynchronous and event based programs using\nobservable sequences for the Java VM.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eVert.x integrates naturally with RxJava, allowing using RxJava wherever you can use streams or asynchronous results.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_using_vert_x_api_for_rxjava2\"\u003e\u003ca class=\"anchor\" href=\"#_using_vert_x_api_for_rxjava2\"\u003e\u003c/a\u003eUsing Vert.x API for RxJava2\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo use Vert.x API for RxJava2, add the following dependency to the \u003cem\u003edependencies\u003c/em\u003e section of your build descriptor:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eMaven (in your \u003ccode\u003epom.xml\u003c/code\u003e):\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003eio.vertx\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003evertx-rx-java2\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e4.1.2\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eGradle (in your \u003ccode\u003ebuild.gradle\u003c/code\u003e file):\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-groovy\" data-lang=\"groovy\"\u003ecompile \u003cspan class=\"hljs-string\"\u003e\u0026#x27;io.vertx:vertx-rx-java2:4.1.2\u0026#x27;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThere are two ways for using the RxJava 2 API with Vert.x:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003evia the original Vert.x API with helpers class that provides static methods for converting objects between Vert.x core\nAPI and RxJava 2 API\u003c/p\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/RxHelper.html\"\u003eRxHelper\u003c/a\u003e\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/ObservableHelper.html\"\u003eObservableHelper\u003c/a\u003e\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/FlowableHelper.html\"\u003eFlowableHelper\u003c/a\u003e\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/SingleHelper.html\"\u003eSingleHelper\u003c/a\u003e\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/MaybeHelper.html\"\u003eMaybeHelper\u003c/a\u003e\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/CompletableHelper.html\"\u003eCompletableHelper\u003c/a\u003e\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003evia the \u003cem\u003eRxified\u003c/em\u003e Vert.x API enhancing the core Vert.x API.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_read_stream_support\"\u003e\u003ca class=\"anchor\" href=\"#_read_stream_support\"\u003e\u003c/a\u003eRead stream support\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eRxJava \u003ccode\u003eFlowable\u003c/code\u003e is a perfect match for Vert.x \u003ccode\u003eReadStream\u003c/code\u003e class : both provide a flow of items.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/FlowableHelper.html#toFlowable-io.vertx.core.streams.ReadStream-\"\u003eFlowableHelper.toFlowable\u003c/a\u003e\u003c/code\u003e static methods convert\na Vert.x read stream to a \u003ccode\u003eFlowable\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eFileSystem fileSystem = vertx.fileSystem();\nfileSystem.open(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/data.txt\u0026quot;\u003c/span\u003e, \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e OpenOptions(), result -\u0026gt; {\n  AsyncFile file = result.result();\n  Flowable\u0026lt;Buffer\u0026gt; observable = FlowableHelper.toFlowable(file);\n  observable.forEach(data -\u0026gt; System.out.println(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Read data: \u0026quot;\u003c/span\u003e + data.toString(\u003cspan class=\"hljs-string\"\u003e\u0026quot;UTF-8\u0026quot;\u003c/span\u003e)));\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003cem\u003eRxified\u003c/em\u003e Vert.x API provides a \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/streams/ReadStream.html#toFlowable--\"\u003etoFlowable\u003c/a\u003e\u003c/code\u003e  method on\n\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/streams/ReadStream.html\"\u003eReadStream\u003c/a\u003e\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eFileSystem fs = vertx.fileSystem();\nfs.open(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/data.txt\u0026quot;\u003c/span\u003e, \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e OpenOptions(), result -\u0026gt; {\n  AsyncFile file = result.result();\n  Flowable\u0026lt;Buffer\u0026gt; observable = file.toFlowable();\n  observable.forEach(data -\u0026gt; System.out.println(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Read data: \u0026quot;\u003c/span\u003e + data.toString(\u003cspan class=\"hljs-string\"\u003e\u0026quot;UTF-8\u0026quot;\u003c/span\u003e)));\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eSuch flowables are \u003cstrong\u003ehot\u003c/strong\u003e flowables, i.e. they will produce notifications regardless of subscriptions because\na \u003ccode\u003eReadStream\u003c/code\u003e can potentially emit items spontaneously or not, depending on the implementation:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eAt subscription time, the adapter calls \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/core/streams/ReadStream.html#handler-io.vertx.core.Handler-\"\u003ehandler\u003c/a\u003e\u003c/code\u003e\nto set its own handler.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eSome \u003ccode\u003eReadStream\u003c/code\u003e implementations can start to emit events after this call, others will emit events wether an\nhandler is set:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eAsyncFile\u003c/code\u003e produces buffer events after the handler is set\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eHttpServerRequest\u003c/code\u003e produces events independantly of the handler (i.e buffer may be lost if no handler is set)\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIn both cases, subscribing to the \u003ccode\u003eFlowable\u003c/code\u003e in the same call is safe because the event loop or the worker\nverticles cannot be called concurrently, so the subscription will always happens before the handler starts emitting\ndata.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eWhen you need to delay the subscription, you need to \u003ccode\u003epause\u003c/code\u003e the \u003ccode\u003eReadStream\u003c/code\u003e and then \u003ccode\u003eresume\u003c/code\u003e it, which is what\nyou would do with a \u003ccode\u003eReadStream\u003c/code\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eserver.requestHandler(request -\u0026gt; {\n  \u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e (request.method() == HttpMethod.POST) {\n\n    \u003cspan class=\"hljs-comment\"\u003e// Stop receiving buffers\u003c/span\u003e\n    request.pause();\n\n    checkAuth(res -\u0026gt; {\n\n      \u003cspan class=\"hljs-comment\"\u003e// Now we can receive buffers again\u003c/span\u003e\n      request.resume();\n\n      \u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e (res.succeeded()) {\n        Flowable\u0026lt;Buffer\u0026gt; flowable = request.toFlowable();\n        flowable.subscribe(buff -\u0026gt; {\n          \u003cspan class=\"hljs-comment\"\u003e// Get buffers\u003c/span\u003e\n        });\n      }\n    });\n  }\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eLikewise it is possible to turn an existing \u003ccode\u003eFlowable\u003c/code\u003e into a Vert.x \u003ccode\u003eReadStream\u003c/code\u003e.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/FlowableHelper.html#toReadStream-io.reactivex.Flowable-\"\u003eFlowableHelper.toReadStream\u003c/a\u003e\u003c/code\u003e  static methods convert\na \u003ccode\u003eFlowable\u003c/code\u003e to a Vert.x read stream:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eFlowable\u0026lt;Buffer\u0026gt; observable = getFlowable();\nReadStream\u0026lt;Buffer\u0026gt; readStream = FlowableHelper.toReadStream(observable);\nPump pump = Pump.pump(readStream, response);\npump.start();\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_write_stream_support\"\u003e\u003ca class=\"anchor\" href=\"#_write_stream_support\"\u003e\u003c/a\u003eWrite stream support\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eA \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/core/streams/WriteStream.html\"\u003eWriteStream\u003c/a\u003e\u003c/code\u003e, like a \u003ccode\u003eorg.reactivestreams.Subscriber\u003c/code\u003e, consumes items, and, when it can\u0026#8217;t keep-up, collaborates with the producer to avoid an ever-growing backlog.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eVert.x provides the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/WriteStreamSubscriber.html\"\u003eWriteStreamSubscriber\u003c/a\u003e\u003c/code\u003e adapter that you can use to send \u003ccode\u003eFlowable\u003c/code\u003e items to any \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/core/streams/WriteStream.html\"\u003eWriteStream\u003c/a\u003e\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"title\"\u003eSending buffers to an HTTP server response\u003c/div\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eresponse.setChunked(\u003cspan class=\"hljs-keyword\"\u003etrue\u003c/span\u003e);\nWriteStreamSubscriber\u0026lt;io.vertx.core.buffer.Buffer\u0026gt; subscriber = io.vertx.reactivex.RxHelper.toSubscriber(response);\nflowable.subscribe(subscriber);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock tip\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e提示\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nThere is also a \u003ccode\u003eio.vertx.reactivex.WriteStreamObserver\u003c/code\u003e adapter for the non-backpressured \u003ccode\u003eio.reactivex.Observable\u003c/code\u003e.\nThe difference is that this adapter will send items to the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/core/streams/WriteStream.html\"\u003eWriteStream\u003c/a\u003e\u003c/code\u003e even when it can\u0026#8217;t keep-up with the producer rate.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf you are progamming with the \u003cem\u003eRxified\u003c/em\u003e Vert.x API, the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html\"\u003eWriteStream\u003c/a\u003e\u003c/code\u003e implementations provide a \u003ccode\u003etoSubscriber\u003c/code\u003e method.\nThe previous example then becomes even more straightforward:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eresponse.setChunked(\u003cspan class=\"hljs-keyword\"\u003etrue\u003c/span\u003e);\nflowable.subscribe(response.toSubscriber());\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock note\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e注意\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nWhen the \u003ccode\u003eFlowable\u003c/code\u003e terminates successfully, the adapter invokes the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html#end--\"\u003eend\u003c/a\u003e\u003c/code\u003e method.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock caution\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e小心\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nThe adapter sets the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html\"\u003eWriteStream\u003c/a\u003e\u003c/code\u003e \u003ccode\u003edrain\u003c/code\u003e and \u003ccode\u003eexception\u003c/code\u003e handlers, so don\u0026#8217;t use them after subscribing.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/WriteStreamSubscriber.html\"\u003eWriteStreamSubscriber\u003c/a\u003e\u003c/code\u003e adapter is able to invoke callbacks when:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003ethe \u003ccode\u003eFlowable\u003c/code\u003e terminates with an error, or\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ethe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html\"\u003eWriteStream\u003c/a\u003e\u003c/code\u003e fails (e.g. HTTP connection is closed or filesystem is full), or\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ethe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html\"\u003eWriteStream\u003c/a\u003e\u003c/code\u003e ends (i.e. all writes done and file is closed), or\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ethe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html\"\u003eWriteStream\u003c/a\u003e\u003c/code\u003e ends with an error (i.e. all writes done and an error occured when closing the file)\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThis allows for a more robust program design, as well as scheduling other tasks after the stream has been handled:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eresponse.setChunked(\u003cspan class=\"hljs-keyword\"\u003etrue\u003c/span\u003e);\n\nWriteStreamSubscriber\u0026lt;Buffer\u0026gt; subscriber = response.toSubscriber();\n\nsubscriber.onError(throwable -\u0026gt; {\n  \u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e (!response.headWritten() \u0026amp;\u0026amp; response.closed()) {\n    response.setStatusCode(\u003cspan class=\"hljs-number\"\u003e500\u003c/span\u003e).end(\u003cspan class=\"hljs-string\"\u003e\u0026quot;oops\u0026quot;\u003c/span\u003e);\n  } \u003cspan class=\"hljs-keyword\"\u003eelse\u003c/span\u003e {\n    \u003cspan class=\"hljs-comment\"\u003e// log error\u003c/span\u003e\n  }\n});\n\nsubscriber.onWriteStreamError(throwable -\u0026gt; {\n  \u003cspan class=\"hljs-comment\"\u003e// log error\u003c/span\u003e\n});\n\nsubscriber.onWriteStreamEnd(() -\u0026gt; {\n  \u003cspan class=\"hljs-comment\"\u003e// log end of transaction to audit system...\u003c/span\u003e\n});\n\nflowable.subscribe(subscriber);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock note\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e注意\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nIf the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/streams/WriteStream.html\"\u003eWriteStream\u003c/a\u003e\u003c/code\u003e fails, the adapter cancels the \u003ccode\u003eorg.reactivestreams.Subscription\u003c/code\u003e.\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_async_result_support\"\u003e\u003ca class=\"anchor\" href=\"#_async_result_support\"\u003e\u003c/a\u003eAsync result support\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou can create an RxJava \u003ccode\u003eObserver\u003c/code\u003e from an existing Vert.x \u003ccode\u003eHandler\u0026lt;AsyncResult\u0026lt;T\u0026gt;\u0026gt;\u003c/code\u003e and subscribe\nit:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eHandler\u0026lt;AsyncResult\u0026lt;String\u0026gt;\u0026gt; handler = getHandler();\n\n\u003cspan class=\"hljs-comment\"\u003e// Subscribe to a Single\u003c/span\u003e\nSingle.just(\u003cspan class=\"hljs-string\"\u003e\u0026quot;hello\u0026quot;\u003c/span\u003e).subscribe(SingleHelper.toObserver(handler));\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eHandler\u0026lt;AsyncResult\u0026lt;String\u0026gt;\u0026gt; handler = getHandler();\n\n\u003cspan class=\"hljs-comment\"\u003e// Subscribe to a Single\u003c/span\u003e\nMaybe.just(\u003cspan class=\"hljs-string\"\u003e\u0026quot;hello\u0026quot;\u003c/span\u003e).subscribe(MaybeHelper.toObserver(handler));\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eHandler\u0026lt;AsyncResult\u0026lt;Void\u0026gt;\u0026gt; handler = getHandler();\n\n\u003cspan class=\"hljs-comment\"\u003e// Subscribe to a Single\u003c/span\u003e\nCompletable.complete().subscribe(CompletableHelper.toObserver(handler));\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003cem\u003eRxified\u003c/em\u003e Vert.x API duplicates each such method with the \u003ccode\u003erx\u003c/code\u003e prefix that returns an RxJava \u003ccode\u003eSingle\u003c/code\u003e,\n\u003ccode\u003eMaybe\u003c/code\u003e or \u003ccode\u003eCompletable\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eSingle\u0026lt;HttpServer\u0026gt; single = vertx\n  .createHttpServer()\n  .rxListen(\u003cspan class=\"hljs-number\"\u003e1234\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e\u0026quot;localhost\u0026quot;\u003c/span\u003e);\n\n\u003cspan class=\"hljs-comment\"\u003e// Subscribe to bind the server\u003c/span\u003e\nsingle.\n    subscribe(\n        server -\u0026gt; {\n          \u003cspan class=\"hljs-comment\"\u003e// Server is listening\u003c/span\u003e\n        },\n        failure -\u0026gt; {\n          \u003cspan class=\"hljs-comment\"\u003e// Server could not start\u003c/span\u003e\n        }\n    );\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eSuch single are \u003cstrong\u003ecold\u003c/strong\u003e singles, and the corresponding API method is called on subscribe.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003e\u003ccode\u003eMaybe\u003c/code\u003e can produce a result or no result:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eDnsClient client = vertx.createDnsClient(dnsPort, dnsHost);\n\n\u003cspan class=\"hljs-comment\"\u003e// Obtain a maybe that performs the actual reverse lookup on subscribe\u003c/span\u003e\nMaybe\u0026lt;String\u0026gt; maybe = client.rxReverseLookup(ipAddress);\n\n\u003cspan class=\"hljs-comment\"\u003e// Subscribe to perform the lookup\u003c/span\u003e\nmaybe.\n  subscribe(\n    name -\u0026gt; {\n      \u003cspan class=\"hljs-comment\"\u003e// Lookup produced a result\u003c/span\u003e\n    },\n    failure -\u0026gt; {\n      \u003cspan class=\"hljs-comment\"\u003e// Lookup failed\u003c/span\u003e\n    },\n    () -\u0026gt; {\n      \u003cspan class=\"hljs-comment\"\u003e// Lookup produced no result\u003c/span\u003e\n    }\n  );\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003e\u003ccode\u003eCompletable\u003c/code\u003e is usually mapped to \u003ccode\u003eHandler\u0026lt;AsyncResult\u0026lt;Void\u0026gt;\u0026gt;\u003c/code\u003e\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eCompletable single = server.rxClose();\n\n\u003cspan class=\"hljs-comment\"\u003e// Subscribe to bind the server\u003c/span\u003e\nsingle.\n  subscribe(\n    () -\u0026gt; {\n      \u003cspan class=\"hljs-comment\"\u003e// Server is closed\u003c/span\u003e\n    },\n    failure -\u0026gt; {\n      \u003cspan class=\"hljs-comment\"\u003e// Server closed but encoutered issue\u003c/span\u003e\n    }\n  );\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock tip\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e提示\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf you cannot use the Vert.x \u003cem\u003eRxified\u003c/em\u003e API or, if you have your own, callback-based, asynchronous methods, Vert.x provides adapters:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/SingleHelper.html#toSingle-java.util.function.Consumer-\"\u003eSingleHelper.toSingle\u003c/a\u003e\u003c/code\u003e,\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/MaybeHelper.html#toMaybe-java.util.function.Consumer-\"\u003eMaybeHelper.toMaybe\u003c/a\u003e\u003c/code\u003e and\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/CompletableHelper.html#toCompletable-java.util.function.Consumer-\"\u003eCompletableHelper.toCompletable\u003c/a\u003e\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"title\"\u003eAdapting Vert.x core \u003cem\u003eexecuteBlocking\u003c/em\u003e method\u003c/div\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eMaybe\u0026lt;String\u0026gt; maybe = MaybeHelper.toMaybe(handler -\u0026gt; {\n  vertx.executeBlocking(fut -\u0026gt; fut.complete(invokeBlocking()), handler);\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_scheduler_support\"\u003e\u003ca class=\"anchor\" href=\"#_scheduler_support\"\u003e\u003c/a\u003eScheduler support\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe reactive extension sometimes needs to schedule actions, for instance \u003ccode\u003eFlowable#timer\u003c/code\u003e creates and returns\na timer that emit periodic events. By default, scheduled actions are managed by RxJava, it means that the\ntimer threads are not Vert.x threads and therefore not executing in a Vert.x event loop nor on a Vert.x worker thread.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eWhen an RxJava method deals with a scheduler, it accepts an overloaded method accepting an extra \u003ccode\u003eio.reactivex.Scheduler\u003c/code\u003e,\nthe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/RxHelper.html#scheduler-io.vertx.core.Vertx-\"\u003eRxHelper.scheduler\u003c/a\u003e\u003c/code\u003e  method will return a scheduler that can be used\nin such places.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eScheduler scheduler = RxHelper.scheduler(vertx);\nObservable\u0026lt;Long\u0026gt; timer = Observable.interval(\u003cspan class=\"hljs-number\"\u003e100\u003c/span\u003e, \u003cspan class=\"hljs-number\"\u003e100\u003c/span\u003e, TimeUnit.MILLISECONDS, scheduler);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eFor blocking scheduled actions, a scheduler can be created with the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/RxHelper.html#blockingScheduler-io.vertx.core.Vertx-\"\u003eRxHelper.blockingScheduler\u003c/a\u003e\u003c/code\u003e\nmethod:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eScheduler scheduler = RxHelper.blockingScheduler(vertx);\nObservable\u0026lt;Long\u0026gt; timer = Observable.interval(\u003cspan class=\"hljs-number\"\u003e100\u003c/span\u003e, \u003cspan class=\"hljs-number\"\u003e100\u003c/span\u003e, TimeUnit.MILLISECONDS, scheduler);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eRxJava can also be reconfigured to use the Vert.x scheduler:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eRxJavaPlugins.setComputationSchedulerHandler(s -\u0026gt; RxHelper.scheduler(vertx));\nRxJavaPlugins.setIoSchedulerHandler(s -\u0026gt; RxHelper.blockingScheduler(vertx));\nRxJavaPlugins.setNewThreadSchedulerHandler(s -\u0026gt; RxHelper.scheduler(vertx));\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"admonitionblock caution\"\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003ctd class=\"icon\"\u003e\n\u003cdiv class=\"title\"\u003e小心\u003c/div\u003e\n\u003c/td\u003e\n\u003ctd class=\"content\"\u003e\nRxJava uses the words \u003cem\u003ecomputation\u003c/em\u003e for non-blocking tasks and \u003cem\u003eio\u003c/em\u003e for blocking tasks\nwhich is the opposite of the Vert.x terminology\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003cem\u003eRxified\u003c/em\u003e Vert.x API provides also similar method on the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/RxHelper.html\"\u003eRxHelper\u003c/a\u003e\u003c/code\u003e class:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eScheduler scheduler = RxHelper.scheduler(vertx);\nObservable\u0026lt;Long\u0026gt; timer = Observable.interval(\u003cspan class=\"hljs-number\"\u003e100\u003c/span\u003e, \u003cspan class=\"hljs-number\"\u003e100\u003c/span\u003e, TimeUnit.MILLISECONDS, scheduler);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eRxJavaPlugins.setComputationSchedulerHandler(s -\u0026gt; RxHelper.scheduler(vertx));\nRxJavaPlugins.setIoSchedulerHandler(s -\u0026gt; RxHelper.blockingScheduler(vertx));\nRxJavaPlugins.setNewThreadSchedulerHandler(s -\u0026gt; RxHelper.scheduler(vertx));\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIt is also possible to create a scheduler backed by a named worker pool. This can be useful if you want to re-use\nthe specific thread pool for scheduling blocking actions:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eScheduler scheduler = RxHelper.blockingScheduler(workerExecutor);\nObservable\u0026lt;Long\u0026gt; timer = Observable.interval(\u003cspan class=\"hljs-number\"\u003e100\u003c/span\u003e, \u003cspan class=\"hljs-number\"\u003e100\u003c/span\u003e, TimeUnit.MILLISECONDS, scheduler);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_json_unmarshalling\"\u003e\u003ca class=\"anchor\" href=\"#_json_unmarshalling\"\u003e\u003c/a\u003eJson unmarshalling\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/FlowableHelper.html#unmarshaller-java.lang.Class-\"\u003eFlowableHelper.unmarshaller\u003c/a\u003e\u003c/code\u003e creates an \u003ccode\u003eio.reactivex.rxjava2.FlowableOperator\u003c/code\u003e that\ntransforms an \u003ccode\u003eFlowable\u0026lt;Buffer\u0026gt;\u003c/code\u003e in json format into an object flowable:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003efileSystem.open(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/data.txt\u0026quot;\u003c/span\u003e, \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e OpenOptions(), result -\u0026gt; {\n  AsyncFile file = result.result();\n  Flowable\u0026lt;Buffer\u0026gt; observable = FlowableHelper.toFlowable(file);\n  observable.compose(FlowableHelper.unmarshaller(MyPojo.class)).subscribe(\n      mypojo -\u0026gt; {\n        \u003cspan class=\"hljs-comment\"\u003e// Process the object\u003c/span\u003e\n      }\n  );\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe same can be done with the \u003cem\u003eRxified\u003c/em\u003e helper:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003efileSystem.open(\u003cspan class=\"hljs-string\"\u003e\u0026quot;/data.txt\u0026quot;\u003c/span\u003e, \u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e OpenOptions(), result -\u0026gt; {\n  AsyncFile file = result.result();\n  Observable\u0026lt;Buffer\u0026gt; observable = file.toObservable();\n  observable.compose(ObservableHelper.unmarshaller((MyPojo.class))).subscribe(\n    mypojo -\u0026gt; {\n      \u003cspan class=\"hljs-comment\"\u003e// Process the object\u003c/span\u003e\n    }\n  );\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_deploying_a_verticle\"\u003e\u003ca class=\"anchor\" href=\"#_deploying_a_verticle\"\u003e\u003c/a\u003eDeploying a Verticle\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo deploy existing Verticle instances, you can use \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/RxHelper.html#deployVerticle-io.vertx.reactivex.core.Vertx-io.vertx.core.Verticle-\"\u003eRxHelper.deployVerticle\u003c/a\u003e\u003c/code\u003e\n, it deploys a \u003ccode\u003eVerticle\u003c/code\u003e and returns an \u003ccode\u003eSingle\u0026lt;String\u0026gt;\u003c/code\u003e of the deployment ID.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eSingle\u0026lt;String\u0026gt; deployment = RxHelper.deployVerticle(vertx, verticle);\n\ndeployment.subscribe(id -\u0026gt; {\n  \u003cspan class=\"hljs-comment\"\u003e// Deployed\u003c/span\u003e\n}, err -\u0026gt; {\n  \u003cspan class=\"hljs-comment\"\u003e// Could not deploy\u003c/span\u003e\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_rxified_api\"\u003e\u003ca class=\"anchor\" href=\"#_rxified_api\"\u003e\u003c/a\u003eRxified API\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003cem\u003eRxified\u003c/em\u003e API is a code generated version of the Vert.x API, just like the \u003cem\u003eJavaScript\u003c/em\u003e or \u003cem\u003eGroovy\u003c/em\u003e\nlanguage. The API uses the \u003ccode\u003eio.vertx.rxjava\u003c/code\u003e prefix, for instance the \u003ccode\u003eio.vertx.core.Vertx\u003c/code\u003e class is\ntranslated to the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/Vertx.html\"\u003eVertx\u003c/a\u003e\u003c/code\u003e class.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_embedding_rxfified_vert_x\"\u003e\u003ca class=\"anchor\" href=\"#_embedding_rxfified_vert_x\"\u003e\u003c/a\u003eEmbedding Rxfified Vert.x\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eJust use the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/Vertx.html#vertx--\"\u003eVertx.vertx\u003c/a\u003e\u003c/code\u003e methods:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eVertx vertx = io.vertx.reactivex.core.Vertx.vertx();\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_as_a_verticle\"\u003e\u003ca class=\"anchor\" href=\"#_as_a_verticle\"\u003e\u003c/a\u003eAs a Verticle\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eExtend the \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/AbstractVerticle.html\"\u003eAbstractVerticle\u003c/a\u003e\u003c/code\u003e class, it will wrap it for you:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003e\u003cspan class=\"hljs-class\"\u003e\u003cspan class=\"hljs-keyword\"\u003eclass\u003c/span\u003e \u003cspan class=\"hljs-title\"\u003eMyVerticle\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003eextends\u003c/span\u003e \u003cspan class=\"hljs-title\"\u003eio\u003c/span\u003e.\u003cspan class=\"hljs-title\"\u003evertx\u003c/span\u003e.\u003cspan class=\"hljs-title\"\u003ereactivex\u003c/span\u003e.\u003cspan class=\"hljs-title\"\u003ecore\u003c/span\u003e.\u003cspan class=\"hljs-title\"\u003eAbstractVerticle\u003c/span\u003e \u003c/span\u003e{\n  \u003cspan class=\"hljs-function\"\u003e\u003cspan class=\"hljs-keyword\"\u003epublic\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003evoid\u003c/span\u003e \u003cspan class=\"hljs-title\"\u003estart\u003c/span\u003e\u003cspan class=\"hljs-params\"\u003e()\u003c/span\u003e \u003c/span\u003e{\n    \u003cspan class=\"hljs-comment\"\u003e// Use Rxified Vertx here\u003c/span\u003e\n  }\n}\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eDeploying an RxJava verticle is still performed by the Java deployer and does not need a specified\ndeployer.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eVerticles having an asynchronous start can override instead the \u003ccode\u003erxStart\u003c/code\u003e method and return a \u003ccode\u003eCompletable\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003e\u003cspan class=\"hljs-class\"\u003e\u003cspan class=\"hljs-keyword\"\u003eclass\u003c/span\u003e \u003cspan class=\"hljs-title\"\u003eMyVerticle\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003eextends\u003c/span\u003e \u003cspan class=\"hljs-title\"\u003eio\u003c/span\u003e.\u003cspan class=\"hljs-title\"\u003evertx\u003c/span\u003e.\u003cspan class=\"hljs-title\"\u003ereactivex\u003c/span\u003e.\u003cspan class=\"hljs-title\"\u003ecore\u003c/span\u003e.\u003cspan class=\"hljs-title\"\u003eAbstractVerticle\u003c/span\u003e \u003c/span\u003e{\n  \u003cspan class=\"hljs-function\"\u003e\u003cspan class=\"hljs-keyword\"\u003epublic\u003c/span\u003e Completable \u003cspan class=\"hljs-title\"\u003erxStart\u003c/span\u003e\u003cspan class=\"hljs-params\"\u003e()\u003c/span\u003e \u003c/span\u003e{\n    \u003cspan class=\"hljs-keyword\"\u003ereturn\u003c/span\u003e vertx.createHttpServer()\n      .requestHandler(req -\u0026gt; req.response().end(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Hello World\u0026quot;\u003c/span\u003e))\n      .rxListen()\n      .toCompletable();\n  }\n}\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_api_examples\"\u003e\u003ca class=\"anchor\" href=\"#_api_examples\"\u003e\u003c/a\u003eApi examples\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eLet\u0026#8217;s study now a few examples of using Vert.x with RxJava.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_eventbus_message_stream\"\u003e\u003ca class=\"anchor\" href=\"#_eventbus_message_stream\"\u003e\u003c/a\u003eEventBus message stream\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe event bus \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/eventbus/MessageConsumer.html\"\u003eMessageConsumer\u003c/a\u003e\u003c/code\u003e provides naturally an \u003ccode\u003eObservable\u0026lt;Message\u0026lt;T\u0026gt;\u0026gt;\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eEventBus eb = vertx.eventBus();\nMessageConsumer\u0026lt;String\u0026gt; consumer = eb.\u0026lt;String\u0026gt;consumer(\u003cspan class=\"hljs-string\"\u003e\u0026quot;the-address\u0026quot;\u003c/span\u003e);\nObservable\u0026lt;Message\u0026lt;String\u0026gt;\u0026gt; observable = consumer.toObservable();\nDisposable sub = observable.subscribe(msg -\u0026gt; {\n  \u003cspan class=\"hljs-comment\"\u003e// Got message\u003c/span\u003e\n});\n\n\u003cspan class=\"hljs-comment\"\u003e// Unregisters the stream after 10 seconds\u003c/span\u003e\nvertx.setTimer(\u003cspan class=\"hljs-number\"\u003e10000\u003c/span\u003e, id -\u0026gt; {\n  sub.dispose();\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/eventbus/MessageConsumer.html\"\u003eMessageConsumer\u003c/a\u003e\u003c/code\u003e provides a stream of \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/eventbus/Message.html\"\u003eMessage\u003c/a\u003e\u003c/code\u003e.\nThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/eventbus/Message.html#body--\"\u003ebody\u003c/a\u003e\u003c/code\u003e gives access to a new stream of message bodies if needed:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eEventBus eb = vertx.eventBus();\nMessageConsumer\u0026lt;String\u0026gt; consumer = eb.\u0026lt;String\u0026gt;consumer(\u003cspan class=\"hljs-string\"\u003e\u0026quot;the-address\u0026quot;\u003c/span\u003e);\nObservable\u0026lt;String\u0026gt; observable = consumer.bodyStream().toObservable();\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eRxJava map/reduce composition style can then be used:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eObservable\u0026lt;Double\u0026gt; observable = vertx.eventBus().\n    \u0026lt;Double\u0026gt;consumer(\u003cspan class=\"hljs-string\"\u003e\u0026quot;heat-sensor\u0026quot;\u003c/span\u003e).\n    bodyStream().\n    toObservable();\n\nobservable.\n    buffer(\u003cspan class=\"hljs-number\"\u003e1\u003c/span\u003e, TimeUnit.SECONDS).\n    map(samples -\u0026gt; samples.\n        stream().\n        collect(Collectors.averagingDouble(d -\u0026gt; d))).\n    subscribe(heat -\u0026gt; {\n      vertx.eventBus().send(\u003cspan class=\"hljs-string\"\u003e\u0026quot;news-feed\u0026quot;\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e\u0026quot;Current heat is \u0026quot;\u003c/span\u003e + heat);\n    });\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_timers\"\u003e\u003ca class=\"anchor\" href=\"#_timers\"\u003e\u003c/a\u003eTimers\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTimer task can be created with \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/Vertx.html#timerStream-long-\"\u003etimerStream\u003c/a\u003e\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003evertx.timerStream(\u003cspan class=\"hljs-number\"\u003e1000\u003c/span\u003e).\n    toObservable().\n    subscribe(\n        id -\u0026gt; {\n          System.out.println(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Callback after 1 second\u0026quot;\u003c/span\u003e);\n        }\n    );\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003ePeriodic task can be created with \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/Vertx.html#periodicStream-long-\"\u003eperiodicStream\u003c/a\u003e\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003evertx.periodicStream(\u003cspan class=\"hljs-number\"\u003e1000\u003c/span\u003e).\n    toObservable().\n    subscribe(\n        id -\u0026gt; {\n          System.out.println(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Callback every second\u0026quot;\u003c/span\u003e);\n        }\n    );\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe observable can be cancelled with an unsubscription:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003evertx.periodicStream(\u003cspan class=\"hljs-number\"\u003e1000\u003c/span\u003e).\n    toObservable().\n    subscribe(\u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e Observer\u0026lt;Long\u0026gt;() {\n      \u003cspan class=\"hljs-keyword\"\u003eprivate\u003c/span\u003e Disposable sub;\n      \u003cspan class=\"hljs-function\"\u003e\u003cspan class=\"hljs-keyword\"\u003epublic\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003evoid\u003c/span\u003e \u003cspan class=\"hljs-title\"\u003eonSubscribe\u003c/span\u003e\u003cspan class=\"hljs-params\"\u003e(\u003cspan class=\"hljs-meta\"\u003e@NonNull\u003c/span\u003e Disposable d)\u003c/span\u003e \u003c/span\u003e{\n        sub = d;\n      }\n      \u003cspan class=\"hljs-function\"\u003e\u003cspan class=\"hljs-keyword\"\u003epublic\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003evoid\u003c/span\u003e \u003cspan class=\"hljs-title\"\u003eonNext\u003c/span\u003e\u003cspan class=\"hljs-params\"\u003e(Long aLong)\u003c/span\u003e \u003c/span\u003e{\n        \u003cspan class=\"hljs-comment\"\u003e// Callback\u003c/span\u003e\n        sub.dispose();\n      }\n      \u003cspan class=\"hljs-function\"\u003e\u003cspan class=\"hljs-keyword\"\u003epublic\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003evoid\u003c/span\u003e \u003cspan class=\"hljs-title\"\u003eonError\u003c/span\u003e\u003cspan class=\"hljs-params\"\u003e(Throwable e)\u003c/span\u003e \u003c/span\u003e{}\n      \u003cspan class=\"hljs-function\"\u003e\u003cspan class=\"hljs-keyword\"\u003epublic\u003c/span\u003e \u003cspan class=\"hljs-keyword\"\u003evoid\u003c/span\u003e \u003cspan class=\"hljs-title\"\u003eonComplete\u003c/span\u003e\u003cspan class=\"hljs-params\"\u003e()\u003c/span\u003e \u003c/span\u003e{}\n    });\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_http_client_requests\"\u003e\u003ca class=\"anchor\" href=\"#_http_client_requests\"\u003e\u003c/a\u003eHttp client requests\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eWe recommend to use the \u003ca href=\"http://vertx.io/docs/vertx-web-client/java/#_rxjava_api\"\u003eVert.x Web Client\u003c/a\u003e with RxJava.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_http_server_requests\"\u003e\u003ca class=\"anchor\" href=\"#_http_server_requests\"\u003e\u003c/a\u003eHttp server requests\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/http/HttpServer.html#requestStream--\"\u003erequestStream\u003c/a\u003e\u003c/code\u003e provides a callback for each incoming\nrequest:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eObservable\u0026lt;HttpServerRequest\u0026gt; requestObservable = server.requestStream().toObservable();\nrequestObservable.subscribe(request -\u0026gt; {\n  \u003cspan class=\"hljs-comment\"\u003e// Process request\u003c/span\u003e\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/core/http/HttpServerRequest.html\"\u003eHttpServerRequest\u003c/a\u003e\u003c/code\u003e can then be adapted to an \u003ccode\u003eObservable\u0026lt;Buffer\u0026gt;\u003c/code\u003e:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eObservable\u0026lt;HttpServerRequest\u0026gt; requestObservable = server.requestStream().toObservable();\nrequestObservable.subscribe(request -\u0026gt; {\n  Observable\u0026lt;Buffer\u0026gt; observable = request.toObservable();\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/ObservableHelper.html#unmarshaller-java.lang.Class-\"\u003eObservableHelper.unmarshaller\u003c/a\u003e\u003c/code\u003e can be used to parse and map\na json request to an object:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eObservable\u0026lt;HttpServerRequest\u0026gt; requestObservable = server.requestStream().toObservable();\nrequestObservable.subscribe(request -\u0026gt; {\n  Observable\u0026lt;MyPojo\u0026gt; observable = request.\n    toObservable().\n    compose(io.vertx.reactivex.core.ObservableHelper.unmarshaller(MyPojo.class));\n});\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_websocket_client\"\u003e\u003ca class=\"anchor\" href=\"#_websocket_client\"\u003e\u003c/a\u003eWebsocket client\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/http/HttpClient.html#rxWebSocket-int-java.lang.String-java.lang.String-\"\u003erxWebSocket\u003c/a\u003e\u003c/code\u003e provides a single callback when the websocket\nconnects, otherwise a failure:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eHttpClient client = vertx.createHttpClient(\u003cspan class=\"hljs-keyword\"\u003enew\u003c/span\u003e HttpClientOptions());\nclient.rxWebSocket(\u003cspan class=\"hljs-number\"\u003e8080\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e\u0026quot;localhost\u0026quot;\u003c/span\u003e, \u003cspan class=\"hljs-string\"\u003e\u0026quot;/the_uri\u0026quot;\u003c/span\u003e).subscribe(\n    ws -\u0026gt; {\n      \u003cspan class=\"hljs-comment\"\u003e// Use the websocket\u003c/span\u003e\n    },\n    error -\u0026gt; {\n      \u003cspan class=\"hljs-comment\"\u003e// Could not connect\u003c/span\u003e\n    }\n);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/http/WebSocket.html\"\u003eWebSocket\u003c/a\u003e\u003c/code\u003e can then be turned into an \u003ccode\u003eObservable\u0026lt;Buffer\u0026gt;\u003c/code\u003e easily:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003esocketObservable.subscribe(\n    socket -\u0026gt; {\n      Flowable\u0026lt;Buffer\u0026gt; dataObs = socket.toFlowable();\n      dataObs.subscribe(buffer -\u0026gt; {\n        System.out.println(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Got message \u0026quot;\u003c/span\u003e + buffer.toString(\u003cspan class=\"hljs-string\"\u003e\u0026quot;UTF-8\u0026quot;\u003c/span\u003e));\n      });\n    }\n);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_websocket_server\"\u003e\u003ca class=\"anchor\" href=\"#_websocket_server\"\u003e\u003c/a\u003eWebsocket server\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/reactivex/core/http/HttpServer.html#webSocketStream--\"\u003ewebSocketStream\u003c/a\u003e\u003c/code\u003e provides a callback for each incoming\nconnection:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003eObservable\u0026lt;ServerWebSocket\u0026gt; socketObservable = server.webSocketStream().toObservable();\nsocketObservable.subscribe(\n    socket -\u0026gt; System.out.println(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Web socket connect\u0026quot;\u003c/span\u003e),\n    failure -\u0026gt; System.out.println(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Should never be called\u0026quot;\u003c/span\u003e),\n    () -\u0026gt; {\n      System.out.println(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Subscription ended or server closed\u0026quot;\u003c/span\u003e);\n    }\n);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe \u003ccode\u003e\u003ca href=\"../../apidocs/io/vertx/core/http/ServerWebSocket.html\"\u003eServerWebSocket\u003c/a\u003e\u003c/code\u003e can be turned into an \u003ccode\u003eObservable\u0026lt;Buffer\u0026gt;\u003c/code\u003e easily:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-java\" data-lang=\"java\"\u003esocketObservable.subscribe(\n    socket -\u0026gt; {\n      Observable\u0026lt;Buffer\u0026gt; dataObs = socket.toObservable();\n      dataObs.subscribe(buffer -\u0026gt; {\n        System.out.println(\u003cspan class=\"hljs-string\"\u003e\u0026quot;Got message \u0026quot;\u003c/span\u003e + buffer.toString(\u003cspan class=\"hljs-string\"\u003e\u0026quot;UTF-8\u0026quot;\u003c/span\u003e));\n      });\n    }\n);\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e","version":"4.1.2"},"__N_SSG":true},"page":"/docs/[[...slug]]","query":{"slug":["4.1.2","vertx-rx","java2"]},"buildId":"68y8ZBeFZe-OrJUdr6FF_","isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/chunks/polyfills-ad30d1320810fa304e64.js"></script><script src="/_next/static/chunks/webpack-147ea3ada7109f6dc0bb.js" async=""></script><script src="/_next/static/chunks/framework.2d0daf90a2fa7e03281a.js" async=""></script><script src="/_next/static/chunks/commons.58af5f72dd3f80f51ddc.js" async=""></script><script src="/_next/static/chunks/main-78880972fb4b65194263.js" async=""></script><script src="/_next/static/chunks/styles.eb11bd7b649b32af6115.js" async=""></script><script src="/_next/static/chunks/pages/_app-e598384803edc4a6782d.js" async=""></script><script src="/_next/static/chunks/5df0631eea625b022d3730b3f1bf573e1b8deb37.0b8151d407694e31e2a2.js" async=""></script><script src="/_next/static/chunks/31acfd8439b7c9eee4abe9f59c7500d6c943ee0d.4628583c14f4497ece94.js" async=""></script><script src="/_next/static/chunks/pages/docs/%5B%5B...slug%5D%5D-de110bc5466c276a0759.js" async=""></script><script src="/_next/static/68y8ZBeFZe-OrJUdr6FF_/_buildManifest.js" async=""></script><script src="/_next/static/68y8ZBeFZe-OrJUdr6FF_/_ssgManifest.js" async=""></script></body></html>
