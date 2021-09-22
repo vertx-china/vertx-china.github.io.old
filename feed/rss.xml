@@ -4,7 +4,7 @@
         <title>Vert.x</title>
         <link>https://vertx.io</link>
         <description>Vert.x is a tool-kit for building reactive applications on the JVM</description>
-        <lastBuildDate>Wed, 21 Jul 2021 02:45:40 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 22 Sep 2021 01:39:28 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Vert.x</generator>
         <language>en</language>
@@ -25,6 +25,47 @@
             <guid>https://vertx.io/blog/from-vert-x-3-to-vert-x-4</guid>
             <pubDate>Wed, 02 Dec 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[We provide a clear and well-documented migration path from Vert.x 3.9 to Vert.x 4. Existing users will feel at home with the new version.]]></description>
+            <category>guides</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 4.1.4 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-4-1-4</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-4-1-4</guid>
+            <pubDate>Fri, 17 Sep 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 4.1.4 has just been released. It fixes quite a few bugs that have been reported by the community and provides a couple of features]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 3.9.9 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-3-9-9</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-3-9-9</guid>
+            <pubDate>Tue, 07 Sep 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 3.9.9 has just been released. It fixes quite a few bugs that have been reported by the community.]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 4.1.3 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-4-1-3</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-4-1-3</guid>
+            <pubDate>Tue, 31 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 4.1.3 has just been released. It fixes quite a few bugs that have been reported by the community and provides a couple of features]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 4.2.0.Beta1 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vertx-4-2-Beta1-released</link>
+            <guid>https://vertx.io/blog/eclipse-vertx-4-2-Beta1-released</guid>
+            <pubDate>Wed, 25 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[The first beta of the upcoming Vert.x 4.2 has just been released. We
+  consider it feature complete and invite the community to test it.]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Dynamic database pool configuration with Vert.x SQL Client]]></title>
+            <link>https://vertx.io/blog/dynamic-db-pool-config-with-sql-client</link>
+            <guid>https://vertx.io/blog/dynamic-db-pool-config-with-sql-client</guid>
+            <pubDate>Wed, 11 Aug 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[You will learn how to achieve dynamic database configuration of the Vert.x SQL Client pool]]></description>
             <category>guides</category>
         </item>
         <item>
