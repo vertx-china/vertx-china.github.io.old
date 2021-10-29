@@ -4,7 +4,7 @@
         <title>Vert.x</title>
         <link>https://vertx.io</link>
         <description>Vert.x is a tool-kit for building reactive applications on the JVM</description>
-        <lastBuildDate>Tue, 19 Oct 2021 07:41:52 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 29 Oct 2021 05:54:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Vert.x</generator>
         <language>en</language>
@@ -12,11 +12,11 @@
         <category>guides</category>
         <category>news</category>
         <item>
-            <title><![CDATA[What's new in Vert.x 4.1]]></title>
-            <link>https://vertx.io/blog/whats-new-in-vert-x-4-1</link>
-            <guid>https://vertx.io/blog/whats-new-in-vert-x-4-1</guid>
-            <pubDate>Fri, 21 May 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[See an overview of all new and exciting features in Vert.x 4.1, including Vert.x HTTP proxy, RxJava 3, Open Telemetry, and more.]]></description>
+            <title><![CDATA[What's new in Vert.x 4.2]]></title>
+            <link>https://vertx.io/blog/whats-new-in-vert-x-4-2</link>
+            <guid>https://vertx.io/blog/whats-new-in-vert-x-4-2</guid>
+            <pubDate>Tue, 26 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[See an overview of all new and exciting features in Vert.x 4.2, including Java 17 supports, Vert.x Oracle Client and more.]]></description>
             <category>releases</category>
         </item>
         <item>
@@ -26,6 +26,23 @@
             <pubDate>Wed, 02 Dec 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[We provide a clear and well-documented migration path from Vert.x 3.9 to Vert.x 4. Existing users will feel at home with the new version.]]></description>
             <category>guides</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 4.2.0 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-4-2-0</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-4-2-0</guid>
+            <pubDate>Thu, 28 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 4.2.0 has just been released. It comes with a set of new exciting features!]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 4.2.0.CR1 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vertx-4-2-CR1-released</link>
+            <guid>https://vertx.io/blog/eclipse-vertx-4-2-CR1-released</guid>
+            <pubDate>Wed, 20 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[The first candidate release of the upcoming Vert.x 4.2 has just been released. We
+  consider it feature complete and invite the community to test it.]]></description>
+            <category>releases</category>
         </item>
         <item>
             <title><![CDATA[Eclipse Vert.x 4.1.5 released!]]></title>
@@ -122,6 +139,14 @@
             <guid>https://vertx.io/blog/eclipse-vert-x-4-1-CR1-released</guid>
             <pubDate>Fri, 21 May 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[The first candidate release of the upcoming Vert.x 4.1 has just been released. We consider it feature complete and invite the community to test it.]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[What's new in Vert.x 4.1]]></title>
+            <link>https://vertx.io/blog/whats-new-in-vert-x-4-1</link>
+            <guid>https://vertx.io/blog/whats-new-in-vert-x-4-1</guid>
+            <pubDate>Fri, 21 May 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[See an overview of all new and exciting features in Vert.x 4.1, including Vert.x HTTP proxy, RxJava 3, Open Telemetry, and more.]]></description>
             <category>releases</category>
         </item>
         <item>

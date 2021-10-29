@@ -35,6 +35,7 @@ io.vertx.core.parsetools
 io.vertx.core.shareddata
 io.vertx.core.spi
 io.vertx.core.spi.cluster
+io.vertx.core.spi.file
 io.vertx.core.spi.json
 io.vertx.core.spi.launcher
 io.vertx.core.spi.logging
@@ -59,7 +60,9 @@ io.vertx.ext.auth.mongo
 io.vertx.ext.auth.oauth2
 io.vertx.ext.auth.oauth2.authorization
 io.vertx.ext.auth.oauth2.providers
-io.vertx.ext.auth.oauth2.rbac
+io.vertx.ext.auth.otp
+io.vertx.ext.auth.otp.hotp
+io.vertx.ext.auth.otp.totp
 io.vertx.ext.auth.properties
 io.vertx.ext.auth.shiro
 io.vertx.ext.auth.sqlclient
@@ -113,6 +116,7 @@ io.vertx.ext.web.handler
 io.vertx.ext.web.handler.graphql
 io.vertx.ext.web.handler.graphql.dataloader
 io.vertx.ext.web.handler.graphql.schema
+io.vertx.ext.web.handler.graphql.ws
 io.vertx.ext.web.handler.sockjs
 io.vertx.ext.web.multipart
 io.vertx.ext.web.openapi
@@ -133,6 +137,8 @@ io.vertx.ext.web.validation.builder
 io.vertx.grpc
 io.vertx.grpc.stub
 io.vertx.httpproxy
+io.vertx.httpproxy.cache
+io.vertx.httpproxy.spi.cache
 io.vertx.jdbcclient
 io.vertx.json.schema
 io.vertx.json.schema.common
@@ -162,6 +168,7 @@ io.vertx.micrometer
 io.vertx.micrometer.backends
 io.vertx.mqtt
 io.vertx.mqtt.messages
+io.vertx.mqtt.messages.codes
 io.vertx.mssqlclient
 io.vertx.mssqlclient.spi
 io.vertx.mysqlclient
@@ -205,7 +212,9 @@ io.vertx.reactivex.ext.auth.mongo
 io.vertx.reactivex.ext.auth.oauth2
 io.vertx.reactivex.ext.auth.oauth2.authorization
 io.vertx.reactivex.ext.auth.oauth2.providers
-io.vertx.reactivex.ext.auth.oauth2.rbac
+io.vertx.reactivex.ext.auth.otp
+io.vertx.reactivex.ext.auth.otp.hotp
+io.vertx.reactivex.ext.auth.otp.totp
 io.vertx.reactivex.ext.auth.properties
 io.vertx.reactivex.ext.auth.shiro
 io.vertx.reactivex.ext.auth.sqlclient
@@ -243,6 +252,7 @@ io.vertx.reactivex.ext.web.handler
 io.vertx.reactivex.ext.web.handler.graphql
 io.vertx.reactivex.ext.web.handler.graphql.dataloader
 io.vertx.reactivex.ext.web.handler.graphql.schema
+io.vertx.reactivex.ext.web.handler.graphql.ws
 io.vertx.reactivex.ext.web.handler.sockjs
 io.vertx.reactivex.ext.web.multipart
 io.vertx.reactivex.ext.web.openapi
@@ -258,6 +268,7 @@ io.vertx.reactivex.ext.web.templ.pebble
 io.vertx.reactivex.ext.web.templ.rocker
 io.vertx.reactivex.ext.web.templ.thymeleaf
 io.vertx.reactivex.ext.web.validation
+io.vertx.reactivex.ext.web.validation.builder
 io.vertx.reactivex.jdbcclient
 io.vertx.reactivex.json.schema
 io.vertx.reactivex.kafka.admin
@@ -313,7 +324,9 @@ io.vertx.rxjava.ext.auth.mongo
 io.vertx.rxjava.ext.auth.oauth2
 io.vertx.rxjava.ext.auth.oauth2.authorization
 io.vertx.rxjava.ext.auth.oauth2.providers
-io.vertx.rxjava.ext.auth.oauth2.rbac
+io.vertx.rxjava.ext.auth.otp
+io.vertx.rxjava.ext.auth.otp.hotp
+io.vertx.rxjava.ext.auth.otp.totp
 io.vertx.rxjava.ext.auth.properties
 io.vertx.rxjava.ext.auth.shiro
 io.vertx.rxjava.ext.auth.sqlclient
@@ -351,6 +364,7 @@ io.vertx.rxjava.ext.web.handler
 io.vertx.rxjava.ext.web.handler.graphql
 io.vertx.rxjava.ext.web.handler.graphql.dataloader
 io.vertx.rxjava.ext.web.handler.graphql.schema
+io.vertx.rxjava.ext.web.handler.graphql.ws
 io.vertx.rxjava.ext.web.handler.sockjs
 io.vertx.rxjava.ext.web.multipart
 io.vertx.rxjava.ext.web.sstore
@@ -365,6 +379,7 @@ io.vertx.rxjava.ext.web.templ.pebble
 io.vertx.rxjava.ext.web.templ.rocker
 io.vertx.rxjava.ext.web.templ.thymeleaf
 io.vertx.rxjava.ext.web.validation
+io.vertx.rxjava.ext.web.validation.builder
 io.vertx.rxjava.jdbcclient
 io.vertx.rxjava.json.schema
 io.vertx.rxjava.kafka.admin
@@ -417,7 +432,9 @@ io.vertx.rxjava3.ext.auth.mongo
 io.vertx.rxjava3.ext.auth.oauth2
 io.vertx.rxjava3.ext.auth.oauth2.authorization
 io.vertx.rxjava3.ext.auth.oauth2.providers
-io.vertx.rxjava3.ext.auth.oauth2.rbac
+io.vertx.rxjava3.ext.auth.otp
+io.vertx.rxjava3.ext.auth.otp.hotp
+io.vertx.rxjava3.ext.auth.otp.totp
 io.vertx.rxjava3.ext.auth.properties
 io.vertx.rxjava3.ext.auth.shiro
 io.vertx.rxjava3.ext.auth.sqlclient
@@ -453,6 +470,7 @@ io.vertx.rxjava3.ext.web.handler
 io.vertx.rxjava3.ext.web.handler.graphql
 io.vertx.rxjava3.ext.web.handler.graphql.dataloader
 io.vertx.rxjava3.ext.web.handler.graphql.schema
+io.vertx.rxjava3.ext.web.handler.graphql.ws
 io.vertx.rxjava3.ext.web.handler.sockjs
 io.vertx.rxjava3.ext.web.multipart
 io.vertx.rxjava3.ext.web.openapi
@@ -468,6 +486,7 @@ io.vertx.rxjava3.ext.web.templ.pebble
 io.vertx.rxjava3.ext.web.templ.rocker
 io.vertx.rxjava3.ext.web.templ.thymeleaf
 io.vertx.rxjava3.ext.web.validation
+io.vertx.rxjava3.ext.web.validation.builder
 io.vertx.rxjava3.httpproxy
 io.vertx.rxjava3.jdbcclient
 io.vertx.rxjava3.json.schema
