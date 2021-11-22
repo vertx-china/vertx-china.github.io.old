@@ -4,7 +4,7 @@
         <title>Vert.x</title>
         <link>https://vertx.io</link>
         <description>Vert.x is a tool-kit for building reactive applications on the JVM</description>
-        <lastBuildDate>Fri, 19 Nov 2021 01:51:30 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 22 Nov 2021 12:49:08 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Vert.x</generator>
         <language>en</language>
@@ -16,7 +16,7 @@
             <link>https://vertx.io/blog/whats-new-in-vert-x-4-2</link>
             <guid>https://vertx.io/blog/whats-new-in-vert-x-4-2</guid>
             <pubDate>Tue, 26 Oct 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[See an overview of all new and exciting features in Vert.x 4.2, including Java 17 supports, Vert.x Oracle Client and more.]]></description>
+            <description><![CDATA[See an overview of all new and exciting features in Vert.x 4.2, including Java 17 support, Vert.x Oracle Client and more.]]></description>
             <category>releases</category>
         </item>
         <item>
@@ -26,6 +26,30 @@
             <pubDate>Wed, 02 Dec 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[We provide a clear and well-documented migration path from Vert.x 3.9 to Vert.x 4. Existing users will feel at home with the new version.]]></description>
             <category>guides</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 3.9.10 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-3-9-10</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-3-9-10</guid>
+            <pubDate>Fri, 05 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 3.9.10 has just been released. It fixes quite a few bugs that have been reported by the community.]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 4.1.6 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-4-1-6</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-4-1-6</guid>
+            <pubDate>Thu, 04 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 4.1.6 has just been released. It fixes quite a few bugs that have been reported by the community and provides a couple of features]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 4.2.1 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-4-2-1</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-4-2-1</guid>
+            <pubDate>Wed, 03 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 4.2.1 has just been released. It fixes quite a few bugs that have been reported by the community]]></description>
+            <category>releases</category>
         </item>
         <item>
             <title><![CDATA[Eclipse Vert.x 4.2.0 released!]]></title>

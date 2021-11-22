@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://vertx.io</id>
     <title>Vert.x</title>
-    <updated>2021-11-19T01:51:30.289Z</updated>
+    <updated>2021-11-22T12:49:08.109Z</updated>
     <generator>Vert.x</generator>
     <link rel="alternate" href="https://vertx.io"/>
     <link rel="self" href="https://vertx.io/feed/atom.xml"/>
@@ -16,7 +16,7 @@
         <id>https://vertx.io/blog/whats-new-in-vert-x-4-2</id>
         <link href="https://vertx.io/blog/whats-new-in-vert-x-4-2"/>
         <updated>2021-10-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[See an overview of all new and exciting features in Vert.x 4.2, including Java 17 supports, Vert.x Oracle Client and more.]]></summary>
+        <summary type="html"><![CDATA[See an overview of all new and exciting features in Vert.x 4.2, including Java 17 support, Vert.x Oracle Client and more.]]></summary>
         <author>
             <name>Julien Viet</name>
             <uri>https://github.com/vietj</uri>
@@ -34,6 +34,42 @@
             <uri>https://github.com/vietj</uri>
         </author>
         <category label="guides"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 3.9.10 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-9-10</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-9-10"/>
+        <updated>2021-11-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 3.9.10 has just been released. It fixes quite a few bugs that have been reported by the community.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4.1.6 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-1-6</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-1-6"/>
+        <updated>2021-11-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 4.1.6 has just been released. It fixes quite a few bugs that have been reported by the community and provides a couple of features]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4.2.1 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-2-1</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-2-1"/>
+        <updated>2021-11-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 4.2.1 has just been released. It fixes quite a few bugs that have been reported by the community]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 4.2.0 released!]]></title>
