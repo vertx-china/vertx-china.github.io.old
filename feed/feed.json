@@ -34,6 +34,62 @@
             ]
         },
         {
+            "id": "https://vertx.io/blog/eclipse-vert-x-3-9-11",
+            "url": "https://vertx.io/blog/eclipse-vert-x-3-9-11",
+            "title": "Eclipse Vert.x 3.9.11 released!",
+            "summary": "Eclipse Vert.x version 3.9.11 has just been released.",
+            "date_modified": "2021-12-14T00:00:00.000Z",
+            "author": {
+                "name": "Julien Viet",
+                "url": "https://github.com/vietj"
+            },
+            "tags": [
+                "releases"
+            ]
+        },
+        {
+            "id": "https://vertx.io/blog/eclipse-vert-x-4-1-7",
+            "url": "https://vertx.io/blog/eclipse-vert-x-4-1-7",
+            "title": "Eclipse Vert.x 4.1.7 released!",
+            "summary": "Eclipse Vert.x version 4.1.7 has just been released.",
+            "date_modified": "2021-12-14T00:00:00.000Z",
+            "author": {
+                "name": "Julien Viet",
+                "url": "https://github.com/vietj"
+            },
+            "tags": [
+                "releases"
+            ]
+        },
+        {
+            "id": "https://vertx.io/blog/eclipse-vert-x-4-2-2",
+            "url": "https://vertx.io/blog/eclipse-vert-x-4-2-2",
+            "title": "Eclipse Vert.x 4.2.2 released!",
+            "summary": "Eclipse Vert.x version 4.2.2 has just been released.",
+            "date_modified": "2021-12-14T00:00:00.000Z",
+            "author": {
+                "name": "Julien Viet",
+                "url": "https://github.com/vietj"
+            },
+            "tags": [
+                "releases"
+            ]
+        },
+        {
+            "id": "https://vertx.io/blog/CVE-2021-44228",
+            "url": "https://vertx.io/blog/CVE-2021-44228",
+            "title": "Eclipse Vert.x and Log4j 2 CVE-2021-44228",
+            "summary": "A recent CVE-2021-44228 has been disclosed that affects the Log4j 2 library. The Vert.x project can optionally use Log4j but does not ship it and therefore is not affected by this CVE.",
+            "date_modified": "2021-12-13T00:00:00.000Z",
+            "author": {
+                "name": "Julien Viet",
+                "url": "https://github.com/vietj"
+            },
+            "tags": [
+                "security"
+            ]
+        },
+        {
             "id": "https://vertx.io/blog/eclipse-vert-x-3-9-10",
             "url": "https://vertx.io/blog/eclipse-vert-x-3-9-10",
             "title": "Eclipse Vert.x 3.9.10 released!",

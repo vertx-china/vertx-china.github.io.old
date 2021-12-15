@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://vertx.io</id>
     <title>Vert.x</title>
-    <updated>2021-11-23T00:59:30.639Z</updated>
+    <updated>2021-12-15T03:54:34.337Z</updated>
     <generator>Vert.x</generator>
     <link rel="alternate" href="https://vertx.io"/>
     <link rel="self" href="https://vertx.io/feed/atom.xml"/>
@@ -10,6 +10,7 @@
     <icon>https://vertx.io/favicons/favicon.ico</icon>
     <category term="releases"/>
     <category term="guides"/>
+    <category term="security"/>
     <category term="news"/>
     <entry>
         <title type="html"><![CDATA[What's new in Vert.x 4.2]]></title>
@@ -34,6 +35,54 @@
             <uri>https://github.com/vietj</uri>
         </author>
         <category label="guides"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 3.9.11 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-9-11</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-9-11"/>
+        <updated>2021-12-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 3.9.11 has just been released.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4.1.7 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-1-7</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-1-7"/>
+        <updated>2021-12-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 4.1.7 has just been released.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4.2.2 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-2-2</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-2-2"/>
+        <updated>2021-12-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 4.2.2 has just been released.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x and Log4j 2 CVE-2021-44228]]></title>
+        <id>https://vertx.io/blog/CVE-2021-44228</id>
+        <link href="https://vertx.io/blog/CVE-2021-44228"/>
+        <updated>2021-12-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[A recent CVE-2021-44228 has been disclosed that affects the Log4j 2 library. The Vert.x project can optionally use Log4j but does not ship it and therefore is not affected by this CVE.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="security"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 3.9.10 released!]]></title>

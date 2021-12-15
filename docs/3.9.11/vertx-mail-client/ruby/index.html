@@ -1,0 +1,1060 @@
+<!DOCTYPE html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="description" content="Vert.x | Reactive applications on the JVM"/><meta name="robots" content="index,follow"/><link rel="shortcut icon" href="/favicons/favicon.ico"/><link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png"/><link rel="alternate" type="application/rss+xml" href="/feed/rss.xml"/><link rel="alternate" type="application/atom+xml" href="/feed/atom.xml"/><link rel="alternate" type="application/json" href="/feed/feed.json"/><title>Vert.x Mail client (SMTP client implementation) | Eclipse Vert.x</title><meta name="next-head-count" content="13"/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-378e68e29c265886.js" defer=""></script><script src="/_next/static/chunks/framework-91d7f78b5b4003c8.js" defer=""></script><script src="/_next/static/chunks/main-950829b7c220163d.js" defer=""></script><script src="/_next/static/chunks/pages/_app-7b206233943f98f9.js" defer=""></script><script src="/_next/static/chunks/615-7e003fd583a96500.js" defer=""></script><script src="/_next/static/chunks/619-c3b8e8451221d93e.js" defer=""></script><script src="/_next/static/chunks/81-b150334e379339f6.js" defer=""></script><script src="/_next/static/chunks/4-ac61805de6382b62.js" defer=""></script><script src="/_next/static/chunks/434-c58e15f99553b8ed.js" defer=""></script><script src="/_next/static/chunks/pages/docs/%5B%5B...slug%5D%5D-f74b5d222b77c81d.js" defer=""></script><script src="/_next/static/tzUBy4QMeQ1q-_av9oOoY/_buildManifest.js" defer=""></script><script src="/_next/static/tzUBy4QMeQ1q-_av9oOoY/_ssgManifest.js" defer=""></script><script src="/_next/static/tzUBy4QMeQ1q-_av9oOoY/_middlewareManifest.js" defer=""></script><style id="__jsx-400ec7965926e858">.dropdown-item.jsx-400ec7965926e858 {white-space:nowrap;
+line-height:2;
+width:100%;
+padding:0 1.5rem;
+cursor:pointer}
+.dropdown-item.jsx-400ec7965926e858:hover {background-color:#e9ecef}
+.dropdown-item.active.jsx-400ec7965926e858 {font-weight:400;
+padding-left:.75rem}
+.dropdown-item.has-active-siblings.jsx-400ec7965926e858:not(.active) {padding-left:calc(0.75rem + 16px + 0.5em)}
+.dropdown-item.jsx-400ec7965926e858 .dropdown-check-icon.jsx-400ec7965926e858 {width:16px;
+margin-right:.5em;
+margin-top:1px}</style><style id="__jsx-6650573c8f14945d">.dropdown.jsx-6650573c8f14945d {position:relative;
+display:inline-block}
+.dropdown.jsx-6650573c8f14945d .dropdown-title.jsx-6650573c8f14945d {margin-right:0;
+cursor:pointer;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none}
+.dropdown.jsx-6650573c8f14945d .dropdown-menu.jsx-6650573c8f14945d {position:absolute;
+background-color:#f8f9fa;
+box-shadow:0 2px 5px 0 rgba(0, 0, 0, .1);
+border-radius:.8rem;
+list-style-type:none;
+padding:.6666666667rem 0;
+margin:.25rem 0 0 0;
+z-index:100;
+display:none;
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+user-select:none}
+.dropdown.jsx-6650573c8f14945d .dropdown-menu.jsx-6650573c8f14945d a {color:#4d4d4d;
+-webkit-text-decoration:none;
+text-decoration:none;
+font-weight:300}
+.dropdown.jsx-6650573c8f14945d .dropdown-menu.align-right.jsx-6650573c8f14945d {right:0}
+.dropdown.jsx-6650573c8f14945d .dropdown-menu.visible.jsx-6650573c8f14945d {display:block}
+.dropdown.jsx-6650573c8f14945d .dropdown-menu.jsx-6650573c8f14945d a.jsx-6650573c8f14945d:hover {color:inherit}
+.dropdown.jsx-6650573c8f14945d svg {margin-bottom:2px}</style><style id="__jsx-f705e145f931f504">.navbar {position:absolute;
+top:2.75rem;
+width:100%}
+.navbar a {color:#3c3c3b}
+.navbar a.navbar-menu-item, .navbar .dropdown-title {text-transform:uppercase}
+.navbar a.navbar-menu-item:hover, .navbar .dropdown-title:hover {-webkit-text-decoration:none;
+text-decoration:none;
+color:#898987;
+-webkit-transition:color .15s ease-in-out;
+transition:color .15s ease-in-out}
+.navbar .navbar-content {display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:row;
+-ms-flex-direction:row;
+flex-direction:row;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+position:relative}
+.navbar .navbar-content .navbar-logo {-webkit-flex:1;
+-ms-flex:1;
+flex:1}
+.navbar .navbar-content .navbar-logo img {width:8.3rem}
+.navbar .navbar-content .navbar-collapse-button {display:none;
+cursor:pointer}
+@media (max-width:1000px) {.navbar .navbar-content .navbar-collapse-button {display:inline-block}}
+.navbar .navbar-content .navbar-collapse-button span {display:block;
+width:33px;
+height:4px;
+margin-bottom:5px;
+position:relative;
+background:#3c3c3b;
+border-radius:3px;
+z-index:1;
+transform-origin:4px 0;
+-webkit-transition:-webkit-transform .5s cubic-bezier(0.77, 0.2, 0.05, 1), background .5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity .55s ease;
+transition:transform .5s cubic-bezier(0.77, 0.2, 0.05, 1), background .5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity .55s ease}
+.navbar .navbar-content .navbar-collapse-button span:first-child {transform-origin:0% 0%}
+.navbar .navbar-content .navbar-collapse-button span:nth-last-child(2) {transform-origin:0% 100%}
+.navbar .navbar-content .navbar-right {display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:row;
+-ms-flex-direction:row;
+flex-direction:row;
+-webkit-align-items:baseline;
+-webkit-box-align:baseline;
+-ms-flex-align:baseline;
+align-items:baseline;
+margin-bottom:10px}
+@media (max-width:1000px) {.navbar .navbar-content .navbar-right {max-height:0;
+-webkit-transition:max-height 200ms ease-in-out;
+transition:max-height 200ms ease-in-out;
+box-shadow:0 2px 5px 0 rgba(0, 0, 0, .1);
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+position:absolute;
+top:2.75rem;
+left:.8rem;
+right:.8rem;
+background-color:#f8f9fa;
+overflow-x:auto;
+overflow-y:hidden}}
+.navbar .navbar-content .navbar-menu .navbar-menu-item {font-weight:400;
+margin-right:2.5rem}
+.navbar .navbar-content .navbar-menu .navbar-menu-item.with-drop-down {margin-right:1.8rem}
+@media (max-width:1250px) {.navbar .navbar-content .navbar-menu .navbar-menu-item {margin-right:1.5rem}}
+@media (max-width:1000px) {.navbar .navbar-content .navbar-menu .navbar-menu-item {display:block;
+margin-bottom:1rem;
+font-size:1.2rem}}
+.navbar .navbar-content .navbar-menu .navbar-menu-item .external-link-icon {margin-left:.25em}
+@media (max-width:1000px) {.navbar .navbar-content .navbar-menu {-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+padding:1rem}}
+.navbar .navbar-content .navbar-social {margin-left:1.6rem;
+font-size:.875rem}
+.navbar .navbar-content .navbar-social svg {height:16px;
+margin-bottom:2px}
+@media (max-width:1000px) {.navbar .navbar-content .navbar-social svg {height:1rem}}
+@media (max-width:1250px) {.navbar .navbar-content .navbar-social {margin-left:1rem}}
+@media (max-width:1000px) {.navbar .navbar-content .navbar-social {margin-left:auto;
+padding:0 1rem 1rem 0;
+font-size:1rem}}
+@media (max-width:768px) {.navbar {top:1rem}}
+.page .navbar {top:0;
+padding-top:1.5rem;
+padding-bottom:1rem;
+position:fixed;
+background-color:#fff;
+z-index:2}</style><style id="__jsx-20d862052e50feff">.search input {color:#adb5bd;
+border:1px solid #dee2e6;
+border-radius:.4rem;
+font-size:.875rem;
+padding:.25rem 1.8rem .35rem 1.8rem;
+width:100%;
+-webkit-transition:color .15s ease-in-out, border-color .15s ease-in-out;
+transition:color .15s ease-in-out, border-color .15s ease-in-out}
+.search input:focus {border-color:#adb5bd;
+color:#3c3c3b}
+.search .search-icon, .search .search-icon-delete {position:absolute;
+top:.55rem;
+height:1rem;
+stroke:#adb5bd;
+-webkit-transition:stroke .15s ease-in-out;
+transition:stroke .15s ease-in-out}
+.search .search-icon {left:.4rem}
+.search input:focus +.search-icon {stroke:#6f6970}
+.search .search-icon-delete {stroke:#6f6970;
+right:.4rem;
+height:.75rem;
+top:.7rem;
+opacity:0;
+-webkit-transition:opacity .15s ease-in-out;
+transition:opacity .15s ease-in-out;
+cursor:text}
+.search.has-content .search-icon-delete {opacity:1;
+cursor:pointer}</style><style id="__jsx-117e429f22e394dc">.search-results, .search-results-none {font-size:.875rem;
+overflow:auto;
+list-style-type:none;
+padding-left:0;
+display:none}
+.search-results.visible, .search-results-none.visible {display:block}
+.search-results {list-style-type:none;
+padding:0;
+margin-bottom:0}
+.search-results li {display:block;
+padding:.5rem;
+margin-bottom:1rem;
+border-radius:.4rem;
+border:1px solid transparent;
+cursor:pointer}
+.search-results li.active {background-color:#f8f9fa;
+border:1px solid #e9ecef}
+.search-results li h5 {margin:0 0 .5rem 0;
+font-size:1em}
+.search-results li .search-results-highlight {background-color:#ff0}
+.search-results-none {padding:1rem .5rem;
+text-align:center;
+width:100%}</style><style id="__jsx-d1843944f2d67b">.search-panel {display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+position:relative}</style><style id="__jsx-aeedcf66895f49d7">footer {font-size:.875rem;
+padding-top:3rem;
+padding-bottom:4rem;
+background-color:#f8f9fa;
+border-top:1px solid #dee2e6;
+margin-top:1rem;
+color:#6f6970}
+footer h5 {font-size:1rem;
+margin-top:0;
+margin-bottom:1rem;
+color:#3c3c3b;
+text-transform:uppercase}
+footer ul {padding:0;
+list-style:none;
+line-height:2}
+footer a {color:#6f6970}
+footer .footer-logo img, footer .footer-copyright-eclipse-logo img {-webkit-filter:grayscale(100);
+filter:grayscale(100);
+opacity:.5;
+-webkit-transition:all .15s ease-in-out;
+transition:all .15s ease-in-out}
+footer .footer-logo img:hover, footer .footer-copyright-eclipse-logo img:hover {-webkit-filter:grayscale(0);
+filter:grayscale(0);
+opacity:1}
+footer .footer-nav-section {display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:row;
+-ms-flex-direction:row;
+flex-direction:row;
+margin-bottom:6rem}
+footer .footer-nav-section .footer-logo {margin-top:.4rem}
+footer .footer-nav-section .footer-logo img {width:8.3rem}
+footer .footer-nav-section .footer-nav-list {width:20%}
+footer .footer-copyright {display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:row;
+-ms-flex-direction:row;
+flex-direction:row;
+-webkit-box-pack:justify;
+-webkit-justify-content:space-between;
+justify-content:space-between;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center}
+footer .footer-copyright a {white-space:nowrap}
+footer .footer-copyright .footer-copyright-eclipse-logo {width:17%;
+margin-bottom:.5rem}
+@media (max-width:1250px) {footer .footer-copyright .footer-copyright-break {display:none}
+footer .footer-copyright .footer-copyright-eclipse-logo {width:30%}}
+@media (max-width:1000px) {footer .footer-nav-section .footer-nav-list {width:25%}
+footer .footer-copyright .footer-copyright-break {display:inline-block}
+footer .footer-copyright .footer-copyright-eclipse-logo {width:40%}}
+@media (max-width:768px) {footer .footer-nav-section {max-width:100%;
+margin-left:auto;
+margin-right:auto}}
+@media (max-width:640px) {footer .footer-nav-section {max-width:80%;
+margin-bottom:3rem;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column}
+footer .footer-nav-section h5 {cursor:pointer}
+footer .footer-nav-section h5::after {display:inline-block;
+content:"";
+border-top:.4em solid;
+border-right:.4em solid transparent;
+border-bottom:0;
+border-left:.4em solid transparent;
+position:absolute;
+top:.75rem;
+right:0}
+footer .footer-nav-section .footer-nav-list {width:100%;
+position:relative}
+footer .footer-nav-section .footer-nav-list ul {overflow-y:hidden;
+max-height:0;
+-webkit-transition:all 200ms ease-in-out;
+transition:all 200ms ease-in-out}
+footer .footer-nav-section .footer-nav-list ul.visible {margin-bottom:2rem}
+footer .footer-nav-section .footer-logo {margin:0 auto 3rem auto;
+width:auto}
+footer .footer-copyright {max-width:80%;
+text-align:center;
+margin-left:auto;
+margin-right:auto;
+-webkit-flex-direction:column-reverse;
+-ms-flex-direction:column-reverse;
+flex-direction:column-reverse}
+footer .footer-copyright .footer-copyright-eclipse-logo {width:7.6rem;
+margin-bottom:1rem}}</style><style id="__jsx-efcc50be384cabc7">.page-content {margin-top:6em;
+margin-bottom:8rem}
+.docs .docs-content .docs-content-wrapper {display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-box-pack:justify;
+-webkit-justify-content:space-between;
+justify-content:space-between}
+.docs .docs-content .docs-content-wrapper aside {-webkit-flex:0 0 17rem;
+-ms-flex:0 0 17rem;
+flex:0 0 17rem}
+.docs .docs-content .docs-content-wrapper aside .docs-content-wrapper-sidebar {position:-webkit-sticky;
+position:sticky;
+top:7em}
+.docs .docs-content .docs-content-wrapper aside .search-panel {margin-top:1rem;
+width:100%}
+.docs .docs-content .docs-content-wrapper aside .search-panel .search-results {max-height:calc(100vh - 10rem - 1px)}
+.docs .docs-content .docs-content-wrapper aside .docs-content-toc {margin-top:1rem;
+overflow-y:auto;
+max-height:calc(100vh - 10rem - 3px)}
+.docs .docs-content .docs-content-wrapper aside .docs-content-toc #toctitle {display:none}
+.docs .docs-content .docs-content-wrapper aside .docs-content-toc ul {margin-top:0;
+padding-left:0;
+list-style-type:none}
+.docs .docs-content .docs-content-wrapper aside .docs-content-toc ul.sectlevel2 {display:none}
+.docs .docs-content .docs-content-wrapper aside .docs-content-toc ul li {padding:.3333333333rem 0}
+.docs .docs-content .docs-content-wrapper aside.docs-has-search-results .docs-content-toc {display:none}
+@media (max-width:1250px) {.docs .docs-content .docs-content-wrapper aside {-webkit-flex:0 0 15rem;
+-ms-flex:0 0 15rem;
+flex:0 0 15rem}}
+@media (max-width:1000px) {.docs .docs-content .docs-content-wrapper aside {z-index:1;
+position:fixed;
+top:0;
+right:0;
+width:25rem;
+height:100vh;
+max-width:100%;
+padding-top:6rem;
+padding-left:2rem;
+padding-right:2rem;
+background-color:#fff;
+border-left:1px solid #dee2e6;
+-webkit-transform:translateX(100%);
+-moz-transform:translateX(100%);
+-ms-transform:translateX(100%);
+transform:translateX(100%);
+-webkit-transition:-webkit-transform 200ms ease-in-out;
+transition:transform 200ms ease-in-out;
+will-change:transform}
+.docs .docs-content .docs-content-wrapper aside.collapse {-webkit-transform:translateX(0%);
+-moz-transform:translateX(0%);
+-ms-transform:translateX(0%);
+transform:translateX(0%)}}
+@media (max-width:640px) {.docs .docs-content .docs-content-wrapper aside {min-width:100%;
+border-left:none}}
+.docs .docs-content .docs-content-wrapper .docs-content-sidebar-toggle {z-index:1000;
+cursor:pointer;
+display:none;
+position:fixed;
+-webkit-justify-content:center;
+justify-content:center;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+right:2rem;
+bottom:2rem;
+color:#fff;
+background-color:#4d4d4d;
+padding:.5rem;
+border-radius:.8rem;
+-webkit-transition:background-color .15s ease-in-out;
+transition:background-color .15s ease-in-out}
+.docs .docs-content .docs-content-wrapper .docs-content-sidebar-toggle .feather-list, .docs .docs-content .docs-content-wrapper .docs-content-sidebar-toggle .feather-x {display:block}
+.docs .docs-content .docs-content-wrapper .docs-content-sidebar-toggle .feather-x {position:absolute;
+left:0;
+top:0;
+opacity:0;
+-webkit-transition:opacity .15s ease-in-out;
+transition:opacity .15s ease-in-out}
+.docs .docs-content .docs-content-wrapper .docs-content-sidebar-toggle:hover {background-color:#3c3c3b}
+.docs .docs-content .docs-content-wrapper .docs-content-sidebar-toggle.collapse .feather-list {opacity:0}
+.docs .docs-content .docs-content-wrapper .docs-content-sidebar-toggle.collapse .feather-x {opacity:1}
+@media (max-width:1000px) {.docs .docs-content .docs-content-wrapper .docs-content-sidebar-toggle {display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex}}
+@media (max-width:640px) {.docs .docs-content .docs-content-wrapper .docs-content-sidebar-toggle {right:1rem;
+bottom:1rem}}
+.docs .docs-content .docs-content-inner {max-width:calc(100% - 19.5rem);
+overflow:hidden}
+.docs .docs-content .docs-content-inner .docs-content-metadata {margin-top:1.2rem;
+margin-bottom:1.2rem;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+flex-wrap:wrap;
+-webkit-align-items:baseline;
+-webkit-box-align:baseline;
+-ms-flex-align:baseline;
+align-items:baseline}
+@media (max-width:1000px) {.docs .docs-content .docs-content-inner .docs-content-metadata {-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column}}
+.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-repo {display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex}
+.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-left {display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+-webkit-flex:1;
+-ms-flex:1;
+flex:1}
+.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-left >* {margin-right:2rem}
+.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-left >*:last-child {margin-right:0}
+.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-left a {display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-align-items:center;
+-webkit-box-align:center;
+-ms-flex-align:center;
+align-items:center;
+color:#6f6970;
+white-space:nowrap}
+.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-left a:hover {color:#782b90}
+.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-left a .feather {margin-right:.25em;
+height:1rem}
+@media (max-width:1000px) {.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-left {flex-wrap:wrap;
+margin-bottom:1rem}}
+.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-version {-webkit-flex:1;
+-ms-flex:1;
+flex:1;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex}
+@media (min-width:1000px) {.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-version {-webkit-box-pack:end;
+-ms-flex-pack:end;
+-webkit-justify-content:flex-end;
+justify-content:flex-end}}
+.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-version svg {height:16px;
+margin-bottom:-2px}
+@media (max-width:1000px) {.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-version svg {height:1rem;
+margin-bottom:-1px}}
+.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-version .dropdown-menu a {-webkit-text-decoration:none;
+text-decoration:none}
+.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-version .dropdown-menu a:hover {color:#6f6970}
+.docs .docs-content .docs-content-inner .docs-content-metadata .docs-content-metadata-label {display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+margin-left:2rem}
+.docs .docs-content .docs-content-inner h1 {padding-top:0;
+margin-top:.6rem;
+line-height:1.2}
+.docs .docs-content .docs-content-inner h1::after {content:"";
+width:30%;
+display:block;
+border:2px solid #782b90;
+border-radius:2px;
+margin-top:1.1rem}
+.docs .docs-content .docs-content-inner .ulist >ul {padding-left:1.1rem}
+.docs .docs-content .docs-content-inner h2 {border-top:1px solid #dee2e6;
+margin-top:5rem;
+padding-top:2rem}
+.docs .docs-content .docs-content-inner h3, .docs .docs-content .docs-content-inner h4 {margin-top:3rem}
+@media (max-width:1250px) {.docs .docs-content .docs-content-inner {max-width:calc(100% - 17.5rem)}}
+@media (max-width:1000px) {.docs .docs-content .docs-content-inner {max-width:100%}}
+.docs .docs-content .admonitionblock {border-top-right-radius:.8rem;
+border-bottom-right-radius:.8rem;
+background-color:#f8f9fa;
+padding:1rem;
+margin:1.5rem 0;
+border-left:9px solid transparent}
+.docs .docs-content .admonitionblock.note, .docs .docs-content .admonitionblock.tip {border-color:#6cb9f0}
+.docs .docs-content .admonitionblock.important, .docs .docs-content .admonitionblock.warning, .docs .docs-content .admonitionblock.caution {border-color:#f0a46c}
+.docs .docs-content .admonitionblock tr {display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column}
+.docs .docs-content .admonitionblock .title {font-weight:400}
+.docs .docs-content .admonitionblock .title::after {content:":"}
+.docs .docs-content dt {font-weight:400}
+.docs .docs-content .anchor {opacity:0;
+-webkit-align-self:flex-start;
+-ms-flex-item-align:flex-start;
+align-self:flex-start;
+outline:none}
+.docs .docs-content .anchor::after {content:"#";
+position:absolute;
+margin-left:-1.5rem;
+color:#ced4da;
+padding-right:.45rem}
+.docs .docs-content .anchor:hover {opacity:1}
+.docs .docs-content h2:hover .anchor, .docs .docs-content h3:hover .anchor, .docs .docs-content h4:hover .anchor, .docs .docs-content h5:hover .anchor, .docs .docs-content h6:hover .anchor {opacity:1}
+.docs .docs-content h1 .anchor {display:none}
+.docs .docs-content h4 .anchor::after, .docs .docs-content h5 .anchor::after, .docs .docs-content h6 .anchor::after {padding-right:.6rem}</style><style id="__jsx-7824b3ad3820c879">html {line-height:1.15;
+-webkit-text-size-adjust:100%}
+body {margin:0}
+main {display:block}
+h1 {font-size:2em;
+margin:.67em 0}
+hr {box-sizing:content-box;
+height:0;
+overflow:visible}
+pre {font-family:monospace, monospace;
+font-size:1em}
+a {background-color:transparent}
+abbr[title] {border-bottom:none;
+text-decoration:underline;
+text-decoration:underline dotted}
+b, strong {font-weight:bolder}
+code, kbd, samp {font-family:monospace, monospace;
+font-size:1em}
+small {font-size:80%}
+sub, sup {font-size:75%;
+line-height:0;
+position:relative;
+vertical-align:baseline}
+sub {bottom:-0.25em}
+sup {top:-0.5em}
+img {border-style:none}
+button, input, optgroup, select, textarea {font-family:inherit;
+font-size:100%;
+line-height:1.15;
+margin:0}
+button, input {overflow:visible}
+button, select {text-transform:none}
+button, [type=button], [type=reset], [type=submit] {-webkit-appearance:button}
+button::-moz-focus-inner, [type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner {border-style:none;
+padding:0}
+button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring {outline:1px dotted ButtonText}
+fieldset {padding:.35em .75em .625em}
+legend {box-sizing:border-box;
+color:inherit;
+display:table;
+max-width:100%;
+padding:0;
+white-space:normal}
+progress {vertical-align:baseline}
+textarea {overflow:auto}
+[type=checkbox], [type=radio] {box-sizing:border-box;
+padding:0}
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {height:auto}
+[type=search] {-webkit-appearance:textfield;
+outline-offset:-2px}
+[type=search]::-webkit-search-decoration {-webkit-appearance:none}
+::-webkit-file-upload-button {-webkit-appearance:button;
+font:inherit}
+details {display:block}
+summary {display:list-item}
+template {display:none}
+[hidden] {display:none}
+.hljs, pre {display:block;
+overflow-x:auto;
+padding:.5em;
+background:#3a2840;
+color:#fff}
+.hljs.language-shell :not(.bash) +.bash, .hljs.language-better-shell :not(.bash) +.bash, pre.language-shell :not(.bash) +.bash, pre.language-better-shell :not(.bash) +.bash {color:#d2a8e0}
+pre {border-radius:.8rem;
+padding:1rem;
+font-size:.875rem;
+margin:1.5rem 0}
+.hljs-keyword, .hljs-selector-tag, .hljs-tag {color:#d2a8e0}
+.hljs-template-tag {color:red}
+.hljs-number {color:#6cb9f0}
+.hljs-variable, .hljs-template-variable, .hljs-attribute, .hljs-literal {color:#c9e5f9}
+.hljs-subst {color:red}
+.hljs-title, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-section, .hljs-type {color:#f0a46c}
+.hljs-symbol, .hljs-bullet, .hljs-link {color:#d2a8e0}
+.hljs-deletion, .hljs-string, .hljs-built_in, .hljs-builtin-name {color:#6cb9f0}
+.hljs-addition, .hljs-comment, .hljs-quote, .hljs-meta {color:#adb5bd}
+.hljs-emphasis {font-style:italic}
+.hljs-strong {font-weight:bold}
+#nprogress {pointer-events:none}
+#nprogress .bar {background:#29d;
+position:fixed;
+z-index:1031;
+top:0;
+left:0;
+width:100%;
+height:2px}
+#nprogress .peg {display:block;
+position:absolute;
+right:0px;
+width:100px;
+height:100%;
+box-shadow:0 0 10px #29d, 0 0 5px #29d;
+opacity:1;
+-webkit-transform:rotate(3deg) translate(0px, -4px);
+-ms-transform:rotate(3deg) translate(0px, -4px);
+-webkit-transform:rotate(3deg) translate(0px, -4px);
+-moz-transform:rotate(3deg) translate(0px, -4px);
+-ms-transform:rotate(3deg) translate(0px, -4px);
+transform:rotate(3deg) translate(0px, -4px)}
+#nprogress .spinner {display:block;
+position:fixed;
+z-index:1031;
+top:15px;
+right:15px}
+#nprogress .spinner-icon {width:18px;
+height:18px;
+box-sizing:border-box;
+border:solid 2px transparent;
+border-top-color:#29d;
+border-left-color:#29d;
+border-radius:50%;
+-webkit-animation:nprogress-spinner 400ms linear infinite;
+-webkit-animation:nprogress-spinner 400ms linear infinite;
+animation:nprogress-spinner 400ms linear infinite}
+.nprogress-custom-parent {overflow:hidden;
+position:relative}
+.nprogress-custom-parent #nprogress .spinner, .nprogress-custom-parent #nprogress .bar {position:absolute}
+@keyframes nprogress-spinner {0% {-webkit-transform:rotate(0deg)}100% {-webkit-transform:rotate(360deg)}}
+@keyframes nprogress-spinner {0% {transform:rotate(0deg)}100% {transform:rotate(360deg)}}
+#nprogress .bar {background:#782b90}
+#nprogress .peg {box-shadow:0 0 10px #782b90, 0 0 5px #782b90}
+#nprogress .spinner-icon {border-top-color:#782b90;
+border-left-color:#782b90}
+html {box-sizing:border-box}
+*, *::before, *::after {box-sizing:inherit}
+:root {font-size:18px}
+@media (max-width:1000px) {:root {font-size:17.1px}}
+@media (max-width:768px) {:root {font-size:16.2px}}
+@media (max-width:640px) {:root {font-size:15.3px}}
+body, input {font-family:Roboto, sans-serif;
+font-weight:300;
+line-height:1.7;
+color:#3c3c3b}
+input {outline:none}
+h1, h2, h3, h4, h5, h6 {font-weight:400}
+h1 {font-size:2.5rem}
+h2 {font-size:2rem}
+h3 {font-size:1.75rem}
+h4 {font-size:1.5rem}
+h5 {font-size:1.25rem}
+h6 {font-size:1.1rem}
+.container {width:100%;
+padding-right:.8rem;
+padding-left:.8rem;
+margin-right:auto;
+margin-left:auto}
+@media (min-width:640px) {.container {max-width:620px}}
+@media (min-width:768px) {.container {max-width:738px}}
+@media (min-width:1000px) {.container {max-width:950px}}
+@media (min-width:1250px) {.container {max-width:1180px}}
+@media (min-width:1250px) {.container-narrow {max-width:950px}}
+.img-fluid {max-width:100%}
+a {-webkit-text-decoration:none;
+text-decoration:none;
+color:#782b90}
+a:hover {text-decoration:underline;
+color:#571f69}
+img {vertical-align:middle}
+svg {overflow:hidden;
+vertical-align:middle}
+code, pre {font-family:"Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+p code {display:-webkit-inline-box;
+display:-webkit-inline-flex;
+display:-ms-inline-flexbox;
+display:inline-flex;
+max-width:100%;
+overflow:auto}
+.heading-anchor {opacity:0;
+-webkit-align-self:flex-start;
+-ms-flex-item-align:flex-start;
+align-self:flex-start;
+outline:none}
+.heading-anchor::after {content:"#";
+position:absolute;
+margin-left:-1.5rem;
+color:#ced4da;
+padding-right:.45rem}
+.heading-anchor:hover {opacity:1}
+h2:hover .heading-anchor, h3:hover .heading-anchor, h4:hover .heading-anchor, h5:hover .heading-anchor, h6:hover .heading-anchor {opacity:1}
+h1 .heading-anchor {display:none}
+h4 .heading-anchor::after, h5 .heading-anchor::after, h6 .heading-anchor::after {padding-right:.6rem}</style><style data-href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5vAA.woff) format('woff')}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Me5g.woff) format('woff')}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9vAA.woff) format('woff')}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style><style data-href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap">@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZKCA.woff) format('woff')}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-59Y.woff) format('woff')}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCkYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCAYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCgYb9lecyVC4A.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCcYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCsYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCoYb9lecyVC4A.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVi2ZhZI2eCN5jzbjEETS9weq8-33mZGCQYb9lecyU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19-7DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19a7DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-1967DQk6YvNkeg.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19G7DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-1927DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19y7DQk6YvNkeg.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotocondensed/v19/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQk6YvM.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style><style data-href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap">@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vqPQA.woff) format('woff')}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_SeW-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_QOW-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_R-W-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0370-03FF}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_S-W-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_SuW-AJi8SJQtQ4Y.woff) format('woff');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_ROW-AJi8SJQt.woff) format('woff');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body data-build-time="2021-12-15T03:53:15.254Z" data-build-commit-id="ea567132b15b1a84f0cee157f0385d82504b5007" data-build-run-id="1581070663"><div id="__next" data-reactroot=""><main class="jsx-efcc50be384cabc7 page docs"><header><div class="jsx-f705e145f931f504 navbar"><div class="jsx-f705e145f931f504 navbar-content container"><div class="jsx-f705e145f931f504 navbar-logo"><a class="jsx-f705e145f931f504" href="/"><img src="data:image/svg+xml,%3csvg version=&#x27;1.1&#x27; id=&#x27;Layer_1&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; x=&#x27;0&#x27; y=&#x27;0&#x27; viewBox=&#x27;0 0 1232.6 315.2&#x27; style=&#x27;enable-background:new 0 0 1232.6 315.2&#x27; xml:space=&#x27;preserve&#x27;%3e%3cstyle%3e.st0%7bfill:%23782a91%7d%3c/style%3e%3cpath d=&#x27;M120.9 214.2 190.5 0h52.3l-98.5 273.8H98.2L0 0h52.1l68.8 214.2zm291.2-62.6H299.6v84.2H431v38H252V0h177.7v38.4H299.6V114h112.5v37.6zm83.7-113.2H546c16.5.3 29 4.4 37.3 12.4 8.3 8 12.5 19.4 12.5 34 0 14-4.5 25.1-13.5 33.2-9 8.1-21.6 12.1-37.6 12.1h-27.1v24.2l86.1 119.5h51v-2.4l-77.2-106.7c24.9-5.5 43.3-21.7 52.6-35.9 8.2-12.6 13.3-27.7 13.3-46 0-26.8-8.6-47.4-25.8-61.5C600.5 7.1 576.1 0 544.5 0h-96.3v273.8h47.6&#x27;/%3e%3cpath class=&#x27;st0&#x27; d=&#x27;m1052.3 157.7-41.5 62.7 29.7 53.4h85.1z&#x27;/%3e%3ccircle class=&#x27;st0&#x27; cx=&#x27;827.9&#x27; cy=&#x27;274.7&#x27; r=&#x27;40.5&#x27;/%3e%3cpath class=&#x27;st0&#x27; d=&#x27;m1037 0-47.6 74.2L949 0h-84l85.3 135.8-67.1 105.7c5.7 9.5 9.1 20.5 9.2 32.4h50.1L1121.3 0H1037z&#x27;/%3e%3cpath d=&#x27;M763.5 273.8c.1-9.9 2.5-19.2 6.6-27.5V38.4h85.4V0H638.2v38.4h84.6v235.4h40.7zm414-266.9h-15.3v42.2h-8.5V6.9h-15.2V0h39v6.9zM1193 0l14.2 37.7L1221.3 0h11v49.1h-8.5V32.9l.8-21.7-14.5 37.9h-6.1l-14.5-37.8.8 21.6v16.2h-8.5V0h11.2z&#x27;/%3e%3c/svg%3e" alt="Vert.x Logo" class="jsx-f705e145f931f504"/></a></div><div class="jsx-f705e145f931f504 navbar-collapse-button"><span class="jsx-f705e145f931f504"></span><span class="jsx-f705e145f931f504"></span><span class="jsx-f705e145f931f504"></span></div><div class="jsx-f705e145f931f504 navbar-right"><div class="jsx-f705e145f931f504 navbar-menu"><span class="jsx-f705e145f931f504 navbar-menu-item with-drop-down"><div class="jsx-6650573c8f14945d dropdown"><a class="jsx-6650573c8f14945d dropdown-title">开始<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a><ul class="jsx-6650573c8f14945d dropdown-menu"><a class="jsx-f705e145f931f504" href="/introduction-to-vertx-and-reactive/"><li class="jsx-400ec7965926e858 dropdown-item">简介</li></a><a class="jsx-f705e145f931f504" href="/get-started/"><li class="jsx-400ec7965926e858 dropdown-item">开始</li></a><a href="https://start.vertx.io/" target="_blank" rel="noreferrer" class="jsx-f705e145f931f504"><li class="jsx-400ec7965926e858 dropdown-item">应用生成器 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></li></a></ul></div></span><a class="jsx-f705e145f931f504 navbar-menu-item" href="/docs/">文档</a><span class="jsx-f705e145f931f504 navbar-menu-item with-drop-down"><div class="jsx-6650573c8f14945d dropdown"><a class="jsx-6650573c8f14945d dropdown-title">资源<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a><ul class="jsx-6650573c8f14945d dropdown-menu"><a class="jsx-f705e145f931f504" href="/faq/"><li class="jsx-400ec7965926e858 dropdown-item">答疑</li></a><a class="jsx-f705e145f931f504" href="/channels/"><li class="jsx-400ec7965926e858 dropdown-item">联系渠道</li></a><a href="https://how-to.vertx.io/" target="_blank" rel="noreferrer" class="jsx-f705e145f931f504"><li class="jsx-400ec7965926e858 dropdown-item">操作指南 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></li></a><a href="https://github.com/vert-x3/vertx-eventbus-bridge-clients" target="_blank" rel="noreferrer" class="jsx-f705e145f931f504"><li class="jsx-400ec7965926e858 dropdown-item">EventBus Bridge Clients <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></li></a><a href="https://github.com/vert-x3/advanced-vertx-guide" target="_blank" rel="noreferrer" class="jsx-f705e145f931f504"><li class="jsx-400ec7965926e858 dropdown-item">Advanced Vert.x Guide <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></li></a></ul></div></span><a class="jsx-f705e145f931f504 navbar-menu-item" href="/blog/">博客</a><a class="jsx-f705e145f931f504 navbar-menu-item" href="/community/">社区</a><a class="jsx-f705e145f931f504 navbar-menu-item" href="/translation/">翻译团队</a></div><div class="jsx-f705e145f931f504 navbar-social"><a href="https://github.com/vert-x3/vertx-awesome" title="Awesome Vert.x" target="_blank" rel="noopener noreferrer" class="jsx-f705e145f931f504 navbar-social-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="List of awesome Vert.x projects"><title>Awesome Vert.x</title><path d="M24 11.438l-6.154-5.645-.865.944 5.128 4.7H1.895l5.128-4.705-.865-.943-6.154 5.649H0v3.72c0 1.683 1.62 3.053 3.61 3.053h3.795c1.99 0 3.61-1.37 3.61-3.051v-2.446h1.97v2.446c0 1.68 1.62 3.051 3.61 3.051h3.794c1.99 0 3.61-1.37 3.61-3.051v-3.721z"></path></svg></a><a href="https://stackoverflow.com/questions/tagged/vert.x" title="Stack Overflow" target="_blank" rel="noopener noreferrer" class="jsx-f705e145f931f504 navbar-social-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Stack Overflow questions related to Vert.x"><title>stackoverflow</title><path d="M15.725 0l-1.72 1.277 6.39 8.588 1.716-1.277L15.725 0zm-3.94 3.418l-1.369 1.644 8.225 6.85 1.369-1.644-8.225-6.85zm-3.15 4.465l-.905 1.94 9.702 4.517.904-1.94-9.701-4.517zm-1.85 4.86l-.44 2.093 10.473 2.201.44-2.092-10.473-2.203zM1.89 15.47V24h19.19v-8.53h-2.133v6.397H4.021v-6.396H1.89zm4.265 2.133v2.13h10.66v-2.13H6.154Z"></path></svg></a><a href="https://www.youtube.com/channel/UCGN6L3tRhs92Uer3c6VxOSA" title="YouTube" target="_blank" rel="noopener noreferrer" class="jsx-f705e145f931f504 navbar-social-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="YouTube channel of Vert.x"><title>youtube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg></a><a href="https://discord.gg/KzEMwP2" title="Discord" target="_blank" rel="noopener noreferrer" class="jsx-f705e145f931f504 navbar-social-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Eclipse Vert.x channel on Discord"><title>discord</title><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"></path></svg></a><a href="https://groups.google.com/forum/?fromgroups#!forum/vertx" title="Vert.x 用户组" target="_blank" rel="noopener noreferrer" class="jsx-f705e145f931f504 navbar-social-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="A Google group for Vert.x users"><title>Vert.x 用户组</title><path d="M.92 3.332c-.776 0-1.216.67-.692 1.383l2.537 4.403v7.86c0 2.013 1.467 3.69 3.459 3.69H20.31a3.75 3.75 0 003.69-3.69V7.043a3.723 3.723 0 00-3.668-3.71zm5.786 3.71H20.1c.587 0 1.153.357 1.153.923 0 .566-.566.922-1.153.922H6.706c-.587 0-1.153-.356-1.153-.922 0-.566.566-.923 1.153-.923zm0 3.69H20.1c.587 0 1.153.356 1.153.922 0 .566-.566.922-1.153.922H6.706c-.587 0-1.153-.356-1.153-.922 0-.566.566-.922 1.153-.922zm-.021 3.71h9.705c.587 0 1.153.356 1.153.922 0 .566-.566.923-1.153.923H6.685c-.587 0-1.153-.357-1.153-.923 0-.566.566-.922 1.153-.922Z"></path></svg></a><a href="https://shang.qq.com/wpa/qunwpa?idkey=587f58cacb9557e3291b46098e0fe09427b98a1c0f866da23c04c2762bc7e2ad" title="Vert.x中国用户组QQ群" target="_blank" rel="noopener noreferrer" class="jsx-f705e145f931f504 navbar-social-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-label="Vert.x中国用户组QQ群"><title>Vert.x中国用户组QQ群</title><path d="M21.395 15.035a39.548 39.548 0 0 0-.803-2.264l-1.079-2.695c.001-.032.014-.562.014-.836C19.526 4.632 17.351 0 12 0S4.474 4.632 4.474 9.241c0 .274.013.804.014.836l-1.08 2.695a38.97 38.97 0 0 0-.802 2.264c-1.021 3.283-.69 4.643-.438 4.673.54.065 2.103-2.472 2.103-2.472 0 1.469.756 3.387 2.394 4.771-.612.188-1.363.479-1.845.835-.434.32-.379.646-.301.778.343.578 5.883.369 7.482.189 1.6.18 7.14.389 7.483-.189.078-.132.132-.458-.301-.778-.483-.356-1.233-.646-1.846-.836 1.637-1.384 2.393-3.302 2.393-4.771 0 0 1.563 2.537 2.103 2.472.251-.03.581-1.39-.438-4.673zM12.662 4.846c.039-1.052.659-1.878 1.385-1.846s1.281.912 1.242 1.964c-.039 1.051-.659 1.878-1.385 1.846s-1.282-.912-1.242-1.964zM9.954 3c.725-.033 1.345.794 1.384 1.846.04 1.052-.517 1.931-1.242 1.963-.726.033-1.346-.794-1.385-1.845C8.672 3.912 9.228 3.033 9.954 3zM7.421 8.294c.194-.43 2.147-.908 4.566-.908h.026c2.418 0 4.372.479 4.566.908a.14.14 0 0 1 .014.061c0 .031-.01.059-.026.083-.163.238-2.333 1.416-4.553 1.416h-.026c-2.221 0-4.39-1.178-4.553-1.416a.136.136 0 0 1-.014-.144zm10.422 8.622c-.22 3.676-2.403 5.987-5.774 6.021h-.137c-3.37-.033-5.554-2.345-5.773-6.021-.081-1.35.001-2.496.147-3.43.318.063.638.122.958.176v3.506s1.658.334 3.318.103v-3.225c.488.027.96.04 1.406.034h.025c1.678.021 3.714-.204 5.683-.594.146.934.227 2.08.147 3.43zM10.48 5.804c.313-.041.542-.409.508-.825-.033-.415-.314-.72-.629-.679-.313.04-.541.409-.508.824.034.417.315.72.629.68zM14.479 5.156c.078.037.221.042.289-.146.035-.095.025-.165-.009-.214-.023-.033-.133-.118-.371-.176-.904-.22-1.341.384-1.405.499-.04.072-.012.176.056.227.067.051.139.037.179-.006.58-.628 1.21-.208 1.261-.184z"></path></svg></a></div></div></div></div></header><div class="jsx-efcc50be384cabc7 page-content docs-content"><div class="jsx-efcc50be384cabc7 container"><div class="jsx-efcc50be384cabc7 docs-content-wrapper"><aside class="jsx-efcc50be384cabc7 "><div class="jsx-efcc50be384cabc7 docs-content-wrapper-sidebar"><div class="jsx-d1843944f2d67b search-panel"><div class="jsx-20d862052e50feff search"><input type="text" placeholder="Search..." value="" class="jsx-20d862052e50feff"/><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon-delete"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></div><ul class="jsx-117e429f22e394dc search-results"></ul><div class="jsx-117e429f22e394dc search-results-none">No results.</div></div><div class="jsx-efcc50be384cabc7 docs-content-toc"><div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_creating_a_client">Creating a client</a></li>
+<li><a href="#_sending_mails">Sending mails</a></li>
+<li><a href="#_mail_client_data_objects">Mail-client data objects</a>
+<ul class="sectlevel2">
+<li><a href="#_mailmessage_properties">MailMessage properties</a></li>
+<li><a href="#_mailattachment_properties">MailAttachment properties</a></li>
+<li><a href="#_mailconfig_options">MailConfig options</a></li>
+<li><a href="#_mailresult_object">MailResult object</a></li>
+</ul>
+</li>
+</ul>
+</div></div></div></aside><div class="jsx-efcc50be384cabc7 docs-content-sidebar-toggle"><div style="position:relative" class="jsx-efcc50be384cabc7"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div></div><div class="jsx-efcc50be384cabc7 docs-content-inner"><div class="jsx-efcc50be384cabc7 docs-content-metadata"><div class="jsx-efcc50be384cabc7 docs-content-metadata-left"><div class="jsx-efcc50be384cabc7"><a href="https://vertx.io/docs/apidocs" class="jsx-efcc50be384cabc7"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> API</a></div><span class="jsx-efcc50be384cabc7 docs-content-metadata-version"><div class="jsx-6650573c8f14945d dropdown"><a class="jsx-6650573c8f14945d dropdown-title">v4.2.2<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a><ul class="jsx-6650573c8f14945d dropdown-menu align-right"></ul></div></span></div></div><div class="jsx-efcc50be384cabc7"><h1>Vert.x Mail client (SMTP client implementation)</h1>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vert.x client for sending SMTP emails via a local mail server
+(e.g. postfix) or by external mail server (e.g. googlemail or aol).</p>
+</div>
+<div class="paragraph">
+<p>The client supports a few additional auth methods like DIGEST-MD5 and has full
+support for TLS and SSL and is completely asynchronous. The client supports
+connection pooling to keep connections open to be reused.</p>
+</div>
+<div class="paragraph">
+<p>To use this project, add the following dependency to the <em>dependencies</em> section of your build descriptor:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Maven (in your <code>pom.xml</code>):</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.vertx<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>vertx-mail-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.9.11<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Gradle (in your <code>build.gradle</code> file):</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">compile <span class="hljs-string">&#x27;io.vertx:vertx-mail-client:3.9.11&#x27;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_a_client"><a class="anchor" href="#_creating_a_client"></a>Creating a client</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can send mails by creating a client that opens SMTP connections from the local jvm.</p>
+</div>
+<div class="paragraph">
+<p>The client uses a configuration object, the default config is created as empty
+object and will connect to localhost port 25, which should be ok in a standard
+Linux environment where you have Postfix or similar mail server running on
+the local machine. For all possible properties of the config object, see below.</p>
+</div>
+<div class="paragraph">
+<p>The client can use a connection pool of the SMTP connections to get rid of the overhead of
+connecting each time to the server, negotiating TLS and login (this function can be
+turned off by setting keepAlive = false). A client can either be shared or non-shared,
+if it is shared, the same connection pool will be used for all clients using the same identifier.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ruby" data-lang="ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;vertx-mail/mail_client&#x27;</span>
+config = {
+}
+mailClient = VertxMail::MailClient.create_shared(vertx, config, <span class="hljs-string">&quot;exampleclient&quot;</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first call to MailClient.createShared will actually create the pool with the specified config.
+Subsequent calls will return a new client instance that uses the same pool, so the configuration won&#8217;t be used.</p>
+</div>
+<div class="paragraph">
+<p>If you leave out the pool identifier, a default pool will be created. Note that the clients are
+shared in the scope of a vertx instance only (so two different vertx will have different pools with the
+same identifier).</p>
+</div>
+<div class="paragraph">
+<p>The unshared client can be created the same way leaving out the identifier.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ruby" data-lang="ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;vertx-mail/mail_client&#x27;</span>
+config = {
+}
+mailClient = VertxMail::MailClient.create(vertx, config)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A more elaborate example using a mailserver that requires login via TLS</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ruby" data-lang="ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;vertx-mail/mail_client&#x27;</span>
+config = {
+}
+config[<span class="hljs-string">&#x27;hostname&#x27;</span>] = <span class="hljs-string">&quot;mail.example.com&quot;</span>
+config[<span class="hljs-string">&#x27;port&#x27;</span>] = <span class="hljs-number">587</span>
+config[<span class="hljs-string">&#x27;starttls&#x27;</span>] = <span class="hljs-string">&quot;REQUIRED&quot;</span>
+config[<span class="hljs-string">&#x27;username&#x27;</span>] = <span class="hljs-string">&quot;user&quot;</span>
+config[<span class="hljs-string">&#x27;password&#x27;</span>] = <span class="hljs-string">&quot;password&quot;</span>
+mailClient = VertxMail::MailClient.create(vertx, config)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sending_mails"><a class="anchor" href="#_sending_mails"></a>Sending mails</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once the client object is created, you can use it to send mails. Since the
+sending of the mails works asynchronous in vert.x, the result handler will be
+called when the mail operation finishes. You can start many mail send operations
+in parallel, the connection pool will limit the number of concurrent operations
+so that new operations will wait in queue if no slots are available.</p>
+</div>
+<div class="paragraph">
+<p>A mail message is constructed as JSON. The MailMessage object has
+properties from, to, cc, bcc, subject, text, html etc. Depending on which values are set, the
+format of the generated MIME message will vary. The recipient address properties
+can either be a single address or a list of addresses.</p>
+</div>
+<div class="paragraph">
+<p>The MIME encoder supports us-ascii (7bit) headers/messages and utf8 (usually
+quoted-printable) headers/messages</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ruby" data-lang="ruby">message = {
+}
+message[<span class="hljs-string">&#x27;from&#x27;</span>] = <span class="hljs-string">&quot;user@example.com (Example User)&quot;</span>
+message[<span class="hljs-string">&#x27;to&#x27;</span>] = <span class="hljs-string">&quot;recipient@example.org&quot;</span>
+message[<span class="hljs-string">&#x27;cc&#x27;</span>] = <span class="hljs-string">&quot;Another User &lt;another@example.net&gt;&quot;</span>
+message[<span class="hljs-string">&#x27;text&#x27;</span>] = <span class="hljs-string">&quot;this is the plain message text&quot;</span>
+message[<span class="hljs-string">&#x27;html&#x27;</span>] = <span class="hljs-string">&quot;this is html text &lt;a href=\&quot;http://vertx.io\&quot;&gt;vertx.io&lt;/a&gt;&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Attachments can be created by the MailAttachment object using data stored in a Buffer,
+this supports base64 attachments.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ruby" data-lang="ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;vertx/buffer&#x27;</span>
+attachment = {
+}
+attachment[<span class="hljs-string">&#x27;contentType&#x27;</span>] = <span class="hljs-string">&quot;text/plain&quot;</span>
+attachment[<span class="hljs-string">&#x27;data&#x27;</span>] = Vertx::Buffer.buffer(<span class="hljs-string">&quot;attachment file&quot;</span>)
+
+message[<span class="hljs-string">&#x27;attachment&#x27;</span>] = attachment</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When using inline attachments (usually images), it is possible to reference the images within a html message
+to display html with the images included in the mail.
+Images can be referenced as &lt;img src="cid:contentid@domain"&gt; in the html text, the corresponding image has Disposition:
+inline and the Content-ID header as "&lt;contentid@domain&gt;". Please note that RFC 2392 requires Content-ID values to be structured
+like a Message-ID with angle brackets and a local and domain part using URL compatible encoding. None of this is not enforced
+and most mail clients supports IDs without angle brackets or without domain part, the best practice is to use the strict format.
+A valid example for a Content-ID value is "&lt;<a href="mailto:filename%201.jpg@example.org">filename%201.jpg@example.org</a>&gt;"</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ruby" data-lang="ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;vertx/buffer&#x27;</span>
+attachment = {
+}
+attachment[<span class="hljs-string">&#x27;contentType&#x27;</span>] = <span class="hljs-string">&quot;image/jpeg&quot;</span>
+attachment[<span class="hljs-string">&#x27;data&#x27;</span>] = Vertx::Buffer.buffer(<span class="hljs-string">&quot;image data&quot;</span>)
+attachment[<span class="hljs-string">&#x27;disposition&#x27;</span>] = <span class="hljs-string">&quot;inline&quot;</span>
+attachment[<span class="hljs-string">&#x27;contentId&#x27;</span>] = <span class="hljs-string">&quot;&lt;image1@example.com&gt;&quot;</span>
+
+message[<span class="hljs-string">&#x27;inlineAttachment&#x27;</span>] = attachment</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When sending the mail, you can provide a AsyncResult&lt;MailResult&gt; handler that will be called when
+the send operation is finished or it failed.</p>
+</div>
+<div class="paragraph">
+<p>A mail is sent as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ruby" data-lang="ruby">mailClient.send_mail(message) { <span class="hljs-params">|result_err,result|</span>
+  <span class="hljs-keyword">if</span> (result_err == <span class="hljs-literal">nil</span>)
+    puts result
+  <span class="hljs-keyword">else</span>
+    result_err.print_stack_trace()
+  <span class="hljs-keyword">end</span>
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mail_client_data_objects"><a class="anchor" href="#_mail_client_data_objects"></a>Mail-client data objects</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_mailmessage_properties"><a class="anchor" href="#_mailmessage_properties"></a>MailMessage properties</h3>
+<div class="paragraph">
+<p>Email fields are Strings using the common formats for email with or without real
+name</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>username@example.com</code></p>
+</li>
+<li>
+<p><code>username@example.com (Firstname Lastname)</code></p>
+</li>
+<li>
+<p><code>Firstname Lastname &lt;<a href="mailto:username@example.com">username@example.com</a>&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The MailMessage object has the following properties</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>from</code> String representing the From address and the MAIL FROM field</p>
+</li>
+<li>
+<p><code>to</code> String or list of String representing the To addresses and the RCPT TO fields</p>
+</li>
+<li>
+<p><code>cc</code> same as to</p>
+</li>
+<li>
+<p><code>bcc</code> same as to</p>
+</li>
+<li>
+<p><code>bounceAddress</code> String representing the error address (MAIL FROM), if not set from is used</p>
+</li>
+<li>
+<p><code>text</code> String representing the text/plain part of the mail</p>
+</li>
+<li>
+<p><code>html</code> String representing the text/html part of the mail</p>
+</li>
+<li>
+<p><code>attachment</code> MailAttachment or list of MailAttachment attachments of the message</p>
+</li>
+<li>
+<p><code>inlineAttachment</code> MailAttachment or list of MailAttachment of inline attachments of the message (usually images)</p>
+</li>
+<li>
+<p><code>headers</code> MultiMap representing headers to be added in addition to the headers necessary for the MIME Message</p>
+</li>
+<li>
+<p><code>fixedHeaders</code> boolean if true, only the headers provided as headers property will be set in the generated message</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>the last two properties allow manipulating the generate messages with custom headers, e.g. providing
+a message-id chosen by the calling program or setting different headers than would be generated by default. Unless you know
+what you are doing, this may generate invalid messages.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mailattachment_properties"><a class="anchor" href="#_mailattachment_properties"></a>MailAttachment properties</h3>
+<div class="paragraph">
+<p>The MailAttachment object has the following properties</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>data</code> Buffer containing the binary data of the attachment</p>
+</li>
+<li>
+<p><code>contentType</code> String of the Content-Type of the attachment (e.g. text/plain or text/plain; charset="UTF8", default is application/octet-stream)</p>
+</li>
+<li>
+<p><code>description</code> String describing the attachment (this is put in the description header of the attachment), optional</p>
+</li>
+<li>
+<p><code>disposition</code> String describing the disposition of the attachment (this is either "inline" or "attachment", default is attachment)</p>
+</li>
+<li>
+<p><code>name</code> String filename of the attachment (this is put into the disposition and in the Content-Type headers of the attachment), optional</p>
+</li>
+<li>
+<p><code>contentId</code> String describing the Content-Id of the attachment (this is used to identify inline images), optional</p>
+</li>
+<li>
+<p><code>headers</code> MultiMap of headers for the attachment in addition to the default ones, optional</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mailconfig_options"><a class="anchor" href="#_mailconfig_options"></a>MailConfig options</h3>
+<div class="paragraph">
+<p>The configuration has the following properties</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>hostname</code> the hostname of the smtp server to connect to (default is localhost)</p>
+</li>
+<li>
+<p><code>port</code> the port of the smtp server to connect to (default is 25)</p>
+</li>
+<li>
+<p><code>startTLS</code> StartTLSOptions either DISABLED, OPTIONAL or REQUIRED, default is OPTIONAL</p>
+</li>
+<li>
+<p><code>login</code> LoginOption either DISABLED, NONE or REQUIRED, default is NONE</p>
+</li>
+<li>
+<p><code>username</code> String of the username to be used for login (required only when LoginOption is REQUIRED)</p>
+</li>
+<li>
+<p><code>password</code> String of the password to be used for login (required only when LoginOption is REQUIRED)</p>
+</li>
+<li>
+<p><code>ssl</code> boolean whether to use ssl on connect to the mail server (default is false), set this to use a port 465 ssl connection (default is false)</p>
+</li>
+<li>
+<p><code>ehloHostname</code> String to used in EHLO and for creating the message-id, if not set, the own hostname will be used, which may not be a good choice if it doesn&#8217;t contain a FQDN or is localhost (optional)</p>
+</li>
+<li>
+<p><code>authMethods</code> String space separated list of allowed auth methods, this can be used to disallow some auth methods or define one required auth method (optional)</p>
+</li>
+<li>
+<p><code>keepAlive</code> boolean if connection pooling is enabled (default is true)</p>
+</li>
+<li>
+<p><code>maxPoolSize</code> int max number of open connections kept in the pool or to be opened at one time (regardless if pooling is enabled or not), default is 10</p>
+</li>
+<li>
+<p><code>trustAll</code> boolean whether to accept all certs from the server (default is false)</p>
+</li>
+<li>
+<p><code>keyStore</code> String the key store filename, this can be used to trust a server cert that is custom generated (optional)</p>
+</li>
+<li>
+<p><code>keyStorePassword</code> String password used to decrypt the key store (optional)</p>
+</li>
+<li>
+<p><code>allowRcptErrors</code> boolean if true, sending continues if a recipient address is not accepted and the mail will be sent if at least one address is accepted (default false)</p>
+</li>
+<li>
+<p><code>disableEsmtp</code> boolean if true, ESMTP-related commands will not be used (set if your smtp server doesn&#8217;t even give a proper error response code for the EHLO command) (default false)</p>
+</li>
+<li>
+<p><code>userAgent</code> String represents the Mail User Agent(MUA) name used to generate email boundaries for multipart emails and message-id, default is <code>vertxmail</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mailresult_object"><a class="anchor" href="#_mailresult_object"></a>MailResult object</h3>
+<div class="paragraph">
+<p>The MailResult object has the following members</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>messageID</code> the Message-ID of the generated mail</p>
+</li>
+<li>
+<p><code>recipients</code> the list of recipients the mail was sent to (if allowRcptErrors is true, this may be fewer than the intended recipients)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></div></div></div></div><footer class="jsx-aeedcf66895f49d7"><div class="jsx-aeedcf66895f49d7 container"><div class="jsx-aeedcf66895f49d7 footer-nav-section"><div class="jsx-aeedcf66895f49d7 footer-nav-list footer-logo"><a class="jsx-aeedcf66895f49d7" href="/"><img src="data:image/svg+xml,%3csvg version=&#x27;1.1&#x27; id=&#x27;Layer_1&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; x=&#x27;0&#x27; y=&#x27;0&#x27; viewBox=&#x27;0 0 1232.6 315.2&#x27; style=&#x27;enable-background:new 0 0 1232.6 315.2&#x27; xml:space=&#x27;preserve&#x27;%3e%3cstyle%3e.st0%7bfill:%23782a91%7d%3c/style%3e%3cpath d=&#x27;M120.9 214.2 190.5 0h52.3l-98.5 273.8H98.2L0 0h52.1l68.8 214.2zm291.2-62.6H299.6v84.2H431v38H252V0h177.7v38.4H299.6V114h112.5v37.6zm83.7-113.2H546c16.5.3 29 4.4 37.3 12.4 8.3 8 12.5 19.4 12.5 34 0 14-4.5 25.1-13.5 33.2-9 8.1-21.6 12.1-37.6 12.1h-27.1v24.2l86.1 119.5h51v-2.4l-77.2-106.7c24.9-5.5 43.3-21.7 52.6-35.9 8.2-12.6 13.3-27.7 13.3-46 0-26.8-8.6-47.4-25.8-61.5C600.5 7.1 576.1 0 544.5 0h-96.3v273.8h47.6&#x27;/%3e%3cpath class=&#x27;st0&#x27; d=&#x27;m1052.3 157.7-41.5 62.7 29.7 53.4h85.1z&#x27;/%3e%3ccircle class=&#x27;st0&#x27; cx=&#x27;827.9&#x27; cy=&#x27;274.7&#x27; r=&#x27;40.5&#x27;/%3e%3cpath class=&#x27;st0&#x27; d=&#x27;m1037 0-47.6 74.2L949 0h-84l85.3 135.8-67.1 105.7c5.7 9.5 9.1 20.5 9.2 32.4h50.1L1121.3 0H1037z&#x27;/%3e%3cpath d=&#x27;M763.5 273.8c.1-9.9 2.5-19.2 6.6-27.5V38.4h85.4V0H638.2v38.4h84.6v235.4h40.7zm414-266.9h-15.3v42.2h-8.5V6.9h-15.2V0h39v6.9zM1193 0l14.2 37.7L1221.3 0h11v49.1h-8.5V32.9l.8-21.7-14.5 37.9h-6.1l-14.5-37.8.8 21.6v16.2h-8.5V0h11.2z&#x27;/%3e%3c/svg%3e" alt="Vert.x Logo" class="jsx-aeedcf66895f49d7"/></a></div><div class="jsx-aeedcf66895f49d7 footer-nav-list"><h5 class="jsx-aeedcf66895f49d7">Eclipse Vert.x</h5><ul class="jsx-aeedcf66895f49d7 "><li class="jsx-aeedcf66895f49d7"><a class="jsx-aeedcf66895f49d7 navbar-menu-item" href="/docs/">文档</a></li><li class="jsx-aeedcf66895f49d7"><a class="jsx-aeedcf66895f49d7" href="/download/">下载</a></li><li class="jsx-aeedcf66895f49d7"><a class="jsx-aeedcf66895f49d7" href="/blog/">博客</a></li><li class="jsx-aeedcf66895f49d7"><a class="jsx-aeedcf66895f49d7" href="/community/">社区</a></li><li class="jsx-aeedcf66895f49d7"><a class="jsx-aeedcf66895f49d7" href="/translation/">翻译团队</a></li><li class="jsx-aeedcf66895f49d7"><a href="https://github.com/eclipse-vertx/vert.x" class="jsx-aeedcf66895f49d7">GitHub</a></li><li class="jsx-aeedcf66895f49d7"><a href="https://github.com/vertx-china/vertx-web-site" class="jsx-aeedcf66895f49d7">翻译GitHub</a></li></ul></div><div class="jsx-aeedcf66895f49d7 footer-nav-list"><h5 class="jsx-aeedcf66895f49d7">资源</h5><ul class="jsx-aeedcf66895f49d7 "><li class="jsx-aeedcf66895f49d7"><a class="jsx-aeedcf66895f49d7" href="/faq/">答疑</a></li><li class="jsx-aeedcf66895f49d7"><a class="jsx-aeedcf66895f49d7" href="/channels/">联系渠道</a></li><li class="jsx-aeedcf66895f49d7"><a href="https://how-to.vertx.io/" class="jsx-aeedcf66895f49d7">操作指南</a></li><li class="jsx-aeedcf66895f49d7"><a href="https://start.vertx.io/" class="jsx-aeedcf66895f49d7">应用生成器</a></li></ul></div><div class="jsx-aeedcf66895f49d7 footer-nav-list"><h5 class="jsx-aeedcf66895f49d7">Eclipse</h5><ul class="jsx-aeedcf66895f49d7 "><li class="jsx-aeedcf66895f49d7"><a href="https://www.eclipse.org/" class="jsx-aeedcf66895f49d7">Eclipse 基金会</a></li><li class="jsx-aeedcf66895f49d7"><a href="https://www.eclipse.org/legal/privacy.php" class="jsx-aeedcf66895f49d7">隐私政策</a></li><li class="jsx-aeedcf66895f49d7"><a href="https://www.eclipse.org/legal/termsofuse.php" class="jsx-aeedcf66895f49d7">使用条款</a></li><li class="jsx-aeedcf66895f49d7"><a href="https://www.eclipse.org/legal/copyright.php" class="jsx-aeedcf66895f49d7">版权代理</a></li><li class="jsx-aeedcf66895f49d7"><a href="https://www.eclipse.org/legal/" class="jsx-aeedcf66895f49d7">法律资源</a></li></ul></div></div><div class="jsx-aeedcf66895f49d7 footer-copyright"><div class="jsx-aeedcf66895f49d7 footer-copyright-remarks">© <!-- -->2021<!-- --> Eclipse Vert.x™<br class="jsx-aeedcf66895f49d7"/>Eclipse Vert.x™ 是开源的，并在<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer" class="jsx-aeedcf66895f49d7">Eclipse Public License 2.0</a>和<a href="https://www.apache.org/licenses/LICENSE-2.0.html" target="_blank" rel="noopener noreferrer" class="jsx-aeedcf66895f49d7">Apache License 2.0</a>协议下获得了双重许可。<br class="jsx-aeedcf66895f49d7 footer-copyright-break"/>网站由 <a href="https://michelkraemer.com" target="_blank" rel="noopener noreferrer" class="jsx-aeedcf66895f49d7">Michel Krämer</a> 设计。</div><div class="jsx-aeedcf66895f49d7 footer-copyright-eclipse-logo"><a href="https://www.eclipse.org/" target="_blank" rel="noopener noreferrer" class="jsx-aeedcf66895f49d7"><img src="data:image/svg+xml,%3csvg version=&#x27;1.1&#x27; id=&#x27;Layer_1&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; x=&#x27;0&#x27; y=&#x27;0&#x27; viewBox=&#x27;0 0 281.3 91.1&#x27; style=&#x27;enable-background:new 0 0 281.3 91.1&#x27; xml:space=&#x27;preserve&#x27;%3e%3cstyle%3e.st0%7bfill:%23f79422%7d.st1%7bfill:%233d3c3b%7d%3c/style%3e%3cg id=&#x27;Layer_1_1_&#x27;%3e%3cpath class=&#x27;st0&#x27; d=&#x27;M265.7 84 257 73h-2.7v17.7h3.3v-12l9.3 12h2.1V73h-3.3v11zm-32.4-8.3c4.2 0 5.8 3.3 5.8 6.3s-1.6 6-5.8 6-5.7-3.1-5.8-6 1.7-6.3 5.8-6.3zm0-3c-6.1 0-9.1 4.7-9.1 9.3 0 4.7 2.9 9.1 9.1 9.1s9-4.6 9.1-9.2-3-9.2-9.1-9.2zm-21.2 18V73h-3.3v17.7h3.3zm-23.6 0h3.3V76h5.6v-3h-14.6v3h5.6l.1 14.7zm-18.9-6.5H163l3.3-7.6 3.3 7.6zm2.8 6.5h3.6L168.2 73h-3.6l-8 17.7h3.6l1.5-3.3h9.3l1.4 3.3zm-38-14.6h3.6c3.9 0 5.5 2.8 5.5 5.5.1 2.8-1.5 5.8-5.5 5.8h-3.6V76.1zm3.7-3.1h-6.9v17.7h6.9c6.2 0 8.9-4.5 8.9-9s-2.8-8.7-8.9-8.7zm-22.4 11L107 73h-2.7v17.7h3.3v-12l9.3 12h2.1V73h-3.3v11zM88.2 73v10.2c0 3-1.6 4.9-4.3 4.9s-4.6-1.7-4.6-4.9V73H76v10.1c0 5.3 3.6 7.9 7.9 7.9 4.4 0 7.7-2.7 7.7-7.9V73h-3.4zm-33 2.7c4.2 0 5.8 3.3 5.8 6.3s-1.6 6-5.8 6-5.7-3.1-5.8-6 1.7-6.3 5.8-6.3zm0-3c-6.1 0-9.1 4.7-9.1 9.3s2.9 9.1 9.1 9.1 9-4.6 9.1-9.2-3-9.2-9.1-9.2zm-29.7 18v-6.5h8.9v-3.1h-8.9v-4.8h9.4V73H22.2v17.6h3.3z&#x27;/%3e%3cpath class=&#x27;st1&#x27; d=&#x27;M269.4 54.4h-22.2v-8.9h21.4v-6.9h-21.4v-9.1h22.2v-7.2h-29.6v39.5h29.6v-7.4zm-40-25.6c-3-6.1-9.4-7.8-15.5-7.8-7.3 0-15.3 3.4-15.3 11.5 0 8.9 7.4 11 15.5 12 5.2.6 9.1 2.1 9.1 5.8 0 4.3-4.4 5.9-9.1 5.9s-9.4-1.9-11.1-6.3l-6.2 3.2c2.9 7.2 9.1 9.7 17.2 9.7 8.8 0 16.6-3.8 16.6-12.6 0-9.4-7.7-11.6-15.9-12.6-4.7-.6-8.8-1.5-8.8-5 0-2.9 2.6-5.2 8.2-5.2 4.3 0 8 2.2 9.4 4.4l5.9-3zM176 22.2c-6.2-.1-12.4 0-18.6 0v39.5h7.4V50.1H176c19.4 0 19.4-27.9 0-27.9zm-11.1 7.1H176c9.5 0 9.5 14 0 14h-11.2l.1-14zm-18 32.5V22.2h-7.4v39.5l7.4.1zm-44-39.6v39.5h27.7v-6.9h-20.3V22.2h-7.4zM90.7 51.7c-2.7 2.5-6.2 4-9.9 4-9.8 0-13.5-6.8-13.6-13.4s4.1-13.7 13.6-13.7c3.5-.1 7 1.3 9.5 3.7l5-4.8c-3.8-3.9-9.1-6-14.5-6-14.3 0-21 10.5-20.9 20.8s6.3 20.3 20.9 20.3c5.6.1 11-2 15-5.9l-5.1-5zm-39 2.7H29.5v-8.9h21.4v-6.9H29.5v-9.1h22.2v-7.2H22.2v39.5h29.6l-.1-7.4z&#x27;/%3e%3cpath class=&#x27;st0&#x27; d=&#x27;M9.8 18.2C18.8 4.1 36.9-.8 52.1 6l-1-.7C35.7-4.6 15.2-.1 5.3 15.3s-5.4 35.9 10 45.8l1.1.6C3.8 50.8.8 32.3 9.8 18.2z&#x27;/%3e%3cpath class=&#x27;st1&#x27; d=&#x27;M272.2 26.1c0-2.5 2.1-4.6 4.6-4.6 2.5 0 4.6 2.1 4.6 4.6 0 2.5-2.1 4.6-4.6 4.6-2.6 0-4.6-2.1-4.6-4.6zm8.6 0c0-2.2-1.8-4.1-4-4.1s-4.1 1.8-4.1 4.1c0 2.2 1.7 4 3.9 4.1h.1c2.3 0 4.1-1.8 4.1-4.1zm-6-2.5h2.3c1.1 0 1.9.5 1.9 1.6 0 .7-.4 1.3-1.1 1.5l1.2 1.7h-1.4l-1-1.5h-.7v1.5h-1.1l-.1-4.8zm2.2 2.3c.5 0 .8-.3.8-.7s-.3-.7-.8-.7h-1v1.3l1 .1z&#x27;/%3e%3c/g%3e%3c/svg%3e" alt="Eclipse foundation Logo" class="jsx-aeedcf66895f49d7"/></a></div></div></div></footer></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"3.9.11/vertx-mail-client/ruby","title":"Vert.x Mail client (SMTP client implementation)","fallbackGitHubStars":null,"toc":"\u003cdiv id=\"toc\" class=\"toc\"\u003e\n\u003cdiv id=\"toctitle\"\u003eTable of Contents\u003c/div\u003e\n\u003cul class=\"sectlevel1\"\u003e\n\u003cli\u003e\u003ca href=\"#_creating_a_client\"\u003eCreating a client\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_sending_mails\"\u003eSending mails\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_mail_client_data_objects\"\u003eMail-client data objects\u003c/a\u003e\n\u003cul class=\"sectlevel2\"\u003e\n\u003cli\u003e\u003ca href=\"#_mailmessage_properties\"\u003eMailMessage properties\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_mailattachment_properties\"\u003eMailAttachment properties\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_mailconfig_options\"\u003eMailConfig options\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#_mailresult_object\"\u003eMailResult object\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e","contents":"\u003ch1\u003eVert.x Mail client (SMTP client implementation)\u003c/h1\u003e\n\n\u003cdiv id=\"preamble\"\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eVert.x client for sending SMTP emails via a local mail server\n(e.g. postfix) or by external mail server (e.g. googlemail or aol).\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe client supports a few additional auth methods like DIGEST-MD5 and has full\nsupport for TLS and SSL and is completely asynchronous. The client supports\nconnection pooling to keep connections open to be reused.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eTo use this project, add the following dependency to the \u003cem\u003edependencies\u003c/em\u003e section of your build descriptor:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eMaven (in your \u003ccode\u003epom.xml\u003c/code\u003e):\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-xml\" data-lang=\"xml\"\u003e\u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003eio.vertx\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003egroupId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003evertx-mail-client\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eartifactId\u003c/span\u003e\u0026gt;\u003c/span\u003e\n \u003cspan class=\"hljs-tag\"\u003e\u0026lt;\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e3.9.11\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003eversion\u003c/span\u003e\u0026gt;\u003c/span\u003e\n\u003cspan class=\"hljs-tag\"\u003e\u0026lt;/\u003cspan class=\"hljs-name\"\u003edependency\u003c/span\u003e\u0026gt;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eGradle (in your \u003ccode\u003ebuild.gradle\u003c/code\u003e file):\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-groovy\" data-lang=\"groovy\"\u003ecompile \u003cspan class=\"hljs-string\"\u003e\u0026#x27;io.vertx:vertx-mail-client:3.9.11\u0026#x27;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_creating_a_client\"\u003e\u003ca class=\"anchor\" href=\"#_creating_a_client\"\u003e\u003c/a\u003eCreating a client\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eYou can send mails by creating a client that opens SMTP connections from the local jvm.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe client uses a configuration object, the default config is created as empty\nobject and will connect to localhost port 25, which should be ok in a standard\nLinux environment where you have Postfix or similar mail server running on\nthe local machine. For all possible properties of the config object, see below.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe client can use a connection pool of the SMTP connections to get rid of the overhead of\nconnecting each time to the server, negotiating TLS and login (this function can be\nturned off by setting keepAlive = false). A client can either be shared or non-shared,\nif it is shared, the same connection pool will be used for all clients using the same identifier.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-ruby\" data-lang=\"ruby\"\u003e\u003cspan class=\"hljs-keyword\"\u003erequire\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e\u0026#x27;vertx-mail/mail_client\u0026#x27;\u003c/span\u003e\nconfig = {\n}\nmailClient = VertxMail::MailClient.create_shared(vertx, config, \u003cspan class=\"hljs-string\"\u003e\u0026quot;exampleclient\u0026quot;\u003c/span\u003e)\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe first call to MailClient.createShared will actually create the pool with the specified config.\nSubsequent calls will return a new client instance that uses the same pool, so the configuration won\u0026#8217;t be used.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eIf you leave out the pool identifier, a default pool will be created. Note that the clients are\nshared in the scope of a vertx instance only (so two different vertx will have different pools with the\nsame identifier).\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe unshared client can be created the same way leaving out the identifier.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-ruby\" data-lang=\"ruby\"\u003e\u003cspan class=\"hljs-keyword\"\u003erequire\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e\u0026#x27;vertx-mail/mail_client\u0026#x27;\u003c/span\u003e\nconfig = {\n}\nmailClient = VertxMail::MailClient.create(vertx, config)\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eA more elaborate example using a mailserver that requires login via TLS\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-ruby\" data-lang=\"ruby\"\u003e\u003cspan class=\"hljs-keyword\"\u003erequire\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e\u0026#x27;vertx-mail/mail_client\u0026#x27;\u003c/span\u003e\nconfig = {\n}\nconfig[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;hostname\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;mail.example.com\u0026quot;\u003c/span\u003e\nconfig[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;port\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-number\"\u003e587\u003c/span\u003e\nconfig[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;starttls\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;REQUIRED\u0026quot;\u003c/span\u003e\nconfig[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;username\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;user\u0026quot;\u003c/span\u003e\nconfig[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;password\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;password\u0026quot;\u003c/span\u003e\nmailClient = VertxMail::MailClient.create(vertx, config)\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_sending_mails\"\u003e\u003ca class=\"anchor\" href=\"#_sending_mails\"\u003e\u003c/a\u003eSending mails\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eOnce the client object is created, you can use it to send mails. Since the\nsending of the mails works asynchronous in vert.x, the result handler will be\ncalled when the mail operation finishes. You can start many mail send operations\nin parallel, the connection pool will limit the number of concurrent operations\nso that new operations will wait in queue if no slots are available.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eA mail message is constructed as JSON. The MailMessage object has\nproperties from, to, cc, bcc, subject, text, html etc. Depending on which values are set, the\nformat of the generated MIME message will vary. The recipient address properties\ncan either be a single address or a list of addresses.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe MIME encoder supports us-ascii (7bit) headers/messages and utf8 (usually\nquoted-printable) headers/messages\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-ruby\" data-lang=\"ruby\"\u003emessage = {\n}\nmessage[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;from\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;user@example.com (Example User)\u0026quot;\u003c/span\u003e\nmessage[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;to\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;recipient@example.org\u0026quot;\u003c/span\u003e\nmessage[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;cc\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;Another User \u0026lt;another@example.net\u0026gt;\u0026quot;\u003c/span\u003e\nmessage[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;text\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;this is the plain message text\u0026quot;\u003c/span\u003e\nmessage[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;html\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;this is html text \u0026lt;a href=\\\u0026quot;http://vertx.io\\\u0026quot;\u0026gt;vertx.io\u0026lt;/a\u0026gt;\u0026quot;\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eAttachments can be created by the MailAttachment object using data stored in a Buffer,\nthis supports base64 attachments.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-ruby\" data-lang=\"ruby\"\u003e\u003cspan class=\"hljs-keyword\"\u003erequire\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e\u0026#x27;vertx/buffer\u0026#x27;\u003c/span\u003e\nattachment = {\n}\nattachment[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;contentType\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;text/plain\u0026quot;\u003c/span\u003e\nattachment[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;data\u0026#x27;\u003c/span\u003e] = Vertx::Buffer.buffer(\u003cspan class=\"hljs-string\"\u003e\u0026quot;attachment file\u0026quot;\u003c/span\u003e)\n\nmessage[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;attachment\u0026#x27;\u003c/span\u003e] = attachment\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eWhen using inline attachments (usually images), it is possible to reference the images within a html message\nto display html with the images included in the mail.\nImages can be referenced as \u0026lt;img src=\"cid:contentid@domain\"\u0026gt; in the html text, the corresponding image has Disposition:\ninline and the Content-ID header as \"\u0026lt;contentid@domain\u0026gt;\". Please note that RFC 2392 requires Content-ID values to be structured\nlike a Message-ID with angle brackets and a local and domain part using URL compatible encoding. None of this is not enforced\nand most mail clients supports IDs without angle brackets or without domain part, the best practice is to use the strict format.\nA valid example for a Content-ID value is \"\u0026lt;\u003ca href=\"mailto:filename%201.jpg@example.org\"\u003efilename%201.jpg@example.org\u003c/a\u003e\u0026gt;\"\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-ruby\" data-lang=\"ruby\"\u003e\u003cspan class=\"hljs-keyword\"\u003erequire\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e\u0026#x27;vertx/buffer\u0026#x27;\u003c/span\u003e\nattachment = {\n}\nattachment[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;contentType\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;image/jpeg\u0026quot;\u003c/span\u003e\nattachment[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;data\u0026#x27;\u003c/span\u003e] = Vertx::Buffer.buffer(\u003cspan class=\"hljs-string\"\u003e\u0026quot;image data\u0026quot;\u003c/span\u003e)\nattachment[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;disposition\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;inline\u0026quot;\u003c/span\u003e\nattachment[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;contentId\u0026#x27;\u003c/span\u003e] = \u003cspan class=\"hljs-string\"\u003e\u0026quot;\u0026lt;image1@example.com\u0026gt;\u0026quot;\u003c/span\u003e\n\nmessage[\u003cspan class=\"hljs-string\"\u003e\u0026#x27;inlineAttachment\u0026#x27;\u003c/span\u003e] = attachment\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eWhen sending the mail, you can provide a AsyncResult\u0026lt;MailResult\u0026gt; handler that will be called when\nthe send operation is finished or it failed.\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eA mail is sent as follows:\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"listingblock\"\u003e\n\u003cdiv class=\"content\"\u003e\n\u003cpre class=\"highlight\"\u003e\u003ccode class=\"language-ruby\" data-lang=\"ruby\"\u003emailClient.send_mail(message) { \u003cspan class=\"hljs-params\"\u003e|result_err,result|\u003c/span\u003e\n  \u003cspan class=\"hljs-keyword\"\u003eif\u003c/span\u003e (result_err == \u003cspan class=\"hljs-literal\"\u003enil\u003c/span\u003e)\n    puts result\n  \u003cspan class=\"hljs-keyword\"\u003eelse\u003c/span\u003e\n    result_err.print_stack_trace()\n  \u003cspan class=\"hljs-keyword\"\u003eend\u003c/span\u003e\n}\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect1\"\u003e\n\u003ch2 id=\"_mail_client_data_objects\"\u003e\u003ca class=\"anchor\" href=\"#_mail_client_data_objects\"\u003e\u003c/a\u003eMail-client data objects\u003c/h2\u003e\n\u003cdiv class=\"sectionbody\"\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_mailmessage_properties\"\u003e\u003ca class=\"anchor\" href=\"#_mailmessage_properties\"\u003e\u003c/a\u003eMailMessage properties\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eEmail fields are Strings using the common formats for email with or without real\nname\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eusername@example.com\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eusername@example.com (Firstname Lastname)\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eFirstname Lastname \u0026lt;\u003ca href=\"mailto:username@example.com\"\u003eusername@example.com\u003c/a\u003e\u0026gt;\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe MailMessage object has the following properties\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003efrom\u003c/code\u003e String representing the From address and the MAIL FROM field\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eto\u003c/code\u003e String or list of String representing the To addresses and the RCPT TO fields\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003ecc\u003c/code\u003e same as to\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003ebcc\u003c/code\u003e same as to\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003ebounceAddress\u003c/code\u003e String representing the error address (MAIL FROM), if not set from is used\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003etext\u003c/code\u003e String representing the text/plain part of the mail\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003ehtml\u003c/code\u003e String representing the text/html part of the mail\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eattachment\u003c/code\u003e MailAttachment or list of MailAttachment attachments of the message\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003einlineAttachment\u003c/code\u003e MailAttachment or list of MailAttachment of inline attachments of the message (usually images)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eheaders\u003c/code\u003e MultiMap representing headers to be added in addition to the headers necessary for the MIME Message\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003efixedHeaders\u003c/code\u003e boolean if true, only the headers provided as headers property will be set in the generated message\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003ethe last two properties allow manipulating the generate messages with custom headers, e.g. providing\na message-id chosen by the calling program or setting different headers than would be generated by default. Unless you know\nwhat you are doing, this may generate invalid messages.\u003c/p\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_mailattachment_properties\"\u003e\u003ca class=\"anchor\" href=\"#_mailattachment_properties\"\u003e\u003c/a\u003eMailAttachment properties\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe MailAttachment object has the following properties\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003edata\u003c/code\u003e Buffer containing the binary data of the attachment\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003econtentType\u003c/code\u003e String of the Content-Type of the attachment (e.g. text/plain or text/plain; charset=\"UTF8\", default is application/octet-stream)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003edescription\u003c/code\u003e String describing the attachment (this is put in the description header of the attachment), optional\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003edisposition\u003c/code\u003e String describing the disposition of the attachment (this is either \"inline\" or \"attachment\", default is attachment)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003ename\u003c/code\u003e String filename of the attachment (this is put into the disposition and in the Content-Type headers of the attachment), optional\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003econtentId\u003c/code\u003e String describing the Content-Id of the attachment (this is used to identify inline images), optional\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eheaders\u003c/code\u003e MultiMap of headers for the attachment in addition to the default ones, optional\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_mailconfig_options\"\u003e\u003ca class=\"anchor\" href=\"#_mailconfig_options\"\u003e\u003c/a\u003eMailConfig options\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe configuration has the following properties\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003ehostname\u003c/code\u003e the hostname of the smtp server to connect to (default is localhost)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eport\u003c/code\u003e the port of the smtp server to connect to (default is 25)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003estartTLS\u003c/code\u003e StartTLSOptions either DISABLED, OPTIONAL or REQUIRED, default is OPTIONAL\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003elogin\u003c/code\u003e LoginOption either DISABLED, NONE or REQUIRED, default is NONE\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eusername\u003c/code\u003e String of the username to be used for login (required only when LoginOption is REQUIRED)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003epassword\u003c/code\u003e String of the password to be used for login (required only when LoginOption is REQUIRED)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003essl\u003c/code\u003e boolean whether to use ssl on connect to the mail server (default is false), set this to use a port 465 ssl connection (default is false)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eehloHostname\u003c/code\u003e String to used in EHLO and for creating the message-id, if not set, the own hostname will be used, which may not be a good choice if it doesn\u0026#8217;t contain a FQDN or is localhost (optional)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eauthMethods\u003c/code\u003e String space separated list of allowed auth methods, this can be used to disallow some auth methods or define one required auth method (optional)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003ekeepAlive\u003c/code\u003e boolean if connection pooling is enabled (default is true)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003emaxPoolSize\u003c/code\u003e int max number of open connections kept in the pool or to be opened at one time (regardless if pooling is enabled or not), default is 10\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003etrustAll\u003c/code\u003e boolean whether to accept all certs from the server (default is false)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003ekeyStore\u003c/code\u003e String the key store filename, this can be used to trust a server cert that is custom generated (optional)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003ekeyStorePassword\u003c/code\u003e String password used to decrypt the key store (optional)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eallowRcptErrors\u003c/code\u003e boolean if true, sending continues if a recipient address is not accepted and the mail will be sent if at least one address is accepted (default false)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003edisableEsmtp\u003c/code\u003e boolean if true, ESMTP-related commands will not be used (set if your smtp server doesn\u0026#8217;t even give a proper error response code for the EHLO command) (default false)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003euserAgent\u003c/code\u003e String represents the Mail User Agent(MUA) name used to generate email boundaries for multipart emails and message-id, default is \u003ccode\u003evertxmail\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003cdiv class=\"sect2\"\u003e\n\u003ch3 id=\"_mailresult_object\"\u003e\u003ca class=\"anchor\" href=\"#_mailresult_object\"\u003e\u003c/a\u003eMailResult object\u003c/h3\u003e\n\u003cdiv class=\"paragraph\"\u003e\n\u003cp\u003eThe MailResult object has the following members\u003c/p\u003e\n\u003c/div\u003e\n\u003cdiv class=\"ulist\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003emessageID\u003c/code\u003e the Message-ID of the generated mail\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003erecipients\u003c/code\u003e the list of recipients the mail was sent to (if allowRcptErrors is true, this may be fewer than the intended recipients)\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e","version":"3.9.11"},"__N_SSG":true},"page":"/docs/[[...slug]]","query":{"slug":["3.9.11","vertx-mail-client","ruby"]},"buildId":"tzUBy4QMeQ1q-_av9oOoY","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

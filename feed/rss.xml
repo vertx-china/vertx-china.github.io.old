@@ -4,12 +4,13 @@
         <title>Vert.x</title>
         <link>https://vertx.io</link>
         <description>Vert.x is a tool-kit for building reactive applications on the JVM</description>
-        <lastBuildDate>Tue, 23 Nov 2021 00:59:30 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 15 Dec 2021 03:54:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Vert.x</generator>
         <language>en</language>
         <category>releases</category>
         <category>guides</category>
+        <category>security</category>
         <category>news</category>
         <item>
             <title><![CDATA[What's new in Vert.x 4.2]]></title>
@@ -26,6 +27,38 @@
             <pubDate>Wed, 02 Dec 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[We provide a clear and well-documented migration path from Vert.x 3.9 to Vert.x 4. Existing users will feel at home with the new version.]]></description>
             <category>guides</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 3.9.11 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-3-9-11</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-3-9-11</guid>
+            <pubDate>Tue, 14 Dec 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 3.9.11 has just been released.]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 4.1.7 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-4-1-7</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-4-1-7</guid>
+            <pubDate>Tue, 14 Dec 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 4.1.7 has just been released.]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 4.2.2 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-4-2-2</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-4-2-2</guid>
+            <pubDate>Tue, 14 Dec 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 4.2.2 has just been released.]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x and Log4j 2 CVE-2021-44228]]></title>
+            <link>https://vertx.io/blog/CVE-2021-44228</link>
+            <guid>https://vertx.io/blog/CVE-2021-44228</guid>
+            <pubDate>Mon, 13 Dec 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[A recent CVE-2021-44228 has been disclosed that affects the Log4j 2 library. The Vert.x project can optionally use Log4j but does not ship it and therefore is not affected by this CVE.]]></description>
+            <category>security</category>
         </item>
         <item>
             <title><![CDATA[Eclipse Vert.x 3.9.10 released!]]></title>
