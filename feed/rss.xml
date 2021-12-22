@@ -4,7 +4,7 @@
         <title>Vert.x</title>
         <link>https://vertx.io</link>
         <description>Vert.x is a tool-kit for building reactive applications on the JVM</description>
-        <lastBuildDate>Tue, 21 Dec 2021 07:04:37 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 22 Dec 2021 02:07:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Vert.x</generator>
         <language>en</language>
@@ -27,6 +27,22 @@
             <pubDate>Wed, 02 Dec 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[We provide a clear and well-documented migration path from Vert.x 3.9 to Vert.x 4. Existing users will feel at home with the new version.]]></description>
             <category>guides</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 4.2.3 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-4-2-3</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-4-2-3</guid>
+            <pubDate>Tue, 21 Dec 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 4.2.3 has just been released.]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x Webauthn 4.2.2.1 and 4.1.7.1 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-4-2-2-1_and_4-1-7-1</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-4-2-2-1_and_4-1-7-1</guid>
+            <pubDate>Wed, 15 Dec 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x Webauthn version 4.2.2.1 and 4.1.7.1 has just been released.]]></description>
+            <category>releases</category>
         </item>
         <item>
             <title><![CDATA[Eclipse Vert.x 3.9.11 released!]]></title>

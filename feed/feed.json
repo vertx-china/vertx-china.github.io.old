@@ -34,6 +34,34 @@
             ]
         },
         {
+            "id": "https://vertx.io/blog/eclipse-vert-x-4-2-3",
+            "url": "https://vertx.io/blog/eclipse-vert-x-4-2-3",
+            "title": "Eclipse Vert.x 4.2.3 released!",
+            "summary": "Eclipse Vert.x version 4.2.3 has just been released.",
+            "date_modified": "2021-12-21T00:00:00.000Z",
+            "author": {
+                "name": "Julien Viet",
+                "url": "https://github.com/vietj"
+            },
+            "tags": [
+                "releases"
+            ]
+        },
+        {
+            "id": "https://vertx.io/blog/eclipse-vert-x-4-2-2-1_and_4-1-7-1",
+            "url": "https://vertx.io/blog/eclipse-vert-x-4-2-2-1_and_4-1-7-1",
+            "title": "Eclipse Vert.x Webauthn 4.2.2.1 and 4.1.7.1 released!",
+            "summary": "Eclipse Vert.x Webauthn version 4.2.2.1 and 4.1.7.1 has just been released.",
+            "date_modified": "2021-12-15T00:00:00.000Z",
+            "author": {
+                "name": "Paulo Lopes",
+                "url": "https://github.com/pmlopes"
+            },
+            "tags": [
+                "releases"
+            ]
+        },
+        {
             "id": "https://vertx.io/blog/eclipse-vert-x-3-9-11",
             "url": "https://vertx.io/blog/eclipse-vert-x-3-9-11",
             "title": "Eclipse Vert.x 3.9.11 released!",
