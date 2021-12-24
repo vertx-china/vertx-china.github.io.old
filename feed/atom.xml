@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://vertx.io</id>
     <title>Vert.x</title>
-    <updated>2021-12-22T02:38:44.286Z</updated>
+    <updated>2021-12-24T02:14:15.989Z</updated>
     <generator>Vert.x</generator>
     <link rel="alternate" href="https://vertx.io"/>
     <link rel="self" href="https://vertx.io/feed/atom.xml"/>
@@ -35,6 +35,30 @@
             <uri>https://github.com/vietj</uri>
         </author>
         <category label="guides"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 3.9.12 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-9-12</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-9-12"/>
+        <updated>2021-12-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 3.9.12 has just been released.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4.1.8 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-1-8</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-1-8"/>
+        <updated>2021-12-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 4.1.8 has just been released.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 4.2.3 released!]]></title>

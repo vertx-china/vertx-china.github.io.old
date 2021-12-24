@@ -1,0 +1,9 @@
+# Reporting a vulnerability
+#
+# The Eclipse Vert.x team provides a single point of contact for the reporting
+# of security vulnerabilities in any of the open source modules and coordinates
+# the process of investigating any reported vulnerabilities.
+
+Contact: mailto:vertx-enquiries@googlegroups.com
+Encryption: openpgp4fpr:33F0D7AE129514007CDF67DE9F9358A769793D09
+Expires: 2022-12-31T23:59:59.000Z
