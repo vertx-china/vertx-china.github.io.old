@@ -4,7 +4,7 @@
         <title>Vert.x</title>
         <link>https://vertx.io</link>
         <description>Vert.x is a tool-kit for building reactive applications on the JVM</description>
-        <lastBuildDate>Thu, 24 Feb 2022 02:38:05 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 18 Mar 2022 07:12:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Vert.x</generator>
         <language>en</language>
@@ -27,6 +27,22 @@
             <pubDate>Wed, 02 Dec 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[We provide a clear and well-documented migration path from Vert.x 3.9 to Vert.x 4. Existing users will feel at home with the new version.]]></description>
             <category>guides</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 3.9.13 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-3-9-13</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-3-9-13</guid>
+            <pubDate>Thu, 17 Mar 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 3.9.13 has just been released.]]></description>
+            <category>releases</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 4.2.6 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-4-2-6</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-4-2-6</guid>
+            <pubDate>Wed, 16 Mar 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 4.2.6 has just been released. It fixes quite a few bugs that have been reported by the community and provides a couple of features]]></description>
+            <category>releases</category>
         </item>
         <item>
             <title><![CDATA[Eclipse Vert.x 4.2.5 released!]]></title>
@@ -685,14 +701,6 @@
             <pubDate>Tue, 13 Feb 2018 00:00:00 GMT</pubDate>
             <description><![CDATA[We have just released Vert.x 3.5.1!]]></description>
             <category>releases</category>
-        </item>
-        <item>
-            <title><![CDATA[Eclipse Vert.x based Framework URL Shortener Backend]]></title>
-            <link>https://vertx.io/blog/eclipse-vert-x-based-framework-url-shortener-backend</link>
-            <guid>https://vertx.io/blog/eclipse-vert-x-based-framework-url-shortener-backend</guid>
-            <pubDate>Thu, 21 Dec 2017 00:00:00 GMT</pubDate>
-            <description><![CDATA[We combine Vert.x with the serverless framework to write a microservice that runs on AWS Lambda.]]></description>
-            <category>guides</category>
         </item>
         <item>
             <title><![CDATA[TCP Client using Eclipse Vert.x, Kotlin and Gradle build]]></title>

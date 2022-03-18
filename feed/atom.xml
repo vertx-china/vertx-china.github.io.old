@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://vertx.io</id>
     <title>Vert.x</title>
-    <updated>2022-02-24T02:38:05.898Z</updated>
+    <updated>2022-03-18T07:12:17.273Z</updated>
     <generator>Vert.x</generator>
     <link rel="alternate" href="https://vertx.io"/>
     <link rel="self" href="https://vertx.io/feed/atom.xml"/>
@@ -35,6 +35,30 @@
             <uri>https://github.com/vietj</uri>
         </author>
         <category label="guides"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 3.9.13 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-3-9-13</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-3-9-13"/>
+        <updated>2022-03-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 3.9.13 has just been released.]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eclipse Vert.x 4.2.6 released!]]></title>
+        <id>https://vertx.io/blog/eclipse-vert-x-4-2-6</id>
+        <link href="https://vertx.io/blog/eclipse-vert-x-4-2-6"/>
+        <updated>2022-03-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Vert.x version 4.2.6 has just been released. It fixes quite a few bugs that have been reported by the community and provides a couple of features]]></summary>
+        <author>
+            <name>Julien Viet</name>
+            <uri>https://github.com/vietj</uri>
+        </author>
+        <category label="releases"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Vert.x 4.2.5 released!]]></title>
@@ -1029,18 +1053,6 @@
             <uri>https://github.com/vietj</uri>
         </author>
         <category label="releases"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Eclipse Vert.x based Framework URL Shortener Backend]]></title>
-        <id>https://vertx.io/blog/eclipse-vert-x-based-framework-url-shortener-backend</id>
-        <link href="https://vertx.io/blog/eclipse-vert-x-based-framework-url-shortener-backend"/>
-        <updated>2017-12-21T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[We combine Vert.x with the serverless framework to write a microservice that runs on AWS Lambda.]]></summary>
-        <author>
-            <name>Lazar Bulić</name>
-            <uri>https://github.com/pendula95</uri>
-        </author>
-        <category label="guides"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[TCP Client using Eclipse Vert.x, Kotlin and Gradle build]]></title>
