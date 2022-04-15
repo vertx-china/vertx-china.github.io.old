@@ -4,7 +4,7 @@
         <title>Vert.x</title>
         <link>https://vertx.io</link>
         <description>Vert.x is a tool-kit for building reactive applications on the JVM</description>
-        <lastBuildDate>Fri, 18 Mar 2022 07:12:17 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 15 Apr 2022 02:05:11 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Vert.x</generator>
         <language>en</language>
@@ -27,6 +27,14 @@
             <pubDate>Wed, 02 Dec 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[We provide a clear and well-documented migration path from Vert.x 3.9 to Vert.x 4. Existing users will feel at home with the new version.]]></description>
             <category>guides</category>
+        </item>
+        <item>
+            <title><![CDATA[Eclipse Vert.x 4.2.7 released!]]></title>
+            <link>https://vertx.io/blog/eclipse-vert-x-4-2-7</link>
+            <guid>https://vertx.io/blog/eclipse-vert-x-4-2-7</guid>
+            <pubDate>Wed, 13 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Vert.x version 4.2.7 has just been released. It fixes quite a few bugs that have been reported by the community and provides a couple of features]]></description>
+            <category>releases</category>
         </item>
         <item>
             <title><![CDATA[Eclipse Vert.x 3.9.13 released!]]></title>
